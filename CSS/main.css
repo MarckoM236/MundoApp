@@ -1,0 +1,847 @@
+html, body{
+  height:100%;
+
+}
+
+body {
+  /*background-image: radial-gradient(#FAC104 10%,  #F9AA02  90%) ;*/
+  background: white;
+  margin:0px !important;
+ 
+
+}
+
+.a{
+ color: white !important;
+}
+.calificacion{
+  border-left:  1px solid #A9D0F5 !important;
+  border-right:  1px solid #A9D0F5 !important;
+}
+
+.excelente{
+ background: #3BBC0F!important;
+color: white !important;
+}
+.bueno{
+ background:#DCD202 !important;
+ color: white !important;
+}
+.regular{
+ background:#F13E30 !important;
+ color: white !important;
+}
+#example{
+  width: 100%;
+}
+
+.opcionActaLiquidacion{
+ 
+  background: #BDBDBD;
+  height: 46px;
+  border-radius: 15px 15px 0px 0px!important;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opcionActaLiquidacion:hover,.opcionActaLiquidacion2:hover,.opcionActaLiquidacion3:hover{
+ cursor: pointer;
+  background: #8181F7;
+  color: white;
+  height: 46px;
+  border-radius: 15px 15px 0px 0px!important;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.opcionActaLiquidacion2{
+  background: #F3F781;
+  height: 46px;
+  border-radius: 15px 15px 0px 0px!important;
+ display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.opcionActaLiquidacion3{
+  background: #1F97CF;
+  height: 46px;
+  border-radius: 15px 15px 0px 0px!important;
+ display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenidoPrincipal{
+  width: 100%;
+  height: auto;
+  background: white;
+  place-items: center; 
+  justify-content: center;
+  vertical-align: middle;
+font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+  font-weight: bolder;
+}
+/*header*/
+.cuadroHeader{
+border-radius:36px; /*Estandar*/
+    -webkit-border-radius:36px; /*Safari y Chrome*/
+    -moz-border-radius:36px; /*Firefox*/
+    -o-border-radius:36px; /*Opera*/
+    -ms-border-radius:36px; /*IE 8*/
+      
+      border-left:  1px solid #A4A4A4 !important;
+      border-right:  1px solid #A4A4A4 !important;
+    color: #585858;
+}
+.cuadroHeader2{
+border-radius:36px; /*Estandar*/
+    -webkit-border-radius:36px; /*Safari y Chrome*/
+    -moz-border-radius:36px; /*Firefox*/
+    -o-border-radius:36px; /*Opera*/
+    -ms-border-radius:36px; /*IE 8*/
+      
+      border-left:  1px solid #A9D0F5 !important;
+      border-right:  1px solid #A9D0F5 !important;
+    color: #585858;
+}
+.titulosPrincipales{
+   font-size: 24px;
+   letter-spacing: 2px;
+   line-height:1.5em;
+   padding-left: 20px; 
+   padding-right: 20px; 
+   padding-bottom: 20px; 
+   padding-top: 5px;  
+}
+
+input{
+    text-transform: uppercase;
+}
+
+textarea{
+    text-transform: uppercase;
+}
+
+ 
+
+.menuFondo{
+
+background-image: linear-gradient(to left ,  #045FB4 , #0431B4 );
+
+
+ color:white;
+}
+.menuFondo2{
+
+background-image: linear-gradient(to left ,  #045FB4 , #0431B4 );
+
+
+ color:white;
+}
+.menuFondoSubMenu{
+
+border: 0px;
+background-image: linear-gradient(to left ,  #045FB4 , #0431B4 );
+ color:white;
+}
+
+/*header*/
+
+/*inicio sesion*/
+.imgLogoInicioSesion{
+   width: 70%;
+
+
+}
+.imgLogoCoralInicioSesion{
+   width: 100%;
+}
+
+
+.cuadroHeaderInicioSesion{
+ margin-top: 8%;
+  
+}
+
+
+ .tituloInicio{
+font-size: 26px;
+
+font-weight: 600px;
+
+
+  }
+   .tituloSistema{
+font-size: 32px;
+
+font-weight: 600px;
+
+
+  }
+
+ 
+  
+/*inicio sesion*/
+.estiloBotones{
+  width: 100%;
+ background: #1583B6;
+ color:white;
+ font-size: 19px;
+ font-weight: bolder;
+ height: 44px;
+}
+
+.estiloBotones:hover{
+   box-shadow: 4px 4px 10px #A4A4A4;
+ background:  #0A29A6 ;
+ cursor: pointer;
+}
+  
+
+@media all and (max-width: 2000px) {
+ .container_tabla_indica2{
+  width:100%;height:auto;margin-left: 0px;
+}
+    #lineaseparacion{
+border-left:  2px solid #A9D0F5 !important;
+}
+     .tamanotd{
+  width:50%!important;
+}
+     .tamanotd2{
+  width:22% !important;
+}
+   .espaMe{
+  width:14%;
+}
+   .espaMe2{
+    padding-left: 1%;
+  width:14%;
+}
+  .espaMe3{
+    padding-left: 1%;
+  width:15%;
+}
+  .reducirEspacio{
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+  .cuadroBorde {
+
+  border-left:  2px solid #FF4500 !important;
+  text-align: center;
+   
+}
+     .iconoCerrarMenu {
+   cursor: pointer;
+    position: absolute;
+    z-index: 5;
+     width: 20px;
+     height: 20px;
+    left: 97%;
+    top: 4px;
+   
+}
+  .opcionMenu{
+margin-left: 0px;
+margin-right: 0px;
+
+  padding-top: 12px;
+  margin-bottom: -2px;
+  border-radius:36px; /*Estandar*/
+    -webkit-border-radius:36px; /*Safari y Chrome*/
+    -moz-border-radius:36px; /*Firefox*/
+    -o-border-radius:36px; /*Opera*/
+    -ms-border-radius:36px; /*IE 8*/
+
+
+}
+
+.opcionMenu:hover{
+ cursor: pointer;
+
+  background: #0431B4;
+
+margin-left: 0px;
+margin-right: 0px;
+
+  padding-top: 12px;
+  margin-bottom: -2px;
+  border-radius:36px; /*Estandar*/
+    -webkit-border-radius:36px; /*Safari y Chrome*/
+    -moz-border-radius:36px; /*Firefox*/
+    -o-border-radius:36px; /*Opera*/
+    -ms-border-radius:36px; /*IE 8*/
+
+
+}
+
+.opcionMenuActivo{
+ cursor: pointer;
+
+  background: #0431B4;
+
+margin-left: 0px;
+margin-right: 0px;
+
+  padding-top: 12px;
+  margin-bottom: -2px;
+  border-radius:36px; /*Estandar*/
+    -webkit-border-radius:36px; /*Safari y Chrome*/
+    -moz-border-radius:36px; /*Firefox*/
+    -o-border-radius:36px; /*Opera*/
+    -ms-border-radius:36px; /*IE 8*/
+
+}
+  .opcionMenu2{
+margin-left: 0px;
+margin-right: 0px;
+
+  padding-top: 12px;
+  margin-bottom: -2px;
+  border-radius:36px; /*Estandar*/
+    -webkit-border-radius:36px; /*Safari y Chrome*/
+    -moz-border-radius:36px; /*Firefox*/
+    -o-border-radius:36px; /*Opera*/
+    -ms-border-radius:36px; /*IE 8*/
+
+
+}
+.opcionMenu2:hover{
+ cursor: pointer;
+
+  background: #0B0B61;
+
+
+margin-left: 0px;
+margin-right: 0px;
+
+  padding-top: 12px;
+  margin-bottom: -2px;
+  border-radius:36px; /*Estandar*/
+    -webkit-border-radius:36px; /*Safari y Chrome*/
+    -moz-border-radius:36px; /*Firefox*/
+    -o-border-radius:36px; /*Opera*/
+    -ms-border-radius:36px; /*IE 8*/
+
+
+}
+  #cuepoCuadroHeader{
+
+    padding-top: 25px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-bottom:40px;
+
+
+}
+#cuepoCuadroBusqueda{
+
+    padding-top: 10px;
+    padding-left:60px;
+    padding-right:60px;
+    padding-bottom:10px;
+    background: #F6F6F9;
+    background: -webkit-gradient(linear, 70% 30%, 0% 100%, from(#FAFAFA), to(#F6F6F9));
+
+
+}
+
+  
+    .inputFomularioSolicitud{
+     height: 90px!important;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+    .inputFomulario{
+     height: 42px!important;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #A4A4A4 !important;
+ 
+  }
+   .inputFomulario22{
+      height: 42px!important;
+   --width: 70px!important;
+   text-align: center;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+    .inputFomularioTabla{
+     height: 42px!important;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+  .inputFomulario2{
+     height: 42px!important;
+   width: 250px!important;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+  .inputFomulario22{
+     height: 42px!important;
+  -- width: 70px!important;
+   text-align: center;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+      .selectFomulario{
+     height: 42px !important;
+    border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+   .selectFomulario2{
+     height: 42px !important;
+    width: 300px!important;
+    border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+    .IconoList{
+  font-size: 30px !important;
+  padding-top: 5%;
+}
+  .titulosPrincipalesPagina{
+   font-size: 24px;
+   letter-spacing: 2px;
+   line-height:1.5em;
+   padding-left: 25px; 
+   padding-right: 25px; 
+   padding-bottom: 15px; 
+   padding-top: 15px;      
+    box-shadow: 2px 2px 8px #A4A4A4;
+    border-radius:26px; /*Estandar*/
+    margin-left: 5%;
+    background: #fff;
+}
+  .imgMenu{
+    margin-top: 3px;
+   width: 30px;
+   height: 30px;
+}
+
+  .imgLogoCoral{
+   width: 75%;
+}
+  .imgBusca{
+   width: 26%;
+}
+  .imgCerrarSesion{
+   width: 13%;
+}
+  .imgLogoSesion{
+   width: 70%;
+}
+  .imgLogo{
+   width: 100%;
+}
+  #titulo3 {
+   color: #0a0e27;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 32px Georgia, Serif;
+  text-shadow:  -4px 3px 0 #E6E6E6;
+   letter-spacing: 2px;
+   font-size-adjust: 0.99;
+
+}
+   .inputIS{
+     width: 84% !important;
+     height: 52px;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #A4A4A4 !important;
+     padding-left:  10%;
+     margin-left: 8%;
+     margin-right: 8%;
+  
+
+  }
+   .botonesIS{
+     width: 70% !important;
+     height: 44px;
+     
+     border-top:  1px solid #1583B6 !important;
+     margin-left:  15% !important;
+     background: #1F97CF !important;
+     color: white !important;
+     font-weight: bold;
+	 text-transform: none !important;
+      box-shadow: 4px 4px 10px #A4A4A4;
+	  font-size:14px !important;
+     
+   letter-spacing: 1px;
+   font-size-adjust: 0.99;
+
+}
+.botonesIS2{
+     width: 20% !important;
+     height: 44px;
+     
+     border-top:  1px solid #1583B6 !important;
+     margin-left:  15% !important;
+     background: #1F97CF !important;
+     color: white !important;
+     font-weight: bold;
+	 text-transform: none !important;
+      box-shadow: 4px 4px 10px #A4A4A4;
+	  font-size:14px !important;
+     
+   letter-spacing: 1px;
+   font-size-adjust: 0.99;
+
+}
+.SeparacionIS{
+ padding-top: 6%;
+ padding-right: 6%;
+ padding-left: 6%;
+ padding-bottom:  6%;
+
+  
+}
+   .myDivcontacto222 {
+   
+    position: absolute;
+    z-index: 5;
+     width: 18%;
+    left: 41%;
+    top: -70px;
+   
+}
+  #tituloHeader {
+   color: #0a0e27;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 27px Georgia, Serif;
+  text-shadow:  -4px 3px 0 #E6E6E6;
+   letter-spacing: 2px;
+   font-size-adjust: 0.99;
+
+}
+     .nombreUsuario{
+   font-size:19px;font-weight: 300px;color: #0B3861;
+}
+     .centrarTexto{
+   text-align: center !important;
+}
+}
+
+@media all and (max-width: 768px) {
+.iconoCerrarMenu {
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    left: 97%;
+    top: 4px;
+}
+
+.opcionMenu{
+padding-top: 30px;
+  padding: 2px;
+
+}
+.opcionMenu:hover{
+ cursor: pointer;
+  border-radius:20px; /*Estandar*/
+  background: #0B3861;
+  padding: 2px;
+
+}
+  .titulosPrincipalesPagina{
+   font-size: 24px;
+   letter-spacing: 2px;
+   line-height:1.5em;
+   padding-left: 20px; 
+   padding-right: 20px; 
+   padding-bottom: 20px; 
+   padding-top: 14px;      
+    box-shadow: 2px 2px 8px #A4A4A4;
+    border-radius:26px; /*Estandar*/
+}
+  .imgMenu{
+      margin-top: 5px;
+   width: 70%;
+}
+
+  .imgLogoCoral{
+   width: 100%;
+}
+
+ 
+     .nombreUsuario{
+   font-size:13px;font-weight: 300px;color: #0B3861;
+}
+   .imgLogoSesion{
+   width: 80%;
+}
+  .imgLogo{
+   width: 90%;
+}
+  #tituloHeader {
+   color: #0a0e27;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 19px Georgia, Serif;
+  text-shadow:  -4px 3px 0 #E6E6E6;
+   letter-spacing: 2px;
+   font-size-adjust: 0.99;
+
+}
+  #titulo3 {
+   color: #0a0e27;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 16px Georgia, Serif;
+  text-shadow:  -4px 3px 0 #E6E6E6;
+   letter-spacing: 2px;
+   font-size-adjust: 0.99;
+
+}
+   .inputIS{
+     width: 84% !important;
+     height: 52px;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+     padding-left:  10%;
+     margin-left: 8%;
+     margin-right: 8%;
+  
+
+  }
+   .botonesIS{
+     width: 70% !important;
+     height: 44px;
+     
+     border-top:  1px solid #39c !important;
+     margin-left:  15% !important;
+     background: #011C89 !important;
+     color: white !important;
+    text-transform:capitalize !important;
+      box-shadow: 4px 4px 10px #A4A4A4;
+     
+
+
+  }
+  .botonesIS:hover{
+
+ background: #0A29A6  !important;
+ cursor: pointer;
+   box-shadow: 6px 6px 50px #D8D8D8;
+}
+
+  #titulo4{
+   color: #0a0e27;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 27px Georgia, Serif;
+  text-shadow:  -4px 3px 0 #E6E6E6;
+   letter-spacing: 1px;
+   font-size-adjust: 0.99;
+
+}
+  .SeparacionIS{
+ padding-top: 6%;
+ padding-right: 6%;
+ padding-left: 6%;
+ padding-bottom:  6%;
+
+  
+}
+.myDivcontacto222 {
+   
+    position: absolute;
+    z-index: 5;
+     width: 22%;
+    left: 39%;
+    top: -65px;
+   
+}
+     .centrarTexto{
+   text-align: center !important;
+}
+
+}
+@media all and (max-width: 1024px) {
+
+
+#tituloHeader {
+  
+    font: italic bold 27px Georgia, Serif;
+
+}
+}
+@media all and (max-width: 480px) {
+      .espaMe3{
+   
+  width:100%;
+}
+     .espaMe2{
+
+  width:100%;
+}
+      .espaMe{
+  width:100%;
+}
+   
+
+   .reducirEspacio{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+    .cuadroBorde {
+
+  border-left:  0px solid #FF4500 !important;
+
+   
+}
+  .titulosPrincipalesPagina{
+   font-size: 21px;
+   letter-spacing: 2px;
+   line-height:1.5em;
+   padding-left: 20px; 
+   padding-right: 20px; 
+   padding-bottom: 20px; 
+   padding-top: 14px;      
+    box-shadow: 2px 2px 8px #A4A4A4;
+    border-radius:26px; /*Estandar*/
+}
+    .imgMenu{
+   width: 80%;
+   margin-left: 40%;
+   margin-top: 10%;
+}
+
+
+     .centrarTexto{
+        margin-top: 3%;
+   text-align: left !important;
+}
+   .imgLogoSesion{
+   width: 60%;
+}
+  .imgLogoCoral{
+   width: 70%;
+}
+
+    .imgLogo{
+   width: 70%;
+}
+  #tituloHeader {
+   color: #0a0e27;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 22px Georgia, Serif;
+  text-shadow:  -4px 3px 0 #E6E6E6;
+   letter-spacing: 2px;
+   font-size-adjust: 0.99;
+
+}
+  .imgCerrarSesion{
+   width: 13%;
+}
+   .inputIS{
+     width: 98% !important;
+     height: 52px;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+     padding-left:  10%;
+     margin-left: 1%;
+     margin-right: 1%;
+  
+
+  }
+   .botonesIS{
+     width: 90% !important;
+     height: 44px;
+     
+     border-top:  1px solid #39c !important;
+     margin-left:  5% !important;
+     background: #011C89 !important;
+     color: white !important;
+     font-weight: bold;
+      box-shadow: 4px 4px 10px #A4A4A4;
+     
+
+
+  }
+  .botonesIS:hover{
+
+ background: #0A29A6  !important;
+ cursor: pointer;
+   box-shadow: 6px 6px 50px #D8D8D8;
+}
+
+  .centrarTexto {
+ font-size: 12px !important  ;
+   
+}
+  #titulo4{
+   color: #0a0e27;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 14px Georgia, Serif;
+  text-shadow:  -2px 2px 0 #E6E6E6;
+   letter-spacing: 1px;
+   font-size-adjust: 0.99;
+
+}
+  .SeparacionIS{
+ padding-top: 0%;
+ padding-right: 0%;
+ padding-left: 0%;
+ padding-bottom:  0%;
+
+  
+}
+.myDivcontacto222 {
+   
+    position: absolute;
+    z-index: 5;
+     width: 22%;
+    left: 39%;
+    top: -38px;
+   
+}
+.imgBusca {
+    width: 15%;
+}
+.iconoCerrarMenu {
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+      width: 20px;
+    height: 20px;
+    left: 92%;
+    top: 4px;
+}
+ .inputFomularioTabla{
+     height: 42px!important;
+     width: 200px!important;
+     border-radius: 0px 15px 15px 0px!important;
+     border-top:  2px solid #FF4500 !important;
+ 
+  }
+      .tamanotd{
+  width:200px!important;
+}
+     .tamanotd2{
+  width:220px !important;
+}
+}
