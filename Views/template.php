@@ -276,7 +276,8 @@
       <div class="container">
           <div class="row">
               <div class="col-xs|sm|md|lg|xl-1-12">
-                  <?php  include_once('../routes.php'); ?>
+                  <!-- REDIRECCIONAMIENTO DINAMICO DEL CONTENIDO-->
+                  <?php  include_once('router.php'); ?>
               </div>
               
           </div>
