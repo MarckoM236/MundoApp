@@ -276,7 +276,7 @@
       <div class="container">
           <div class="row">
               <div class="col-xs|sm|md|lg|xl-1-12">
-                  Hola Mundo
+                  <?php  include_once('../routes.php'); ?>
               </div>
               
           </div>
