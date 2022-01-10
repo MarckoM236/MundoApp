@@ -10,7 +10,7 @@
     //Instancia de la clase
     $controller= new $objController();
 
-    //metodo dinamico.
+    //llamada metodo dinamico.
     $controller->$action();
 
 ?>
