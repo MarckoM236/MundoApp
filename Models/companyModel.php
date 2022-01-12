@@ -2,17 +2,28 @@
 include_once('Core/baseModel.php');
     class CompanyModel extends BaseModel{
 
-        private $code;
-        private $name;
-        private $nit;
-        private $rent;
-        private $address;
-        private $pbx;
-        private $mobile;
+        private $code="";
+        private $name="";
+        private $nit="";
+        private $rent="";
+        private $address="";
+        private $pbx="";
+        private $mobile="";
 
-        public function __construct() {
+/*         public function __construct() {
+            
+        }
+ */
+         public function __construct($cod,$name,$nit,$rent,$address,$pbx,$mobile) {
             $table="EMPRESA";
             parent::__construct($table);
+            $this->code=$cod;
+            $this->name=$name;
+            $this->nit=$nit;
+            $this->rent=$rent;
+            $this->address=$address;
+            $this->pbx=$pbx;
+            $this->mobile=$mobile;
         }
 
         //getters
@@ -60,6 +71,27 @@ include_once('Core/baseModel.php');
         public function getMobile(){
             return $this->mobile;
         }
+        
+        public  function show(){
+            $sql = "BEGIN  pkgEmpresa.consultaEmpresa(:cod_empresa,:nom_empresa,:nit,:res); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            $cursor= oci_new_cursor($conex);
+            oci_bind_by_name($stid, ':cod_empresa',$this->code);
+            oci_bind_by_name($stid, ':nom_empresa',$this->name);
+            oci_bind_by_name($stid, ':nit',$this->nit);
+            oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
+            oci_execute($stid);
+            oci_execute($cursor);
+
+            $foo = array();
+            while (($row = oci_fetch_array($cursor)) != false) {            
+                
+                $foo[] = new CompanyModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6]);
+            }
+            
+            return $foo;
+        }
 
         public function insert(){
 
@@ -90,6 +122,25 @@ include_once('Core/baseModel.php');
     
             return $data;
             
+        }
+
+        function delete(){
+            $sql = "BEGIN  pkgEmpresa.eliminarEmpresa(:cod_empresa); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            oci_bind_by_name($stid, ':cod_empresa',$this->code);
+            @$res=oci_execute($stid);
+
+             if($res>0){
+                 $data['status'] = 'ok';
+                 $data['result'] = 'Registro exitoso';
+             }
+             else{
+                 $data['status'] = 'fail';
+                 $data['result'] = 'No se pudo insertar';
+             }
+    
+            return $data;
         }
     
     }
