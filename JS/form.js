@@ -20,6 +20,7 @@ function insertCompany() {
         success: function(data) {
           //validate response from server
           //console.log(response);
+          window.location.href = "?controller=company&action=home";
           console.log(data);
           var jsonData = JSON.parse(response);
           alert(jsonData.status);

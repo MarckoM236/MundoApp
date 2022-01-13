@@ -123,6 +123,33 @@ include_once('Core/baseModel.php');
             return $data;
             
         }
+         
+        function update(){
+            $data=array();
+            $res=0;
+            $sql = "BEGIN  pkgEmpresa.actualizarEmpresa(:cod_empresa,:nombre_empresa,:nit_empresa,:rent_empresa,:direccion_empresa,:pbx_empresa,:celular_empresa); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            oci_bind_by_name($stid, ':cod_empresa',$this->code);
+            oci_bind_by_name($stid, ':nombre_empresa',$this->name);
+            oci_bind_by_name($stid, ':nit_empresa',$this->nit);
+            oci_bind_by_name($stid, ':rent_empresa',$this->rent);
+            oci_bind_by_name($stid, ':direccion_empresa',$this->address);
+            oci_bind_by_name($stid, ':pbx_empresa',$this->pbx);
+            oci_bind_by_name($stid, ':celular_empresa',$this->mobile);
+            @$res=oci_execute($stid);
+
+             if($res>0){
+                 $data['status'] = 'ok';
+                 $data['result'] = 'Registro exitoso';
+             }
+             else{
+                 $data['status'] = 'fail';
+                 $data['result'] = 'No se pudo insertar';
+             }
+    
+            return $data;
+        }
 
         function delete(){
             $sql = "BEGIN  pkgEmpresa.eliminarEmpresa(:cod_empresa); END;";

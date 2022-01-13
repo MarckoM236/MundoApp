@@ -1,5 +1,5 @@
 <?php
-$co="";
+
 if(isset($res)){
                  foreach($res as $data) {
                     $code=$data->getCode();
@@ -14,10 +14,10 @@ if(isset($res)){
                 }
 
             }
+
 ?>
 
 <!-- Formulario -->
-
 <form action="?controller=company&action=update" method="post">
         <div class="row justify-content-center">
           <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
@@ -109,7 +109,7 @@ if(isset($res)){
                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
 			    <div class="row justify-content-left py-2">
 				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='insert'class= "form-control botonesIS" style="width:130px"; type="submit" value="Guardar" />
+                       <input id='update'class= "form-control botonesIS" style="width:130px"; type="submit" value="Guardar" name="updateCompany"/>
 				 </div>
 				   
 				 </div>

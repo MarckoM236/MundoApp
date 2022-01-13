@@ -1,17 +1,15 @@
+<?php if(isset($res)){
+    //    foreach($company as $data) {
+    //        $status=$data['status'];
+    //        $result=$data['result'];
+    print_r($res);
+       //}
 
-  <?php if(isset($res)){
-       foreach($company as $data) {
-           $status=$data['status'];
-           $result=$data['result'];
-       }
-
-       echo $result;
+       //echo $result;
 
 
   }?>  
-
 <!-- Formulario -->
-
 <form action="?controller=company&action=home" method="post">
         <div class="row justify-content-center">
           <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">

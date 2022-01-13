@@ -35,7 +35,7 @@
                 $objCompany->setMobile($_POST['txbMobile']);
                 
                 $res=$objCompany->insert();
-                return json_encode($res);
+                echo"<script language='javascript'>alert('Insercion correcta');</script>;";
 
             }
             include_once('Views/company/home.php');
@@ -45,27 +45,57 @@
 
         public function update(){
 
-            if(isset($_GET['code'])){
-                $objCompany= new CompanyModel("","","","","","","");
+            try {
                 
-                $objCompany->setCode($_GET['code']);
-                $res=$objCompany->show();
-                //print_r($res);
+                if(isset($_GET['code'])){
+                    $objCompany= new CompanyModel("","","","","","","");
+                    
+                    $objCompany->setCode($_GET['code']);
+                    $res=$objCompany->show();
+                    //print_r($res);
+                    include_once('Views/company/edit.php');
+                }
+    
+                if(isset($_POST['updateCompany'])){
+                    //print_r($_POST);
+                    $objCompany= new CompanyModel("","","","","","","");
+                    
+                    $objCompany->setCode($_POST['txbCode']);
+                    $objCompany->setName($_POST['txbName']);
+                    $objCompany->setNit($_POST['txbNit']);
+                    $objCompany->setRent($_POST['txbRent']);
+                    $objCompany->setAddress($_POST['txbAddress']);
+                    $objCompany->setPbx($_POST['txbPBX']);
+                    $objCompany->setMobile($_POST['txbMobile']);
+                    
+                    $upd=$objCompany->update();
+
+                    echo"<script language='javascript'>window.location='?controller=company&action=home'</script>;";
+                }
+
+            } catch (Exception $e) {
+                //throw $th;
             }
-            include_once('Views/company/edit.php');
+            
 
         }
 
         public function delete(){
 
-            if(isset($_GET['code'])){
-                $objCompany= new CompanyModel("","","","","","","");
+            try {
+                if(isset($_GET['code'])){
+                    $objCompany= new CompanyModel("","","","","","","");
+                    
+                    $objCompany->setCode($_GET['code']);
+                    $res=$objCompany->delete();
+                    
+                }
                 
-                $objCompany->setCode($_GET['code']);
-                $objCompany->delete();
+            } 
+            catch (Exception $e) {
+                $res="fail";
             }
-            
-            @header("Location:./?controller=company&action=home");
+            echo"<script language='javascript'>window.location='?controller=company&action=home'</script>;";
         }
 
     }
