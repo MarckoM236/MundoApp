@@ -16,10 +16,14 @@ include_once('../Core/baseModel.php');
                        echo json_encode($re);
                         break;   
                     case 'update':
-                        $object->update();
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
                         break;     
                     case 'delete':
-                        $object->delete();
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
                         break;
                     default:
                         # code...

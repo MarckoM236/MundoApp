@@ -22,40 +22,26 @@
             return $this->db;
         }
         
-        public function getAll(){
-            $query=$this->db->query("SELECT * FROM $this->table ORDER BY id DESC");
-            
-            //Devolvemos el resultset en forma de array de objetos
-            while ($row = $query->fetch_object()) {
-            $resultSet[]=$row;
-            }
-            
-            return $resultSet;
-        }
         
-        public function getById($id){
-            $query=$this->db->query("SELECT * FROM $this->table WHERE id=$id");
+        
+
+        public function deleteByCode($code){
+            $sql = "BEGIN  pkgEmpresa.eliminar".$this->table."(:cod_empresa); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            oci_bind_by_name($stid, ':cod_empresa',$this->code);
+            @$res=oci_execute($stid);
+
+             if($res>0){
+                 $data['status'] = 'ok';
+                 $data['result'] = 'Registro eliminado exitosamente';
+             }
+             else{
+                 $data['status'] = 'fail';
+                 $data['result'] = 'No se elimino el registro';
+             }
     
-            if($row = $query->fetch_object()) {
-            $resultSet=$row;
-            }
-            
-            return $resultSet;
-        }
-        
-        public function getBy($column,$value){
-            $query=$this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
-    
-            while($row = $query->fetch_object()) {
-            $resultSet[]=$row;
-            }
-            
-            return $resultSet;
-        }
-        
-        public function deleteById($id){
-            $query=$this->db->query("DELETE FROM $this->table WHERE id=$id");
-            return $query;
+            return $data;
         }
 
     }

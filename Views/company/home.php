@@ -1,12 +1,3 @@
-<?php if(isset($resDelete)){
-        foreach($company as $data) {
-            $status=$data['status'];
-            $result=$data['result'];
-    //print_r($res);
-   
-     }
-     echo"<script language='javascript'>alert('".$result."')</script>;";
-      }?>  
 <!-- Formulario -->
 <form action="?controller=company&action=home" method="post">
         <div class="row justify-content-center">
@@ -29,7 +20,7 @@
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                            <input class="form-control inputFomulario" type="text" placeholder="Codigo" id="code" name="txbCode">
-
+                           <label class="error" for="code" id="code_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -41,6 +32,7 @@
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                            <input class="form-control inputFomulario" type="text" placeholder="Nombre" id="name" name="txbName">
+                           <label class="error" for="name" id="name_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -51,6 +43,7 @@
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                            <input class="form-control inputFomulario" type="text" placeholder="Nit" id="nit" name="txbNit">
+                           <label class="error" for="nit" id="nit_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -61,6 +54,7 @@
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                            <input class="form-control inputFomulario" type="text" maxlength = "10" placeholder="Rent" id="rent" name="txbRent">
+                           <label class="error" for="rent" id="rent_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -71,6 +65,7 @@
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                            <input class="form-control inputFomulario" type="text" maxlength = "10" placeholder="Direccion" id="address" name="txbAddress">
+                           <label class="error" for="address" id="address_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -81,6 +76,7 @@
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                            <input class="form-control inputFomulario" type="text" maxlength = "10" placeholder="PBX" id="pbx" name="txbPBX">
+                           <label class="error" for="pbx" id="pbx_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -91,6 +87,7 @@
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                            <input class="form-control inputFomulario" type="text" maxlength = "10" placeholder="Celular" id="mobile" name="txbMobile">
+                           <label class="error" for="mobile" id="mobile_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -99,10 +96,10 @@
                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
 			    <div class="row justify-content-left py-2">
 				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='insert'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" onclick="insertCompany()" />
+                       <input id='btnSaveCompany'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
 				 </div>
 				   <div  class="col-lg-12 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='excel'class= "form-control botonesIS" style="width:130px"; type="submit" name="showCompany" value="Buscar" />
+                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showCompany" value="Buscar" />
 				 </div>
 			  </div>
 
@@ -175,8 +172,8 @@
                             <td><?php echo $row['mobile'];?></td>
                             <td></td>
                             <td></td>
-                            <td><a href="?controller=company&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning" onclick=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                            <td><a href="?controller=company&action=delete&code=<?php echo $row['code'];?>" class="btn btn-danger" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                            <td><a href="?controller=company&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                            <td><a onclick="deleteCompany(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                         </tr>
                         <?php }}
                         else{?>

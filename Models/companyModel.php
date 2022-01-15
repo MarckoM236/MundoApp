@@ -2,7 +2,7 @@
 @include_once('../Core/baseModel.php');
     class CompanyModel extends BaseModel{
 
-        private $code="";
+        protected $code="";
         private $name="";
         private $nit="";
         private $rent="";
@@ -16,7 +16,7 @@
         }
  */
          public function __construct($cod,$name,$nit,$rent,$address,$pbx,$mobile) {
-            $table="EMPRESA";
+            $table="Empresa";
             parent::__construct($table);
             $this->code=$cod;
             $this->name=$name;
@@ -134,7 +134,6 @@
          
         function update(){
             $data=array();
-            $res=0;
             $sql = "BEGIN  pkgEmpresa.actualizarEmpresa(:cod_empresa,:nombre_empresa,:nit_empresa,:rent_empresa,:direccion_empresa,:pbx_empresa,:celular_empresa); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
@@ -147,36 +146,26 @@
             oci_bind_by_name($stid, ':celular_empresa',$this->mobile);
             @$res=oci_execute($stid);
 
-             if($res>0){
+             if($res){
                  $data['status'] = 'ok';
-                 $data['result'] = 'Registro exitoso';
+                 $data['result'] = 'Registro actualizado';
              }
              else{
                  $data['status'] = 'fail';
-                 $data['result'] = 'No se pudo insertar';
+                 $data['result'] = 'No se pudo actualizar';
              }
     
             return $data;
         }
 
         function delete(){
-            $sql = "BEGIN  pkgEmpresa.eliminarEmpresa(:cod_empresa); END;";
-            $conex = $this->db();
-            $stid = oci_parse($conex, $sql);
-            oci_bind_by_name($stid, ':cod_empresa',$this->code);
-            @$res=oci_execute($stid);
+            $cod=$this->code;
+            $res= parent::deleteByCode($cod);
 
-             if($res>0){
-                 $data['status'] = 'ok';
-                 $data['result'] = 'Registro exitoso';
-             }
-             else{
-                 $data['status'] = 'fail';
-                 $data['result'] = 'No se pudo insertar';
-             }
-    
-            return $data;
+            return $res;
         }
+
+        
     
     }
 

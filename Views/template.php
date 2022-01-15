@@ -312,7 +312,8 @@
     <!-- SCRIPT PROPIO-->
     <script src="JS/validacionMenu.js"></script>
     <script src="JS/jquery-3.6.0.js"></script>
-    <script src="JS/form.js"></script>
+    <script src="JS/forms.js"></script>
+    <script src="JS/system.js"></script>
 
   </body>
 </html>

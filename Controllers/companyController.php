@@ -27,7 +27,7 @@
 
         public function insert(){
             
-            if (isset($_POST)){
+            if (isset($_POST['saveCompany'])){
 
                 $objCompany= new CompanyModel("","","","","","","");
                 
@@ -43,9 +43,6 @@
 
             }
             return $resInsert;
-           // include_once('Views/company/home.php');
-               
-
         }
 
         public function update(){
@@ -73,10 +70,11 @@
                     $objCompany->setPbx($_POST['txbPBX']);
                     $objCompany->setMobile($_POST['txbMobile']);
                     
-                    $upd=$objCompany->update();
+                    $resUpdate=$objCompany->update();
+                    return $resUpdate;
 
-                    echo"<script language='javascript'>window.location='?controller=company&action=home'</script>;";
                 }
+                
 
             } catch (Exception $e) {
                 //throw $th;
@@ -93,16 +91,14 @@
                     
                     $objCompany->setCode($_GET['code']);
                     $resDelete=$objCompany->delete();
-                    echo json_encode($resDelete);
                     
                 }
-               // include_once('Views/company/home.php');
+               return $resDelete;
                 
             } 
             catch (Exception $e) {
                 
             }
-            echo"<script language='javascript'>window.location='?controller=company&action=home'</script>;";
         }
 
     }
