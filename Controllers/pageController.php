@@ -1,4 +1,5 @@
 <?php
+/* Display the main view */
     class PageController{
 
         public function home(){

@@ -1,4 +1,6 @@
 <?php
+/* It receives the Ajax requests and calls the corresponding controller, according to the received parameters. */
+
 include_once('companyController.php');
 include_once('../Models/companyModel.php');
 include_once('../Core/db.php');
@@ -30,6 +32,7 @@ include_once('../Core/baseModel.php');
                         break;
                 }
             }
+            if($_GET['controller']=='estarese'){}
             #next
            
         }

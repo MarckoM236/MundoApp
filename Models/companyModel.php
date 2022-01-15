@@ -1,4 +1,5 @@
 <?php 
+/* It receives data from the controller and queries the database, returning the result. */
 @include_once('../Core/baseModel.php');
     class CompanyModel extends BaseModel{
 

@@ -1,4 +1,6 @@
 <?php
+/* Make a connection to the database */
+
 /* session_name("herpo");
 session_start(); */
 
@@ -15,7 +17,7 @@ class Conectar
 
 
 	public function __construct() {
-
+        //Connection data
         $this->_sServidor = 'MMARIN';
         $this->_sNombreBD = 'ONCE';
         $this->_sUsuario = 'mundo';

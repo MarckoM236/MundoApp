@@ -1,4 +1,6 @@
 <?php  
+/* Extends from the baseModel class, 
+requires the connection and the name of the table. Contains common method for all entities. */
     @include_once('db.php');
     class BaseModel{
 

@@ -1,4 +1,5 @@
 <?php 
+/* Get the data from the form, send it to the model and return results to the view. */
     @include_once('Core/baseModel.php');
     @include_once('Core/db.php');
     @include_once('Models/companyModel.php');
