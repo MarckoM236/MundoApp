@@ -1,14 +1,12 @@
-<?php if(isset($res)){
-    //    foreach($company as $data) {
-    //        $status=$data['status'];
-    //        $result=$data['result'];
-    print_r($res);
-       //}
-
-       //echo $result;
-
-
-  }?>  
+<?php if(isset($resDelete)){
+        foreach($company as $data) {
+            $status=$data['status'];
+            $result=$data['result'];
+    //print_r($res);
+   
+     }
+     echo"<script language='javascript'>alert('".$result."')</script>;";
+      }?>  
 <!-- Formulario -->
 <form action="?controller=company&action=home" method="post">
         <div class="row justify-content-center">
@@ -111,7 +109,15 @@
               </div>
 
   <hr/>
-  <?php 
+  <?php      
+                /*  $return_arr[] = array("code" => "--",
+                 "name" => "----",
+                 "nit" => "----",
+                 "rent" => "----",
+                 "address" => "----",
+                 "pbx" => "----",
+                 "mobile" => "----");   */
+
                  if(isset($company)){
                  foreach($company as $data) {
                     $code=$data->getCode();
@@ -121,7 +127,8 @@
                     $address=$data->getAddress();
                     $pbx=$data->getPbx();
                     $mobile=$data->getMobile();
-        
+
+                   
                     $return_arr[] = array("code" => $code,
                     "name" => $name,
                     "nit" => $nit,
@@ -129,6 +136,8 @@
                     "address" => $address,
                     "pbx" => $pbx,
                     "mobile" => $mobile);
+                    
+                    
                 }
                 //print_r($return_arr);
                 ?>
@@ -152,7 +161,10 @@
                         </thead>
 						<br />
                         <tbody>
-                        <?php foreach($return_arr as $row ){?>
+                            
+                        <?php 
+                        if (isset($return_arr)){
+                        foreach($return_arr as $row ){?>
                         <tr>
                             <td><?php echo $row['code'];?></td>
                             <td><?php echo $row['name'];?></td>
@@ -166,7 +178,13 @@
                             <td><a href="?controller=company&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning" onclick=""><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                             <td><a href="?controller=company&action=delete&code=<?php echo $row['code'];?>" class="btn btn-danger" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                         </tr>
-                        <?php }?>
+                        <?php }}
+                        else{?>
+                        <tr>
+                            No hay elementos para mostrar
+                        </tr>
+                       <?php }
+                        ?>
                     </tbody>
 
                       </table>

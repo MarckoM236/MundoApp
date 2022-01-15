@@ -1,5 +1,5 @@
 <?php 
-include_once('Core/baseModel.php');
+@include_once('../Core/baseModel.php');
     class CompanyModel extends BaseModel{
 
         private $code="";
@@ -9,6 +9,7 @@ include_once('Core/baseModel.php');
         private $address="";
         private $pbx="";
         private $mobile="";
+        private $respuesta= array();
 
 /*         public function __construct() {
             
@@ -48,6 +49,9 @@ include_once('Core/baseModel.php');
         public function setMobile($val){
             $this->mobile = $val;
         }
+        public function setRespuesta($val){
+            $this->respuesta=$val;
+        }
 
         //setters
         public function getCode(){
@@ -70,6 +74,10 @@ include_once('Core/baseModel.php');
         }
         public function getMobile(){
             return $this->mobile;
+        }
+
+        public function getRespuesta(){
+            return $this->respuesta;
         }
         
         public  function show(){
@@ -96,7 +104,6 @@ include_once('Core/baseModel.php');
         public function insert(){
 
             $data=array();
-            $res=0;
             $sql = "BEGIN  pkgEmpresa.insertarEmpresa(:cod_empresa,:nombre_empresa,:nit_empresa,:rent_empresa,:direccion_empresa,:pbx_empresa,:celular_empresa,:res); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
@@ -109,9 +116,8 @@ include_once('Core/baseModel.php');
             oci_bind_by_name($stid, ':celular_empresa',$this->mobile);
             oci_bind_by_name($stid, ':res',$res);
             @$res=oci_execute($stid);
-            $res=1;
 
-             if($res>0){
+             if($res){
                  $data['status'] = 'ok';
                  $data['result'] = 'Registro exitoso';
              }
@@ -119,6 +125,8 @@ include_once('Core/baseModel.php');
                  $data['status'] = 'fail';
                  $data['result'] = 'No se pudo insertar';
              }
+
+             oci_free_statement($stid);
     
             return $data;
             

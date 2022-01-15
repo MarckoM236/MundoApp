@@ -1,19 +1,24 @@
 <?php 
-    include_once('Core/baseModel.php');
-    include_once('Core/db.php');
-    include_once('Models/companyModel.php');
+    @include_once('Core/baseModel.php');
+    @include_once('Core/db.php');
+    @include_once('Models/companyModel.php');
 
     class CompanyController{
 
         public function home(){
             
-            if (isset($_POST['showCompany'])){
-                $objCompany= new CompanyModel("","","","","","","");
-                $objCompany->setCode($_POST['txbCode']);
-                $objCompany->setName($_POST['txbName']);
-                $objCompany->setNit($_POST['txbNit']);
-                $company=$objCompany->show();
-                
+            try {
+                if (isset($_POST['showCompany'])){
+                    $objCompany= new CompanyModel("","","","","","","");
+                    $objCompany->setCode($_POST['txbCode']);
+                    $objCompany->setName($_POST['txbName']);
+                    $objCompany->setNit($_POST['txbNit']);
+                    $company=$objCompany->show();
+                    
+                }
+            } 
+            catch (Exception $e) {
+                //throw $th;
             }
             include_once('Views/company/home.php');
 
@@ -34,11 +39,11 @@
                 $objCompany->setPbx($_POST['txbPBX']);
                 $objCompany->setMobile($_POST['txbMobile']);
                 
-                $res=$objCompany->insert();
-                echo"<script language='javascript'>alert('Insercion correcta');</script>;";
+                $resInsert=$objCompany->insert();
 
             }
-            include_once('Views/company/home.php');
+            return $resInsert;
+           // include_once('Views/company/home.php');
                
 
         }
@@ -87,13 +92,15 @@
                     $objCompany= new CompanyModel("","","","","","","");
                     
                     $objCompany->setCode($_GET['code']);
-                    $res=$objCompany->delete();
+                    $resDelete=$objCompany->delete();
+                    echo json_encode($resDelete);
                     
                 }
+               // include_once('Views/company/home.php');
                 
             } 
             catch (Exception $e) {
-                $res="fail";
+                
             }
             echo"<script language='javascript'>window.location='?controller=company&action=home'</script>;";
         }

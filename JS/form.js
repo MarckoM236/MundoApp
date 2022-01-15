@@ -13,25 +13,26 @@ function insertCompany() {
       var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbNit=' + nit + '&txbRent=' + rent + '&txbAddress=' + address + '&txbPBX=' + pbx + '&txbMobile=' + mobile +'&saveCompany=';
       $.ajax({
         type: "POST",
-        url: "?controller=company&action=insert",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=company&action=insert",
         data: dataString,
         dataType : 'json',
         
-        success: function(data) {
-          //validate response from server
-          //console.log(response);
-          window.location.href = "?controller=company&action=home";
-          console.log(data);
-          var jsonData = JSON.parse(response);
-          alert(jsonData.status);
-          if(response.status == 'ok'){
+					success: function(response){ 
+					  //var status=response.status;
+					  if(response.status == 'ok'){
               alert(response.result);
+              location.reload(true);
           }
           else{
             alert(response.result);
+            location.reload(true);
           }
-          
-        }
+					  
+					   //window.location="?controller=company&action=home";                            
+					},
+					error: function(jqXHR, textStatus, error){
+					   alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+					}
       });
       
         
@@ -57,4 +58,9 @@ function valiFieldsCompany(){
       
     }
   });
+}
+
+//opcion cancelar
+function cancel(){
+  window.location='?controller=company&action=home';
 }
