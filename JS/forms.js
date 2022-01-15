@@ -1,5 +1,6 @@
 //validate Inputs forms
 
+//*** COMPANY ***
 //***Fomr insert company***
 $(function() {
     $('.error').hide();
@@ -121,7 +122,62 @@ $(function() {
     });
   });
 //********************** */
+//*** FIN COMPANY ***
 
+
+//*** ESTARESE ***
+//***Fomr insert estarese***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveEstarese").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertEstarese();
+      
+  });
+});
+//********************** */
+
+//***Fomr update estarese***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateEstarese").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updateEstarese();
+      
+  });
+});
+//********************** */
+//*** FIN COMPANY ***
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){

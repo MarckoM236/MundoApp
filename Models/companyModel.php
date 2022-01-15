@@ -17,7 +17,8 @@
         }
  */
          public function __construct($cod,$name,$nit,$rent,$address,$pbx,$mobile) {
-            $table="Empresa";
+            $table="empresa";
+            $package="Empresa";
             parent::__construct($table);
             $this->code=$cod;
             $this->name=$name;

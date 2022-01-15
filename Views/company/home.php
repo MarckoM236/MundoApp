@@ -154,6 +154,8 @@
                             <th style="width:20px;background-color: #9FD5D1">Direccion</th>
                             <th style="width:20px;background-color: #9FD5D1">PBX</th>
                             <th style="width:20px;background-color: #9FD5D1">Celular</th>
+                            <th style="width:20px;background-color: #9FD5D1">Editar</th>
+                            <th style="width:20px;background-color: #9FD5D1">Borrar</th>
                           </tr>
                         </thead>
 						<br />
@@ -170,8 +172,6 @@
                             <td><?php echo $row['address'];?></td>
                             <td><?php echo $row['pbx'];?></td>
                             <td><?php echo $row['mobile'];?></td>
-                            <td></td>
-                            <td></td>
                             <td><a href="?controller=company&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                             <td><a onclick="deleteCompany(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                         </tr>

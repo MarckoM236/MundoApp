@@ -5,11 +5,13 @@ requires the connection and the name of the table. Contains common method for al
     class BaseModel{
 
         private $table;
+        private $package;
         private $db;
         private $conectar;
     
-        public function __construct($table) {
+        public function __construct($package,$table) {
             $this->table=(string) $table;
+            $this->package=(string) $package;
             
             
             $this->conectar=new Conectar();
@@ -28,10 +30,10 @@ requires the connection and the name of the table. Contains common method for al
         
 
         public function deleteByCode($code){
-            $sql = "BEGIN  pkgEmpresa.eliminar".$this->table."(:cod_empresa); END;";
+            $sql = "BEGIN  pkg".$this->package.".eliminar".$this->package."(:cod_".$this->table."); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
-            oci_bind_by_name($stid, ':cod_empresa',$this->code);
+            oci_bind_by_name($stid, ':cod_'.$this->table,$this->code);
             @$res=oci_execute($stid);
 
              if($res>0){
