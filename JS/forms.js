@@ -177,7 +177,76 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN COMPANY ***
+//*** FIN ESTARESE ***
+
+
+//*** AGENCY ***
+//***Fomr insert agency***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveAgency").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var status = $("input#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    insertAgency();
+      
+  });
+});
+//********************** */
+
+//***Fomr update agency***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateAgency").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var status = $("input#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    updateAgency();
+      
+  });
+});
+//********************** */
+//*** FIN AGENCY ***
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
