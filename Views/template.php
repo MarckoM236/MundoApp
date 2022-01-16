@@ -12,6 +12,8 @@
     <!--<link rel="stylesheet" href="CSS/bootstrap.min.css" >-->
 	<link rel="stylesheet" href="CSS/semantic.min.css"/>
 	<link rel="stylesheet" href="CSS/main.css">
+    <!--ICONOS fontawesome-->
+    <link href="CSS/fontawesome/css/all.css" rel="stylesheet">
 
   </head>
   <body>

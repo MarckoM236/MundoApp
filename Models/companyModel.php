@@ -19,7 +19,7 @@
          public function __construct($cod,$name,$nit,$rent,$address,$pbx,$mobile) {
             $table="empresa";
             $package="Empresa";
-            parent::__construct($table);
+            parent::__construct($package,$table);
             $this->code=$cod;
             $this->name=$name;
             $this->nit=$nit;

@@ -172,8 +172,8 @@
                             <td><?php echo $row['address'];?></td>
                             <td><?php echo $row['pbx'];?></td>
                             <td><?php echo $row['mobile'];?></td>
-                            <td><a href="?controller=company&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                            <td><a onclick="deleteCompany(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                            <td><a href="?controller=company&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                            <td><a onclick="deleteCompany(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>
                         <?php }}
                         else{?>
