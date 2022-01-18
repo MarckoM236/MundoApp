@@ -331,6 +331,89 @@ $(function() {
 //********************** */
 //*** FIN ADVISER ***
 
+
+//*** USER ***
+//***Fomr insert user***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveUser").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var pass = $("input#pass").val();
+    if (pass == "") {
+      $("label#pass_error").show();
+      $("input#pass").focus();
+      return false;
+    }
+
+    var status = $("input#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    insertUser();
+      
+  });
+});
+//********************** */
+
+//***Fomr update user***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateUser").click(function() {
+       //validate fields
+       $('.error').hide();
+       var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var pass = $("input#pass").val();
+    if (pass == "") {
+      $("label#pass_error").show();
+      $("input#pass").focus();
+      return false;
+    }
+
+    var status = $("input#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    updateUser();
+      
+  });
+});
+//********************** */
+//*** FIN USER ***
+
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
     window.location='?controller='+c+'&action='+a;

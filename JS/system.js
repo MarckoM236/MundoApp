@@ -408,3 +408,105 @@ if (opcion == true) {
 }
 //******** END VALIDATION ADVISER *************/
 
+//*********VALIDATIONS USER ************/
+
+//Insert data
+function insertUser() {
+  var code = $("input#code").val();
+  var name = $("input#name").val();
+  var pass = $("input#pass").val();
+  var status = $("input#status").val();
+  
+  //Validate data submission
+  var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbPass='+pass+ '&txbStatus='+ status +'&saveUser=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=user&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+  
+    
+}
+
+//Delete data
+function deleteUser(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=user&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateUser(){
+var code = $("input#code").val();
+var name = $("input#name").val();
+var pass = $("input#pass").val();
+var status = $("input#status").val();
+//Validate data submission
+var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbPass=' + pass + '&txbStatus='+ status +'&updateUser=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=user&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=user&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION ADVISER *************/
+
