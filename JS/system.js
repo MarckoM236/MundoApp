@@ -303,5 +303,108 @@ if (opcion == true) {
 }
 
 }
-//******** END VALIDATION ESTARESE *************/
+//******** END VALIDATION AGENCY *************/
+
+
+//*********VALIDATIONS ADVISER ************/
+
+//Insert data
+function insertAdviser() {
+  var id = $("input#id").val();
+  var name = $("input#name").val();
+  var lastName = $("input#lastName").val();
+  var status = $("input#status").val();
+  
+  //Validate data submission
+  var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName='+lastName+ '&txbStatus='+ status +'&saveAdviser=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=adviser&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+  
+    
+}
+
+//Delete data
+function deleteAdviser(id){
+var dataString = 'id='+ id;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=adviser&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateAdviser(){
+var id = $("input#id").val();
+var name = $("input#name").val();
+var lastName = $("input#lastName").val();
+var status = $("input#status").val();
+//Validate data submission
+var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbStatus='+ status +'&updateAdviser=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=adviser&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=adviser&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION ADVISER *************/
 

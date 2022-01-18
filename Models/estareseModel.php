@@ -13,8 +13,7 @@
  */
          public function __construct($cod,$name) {
             $table="estarese";
-            $package="Estarese";
-            parent::__construct($package,$table);
+            parent::__construct($table);
             $this->code=$cod;
             $this->name=$name;
         }

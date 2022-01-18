@@ -1,8 +1,10 @@
 <?php
 if(isset($res)){
                  foreach($res as $data) {
-                    $code=$data->getCode();
+                    $id=$data->getId();
                     $name=$data->getName();
+                    $lastName=$data->getLastName();
+                    $status=$data->getStatus();
                 }
             }
 ?>
@@ -13,7 +15,7 @@ if(isset($res)){
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >Estarese</label>
+                      <label class="titulosPrincipalesPagina" >Asesor</label>
                 </div>
 
               </div>
@@ -24,11 +26,11 @@ if(isset($res)){
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                            <label>Codigo</label>
+                            <label>Identificacion</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="Codigo" id="code" name="txbCode" value="<?php echo $code; ?>" readonly>
-                           <label class="error" for="code" id="code_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="text" placeholder="Id" id="id" name="txbId" value="<?php echo $id; ?>" readonly>
+                           <label class="error" for="id" id="id_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -44,13 +46,37 @@ if(isset($res)){
                       </div>
                     </div>
                 </div>
+
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                            <label>Apellido</label>
+                      </div>
+                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                           <input class="form-control inputFomulario" type="text" placeholder="Apellido" id="lastName" name="txbLastName" value="<?php echo $lastName; ?>">
+                           <label class="error" for="lastName" id="lastName_error">Campo requerido.</label>
+                      </div>
+                    </div>
+                </div>
+
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                            <label>Estado</label>
+                      </div>
+                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                           <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus" value="<?php echo $status; ?>">
+                           <label class="error" for="status" id="status_error">Campo requerido.</label>
+                      </div>
+                    </div>
+                </div>
                 
 
 
                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
 			    <div class="row justify-content-left py-2">
 				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnUpdateEstarese'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateEstarese"/>
+                       <input id='btnUpdateAdviser'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateAdviser"/>
 				 </div>
 				   
 				 </div>
@@ -59,7 +85,7 @@ if(isset($res)){
               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
 			    <div class="row justify-content-left py-2">
 				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('estarese','home')"/>
+                       <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('adviser','home')"/>
 				 </div>
 				   
 				 </div>
