@@ -455,7 +455,7 @@ $(function() {
 });
 //********************** */
 
-//***Fomr update adviser***
+//***Fomr update seller***
 $(function() {
   $('.error').hide();
   $("#btnUpdateSeller").click(function() {
@@ -494,7 +494,61 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN ADVISER ***
+//*** FIN SELLER ***
+
+//*** TIPOLIQU ***
+//***Fomr insert tipoliqu***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveTipoLiQu").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertTipoLiQu();
+      
+  });
+});
+//********************** */
+
+//***Fomr update tipoliqu***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateTipoLiQu").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updateTipoLiQu();
+      
+  });
+});
+//********************** */
+//*** FIN TIPOLIQU ***
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
