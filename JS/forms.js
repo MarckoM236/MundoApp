@@ -414,6 +414,88 @@ $(function() {
 //********************** */
 //*** FIN USER ***
 
+//*** SELLER ***
+//***Fomr insert seller***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveSeller").click(function() {
+      //validate fields
+      $('.error').hide();
+      var id = $("input#id").val();
+    if (id == "") {
+      $("label#id_error").show();
+      $("input#id").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var lastName = $("input#lastName").val();
+    if (lastName == "") {
+      $("label#lastName_error").show();
+      $("input#lastName").focus();
+      return false;
+    }
+
+    var status = $("input#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    insertSeller();
+      
+  });
+});
+//********************** */
+
+//***Fomr update adviser***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateSeller").click(function() {
+       //validate fields
+       $('.error').hide();
+       var id = $("input#id").val();
+     if (id == "") {
+       $("label#id_error").show();
+       $("input#id").focus();
+       return false;
+     }
+ 
+     var name = $("input#name").val();
+     if (name == "") {
+       $("label#name_error").show();
+       $("input#name").focus();
+       return false;
+     }
+ 
+     var lastName = $("input#lastName").val();
+     if (lastName == "") {
+       $("label#lastName_error").show();
+       $("input#lastName").focus();
+       return false;
+     }
+ 
+     var status = $("input#status").val();
+     if (status == "") {
+       $("label#status_error").show();
+       $("input#status").focus();
+       return false;
+     }
+
+    updateSeller();
+      
+  });
+});
+//********************** */
+//*** FIN ADVISER ***
+
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
     window.location='?controller='+c+'&action='+a;
