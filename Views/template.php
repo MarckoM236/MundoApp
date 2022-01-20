@@ -304,7 +304,7 @@
                             <!-- ITEM3-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?accion=indicador" >
+                                <a style="color:white" href="?controller=agency&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/seguimiento.png">
                                     </div>
@@ -348,7 +348,7 @@
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?accion=indicador" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/seguimiento.png">
+                                        <img class="imgMenu" src="img/destinos.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Destino</label>
@@ -360,9 +360,9 @@
                             <!-- ITEM7-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?accion=indicador" >
+                                <a style="color:white" href="?controller=plan&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/seguimiento.png">
+                                        <img class="imgMenu" src="img/plan.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Plan</label>
@@ -430,9 +430,9 @@
                             <!-- 12-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?accion=indicador" >
+                                <a style="color:white" href="?controller=adviser&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/seguimiento.png">
+                                        <img class="imgMenu" src="img/asesor.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Asesor</label>
@@ -444,9 +444,9 @@
                             <!-- 13-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?accion=indicador" >
+                                <a style="color:white" href="?controller=seller&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/seguimiento.png">
+                                        <img class="imgMenu" src="img/vendedor.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Vendedor</label>

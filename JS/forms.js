@@ -550,6 +550,60 @@ $(function() {
 //********************** */
 //*** FIN TIPOLIQU ***
 
+//*** PLAN ***
+//***Fomr insert plan***
+$(function() {
+  $('.error').hide();
+  $("#btnSavePlan").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertPlan();
+      
+  });
+});
+//********************** */
+
+//***Fomr update plan***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdatePlan").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updatePlan();
+      
+  });
+});
+//********************** */
+//*** FIN TIPOLIQU ***
+
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
     window.location='?controller='+c+'&action='+a;
