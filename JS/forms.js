@@ -798,6 +798,60 @@ $(function() {
 //********************** */
 //*** FIN HOTEL ***
 
+//*** TIPOALIM ***
+//***Fomr insert tipoAlim***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveTipoAlim").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertTipoAlim();
+      
+  });
+});
+//********************** */
+
+//***Fomr update destination***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdatetipoAlim").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updateTipoAlim();
+      
+  });
+});
+//********************** */
+//*** FIN DESTINATION ***
+
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
     window.location='?controller='+c+'&action='+a;

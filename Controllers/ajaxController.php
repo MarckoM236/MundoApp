@@ -12,6 +12,7 @@ include_once('tipoLiQuController.php');
 include_once('planController.php');
 include_once('destinationController.php');
 include_once('hotelController.php');
+include_once('tipoalimController.php');
 include_once('../Models/companyModel.php');
 include_once('../Models/estareseModel.php');
 include_once('../Models/agencyModel.php');
@@ -23,6 +24,7 @@ include_once('../Models/tipoLiQuModel.php');
 include_once('../Models/planModel.php');
 include_once('../Models/destinationModel.php');
 include_once('../Models/hotelModel.php');
+include_once('../Models/tipoAlimModel.php');
 include_once('../Core/db.php');
 include_once('../Core/baseModel.php');
 
@@ -246,6 +248,30 @@ include_once('../Core/baseModel.php');
 
             if($_GET['controller']=='hotel'){
                 $object = new HotelController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($re);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            if($_GET['controller']=='tipoAlim'){
+                $object = new TipoAlimController();
                 switch ($_GET['action']) {   
                     case 'insert':
                         $re=$object->insert();

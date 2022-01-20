@@ -190,7 +190,7 @@
 
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-Fsis">
-                                <a style="color:white" href="?accion=color" >
+                                <a style="color:white" href="?controller=tipoAlim&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center">
                                         <img class="imgMenu" src="img/plazo.png">
@@ -334,7 +334,7 @@
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?accion=indicador" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/seguimiento.png">
+                                        <img class="imgMenu" src="img/concepto.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Concepto</label>
