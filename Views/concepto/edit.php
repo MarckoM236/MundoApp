@@ -13,7 +13,7 @@ if(isset($res)){
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >Estado Reserva</label>
+                      <label class="titulosPrincipalesPagina" >Concepto</label>
                 </div>
 
               </div>
@@ -50,7 +50,7 @@ if(isset($res)){
                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
 			    <div class="row justify-content-left py-2">
 				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnUpdateEstarese'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateEstarese"/>
+                       <input id='btnUpdateConcepto'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateConcepto"/>
 				 </div>
 				   
 				 </div>
@@ -59,7 +59,7 @@ if(isset($res)){
               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
 			    <div class="row justify-content-left py-2">
 				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('estarese','home')"/>
+                       <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('concepto','home')"/>
 				 </div>
 				   
 				 </div>

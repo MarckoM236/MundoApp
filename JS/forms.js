@@ -906,6 +906,61 @@ $(function() {
 //********************** */
 //*** FIN ACOMODAC ***
 
+
+//*** CONCEPTO ***
+//***Fomr insert concepto***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveConcepto").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertConcepto();
+      
+  });
+});
+//********************** */
+
+//***Fomr update acomodac***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateConcepto").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updateConcepto();
+      
+  });
+});
+//********************** */
+//*** FIN CONCEPTO ***
+
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
     window.location='?controller='+c+'&action='+a;

@@ -1,11 +1,11 @@
 <!-- Formulario -->
-<form action="?controller=estarese&action=home" method="post">
+<form action="?controller=concepto&action=home" method="post">
         <div class="row justify-content-center">
           <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >Estado Reserva</label>
+                      <label class="titulosPrincipalesPagina" >Concepto</label>
                 </div>
 
               </div>
@@ -42,10 +42,10 @@
                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
 			    <div class="row justify-content-left py-2">
 				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnSaveEstarese'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
+                       <input id='btnSaveConcepto'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
 				 </div>
 				   <div  class="col-lg-12 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showEstarese" value="Buscar" />
+                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showConcepto" value="Buscar" />
 				 </div>
 			  </div>
 
@@ -54,8 +54,8 @@
   <hr/>
   <?php      
 
-                 if(isset($estarese)){
-                 foreach($estarese as $data) {
+                 if(isset($concepto)){
+                 foreach($concepto as $data) {
                     $code=$data->getCode();
                     $name=$data->getName();
 
@@ -89,8 +89,8 @@
                         <tr>
                             <td><?php echo $row['code'];?></td>
                             <td><?php echo $row['name'];?></td>
-                            <td><a href="?controller=estarese&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                            <td><a onclick="deleteEstarese(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
+                            <td><a href="?controller=concepto&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                            <td><a onclick="deleteConcepto(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>
                         <?php }}
                         else{?>
