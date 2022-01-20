@@ -825,7 +825,7 @@ $(function() {
 });
 //********************** */
 
-//***Fomr update destination***
+//***Fomr update tipoAlim***
 $(function() {
   $('.error').hide();
   $("#btnUpdatetipoAlim").click(function() {
@@ -850,7 +850,61 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN DESTINATION ***
+//*** FIN TIPOALIM ***
+
+//*** ACOMODAC ***
+//***Fomr insert acomodac***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveAcomodac").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertAcomodac();
+      
+  });
+});
+//********************** */
+
+//***Fomr update acomodac***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateAcomodac").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updateAcomodac();
+      
+  });
+});
+//********************** */
+//*** FIN ACOMODAC ***
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
