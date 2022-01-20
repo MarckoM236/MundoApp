@@ -656,7 +656,147 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN PLAN ***
+//*** FIN DESTINATION ***
+
+//*** HOTEL ***
+//***Fomr insert hotel***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveHotel").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var nit = $("input#nit").val();
+    if (nit == "") {
+      $("label#nit_error").show();
+      $("input#nit").focus();
+      return false;
+    }
+
+    var address = $("input#address").val();
+    if (address == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+
+    var phone = $("input#phone").val();
+    if (phone == "") {
+      $("label#phone_error").show();
+      $("input#phone").focus();
+      return false;
+    }
+
+    var status = $("input#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    var email = $("input#email").val();
+    if (email == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
+
+    var mobile = $("input#mobile").val();
+    if (mobile == "") {
+      $("label#mobile_error").show();
+      $("input#mobile").focus();
+      return false;
+    }
+
+    
+    insertHotel();
+      
+  });
+});
+//********************** */
+
+//***Fomr update hotel***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateHotel").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var nit = $("input#nit").val();
+    if (nit == "") {
+      $("label#nit_error").show();
+      $("input#nit").focus();
+      return false;
+    }
+
+    var address = $("input#address").val();
+    if (address == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+
+    var phone = $("input#phone").val();
+    if (phone == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var status = $("input#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    var email = $("input#email").val();
+    if (email == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
+
+    var mobile = $("input#mobile").val();
+    if (mobile == "") {
+      $("label#mobile_error").show();
+      $("input#mobile").focus();
+      return false;
+    }
+
+
+    updateHotel();
+      
+  });
+});
+//********************** */
+//*** FIN HOTEL ***
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
