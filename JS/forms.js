@@ -602,7 +602,61 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN TIPOLIQU ***
+//*** FIN PLAN ***
+
+//*** DESTINATION ***
+//***Fomr insert destination***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveDestination").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertDestination();
+      
+  });
+});
+//********************** */
+
+//***Fomr update destination***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateDestination").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updateDestination();
+      
+  });
+});
+//********************** */
+//*** FIN PLAN ***
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
