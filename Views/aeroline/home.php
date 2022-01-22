@@ -19,15 +19,15 @@
                             <label>Codigo</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="Codigo" id="code" name="txbCode">
+                           <input class="form-control inputFomulario"  type="text" placeholder="Codigo" id="code" name="txbCode">
                            <label class="error" for="code" id="code_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
 
-              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+              <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
-                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Nombre</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
@@ -43,25 +43,32 @@
                             <label>Estado</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">
+                       <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
+                           <select name="txbStatus" id="status" class="form-select inputFomulario" placeholder="Opciones"> 
+                              <option select value="">SELECCIONE</option>
+                              <option value="A">ACTIVO</option>
+                              <option value="I">INACTIVO</option>
+                            </select>
                            <label class="error" for="status" id="status_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
+
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <input id='btnSaveAeroline'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
+                    </div>
+                </div>
                 
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAeroline" value="Buscar" />
+                    </div>
+                </div>
 
 
-               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnSaveAeroline'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
-				 </div>
-				   <div  class="col-lg-12 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAeroline" value="Buscar" />
-				 </div>
-			  </div>
 
-              </div>
+</div>
 
   <hr/>
   <?php      

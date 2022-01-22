@@ -16,6 +16,10 @@
                     $aeroline=$objAeroline->show();
                     
                 }
+                else {
+                    $objAeroline= new AerolineModel("","","");
+                    $aeroline=$objAeroline->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;

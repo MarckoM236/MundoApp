@@ -961,6 +961,75 @@ $(function() {
 //********************** */
 //*** FIN CONCEPTO ***
 
+//*** AEROLINE ***
+//***Fomr insert aeroline***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveAeroline").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    insertAeroline(code,name,status);
+      
+  });
+});
+//********************** */
+
+//***Fomr update aeroline***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateAeroline").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    updateAeroline(code,name,status);
+      
+  });
+});
+//********************** */
+//*** FIN AEROLINE ***
+
+
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
     window.location='?controller='+c+'&action='+a;
