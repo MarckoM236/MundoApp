@@ -1029,6 +1029,61 @@ $(function() {
 //********************** */
 //*** FIN AEROLINE ***
 
+//*** INCLUSIO ***
+//***Fomr insert inclusio***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveInclusio").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    insertInclusio(code,name);
+      
+  });
+});
+//********************** */
+
+//***Fomr update inclusio***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateInclusio").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    updateInclusio(code,name);
+      
+  });
+});
+//********************** */
+//*** FIN CONCEPTO ***
+
+
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){

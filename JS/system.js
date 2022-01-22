@@ -1393,7 +1393,100 @@ if (opcion == true) {
 }
 
 }
-//******** END VALIDATION AGENCY *************/
+//******** END VALIDATION AEROLINE *************/
+
+//*********VALIDATIONS INCLUSIO ************/
+
+//Insert data
+function insertInclusio(code,name) {
+  //Validate data submission
+  var dataString = 'txbCode='+ code + '&txbName=' + name + '&saveInclusio=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=inclusio&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+     
+}
+
+//Delete data
+function deleteInclusio(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=inclusio&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateInclusio(code,name){
+//Validate data submission
+var dataString = 'txbCode='+ code + '&txbName=' + name +'&updateInclusio=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=inclusio&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=inclusio&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION INCLUSIO *************/
+
 
 
 
