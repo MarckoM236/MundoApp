@@ -91,8 +91,7 @@ include_once('../Core/baseModel.php');
                         break;   
                     case 'update':
                         $re=$object->update();
-                        print_r($re);
-                        //echo json_encode($re);
+                        echo json_encode($re);
                         break;     
                     case 'delete':
                         $re=$object->delete();

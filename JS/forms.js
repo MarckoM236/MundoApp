@@ -201,14 +201,14 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
       return false;
     }
 
-    insertAgency();
+    insertAgency(code,name,status);
       
   });
 });
@@ -234,14 +234,14 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
       return false;
     }
 
-    updateAgency();
+    updateAgency(code,name,status);
       
   });
 });

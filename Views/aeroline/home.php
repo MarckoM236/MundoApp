@@ -1,11 +1,11 @@
 <!-- Formulario -->
-<form action="?controller=agency&action=home" method="post">
+<form action="?controller=aeroline&action=home" method="post">
         <div class="row justify-content-center">
           <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >Agencia</label>
+                      <label class="titulosPrincipalesPagina" >Aerolinea</label>
                 </div>
 
               </div>
@@ -19,15 +19,15 @@
                             <label>Codigo</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario"  type="text" placeholder="Codigo" id="code" name="txbCode">
+                           <input class="form-control inputFomulario" type="text" placeholder="Codigo" id="code" name="txbCode">
                            <label class="error" for="code" id="code_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
 
-              <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
-                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
+                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Nombre</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
@@ -43,38 +43,31 @@
                             <label>Estado</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                           <select name="txbStatus" id="status" class="form-select inputFomulario" placeholder="Opciones"> 
-                              <option select value="">SELECCIONE</option>
-                              <option value="A">ACTIVO</option>
-                              <option value="I">INACTIVO</option>
-                            </select>
+                           <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">
                            <label class="error" for="status" id="status_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
-
-                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <div class="row justify-content-left py-2">
-                      <input id='btnSaveAgency'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
-                    </div>
-                </div>
                 
-                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <div class="row justify-content-left py-2">
-                      <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAgency" value="Buscar" />
-                    </div>
-                </div>
 
 
+               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
+			    <div class="row justify-content-left py-2">
+				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                       <input id='btnSaveAeroline'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
+				 </div>
+				   <div  class="col-lg-12 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
+                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAeroline" value="Buscar" />
+				 </div>
+			  </div>
 
-</div>
+              </div>
 
   <hr/>
   <?php      
 
-                 if(isset($agency)){
-                 foreach($agency as $data) {
+                 if(isset($aeroline)){
+                 foreach($aeroline as $data) {
                     $code=$data->getCode();
                     $name=$data->getName();
                     $status=$data->getStatus();
@@ -112,8 +105,8 @@
                             <td><?php echo $row['code'];?></td>
                             <td><?php echo $row['name'];?></td>
                             <td><?php echo $row['status'];?></td>
-                            <td><a href="?controller=agency&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
-                            <td><a onclick="deleteAgency(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
+                            <td><a href="?controller=aeroline&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
+                            <td><a onclick="deleteAeroline(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>
                         <?php }}
                         else{?>

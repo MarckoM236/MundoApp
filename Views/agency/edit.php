@@ -5,6 +5,12 @@ if(isset($res)){
                     $name=$data->getName();
                     $status=$data->getStatus();
                 }
+                if($status=="A"){
+                  $valStatus="ACTIVO";
+                }
+                else{
+                  $valStatus="INACTIVO";
+                }
             }
 ?>
 <!-- Formulario -->
@@ -34,7 +40,7 @@ if(isset($res)){
                     </div>
                 </div>
 
-              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+              <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Nombre</label>
@@ -52,36 +58,34 @@ if(isset($res)){
                             <label>Estado</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus" value="<?php echo $status; ?>">
-                           <label class="error" for="name" id="name_error">Campo requerido.</label>
+                       <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
+                           <select name="txbStatus" id="status" class="form-select inputFomulario" placeholder="Opciones"> 
+                              <option select value="<?php echo $status; ?>"><?php echo $valStatus;?></option>
+                              <option value="A">ACTIVO</option>
+                              <option value="I">INACTIVO</option>
+                            </select>
+                           <label class="error" for="status" id="status_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
                 
 
 
-               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnUpdateAgency'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateAgency"/>
-				 </div>
-				   
-				 </div>
-			  </div>
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <input id='btnUpdateAgency'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateCompany"/>
+                    </div>
+                </div>
+                
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                    <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('agency','home')"/>
+                    </div>
+                </div>
 
-              <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('agency','home')"/>
-				 </div>
-				   
-				 </div>
-			  </div>
+</div>
 
-              </div>
-
-  <hr/>
-  
+<hr/>
 <hr/>
             </div>
           </div>

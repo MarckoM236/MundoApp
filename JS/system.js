@@ -208,11 +208,7 @@ if (opcion == true) {
 //*********VALIDATIONS AGENCY ************/
 
 //Insert data
-function insertAgency() {
-  var code = $("input#code").val();
-  var name = $("input#name").val();
-  var status = $("input#status").val();
-  
+function insertAgency(code,name,status) {
   //Validate data submission
   var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbStatus='+ status +'&saveAgency=1';
   $.ajax({
@@ -238,8 +234,7 @@ function insertAgency() {
          alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
       }
   });
-  
-    
+     
 }
 
 //Delete data
@@ -267,10 +262,7 @@ if (opcion == true) {
 }
 
 //Update data
-function updateAgency(){
-var code = $("input#code").val();
-var name = $("input#name").val();
-var status = $("input#status").val();
+function updateAgency(code,name,status){
 //Validate data submission
 var dataString = 'txbCode='+ code + '&txbName=' + name +'&txbStatus='+ status +'&updateAgency=1';
 var opcion = confirm("Realmente desea modificar el registro?");

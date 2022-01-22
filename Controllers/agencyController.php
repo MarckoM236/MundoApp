@@ -16,6 +16,10 @@
                     $agency=$objAgency->show();
                     
                 }
+                else {
+                    $objAgency= new AgencyModel("","","");
+                    $agency=$objAgency->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;
