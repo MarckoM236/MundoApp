@@ -1081,7 +1081,106 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN CONCEPTO ***
+//*** FIN INCLUSIO ***
+
+
+//*** SYSTEM ***
+//***Fomr insert system***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveSystem").click(function() {
+      //validate fields
+      $('.error').hide();
+     var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var value = $("input#value").val();
+    if (value == "") {
+      $("label#value_error").show();
+      $("input#value").focus();
+      return false;
+    }
+
+    var fein = $("input#fein").val();
+    if (fein == "") {
+      $("label#fein_error").show();
+      $("input#fein").focus();
+      return false;
+    }
+    
+
+
+    var fefi = $("input#fefi").val();
+    if (fefi == "") {
+      $("label#fefi_error").show();
+      $("input#fefi").focus();
+      return false;
+    }
+    insertSystem(code,name,value,fein,fefi);
+      
+  });
+});
+//********************** */
+
+//***Fomr update system***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateSystem").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var value = $("input#value").val();
+    if (value == "") {
+      $("label#value_error").show();
+      $("input#value").focus();
+      return false;
+    }
+
+    var fein = $("input#fein").val();
+    if (fein == "") {
+      $("label#fein_error").show();
+      $("input#fein").focus();
+      return false;
+    }
+    
+
+    var fefi = $("input#fefi").val();
+    if (fefi == "") {
+      $("label#fefi_error").show();
+      $("input#fefi").focus();
+      return false;
+    }
+
+    updateSystem(code,name,value,fein,fefi);
+      
+  });
+});
+//********************** */
+//*** FIN INCLUSIO ***
 
 
 

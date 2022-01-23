@@ -1488,6 +1488,98 @@ if (opcion == true) {
 //******** END VALIDATION INCLUSIO *************/
 
 
+//*********VALIDATIONS SYSTEM ************/
+
+//Insert data
+function insertSystem(code,name,value,fein,fefi) {
+  //Validate data submission
+  var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbValue=' + value + '&txbFeIn=' + fein + '&txbFeFi=' + fefi + '&saveSystem=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=system&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+     
+}
+
+//Delete data
+function deleteSystem(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=system&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateSystem(code,name,value,fein,fefi){
+//Validate data submission
+var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbValue=' + value + '&txbFeIn=' + fein + '&txbFeFi=' + fefi + '&updateSystem=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=system&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=system&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION SYSTEM *************/
+
 
 
 
