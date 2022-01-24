@@ -1183,6 +1183,133 @@ $(function() {
 //*** FIN INCLUSIO ***
 
 
+//*** OPERATOR ***
+//***Fomr insert operator***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveOperator").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var address = $("input#address").val();
+    if (address == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+
+    var phone = $("input#phone").val();
+    if (phone == "") {
+      $("label#phone_error").show();
+      $("input#phone").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    var email = $("input#email").val();
+    if (email == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
+
+    var mobile = $("input#mobile").val();
+    if (mobile == "") {
+      $("label#mobile_error").show();
+      $("input#mobile").focus();
+      return false;
+    }
+
+    
+    insertOperator(code,name,address,phone,status,email,mobile);
+      
+  });
+});
+//********************** */
+
+//***Fomr update operator***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateOperator").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var address = $("input#address").val();
+    if (address == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+
+    var phone = $("input#phone").val();
+    if (phone == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    var email = $("input#email").val();
+    if (email == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
+
+    var mobile = $("input#mobile").val();
+    if (mobile == "") {
+      $("label#mobile_error").show();
+      $("input#mobile").focus();
+      return false;
+    }
+
+
+    updateOperator(code,name,address,phone,status,email,mobile);
+      
+  });
+});
+//********************** */
+//*** FIN OPERATOR ***
+
+
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
