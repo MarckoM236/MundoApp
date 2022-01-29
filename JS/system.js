@@ -1672,6 +1672,101 @@ if (opcion == true) {
 }
 
 }
+//******** END VALIDATION OPERATOR *************/
+
+
+//*********VALIDATIONS BANK  ************/
+
+//Insert data
+function insertBank(code,name,tiAccount,numAccount) {
+  
+  //Validate data submission
+  var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbTiAccount='+ tiAccount + '&txbNumAccount='+ numAccount +'&saveBank=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=bank&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+  
+    
+}
+
+//Delete data
+function deleteBank(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=bank&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateBank(code,name,tiAccount,numAccount){
+//Validate data submission
+var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbTiAccount='+ tiAccount + '&txbNumAccount='+ numAccount +'&updateBank=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=bank&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=bank&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
 //******** END VALIDATION HOTEL *************/
 
 

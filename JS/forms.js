@@ -1309,6 +1309,88 @@ $(function() {
 //********************** */
 //*** FIN OPERATOR ***
 
+//*** BANK ***
+//***Fomr insert bank***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveBank").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var tiAccount = $("select#tiAccount").val();
+    if (tiAccount == "") {
+      $("label#tiAccount_error").show();
+      $("input#tiAccount").focus();
+      return false;
+    }
+
+    var numAccount = $("input#numAccount").val();
+    if (numAccount == "") {
+      $("label#numAccount_error").show();
+      $("input#numAccount").focus();
+      return false;
+    }
+
+
+    insertBank(code,name,tiAccount,numAccount);
+      
+  });
+});
+//********************** */
+
+//***Fomr update bank***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateBank").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#code").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var tiAccount = $("select#tiAccount").val();
+    if (tiAccount == "") {
+      $("label#tiAccount_error").show();
+      $("input#tiAccount").focus();
+      return false;
+    }
+
+    var numAccount = $("input#numAccount").val();
+    if (numAccount == "") {
+      $("label#numAccount_error").show();
+      $("input#numAccount").focus();
+      return false;
+    }
+
+    updateBank(code,name,tiAccount,numAccount);
+      
+  });
+});
+//********************** */
+//*** FIN INCLUSIO ***
 
 
 //**** CANCEL SEND FORMS */
