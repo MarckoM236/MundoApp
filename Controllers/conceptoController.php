@@ -13,8 +13,11 @@
                     $objConcepto= new ConceptoModel("","");
                     $objConcepto->setCode($_POST['txbCode']);
                     $objConcepto->setName($_POST['txbName']);
+                    $concepto=$objConcepto->show();   
+                }
+                else{
+                    $objConcepto= new ConceptoModel("","");
                     $concepto=$objConcepto->show();
-                    
                 }
             } 
             catch (Exception $e) {
