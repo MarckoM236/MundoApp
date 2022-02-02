@@ -375,7 +375,7 @@
                             <!-- ITEM8-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?accion=indicador" >
+                                <a style="color:white" href="?controller=flight&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/vuelo.png">
                                     </div>
@@ -417,7 +417,7 @@
                             <!-- 11-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?accion=indicador" >
+                                <a style="color:white" href="?controller=thirdParty&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
                                     </div>

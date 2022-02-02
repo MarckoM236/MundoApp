@@ -107,11 +107,17 @@
                             
                         <?php 
                         if (isset($return_arr)){
-                        foreach($return_arr as $row ){?>
+                        foreach($return_arr as $row ){
+                          if($row['status']=="A"){
+                            $valStatus="ACTIVO";
+                        }
+                        else{
+                            $valStatus="INACTIVO";
+                        }?>
                         <tr>
                             <td><?php echo $row['code'];?></td>
                             <td><?php echo $row['name'];?></td>
-                            <td><?php echo $row['status'];?></td>
+                            <td><?php echo $valStatus;?></td>
                             <td><a href="?controller=aeroline&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
                             <td><a onclick="deleteAeroline(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>

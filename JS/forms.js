@@ -1390,7 +1390,187 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN INCLUSIO ***
+//*** FIN BANK ***
+
+//*** THIRD PARTY ***
+//***Fomr insert thirdPary***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveThirdParty").click(function() {
+      //validate fields
+      $('.error').hide();
+      var id = $("input#id").val();
+    if (id == "") {
+      $("label#id_error").show();
+      $("input#id").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var address = $("input#address").val();
+    if (address == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+
+    var phone = $("input#phone").val();
+    if (phone == "") {
+      $("label#phone_error").show();
+      $("input#phone").focus();
+      return false;
+    }
+
+    var email = $("input#email").val();
+    if (email == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
+
+    insertThirdParty(id,name,address,phone,email);
+      
+  });
+});
+//********************** */
+
+//***Fomr update third Pary***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateThirdParty").click(function() {
+      //validate fields
+      $('.error').hide();
+      var id = $("input#id").val();
+    if (id == "") {
+      $("label#id_error").show();
+      $("input#id").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var address = $("input#address").val();
+    if (address == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+
+    var phone = $("input#phone").val();
+    if (phone == "") {
+      $("label#phone_error").show();
+      $("input#phone").focus();
+      return false;
+    }
+
+    var email = $("input#email").val();
+    if (email == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
+
+    updateThirdParty(id,name,address,phone,email);
+      
+  });
+});
+//********************** */
+//*** FIN THIRD PARY ***
+
+//*** FLIGHT ***
+//***Fomr insert flight***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveFlight").click(function() {
+      //validate fields
+      $('.error').hide();
+    var codAeroline = $("select#codAeroline").val();
+    if (codAeroline == "") {
+      $("label#codAeroline_error").show();
+      $("input#CodAeroline").focus();
+      return false;
+    }
+
+    var num = $("input#num").val();
+    if (num == "") {
+      $("label#num_error").show();
+      $("input#num").focus();
+      return false;
+    }
+
+    var route = $("input#route").val();
+    if (route == "") {
+      $("label#route_error").show();
+      $("input#route").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    insertFlight(codAeroline,num,route,status);
+      
+  });
+});
+//********************** */
+
+//***Fomr update flight***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateFlight").click(function() {
+      //validate fields
+      $('.error').hide();
+    var codAeroline = $("select#codAeroline").val();
+    if (codAeroline == "") {
+      $("label#codAeroline_error").show();
+      $("input#CodAeroline").focus();
+      return false;
+    }
+
+    var num = $("input#num").val();
+    if (num == "") {
+      $("label#num_error").show();
+      $("input#num").focus();
+      return false;
+    }
+
+    var route = $("input#route").val();
+    if (route == "") {
+      $("label#route_error").show();
+      $("input#route").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    updateFlight(codAeroline,num,route,status);
+      
+  });
+});
+//********************** */
+//*** FIN FLIGHT ***
+
+
 
 
 //**** CANCEL SEND FORMS */

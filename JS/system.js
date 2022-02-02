@@ -1767,7 +1767,197 @@ if (opcion == true) {
 }
 
 }
-//******** END VALIDATION HOTEL *************/
+//******** END VALIDATION BANK *************/
+
+//*********VALIDATIONS THIRD PARTY  ************/
+
+//Insert data
+function insertThirdParty(id,name,address,phone,email) {
+  
+  //Validate data submission
+  var dataString = 'txbId='+ id + '&txbName=' + name + '&txbAddress='+ address + '&txbPhone='+ phone + '&txbEmail='+ email +'&saveThirdParty=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=thirdParty&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+  
+    
+}
+
+//Delete data
+function deleteThirdParty(id){
+var dataString = 'id='+ id;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=thirdParty&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateThirdParty(id,name,address,phone,email){
+//Validate data submission
+var dataString = 'txbId='+ id + '&txbName=' + name + '&txbAddress='+ address + '&txbPhone='+ phone + '&txbEmail='+ email +'&updateThirdParty=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=thirdParty&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=thirdParty&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION THIRD PARTY *************/
+
+//*********VALIDATIONS FLIGHT  ************/
+
+//Insert data
+function insertFlight(codAeroline,num,route,status) {
+  
+  //Validate data submission
+  var dataString = 'txbCodAeroline='+ codAeroline + '&txbNum=' + num + '&txbRoute='+ route + '&txbStatus='+ status +'&saveFlight=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=flight&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+  
+    
+}
+
+//Delete data
+function deleteFlight(num){
+var dataString = 'num='+ num;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=flight&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateFlight(codAeroline,num,route,status){
+//Validate data submission
+var dataString = 'txbCodAeroline='+ codAeroline + '&txbNum=' + num + '&txbRoute='+ route + '&txbStatus='+ status +'&updateFlight=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=flight&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=flight&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION FLIGHT *************/
+
+
 
 
 

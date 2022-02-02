@@ -18,6 +18,8 @@ include_once('inclusioController.php');
 include_once('systemController.php');
 include_once('operatorController.php');
 include_once('bankController.php');
+include_once('flightController.php');
+include_once('thirdPartyController.php');
 include_once('../Models/companyModel.php');
 include_once('../Models/estareseModel.php');
 include_once('../Models/agencyModel.php');
@@ -37,4 +39,6 @@ include_once('../Models/inclusioModel.php');
 include_once('../Models/systemModel.php');
 include_once('../Models/operatorModel.php');
 include_once('../Models/bankModel.php');
+include_once('../Models/flightModel.php');
+include_once('../Models/thirdPartyModel.php');
 ?>
