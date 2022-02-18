@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+              <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Nombre</label>
@@ -35,21 +35,21 @@
                            <label class="error" for="name" id="name_error">Campo requerido.</label>
                       </div>
                     </div>
-                </div>
-                
-
-
-               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnSaveAcomodac'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
-				 </div>
-				   <div  class="col-lg-12 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAcomodac" value="Buscar" />
-				 </div>
-			  </div>
-
               </div>
+
+              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <input id='btnSaveAcomodac'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
+                    </div>
+              </div>
+                
+              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                  <div class="row justify-content-left py-2">
+                    <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAcomodac" value="Buscar" />
+                  </div>
+              </div>
+                
+</div>
 
   <hr/>
   <?php      

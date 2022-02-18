@@ -16,6 +16,10 @@
                     $tipoAlim=$objTipoAlim->show();
                     
                 }
+                else{
+                    $objTipoAlim= new TipoAlimModel("","");
+                    $tipoAlim=$objTipoAlim->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;

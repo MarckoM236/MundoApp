@@ -14,8 +14,11 @@
                     $objCompany->setCode($_POST['txbCode']);
                     $objCompany->setName($_POST['txbName']);
                     $objCompany->setNit($_POST['txbNit']);
+                    $company=$objCompany->show();  
+                }
+                else{
+                    $objCompany= new CompanyModel("","","","","","","");
                     $company=$objCompany->show();
-                    
                 }
             } 
             catch (Exception $e) {

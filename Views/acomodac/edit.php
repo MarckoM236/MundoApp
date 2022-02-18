@@ -33,7 +33,7 @@ if(isset($res)){
                     </div>
                 </div>
 
-              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+              <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Nombre</label>
@@ -43,29 +43,27 @@ if(isset($res)){
                            <label class="error" for="name" id="name_error">Campo requerido.</label>
                       </div>
                     </div>
-                </div>
+              </div>
                 
 
 
-               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnUpdateAcomodac'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateAcomodac"/>
-				 </div>
-				   
-				 </div>
-			  </div>
+              <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
+                <div class="row justify-content-left py-2">
+                  <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                      <input id='btnUpdateAcomodac'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateAcomodac"/>
+                  </div>
+                </div>
+              </div>
 
               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('acomodac','home')"/>
-				 </div>
-				   
-				 </div>
-			  </div>
-
+                <div class="row justify-content-left py-2">
+                  <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                      <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('acomodac','home')"/>
+                  </div> 
+                </div>
               </div>
+
+</div>
 
   <hr/>
   

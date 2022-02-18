@@ -16,6 +16,10 @@
                     $acomodac=$objAcomodac->show();
                     
                 }
+                else{
+                    $objAcomodac= new AcomodacModel("","");
+                    $acomodac=$objAcomodac->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;

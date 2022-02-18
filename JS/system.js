@@ -1958,9 +1958,37 @@ if (opcion == true) {
 //******** END VALIDATION FLIGHT *************/
 
 
+//******************** VALIDATION SHOW FLIGHT ************************//
+function showFlight(num){
+  //alert(" el codigo es: "+ num);
+  var dataString = 'txbCodFlightSh='+ num +'&ShowFlight=1';
+      $.ajax({
+        type: "POST",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=liquidacFlight&action=show",
+        data: dataString,
+        dataType : 'json',
+        
+          success: function(response){ 
+          var aeroline=response.aer;
+           var route=response.rou;
+            //alert(response.aer);
+            $("#routeFl").val(route);
+            $("#aeroFli").val(aeroline);
+          
+            
+                                        
+          },
+          /* error: function(jqXHR, textStatus, error){
+            alert( "Error al actualizar los datos: " + jqXHR.responseText);
+          } */
+      });
+  }
 
+//******************** END VALIDATION SHOW FLIGHT ************************//
 
-
+function showUsers(id){
+  alert(id);
+}
 
 
 

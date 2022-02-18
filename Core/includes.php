@@ -20,6 +20,7 @@ include_once('operatorController.php');
 include_once('bankController.php');
 include_once('flightController.php');
 include_once('thirdPartyController.php');
+include_once('liquidacController.php');
 include_once('../Models/companyModel.php');
 include_once('../Models/estareseModel.php');
 include_once('../Models/agencyModel.php');
@@ -41,4 +42,5 @@ include_once('../Models/operatorModel.php');
 include_once('../Models/bankModel.php');
 include_once('../Models/flightModel.php');
 include_once('../Models/thirdPartyModel.php');
+@include_once('../Models/liquidacModel.php');
 ?>

@@ -1571,6 +1571,25 @@ $(function() {
 //*** FIN FLIGHT ***
 
 
+$(document).ready(function () {
+  $("#idUser").keyup(function () {
+      var value = $(this).val();
+      var numCharacter= value.length;
+
+      if(numCharacter>6){
+        showUsers(value);
+      }
+      
+  });
+});
+
+function ShowSelectedFlight(){
+/* Para obtener el valor */
+var num = document.getElementById("codFlight").value;
+//alert(num);
+showFlight(num);
+}
+
 
 
 //**** CANCEL SEND FORMS */

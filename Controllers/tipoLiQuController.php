@@ -16,6 +16,10 @@
                     $tipoLiQu=$objTipoLiQu->show();
                     
                 }
+                else {
+                    $objTipoLiQu= new TipoLiQuModel("","");
+                    $tipoLiQu=$objTipoLiQu->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;

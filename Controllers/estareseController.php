@@ -16,6 +16,10 @@
                     $estarese=$objEstarese->show();
                     
                 }
+                else {
+                    $objEstarese= new EstareseModel("","");  
+                    $estarese=$objEstarese->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;

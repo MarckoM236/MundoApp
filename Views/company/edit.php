@@ -38,7 +38,7 @@ if(isset($res)){
                     </div>
                 </div>
 
-              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+              <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Nombre</label>
@@ -71,7 +71,7 @@ if(isset($res)){
                       </div>
                     </div>
                 </div>
-                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Direccion</label>
@@ -106,33 +106,30 @@ if(isset($res)){
                 </div>
 
 
-               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnUpdateCompany'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateCompany"/>
-				 </div>
-				   
-				 </div>
-			  </div>
+                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
+                  <div class="row justify-content-left py-2">
+                    <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                        <input id='btnUpdateCompany'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" name="updateCompany"/>
+                    </div>
+                  </div>
+              </div>
 
               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('company','home')"/>
-				 </div>
-				   
-				 </div>
-			  </div>
-
+                <div class="row justify-content-left py-2">
+                  <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                      <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelUpdate" onclick="cancel('company','home')"/>
+                  </div>
+                </div>
               </div>
+</div>
 
   <hr/>
   
 <hr/>
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
 
-   </form>
+</form>
                 
                 <!-- Formulario -->
