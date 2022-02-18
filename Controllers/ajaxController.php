@@ -506,6 +506,31 @@ include_once('../Core/baseModel.php');
                 }
             }
 
+            //VIAJERO
+            if($_GET['controller']=='traveler'){
+                $object = new TravelerController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
             if($_GET['controller']=='liquidacFlight'){
                 $object = new LiquidacController();
                 switch ($_GET['action']) {   

@@ -1180,7 +1180,7 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN INCLUSIO ***
+//*** FIN SYSTEM ***
 
 
 //*** OPERATOR ***
@@ -1570,7 +1570,90 @@ $(function() {
 //********************** */
 //*** FIN FLIGHT ***
 
+//*** TRAVELER ***
+//***Fomr insert traveler***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveTraveler").click(function() {
+      //validate fields
+      $('.error').hide();
+     var id = $("input#id").val();
+    if (id == "") {
+      $("label#id_error").show();
+      $("input#id").focus();
+      return false;
+    }
 
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var lastName = $("input#lastName").val();
+    if (lastName == "") {
+      $("label#lastName_error").show();
+      $("input#lastName").focus();
+      return false;
+    }
+
+    var birthDate = $("input#birthDate").val();
+    if (birthDate == "") {
+      $("label#birthDate_error").show();
+      $("input#birthDate").focus();
+      return false;
+    }
+    
+    insertTraveler(id,name,lastName,birthDate);
+      
+  });
+});
+//********************** */
+
+//***Fomr update system***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateTraveler").click(function() {
+      //validate fields
+      $('.error').hide();
+      var id = $("input#id").val();
+    if (id == "") {
+      $("label#id_error").show();
+      $("input#id").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var lastName = $("input#lastName").val();
+    if (lastName == "") {
+      $("label#lastName_error").show();
+      $("input#lastName").focus();
+      return false;
+    }
+
+    var birthDate = $("input#birthDate").val();
+    if (birthDate == "") {
+      $("label#birthDate_error").show();
+      $("input#birthDate").focus();
+      return false;
+    }
+
+    updateTraveler(id,name,lastName,birthDate);
+      
+  });
+});
+//********************** */
+//*** FIN INCLUSIO ***
+
+
+//********************Query Users*************************** */
 $(document).ready(function () {
   $("#idUser").keyup(function () {
       var value = $(this).val();
@@ -1582,15 +1665,16 @@ $(document).ready(function () {
       
   });
 });
+//********************Fin Query Users*************************** */
 
+//********************Query flight*************************** */
 function ShowSelectedFlight(){
 /* Para obtener el valor */
 var num = document.getElementById("codFlight").value;
 //alert(num);
 showFlight(num);
 }
-
-
+//**************FIN Query flight***************************** */
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){

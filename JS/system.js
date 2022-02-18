@@ -1957,6 +1957,98 @@ if (opcion == true) {
 }
 //******** END VALIDATION FLIGHT *************/
 
+//*********VALIDATIONS TRAVELER ************/
+
+//Insert data
+function insertTraveler(id,name,lastName,birthDate) {
+  //Validate data submission
+  var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbBirthDate=' + birthDate + '&saveTraveler=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+     
+}
+
+//Delete data
+function deleteTraveler(id){
+var dataString = 'id='+ id;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateTraveler(id,name,lastName,birthDate){
+//Validate data submission
+var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbBirthDate=' + birthDate + '&updateTraveler=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=traveler&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION SYSTEM *************/
+
 
 //******************** VALIDATION SHOW FLIGHT ************************//
 function showFlight(num){
@@ -1987,7 +2079,27 @@ function showFlight(num){
 //******************** END VALIDATION SHOW FLIGHT ************************//
 
 function showUsers(id){
-  alert(id);
+  var dataString = 'txbCodUser='+ id +'&ShowUsers=1';
+      $.ajax({
+        type: "POST",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=liquidacFlight&action=show",
+        data: dataString,
+        dataType : 'json',
+        
+          success: function(response){ 
+          var aeroline=response.aer;
+           var route=response.rou;
+            //alert(response.aer);
+            $("#routeFl").val(route);
+            $("#aeroFli").val(aeroline);
+          
+            
+                                        
+          },
+          /* error: function(jqXHR, textStatus, error){
+            alert( "Error al actualizar los datos: " + jqXHR.responseText);
+          } */
+      });
 }
 
 

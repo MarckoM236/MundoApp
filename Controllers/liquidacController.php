@@ -62,7 +62,19 @@
 
         public function showUser(){
             if (isset($_POST['ShowUsers']) & !empty($_POST['txbCodUser'])){
+                $objUser= new UserModel("","","","");
+                $objUser->setCode($_POST['txbCode']);
+                $objUser->setName($_POST['txbName']);
 
+                foreach($dataFlight as $dataFli) {
+                    $aerolineaFli=$dataFli->getAeroline();    
+                    $routeFli=$dataFli->getRoute();
+                    
+                } 
+            }
+            else{
+                $aerolineaFli="";    
+                $routeFli=""; 
             }
 
             return $arrUser[]= array("aer"=>$aerolineaFli,"rou"=>$routeFli);
