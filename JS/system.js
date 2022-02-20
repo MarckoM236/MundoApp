@@ -2064,7 +2064,7 @@ function showFlight(num){
           var aeroline=response.aer;
            var route=response.rou;
             //alert(response.aer);
-            $("#routeFl").val(route);
+            $("#routeFli").val(route);
             $("#aeroFli").val(aeroline);
           
             
@@ -2078,20 +2078,23 @@ function showFlight(num){
 
 //******************** END VALIDATION SHOW FLIGHT ************************//
 
-function showUsers(id){
-  var dataString = 'txbCodUser='+ id +'&ShowUsers=1';
+function showTraveler(id){
+  //alert(id);
+  var dataString = 'txbCodTraveler='+ id +'&ShowTraveler=1';
       $.ajax({
         type: "POST",
-        url: "/MundoApp/Controllers/ajaxController.php?controller=liquidacFlight&action=show",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=liquidacTraveler&action=show",
         data: dataString,
         dataType : 'json',
         
           success: function(response){ 
-          var aeroline=response.aer;
-           var route=response.rou;
+          var name=response.name;
+           var lastName=response.lastName;
+           var birthDate=response.birthDate;
             //alert(response.aer);
-            $("#routeFl").val(route);
-            $("#aeroFli").val(aeroline);
+            $("#nameTraveler").val(name);
+            $("#lastNameTraveler").val(lastName);
+            $("#fecNacTraveler").val(birthDate);
           
             
                                         
@@ -2100,6 +2103,28 @@ function showUsers(id){
             alert( "Error al actualizar los datos: " + jqXHR.responseText);
           } */
       });
+}
+
+
+function addInc(cod,name){
+  var item = '<tr><td>'+cod+'</td><td>'+name+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista1").append(item);
+}
+function addNotInc(cod,name){
+  var item = '<tr><td>'+cod+'</td><td>'+name+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista2").append(item);
+}
+function addTraveler(id,name,lastName,fecNac){
+  var item = '<tr><td>'+id+'</td><td>'+name+'</td><td>'+lastName+'</td><td>'+fecNac+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#listaTrav").append(item);
+}
+function addConcept(cod,name,cant,prec,tot){
+  var item = '<tr><td>'+cod+'</td><td>'+name+'</td><td>'+cant+'</td><td>'+prec+'</td><td>'+tot+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#listaConc").append(item);
+}
+function addFlight(cod,aeroline,route,date,exit,arrival,comment){
+  var item = '<tr><td>'+cod+'</td><td>'+route+'</td><td>'+aeroline+'</td><td>'+date+'</td><td>'+exit+'</td><td>'+arrival+'</td><td>'+comment+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#listaFlight").append(item);
 }
 
 

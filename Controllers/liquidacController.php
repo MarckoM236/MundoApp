@@ -5,6 +5,8 @@
     @include_once('Models/liquidationModel.php');
     @include_once('Models/agencyModel.php');
     @include_once('Models/sellerModel.php');
+    @include_once('Models/adviserModel.php');
+    @include_once('Models/estareseModel.php');
     @include_once('Models/destinationModel.php');
     @include_once('Models/hotelModel.php');
     @include_once('Models/tipoAlimModel.php');
@@ -13,6 +15,7 @@
     @include_once('Models/flightModel.php');
     @include_once('Models/conceptoModel.php');
     @include_once('Models/inclusioModel.php');
+    @include_once('Models/travelerModel.php');
 
     class LiquidacController{
 
@@ -60,24 +63,30 @@
             return $arr[]= array("aer"=>$aerolineaFli,"rou"=>$routeFli);
         }
 
-        public function showUser(){
-            if (isset($_POST['ShowUsers']) & !empty($_POST['txbCodUser'])){
-                $objUser= new UserModel("","","","");
-                $objUser->setCode($_POST['txbCode']);
-                $objUser->setName($_POST['txbName']);
+        public function showTraveler(){
+            if (isset($_POST['ShowTraveler']) & !empty($_POST['txbCodTraveler'])){
+                $objTraveler= new TravelerModel("","","","");
+                $objTraveler->setId($_POST['txbCodTraveler']);
+                $traveler=$objTraveler->show();
 
-                foreach($dataFlight as $dataFli) {
-                    $aerolineaFli=$dataFli->getAeroline();    
-                    $routeFli=$dataFli->getRoute();
+                foreach($traveler as $data) {
+                    $nameTraveler=$data->getName();    
+                    $lastName=$data->getLastName();
+                    $bDate=$data->getBirthDate();
+
+                    //format date
+                    $dataBD=str_replace("/","-",$bDate);
+                    $birthDate = date("Y-m-d", strtotime($dataBD));
                     
                 } 
             }
             else{
-                $aerolineaFli="";    
-                $routeFli=""; 
+                $nameTraveler="";    
+                $lastName="";
+                $birthDate="";
             }
 
-            return $arrUser[]= array("aer"=>$aerolineaFli,"rou"=>$routeFli);
+            return $arrTraveler[]= array("name"=>$nameTraveler,"lastName"=>$lastName,"birthDate"=>$birthDate);
         }
         
 
@@ -89,6 +98,14 @@
             //Consult agency to complete field.
             $objSeller= new SellerModel("","","",""); 
             $seller=$objSeller->show();
+
+            //Consult adviser to complete field.
+            $objAdviser= new AdviserModel("","","","");
+            $adviser=$objAdviser->show();
+
+            //Consult esterese to complete field.
+            $objEstarese= new EstareseModel("","");
+            $estarese=$objEstarese->show();
             
             //Consult destination to complete field.
             $objDestination= new DestinationModel("","");

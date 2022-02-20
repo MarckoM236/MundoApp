@@ -1653,19 +1653,28 @@ $(function() {
 //*** FIN INCLUSIO ***
 
 
-//********************Query Users*************************** */
+//********************Query Travelers*************************** */
 $(document).ready(function () {
-  $("#idUser").keyup(function () {
+  $("#idTraveler").keyup(function () {
       var value = $(this).val();
       var numCharacter= value.length;
 
       if(numCharacter>6){
-        showUsers(value);
+        showTraveler(value);
       }
       
   });
 });
-//********************Fin Query Users*************************** */
+
+function addSelectTrav(){
+  /* Para obtener el valor */
+  var id = $("input#idTraveler").val();
+  var name = $("input#nameTraveler").val();
+  var lastName= $("input#lastNameTraveler").val();
+  var fecNac= $("input#fecNacTraveler").val();
+  addTraveler(id,name,lastName,fecNac);
+}  
+  //**************FIN Query Traveler***************************** */
 
 //********************Query flight*************************** */
 function ShowSelectedFlight(){
@@ -1674,10 +1683,97 @@ var num = document.getElementById("codFlight").value;
 //alert(num);
 showFlight(num);
 }
+
+function addSelectFlight(){
+  /* Para obtener el valor */
+  var cod = document.getElementById("codFlight").value;
+  var aeroline = $("input#aeroFli").val();
+  var route= $("input#routeFli").val();
+  var date= $("input#dateFli").val();
+  var exit= $("input#exitFli").val();
+  var arrival= $("input#arrivalFli").val();
+  var comment= $("textarea#commentFli").val();
+
+  addFlight(cod,aeroline,route,date,exit,arrival,comment);
+}
 //**************FIN Query flight***************************** */
+
+//********************Operations concepts*************************** */
+$(function() {
+  $("#preConcepto").keyup(function () {
+    var cantidad=$("input#cantConcepto").val();
+    var precio = $(this).val();
+    var total= cantidad * precio;
+
+    $("#totConcepto").val(total);
+      
+  });
+});
+
+function addSelectConcept(){
+  /* Para obtener el valor */
+  var cod = document.getElementById("codConc").value;
+  var name = document.getElementById("codConcepto");
+  var selected = name.options[name.selectedIndex].text;
+  var cantidad = $("input#cantConcepto").val();
+  var precio= $("input#preConcepto").val();
+  var total= $("input#totConcepto").val();
+
+  addConcept(cod,selected,cantidad,precio,total);
+}  
+
+//********************End operations concepts*************************** */
+
+//********************Query Include*************************** */
+function ShowSelectedInc(){
+  /* Para obtener el valor */
+  var cod = document.getElementById("codConcepto").value;
+  var name = document.getElementById("codConcepto");
+  var selected = name.options[name.selectedIndex].text;
+  //alert(cod+" "+selected);
+  const Inc = [cod,selected];
+  return Inc;
+  }
+function addSelectInc(){
+  addInc(ShowSelectedInc()[0],ShowSelectedInc()[1]);
+}  
+  //**************FIN Query include***************************** */
+  //********************Query Not Include*************************** */
+function ShowSelectedNotInc(){
+  /* Para obtener el valor */
+  var cod = document.getElementById("codConceptoN").value;
+  var name = document.getElementById("codConceptoN");
+  var selected = name.options[name.selectedIndex].text;
+  //alert(cod+" "+selected);
+  const Inc = [cod,selected];
+  return Inc;
+  }
+function addSelectNotInc(){
+  addNotInc(ShowSelectedInc()[0],ShowSelectedInc()[1]);
+}  
+  //**************FIN Query Not include***************************** */
+  
 
 //**** CANCEL SEND FORMS */
 function cancel(c,a){
     window.location='?controller='+c+'&action='+a;
   }
 //**** END CANCEL SEND FORMS */
+
+//***********VALIDATIONS CHEKBOX************* */
+
+function uncheck(){
+  var checkbox1 = document.getElementById("liquN");
+  var checkbox2 = document.getElementById("liquI"); 
+ checkbox1.onclick = function(){ 
+ if(checkbox1.checked != false){ 
+ checkbox2.checked =null; }
+  } 
+ checkbox2.onclick = function(){ 
+ if(checkbox2.checked != false){ 
+ checkbox1.checked=null;
+  }
+  } 
+ }
+
+//***********END VALIDATION CHEKBOX*********** */

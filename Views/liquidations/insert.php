@@ -105,7 +105,29 @@ if(isset($agency)){
                        $arr_inclusio[] = array("codeInclusio" => $codeInclusio,
                        "nameInclusio" => $nameInclusio);    
                    }
-                   }                        
+                   }   
+                   
+                   if(isset($adviser)){
+                    foreach($adviser as $dataAdv) {
+                       $idAdviser=$dataAdv->getId();
+                       $nameAdviser=$dataAdv->getName()." ".$dataAdv->getLastName();
+                       $statusAdviser=$dataAdv->getStatus();
+   
+                       $arr_adviser[] = array("idAdviser" => $idAdviser,
+                       "nameAdviser" => $nameAdviser,
+                       "statusAdviser" => $statusAdviser);    
+                   }
+                   }  
+                   
+                   if(isset($estarese)){
+                    foreach($estarese as $dataEst) {
+                        $codeEstarese=$dataEst->getCode();
+                        $nameEstarese=$dataEst->getName();
+   
+                       $arr_estarese[] = array("codeEstarese" => $codeEstarese,
+                       "nameEstarese" => $nameEstarese);    
+                   }
+                   }                     
                                
 ?>
 <div class="row justify-content-center">
@@ -121,11 +143,11 @@ if(isset($agency)){
 <hr>
 <div class="container">
     <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+    <input class="form-check-input" type="checkbox" id="liquN" value="LN" onclick="uncheck()">
     <label class="form-check-label" for="inlineCheckbox1">Liquidacion Nacional</label>
     </div>
     <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+    <input class="form-check-input" type="checkbox" id="liquI" value="LI" onclick="uncheck()">
     <label class="form-check-label" for="inlineCheckbox2">Liquidacion Internacional</label>
     </div>
 </div>
@@ -202,6 +224,48 @@ if(isset($agency)){
                         }?>         
                 </select>
                     <label class="error" for="status" id="status_error">Campo requerido.</label>
+                </div>
+            </div>
+        </div>
+
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                        <label>Asersor</label>
+                </div>
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
+                <select name="txbCodeAdviser" id="codAviser" class="form-select inputFomulario" placeholder="Opciones"> 
+                    <option select value="">SELECCIONE</option>
+                    <?php if (isset($arr_adviser)){
+                            foreach($arr_adviser as $rowAdv ){
+                                if($rowAdv['statusAdviser']=="A"){?>
+                                <option select value="<?php echo $rowAdv['idAdviser'];?>"><?php echo $rowAdv['nameAdviser'];?></option>
+                        <?php }
+                            }
+                        }?>         
+                </select>
+                    <label class="error" for="status" id="status_error">Campo requerido.</label>
+                </div>
+            </div>
+        </div>
+
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                        <label>Estado Reserva</label>
+                </div>
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
+                <select name="txbCodeEstarese" id="codEstarse" class="form-select inputFomulario" placeholder="Opciones"> 
+                    <option select value="">SELECCIONE</option>
+                    <?php if (isset($arr_estarese)){
+                            foreach($arr_estarese as $rowEst ){?>
+                                <option select value="<?php echo $rowEst['codeEstarese'];?>"><?php echo $rowEst['nameEstarese'];?></option>
+                        <?php }
+                        }?>         
+                </select>
+                    <label class="error" for="estarese" id="estarese_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
@@ -403,7 +467,7 @@ if(isset($agency)){
                         <label>Ruta</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="ruta" id="routeFl" name="txbCode" readonly>
+                    <input class="form-control inputFomulario" type="text" placeholder="ruta" id="routeFli" name="txbCode" readonly>
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
@@ -415,7 +479,7 @@ if(isset($agency)){
                         <label>Fecha</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="date" placeholder="fecha" id="code" name="txbCode">
+                    <input class="form-control inputFomulario" type="date" placeholder="fecha" id="dateFli" name="txbCode">
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
@@ -427,7 +491,7 @@ if(isset($agency)){
                         <label>Salida</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="time" placeholder="salida" id="code" name="txbCode">
+                    <input class="form-control inputFomulario" type="time" placeholder="salida" id="exitFli" name="txbCode">
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
@@ -439,7 +503,7 @@ if(isset($agency)){
                         <label>Llegada</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="time" placeholder="llegada" id="code" name="txbCode">
+                    <input class="form-control inputFomulario" type="time" placeholder="llegada" id="arrivalFli" name="txbCode">
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
@@ -451,51 +515,83 @@ if(isset($agency)){
                         <label>Observaciones</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <textarea class="form-control inputFomulario" type="text" placeholder="obs" id="code" name="txbCode"></textarea>
+                    <textarea class="form-control inputFomulario" type="text" placeholder="obs" id="commentFli" name="txbCode"></textarea>
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
+            </div>
+        </div>
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <input id='btnAddFli'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectFlight()"/>
             </div>
         </div>
 
     </div>
 </div>
-
+<!-- results-->
+<table>
+  <thead>
+    <th>vuelo</th>
+    <th>Ruta</th>
+    <th>Aerolinea</th>
+    <th>Fecha</th>
+    <th>Salida</th>
+    <th>Llegada</th>
+    <th>Comentarios</th>
+    <th></th>
+  </thead>
+  <tbody id="listaFlight">
+  </tbody>
+</table>
+<!-- fin results-->
 <hr>
 
 <div class="container">
     <div class="row justify-content-left py-2">
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Identificacion</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="identificacion" id="idUser" name="txbCode">
+                    <input class="form-control inputFomulario" type="text" placeholder="identificacion" id="idTraveler" name="txbCode">
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Nombre </label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="nombre" id="code" name="txbCode">
+                    <input class="form-control inputFomulario" type="text" placeholder="nombre" id="nameTraveler" name="txbCode" readonly>
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Apellido</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="apellido" id="code" name="txbCode">
+                    <input class="form-control inputFomulario" type="text" placeholder="apellido" id="lastNameTraveler" name="txbCode" readonly>
+                    <label class="error" for="code" id="code_error">Campo requerido.</label>
+                </div>
+            </div>
+        </div>
+
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                        <label>Fecha Nacimiento</label>
+                </div>
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <input class="form-control inputFomulario" type="date" placeholder="llegada" id="fecNacTraveler" name="txbCode" readonly>
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
@@ -503,19 +599,25 @@ if(isset($agency)){
 
         <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
             <div class="row justify-content-left py-2">
-                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                        <label>Fecha Nacimiento</label>
-                </div>
-                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="llegada" id="fecNa" name="txbCode">
-                    <label class="error" for="code" id="code_error">Campo requerido.</label>
-                </div>
+                <input id='btnAddTrav'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectTrav()"/>
             </div>
         </div>
 
     </div>
 </div>
-
+<!-- results-->
+<table>
+  <thead>
+    <th>Identificacion</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>fecha Nacimiento</th>
+    <th></th>
+  </thead>
+  <tbody id="listaTrav">
+  </tbody>
+</table>
+<!-- fin results-->
 <hr>
 
 <div class="container">
@@ -528,11 +630,13 @@ if(isset($agency)){
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                 <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                <select name="txbCodeConcepto" id="codConcepto" class="form-select inputFomulario" placeholder="Opciones"> 
+                <select name="txbCodeConcepto" id="codConcepto" class="form-select inputFomulario" placeholder="Opciones" onchange="ShowSelectedInc()"> 
                     <option select value="">SELECCIONE</option>
                     <?php if (isset($arr_inclusio)){
-                            foreach($arr_inclusio as $rowInc ){?>
-                    <option select value="<?php echo $rowInc['codeInclusio'];?>"><?php echo $rowInc['nameInclusio'];?></option>
+                            foreach($arr_inclusio as $rowInc ){
+                                $codInc=$rowInc['codeInclusio'];
+                                $nameInc=$rowInc['nameInclusio'];?>
+                    <option select value="<?php echo $codInc;?>"><?php echo $nameInc;?></option>
                         <?php 
                             }
                         }?>         
@@ -542,9 +646,24 @@ if(isset($agency)){
             </div>
         </div>
 
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <input id='btnAddInc'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectInc()"/>
+            </div>
+        </div>
+
     </div>
 </div>
-
+<!-- results-->
+<table>
+  <thead>
+    <th>Codigo</th>
+    <th>Nombre</th>
+  </thead>
+  <tbody id="lista1">
+  </tbody>
+</table>
+<!-- fin results-->
 <hr>
 
 <div class="container">
@@ -557,11 +676,13 @@ if(isset($agency)){
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                 <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                <select name="txbCodeConcepto" id="codConcepto" class="form-select inputFomulario" placeholder="Opciones"> 
+                <select name="txbCodeConceptoN" id="codConceptoN" class="form-select inputFomulario" placeholder="Opciones" onchange="ShowSelectedNotInc()"> 
                     <option select value="">SELECCIONE</option>
                     <?php if (isset($arr_inclusio)){
-                            foreach($arr_inclusio as $rowInc ){?>
-                    <option select value="<?php echo $rowInc['codeInclusio'];?>"><?php echo $rowInc['nameInclusio'];?></option>
+                            foreach($arr_inclusio as $rowInc ){
+                                $codInc=$rowInc['codeInclusio'];
+                                $nameInc=$rowInc['nameInclusio'];?>
+                    <option select value="<?php echo $codInc;?>"><?php echo $nameInc;?></option>
                         <?php 
                             }
                         }?>         
@@ -570,10 +691,24 @@ if(isset($agency)){
                 </div>
             </div>
         </div>
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <input id='btnAddNotInc'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectNotInc()"/>
+            </div>
+        </div>
 
     </div>
 </div>
-
+<!-- results-->
+<table>
+  <thead>
+    <th>Codigo</th>
+    <th>Nombre</th>
+  </thead>
+  <tbody id="lista2">
+  </tbody>
+</table>
+<!-- fin results-->
 <hr>
     <p>LIQUIDACION</p>
 <hr>
@@ -588,11 +723,13 @@ if(isset($agency)){
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                 <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                <select name="txbCodeConcepto" id="codConcepto" class="form-select inputFomulario" placeholder="Opciones"> 
+                <select name="txbCodeConc" id="codConc" class="form-select inputFomulario" placeholder="Opciones"> 
                     <option select value="">SELECCIONE</option>
                     <?php if (isset($arr_concepto)){
-                            foreach($arr_concepto as $rowCon ){?>
-                    <option select value="<?php echo $rowCon['codeConc'];?>"><?php echo $rowCon['nameConc'];?></option>
+                            foreach($arr_concepto as $rowConc ){
+                                $codConc=$rowConc['codeConc'];
+                                $nameConc=$rowConc['nameConc'];?>
+                    <option select value="<?php echo $codConc;?>"><?php echo $nameConc;?></option>
                         <?php 
                             }
                         }?>         
@@ -608,7 +745,7 @@ if(isset($agency)){
                         <label>Cantidad</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="cantidad" id="cantidad" name="txbCode">
+                    <input class="form-control inputFomulario" type="text" placeholder="cantidad" id="cantConcepto" name="txbCode">
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
@@ -620,7 +757,7 @@ if(isset($agency)){
                         <label>Precio</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="number" placeholder="precio" id="precio" name="txbCode">
+                    <input class="form-control inputFomulario" type="number" placeholder="precio" id="preConcepto" name="txbCode">
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
@@ -632,15 +769,34 @@ if(isset($agency)){
                         <label>Total</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="number" placeholder="total" id="total" name="txbCode" readonly>
+                    <input class="form-control inputFomulario" type="number" placeholder="total" id="totConcepto" name="txbCode" readonly>
                     <label class="error" for="code" id="code_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
 
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <input id='btnAddConcept'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectConcept()"/>
+            </div>
+        </div>
+
     </div>
 </div>
-
+<!-- results-->
+<table>
+  <thead>
+    <th>Codigo</th>
+    <th>Servicio</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+    <th>Total</th>
+    <th></th>
+  </thead>
+  <tbody id="listaConc">
+  </tbody>
+</table>
+<!-- fin results-->
 <hr>
 
 <div class="container">
