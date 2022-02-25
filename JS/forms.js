@@ -1650,8 +1650,278 @@ $(function() {
   });
 });
 //********************** */
-//*** FIN INCLUSIO ***
+//*** FIN TRAVELER ***
 
+//*** LIQUIDAC ***
+//***Fomr insert Liquidac***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveLiquidation").click(function() {
+      //validate fields
+      $('.error').hide();
+
+    var tipoLiqu = "";
+    if( $('#liquN').prop('checked') ) {
+      tipoLiqu=1;
+    }
+      
+    else if( $('#liquI').prop('checked') ) {
+      tipoLiqu=2;
+    }
+    else{
+      alert("Selecccione el tipo de liquidacion");
+    }
+    
+    
+    var fechaSis = $("input#fechaSis").val();
+    if (fechaSis == "") {
+      $("label#fechaSis_error").show();
+      $("input#fechaSis").focus();
+      return false;
+    }
+
+    var codLiqu = $("input#codLiqu").val();
+    if (codLiqu == "") {
+      $("label#codLiqu_error").show();
+      $("input#codLiqu").focus();
+      return false;
+    }
+
+    var codAgency = $("select#codAgency").val();
+    if (codAgency == "") {
+      $("label#codAgency_error").show();
+      $("select#codAgency").focus();
+      return false;
+    }
+    var codSeller = $("select#codSeller").val();
+    if (codSeller == "") {
+      $("label#codSeller_error").show();
+      $("select#codSeller").focus();
+      return false;
+    }
+    var codAdviser = $("select#codAviser").val();
+    if (codAdviser == "") {
+      $("label#codAdviser_error").show();
+      $("select#codAviser").focus();
+      return false;
+    }
+    var codEstarese = $("select#codEstarese").val();
+    if (codEstarese == "") {
+      $("label#codEstarese_error").show();
+      $("select#codEstarese").focus();
+      return false;
+    }
+
+    var fecViDeLiqu = $("input#fecViDeLiqu").val();
+    if (fecViDeLiqu == "") {
+      $("label#fecViDeLiqu_error").show();
+      $("input#fecViDeLiqu").focus();
+      return false;
+    }
+    var codDestination = $("select#codDestination").val();
+    if (codDestination == "") {
+      $("label#codDestination_error").show();
+      $("select#codDestination").focus();
+      return false;
+    }
+    var codHotel = $("select#codHotel").val();
+    if (codHotel == "") {
+      $("label#codHotel_error").show();
+      $("select#codHotel").focus();
+      return false;
+    }
+    var codHostal = $("select#codHostal").val();
+    if (codHostal == "") {
+      $("label#codHostal_error").show();
+      $("select#codHostal").focus();
+      return false;
+    }
+    var codAlim = $("select#codAlim").val();
+    if (codAlim == "") {
+      $("label#codAlim_error").show();
+      $("select#codAlim").focus();
+      return false;
+    }
+    var codPlan = $("select#codPlan").val();
+    if (codPlan == "") {
+      $("label#codPlan_error").show();
+      $("select#codPlan").focus();
+      return false;
+    }
+    var codAcomodac = $("select#codAcomodac").val();
+    if (codAcomodac == "") {
+      $("label#codAcomodac_error").show();
+      $("select#codAcomodac").focus();
+      return false;
+    }
+
+    /* var aeroFli = $("input#aeroFli").val();
+    if (aeroFli == "") {
+      $("label#aeroFli_error").show();
+      $("input#aeroFli").focus();
+      return false;
+    }
+    var codFlight = $("select#codFlight").val();
+    if (codFlight == "") {
+      $("label#codFlight_error").show();
+      $("select#codFlight").focus();
+      return false;
+    }
+    var routeFli = $("input#routeFli").val();
+    if (routeFli == "") {
+      $("label#routeFli_error").show();
+      $("input#routeFli").focus();
+      return false;
+    }
+    var dateFli = $("input#dateFli").val();
+    if (dateFli == "") {
+      $("label#dateFli_error").show();
+      $("input#dateFli").focus();
+      return false;
+    }
+    var exitFli = $("input#exitFli").val();
+    if (exitFli == "") {
+      $("label#exitFli_error").show();
+      $("input#exitFli").focus();
+      return false;
+    }
+    var arrivalFli = $("input#arrivalFli").val();
+    if (arrivalFli == "") {
+      $("label#arrivalFli_error").show();
+      $("input#arrivalFli").focus();
+      return false;
+    }
+    var commentFli = $("input#commentFli").val();
+    if (commentFli == "") {
+      $("label#commentFli_error").show();
+      $("input#commentFli").focus();
+      return false;
+    }
+
+    var commentFli = $("input#commentFli").val();
+    if (commentFli == "") {
+      $("label#commentFli_error").show();
+      $("input#commentFli").focus();
+      return false;
+    }
+    var commentFli = $("input#commentFli").val();
+    if (commentFli == "") {
+      $("label#commentFli_error").show();
+      $("input#commentFli").focus();
+      return false;
+    }
+    var commentFli = $("input#commentFli").val();
+    if (commentFli == "") {
+      $("label#commentFli_error").show();
+      $("input#commentFli").focus();
+      return false;
+    }
+    var commentFli = $("input#commentFli").val();
+    if (commentFli == "") {
+      $("label#commentFli_error").show();
+      $("input#commentFli").focus();
+      return false;
+    } */
+    
+    var valTotTraveler = $("input#valTotTraveler").val();
+    if (valTotTraveler == "") {
+      $("label#valTotTraveler_error").show();
+      $("input#valTotTraveler").focus();
+      return false;
+    }
+    var descuento=10;
+    //insertTraveler(id,name,lastName,birthDate); 
+    var valIvaLiqu = $("input#valIvaLiqu").val();
+    if (valIvaLiqu == "") {
+      $("label#valIvaLiqu_error").show();
+      $("input#valIvaLiqu").focus();
+      return false;
+    }
+    var valIcaLiqu = $("input#valIcaLiqu").val();
+    if (valIcaLiqu == "") {
+      $("label#valIcaLiqu_error").show();
+      $("input#valIcaLiqu").focus();
+      return false;
+    }
+    var valRtfLiqu = $("input#valRtfLiqu").val();
+    if (valRtfLiqu == "") {
+      $("label#valRtfLiqu_error").show();
+      $("input#valRtfLiqu").focus();
+      return false;
+    }
+    var valTotEmp = $("input#valTotEmp").val();
+    if (valTotEmp == "") {
+      $("label#valTotEmp_error").show();
+      $("input#valTotEmp").focus();
+      return false;
+    }
+    var pl50Liqu = $("input#pl50Liqu").val();
+    if (pl50Liqu == "") {
+      $("label#pl50Liqu_error").show();
+      $("input#pl50Liqu").focus();
+      return false;
+    }
+    var pl100Liqu = $("input#pl100Liqu").val();
+    if (pl100Liqu == "") {
+      $("label#pl100Liqu_error").show();
+      $("input#pl100Liqu").focus();
+      return false;
+    }
+    var valRtfLiqu = $("input#valRtfLiqu").val();
+    if (valRtfLiqu == "") {
+      $("label#valRtfLiqu_error").show();
+      $("input#valRtfLiqu").focus();
+      return false;
+    }
+
+    var usuario=1;
+
+    insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario);
+      
+  });
+});
+//********************** */
+
+//***Fomr update Liquidac***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateTraveler").click(function() {
+      //validate fields
+      $('.error').hide();
+      var id = $("input#id").val();
+    if (id == "") {
+      $("label#id_error").show();
+      $("input#id").focus();
+      return false;
+    }
+
+    var name = $("input#name").val();
+    if (name == "") {
+      $("label#name_error").show();
+      $("input#name").focus();
+      return false;
+    }
+
+    var lastName = $("input#lastName").val();
+    if (lastName == "") {
+      $("label#lastName_error").show();
+      $("input#lastName").focus();
+      return false;
+    }
+
+    var birthDate = $("input#birthDate").val();
+    if (birthDate == "") {
+      $("label#birthDate_error").show();
+      $("input#birthDate").focus();
+      return false;
+    }
+
+    updateTraveler(id,name,lastName,birthDate);
+      
+  });
+});
+//********************** */
+//*** FIN LIQUIDAC ***
 
 //********************Query Travelers*************************** */
 $(document).ready(function () {
@@ -1700,12 +1970,12 @@ function addSelectFlight(){
 
 //********************Operations concepts*************************** */
 $(function() {
-  $("#preConcepto").keyup(function () {
-    var cantidad=$("input#cantConcepto").val();
+  $("#preConc").keyup(function () {
+    var cantidad=$("input#cantConc").val();
     var precio = $(this).val();
     var total= cantidad * precio;
 
-    $("#totConcepto").val(total);
+    $("#totConc").val(total);
       
   });
 });
@@ -1713,11 +1983,11 @@ $(function() {
 function addSelectConcept(){
   /* Para obtener el valor */
   var cod = document.getElementById("codConc").value;
-  var name = document.getElementById("codConcepto");
+  var name = document.getElementById("codConc");
   var selected = name.options[name.selectedIndex].text;
-  var cantidad = $("input#cantConcepto").val();
-  var precio= $("input#preConcepto").val();
-  var total= $("input#totConcepto").val();
+  var cantidad = $("input#cantConc").val();
+  var precio= $("input#preConc").val();
+  var total= $("input#totConc").val();
 
   addConcept(cod,selected,cantidad,precio,total);
 }  
@@ -1725,32 +1995,24 @@ function addSelectConcept(){
 //********************End operations concepts*************************** */
 
 //********************Query Include*************************** */
-function ShowSelectedInc(){
+function addSelectedInc(){
   /* Para obtener el valor */
   var cod = document.getElementById("codConcepto").value;
   var name = document.getElementById("codConcepto");
   var selected = name.options[name.selectedIndex].text;
-  //alert(cod+" "+selected);
-  const Inc = [cod,selected];
-  return Inc;
+  addInc(cod,selected);
   }
-function addSelectInc(){
-  addInc(ShowSelectedInc()[0],ShowSelectedInc()[1]);
-}  
   //**************FIN Query include***************************** */
+
   //********************Query Not Include*************************** */
-function ShowSelectedNotInc(){
+function addSelectedNotInc(){
   /* Para obtener el valor */
   var cod = document.getElementById("codConceptoN").value;
   var name = document.getElementById("codConceptoN");
   var selected = name.options[name.selectedIndex].text;
   //alert(cod+" "+selected);
-  const Inc = [cod,selected];
-  return Inc;
+  addNotInc(cod,selected);
   }
-function addSelectNotInc(){
-  addNotInc(ShowSelectedInc()[0],ShowSelectedInc()[1]);
-}  
   //**************FIN Query Not include***************************** */
   
 
@@ -1761,7 +2023,6 @@ function cancel(c,a){
 //**** END CANCEL SEND FORMS */
 
 //***********VALIDATIONS CHEKBOX************* */
-
 function uncheck(){
   var checkbox1 = document.getElementById("liquN");
   var checkbox2 = document.getElementById("liquI"); 
@@ -1775,5 +2036,123 @@ function uncheck(){
   }
   } 
  }
-
 //***********END VALIDATION CHEKBOX*********** */
+
+
+//******** remove rows from pivot table containing items (inclusio) */
+$(document).on('click', '.deleteInclusio', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+});
+//****************************************************************************** */
+
+//******** remove rows from pivot table containing items (No inclusio) */
+$(document).on('click', '.deleteNoInclusio', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+});
+//****************************************************************************** */
+
+//******** remove rows from pivot table containing items (concept) */
+$(document).on('click', '.deleteConc', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+});
+//****************************************************************************** */
+
+//******** remove rows from pivot table containing items (traveler) */
+$(document).on('click', '.deleteTraveler', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+});
+//****************************************************************************** */
+
+//******** remove rows from pivot table containing items (Flight) */
+$(document).on('click', '.deleteFlight', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+});
+//****************************************************************************** */
+
+//*************** Añadir elementos de la tabla dinamica inclusiones a un array */
+function arrIncludes(){
+let includes = [];
+document.querySelectorAll('.table-include tbody tr').forEach(function(e){
+  let fila = {
+    codI: e.querySelector('.codI').innerText,
+    nameI: e.querySelector('.nameI').innerText
+  };
+  includes.push(fila);
+});
+//console.log(includes);
+}
+//**************************************************************************** */
+
+//*************** Añadir elementos de la tabla dinamica No inclusiones a un array */
+function arrNoIncludes(){
+  let NoIncludes = [];
+  document.querySelectorAll('.table-NoInclude tbody tr').forEach(function(e){
+    let fila = {
+      codNI: e.querySelector('.codNI').innerText,
+      nameNI: e.querySelector('.nameNI').innerText
+    };
+    NoIncludes.push(fila);
+  });
+  //console.log(includes);
+  }
+  //**************************************************************************** */
+
+  //*************** Añadir elementos de la tabla dinamica viajero a un array */
+function arrTraveler(){
+  let traveler = [];
+  document.querySelectorAll('.table-Traveler tbody tr').forEach(function(e){
+    let fila = {
+      idTr: e.querySelector('.idTr').innerText,
+      nameTr: e.querySelector('.nameTr').innerText,
+      lastNameTr: e.querySelector('.lastNameTr').innerText,
+      birthDateTr: e.querySelector('.birthDateTr').innerText
+    };
+    traveler.push(fila);
+  });
+  //console.log(includes);
+  }
+  //**************************************************************************** */
+
+//*************** Añadir elementos de la tabla dinamica viajero a un array */
+function arrConcept(){
+  let concept = [];
+  document.querySelectorAll('.table-Concept tbody tr').forEach(function(e){
+    let fila = {
+      codConc: e.querySelector('.codConc').innerText,
+      nameConc: e.querySelector('.nameConc').innerText,
+      cantConc: e.querySelector('.cantConc').innerText,
+      preConc: e.querySelector('.preConc').innerText,
+      totConc: e.querySelector('.totConc').innerText
+    };
+    concept.push(fila);
+  });
+  //console.log(includes);
+  }
+  //**************************************************************************** */
+
+  //*************** Añadir elementos de la tabla dinamica viajero a un array */
+function arrFlight(){
+  let flight = [];
+  document.querySelectorAll('.table-Flight tbody tr').forEach(function(e){
+    let fila = {
+      codFli: e.querySelector('.codFli').innerText,
+      rouFli: e.querySelector('.rouFli').innerText,
+      aerFli: e.querySelector('.aerFli').innerText,
+      dateFli: e.querySelector('.dateFli').innerText,
+      exitFli: e.querySelector('.exitFli').innerText,
+      arriFli: e.querySelector('.arriFli').innerText,
+      commFli: e.querySelector('.commFli').innerText
+    };
+    flight.push(fila);
+  });
+  //console.log(includes);
+  }
+  //**************************************************************************** */
+
+
+

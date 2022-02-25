@@ -2,7 +2,7 @@
 /* Get the data from the form, send it to the model and return results to the view. */
     @include_once('Core/baseModel.php');
     @include_once('Core/db.php');
-    @include_once('Models/liquidationModel.php');
+    @include_once('Models/liquidacModel.php');
     @include_once('Models/agencyModel.php');
     @include_once('Models/sellerModel.php');
     @include_once('Models/adviserModel.php');
@@ -138,38 +138,46 @@
             //Consult concepto to complete field.
             $objConcepto= new ConceptoModel("","");
             $concepto=$objConcepto->show();
-
-
-            include_once('Views/liquidations/insert.php');
+            
+            $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+            $numLiqu=$objLiquidac->showUltimate();
             
             if (isset($_POST['saveLiquidac'])){
+                //Format date
+                $datePl50 = date_create($_POST['txbPl50Liqu']);
+                $dp50=date_format($datePl50,"d/m/Y");
 
-                $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
+                $datePl100 = date_create($_POST['txbPl100Liqu']);
+                $dp100=date_format($datePl100,"d/m/Y");
+                //print_r($_POST);
+                $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                 
-                $objLiquidac->setCode($_POST['txbCode']);
-                $objLiquidac->setName($_POST['txbTiLi']);
-                $objLiquidac->setName($_POST['txbCodeFeGe']);
-                $objLiquidac->setName($_POST['txbCodeAgen']);
-                $objLiquidac->setName($_POST['txbCodeVend']);
-                $objLiquidac->setName($_POST['txbCodeDest']);
-                $objLiquidac->setName($_POST['txbCodeHote']);
-                $objLiquidac->setName($_POST['txbCodeTiAl']);
-                $objLiquidac->setName($_POST['txbCodePlan']);
-                $objLiquidac->setName($_POST['txbCodeAcom']);
-                $objLiquidac->setName($_POST['txbPoDe']);
-                $objLiquidac->setName($_POST['txbVaPa']);
-                $objLiquidac->setName($_POST['txbVaIv']);
-                $objLiquidac->setName($_POST['txbVaIc']);
-                $objLiquidac->setName($_POST['txbVaRf']);
-                $objLiquidac->setName($_POST['txbVaEm']);
-                $objLiquidac->setName($_POST['txbFePa']);
-                $objLiquidac->setName($_POST['txbFeTo']);
-                $objLiquidac->setName($_POST['txbCodeUsua']);
-                
+                $objLiquidac->setTipoLiqu($_POST['txbChTipoLiqu']);
+                $objLiquidac->setFecSis($_POST['txbfecSis']);
+                $objLiquidac->setCodeLiqu($_POST['txbCodeLiqu']);
+                $objLiquidac->setCodeAgency($_POST['txbCodeAgency']);
+                $objLiquidac->setCodeSeller($_POST['txbCodeSeller']);
+                $objLiquidac->setCodeAdviser($_POST['txbCodeAdviser']);
+                $objLiquidac->setCodeDestination($_POST['txbCodeDestination']);
+                $objLiquidac->setCodeHotel($_POST['txbCodeHotel']);
+                $objLiquidac->setCodeAlim($_POST['txbCodeAlim']);
+                $objLiquidac->setCodePlan($_POST['txbCodePlan']);
+                $objLiquidac->setCodeAcomodac($_POST['txbCodeAcomodac']);
+                $objLiquidac->setValTotTraveler($_POST['txbValTotTraveler']);
+                $objLiquidac->setValDes($_POST['txbValDes']);
+                $objLiquidac->setValIvaLiqu($_POST['txbValIvaLiqu']);
+                $objLiquidac->setValIcaLiqu($_POST['txbValIcaLiqu']);
+                $objLiquidac->setValRtfLiqu($_POST['txbValRtfLiqu']);
+                $objLiquidac->setValTotEmp($_POST['txbvalTotEmp']);
+                $objLiquidac->setPl50Liqu($dp50);
+                $objLiquidac->setPl100Liqu($dp100);
+                $objLiquidac->setIdUser($_POST['txbIdUser']);
+                //print_r($objLiquidac);
                 $resInsert=$objLiquidac->insert();
-
+                
+                return $resInsert;
             }
-            return $resInsert;
+            include_once('Views/liquidations/insert.php');
         }
 
         public function update(){

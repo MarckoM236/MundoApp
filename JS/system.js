@@ -2047,7 +2047,99 @@ if (opcion == true) {
 }
 
 }
-//******** END VALIDATION SYSTEM *************/
+//******** END VALIDATION TRAVELER *************/
+
+//*********VALIDATIONS LIQUIDAC ************/
+
+//Insert data
+function insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario) {
+  //Validate data submission
+  var dataString = 'txbChTipoLiqu='+ tipoLiqu + '&txbfecSis=' + fechaSis + '&txbCodeLiqu=' + codLiqu + '&txbCodeAgency=' + codAgency + '&txbCodeSeller=' + codSeller + '&txbCodeAdviser=' + codAdviser + '&txbCodeDestination=' + codDestination + '&txbCodeHotel=' + codHotel + '&txbCodeAlim=' + codAlim + '&txbCodePlan=' + codPlan + '&txbCodeAcomodac=' + codAcomodac + '&txbValTotTraveler=' + valTotTraveler + '&txbValDes=' + descuento +  '&txbValIvaLiqu=' + valIvaLiqu + '&txbValIcaLiqu=' + valIcaLiqu + '&txbValRtfLiqu=' + valRtfLiqu + '&txbvalTotEmp=' + valTotEmp + '&txbPl50Liqu=' + pl50Liqu + '&txbPl100Liqu=' + pl100Liqu + '&txbIdUser=' + usuario + '&saveLiquidac=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=liquidac&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+     
+}
+
+//Delete data
+function deleteTraveler(id){
+var dataString = 'id='+ id;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateTraveler(id,name,lastName,birthDate){
+//Validate data submission
+var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbBirthDate=' + birthDate + '&updateTraveler=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=traveler&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION LIQUIDAC *************/
 
 
 //******************** VALIDATION SHOW FLIGHT ************************//
@@ -2107,23 +2199,23 @@ function showTraveler(id){
 
 
 function addInc(cod,name){
-  var item = '<tr><td>'+cod+'</td><td>'+name+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+  var item = '<tr><td class="codI ocultar">'+cod+'</td><td class="nameI">'+name+'</td><td> <a href="#"class="btn btn-danger deleteInclusio"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista1").append(item);
 }
 function addNotInc(cod,name){
-  var item = '<tr><td>'+cod+'</td><td>'+name+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+  var item = '<tr><td class="codNI ocultar">'+cod+'</td><td class="nameNI">'+name+'</td><td> <a href="#"class="btn btn-danger deleteNoInclusio"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista2").append(item);
 }
 function addTraveler(id,name,lastName,fecNac){
-  var item = '<tr><td>'+id+'</td><td>'+name+'</td><td>'+lastName+'</td><td>'+fecNac+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+  var item = '<tr><td class="idTr">'+id+'</td><td class="nameTr">'+name+'</td><td class="lastNameTr">'+lastName+'</td><td class="birthDateTr">'+fecNac+'</td><td> <a href="#"class="btn btn-danger deleteTraveler"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#listaTrav").append(item);
 }
 function addConcept(cod,name,cant,prec,tot){
-  var item = '<tr><td>'+cod+'</td><td>'+name+'</td><td>'+cant+'</td><td>'+prec+'</td><td>'+tot+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+  var item = '<tr><td class="codConc ocultar">'+cod+'</td><td class="nameConc">'+name+'</td><td class="cantConc">'+cant+'</td><td class="preConc">'+prec+'</td><td class="totConc">'+tot+'</td><td> <a href="#"class="btn btn-danger deleteConc"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#listaConc").append(item);
 }
 function addFlight(cod,aeroline,route,date,exit,arrival,comment){
-  var item = '<tr><td>'+cod+'</td><td>'+route+'</td><td>'+aeroline+'</td><td>'+date+'</td><td>'+exit+'</td><td>'+arrival+'</td><td>'+comment+'</td><td> <a href="#"class="btn btn-danger"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+  var item = '<tr><td class="codFli">'+cod+'</td><td class="rouFli">'+route+'</td><td class="aerFli">'+aeroline+'</td><td class="dateFli">'+date+'</td><td class="exitFli">'+exit+'</td><td class="arriFli">'+arrival+'</td><td class="commFli">'+comment+'</td><td> <a href="#"class="btn btn-danger deleteFlight"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#listaFlight").append(item);
 }
 

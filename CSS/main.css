@@ -11,6 +11,7 @@ body {
 
 }
 
+
 .a{
  color: white !important;
 }
@@ -387,7 +388,7 @@ margin-right: 0px;
   }
   .inputFomulario22{
      height: 42px!important;
-  -- width: 70px!important;
+   width: 70px!important;
    text-align: center;
      border-radius: 0px 15px 15px 0px!important;
      border-top:  2px solid #FF4500 !important;
