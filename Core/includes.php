@@ -45,4 +45,5 @@ include_once('../Models/flightModel.php');
 include_once('../Models/thirdPartyModel.php');
 @include_once('../Models/liquidacModel.php');
 include_once('../Models/travelerModel.php');
+include_once('../Models/liquDetaModel.php');
 ?>

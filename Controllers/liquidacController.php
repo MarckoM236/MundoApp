@@ -16,6 +16,7 @@
     @include_once('Models/conceptoModel.php');
     @include_once('Models/inclusioModel.php');
     @include_once('Models/travelerModel.php');
+    @include_once('Models/liquDetaModel.php');
 
     class LiquidacController{
 
@@ -47,6 +48,7 @@
                 $dataFlight=$objDataFlight->show();   
                 
                    foreach($dataFlight as $dataFli) {
+                    $codAerolineaFli=$dataFli->getCodAeroline();   
                     $aerolineaFli=$dataFli->getAeroline();    
                     $routeFli=$dataFli->getRoute();
                     
@@ -55,12 +57,13 @@
                 //$arr=$arr_flight[0];   
             }
             else{
+                $codAerolineaFli="";
                 $aerolineaFli="";    
                 $routeFli=""; 
             }
 
                   
-            return $arr[]= array("aer"=>$aerolineaFli,"rou"=>$routeFli);
+            return $arr[]= array("codAer"=>$codAerolineaFli,"aer"=>$aerolineaFli,"rou"=>$routeFli);
         }
 
         public function showTraveler(){
@@ -176,6 +179,60 @@
                 $resInsert=$objLiquidac->insert();
                 
                 return $resInsert;
+            }
+            if(isset($_POST['saveDetail'])){
+                $objDetailLiquidac= new LiquDetaModel("","","","","","","","","","","","","","","","","","","","");
+                $codLiquDetail=$_POST['codDetail'];
+                $arrFlight=json_decode($_POST["arrFliJson"], true);
+                
+                
+                //print_r($codLiquDetail);
+                
+                 foreach ($arrFlight as $val) {
+                        foreach($val['travelFli'] as $valT){
+                            foreach($val['incFli'] as $valI){
+                                foreach($val['nincFli'] as $valNI){
+                                    foreach($val['concFli'] as $valCn){
+                                        $dateF = date_create($val['dateFli']);
+                                        $dateFli=date_format($dateF,"d/m/Y");
+                                        $hEx = date_create($val['dateFli']." ".$val['exitFli'].":00");
+                                        $horExFli=date_format($hEx,"d/m/Y H:i:s");
+                                        $hAr = date_create($val['dateFli']." ".$val['arriFli'].":00");
+                                        $horArrFli=date_format($hAr,"d/m/Y H:i:s");
+                                        $birDa = date_create($valT['birthDateTr']);
+                                        $birtDat=date_format($birDa,"d/m/Y");
+                                        $objDetailLiquidac->setCodeLiqu($codLiquDetail);
+                                        $objDetailLiquidac->setCodeAeroline($val['aerFli']);;
+                                        $objDetailLiquidac->setCodeFlight($val['codFli']);;
+                                        $objDetailLiquidac->setRouteFlight($val['rouFli']);;
+                                        $objDetailLiquidac->setDateFlight($dateFli);;
+                                        $objDetailLiquidac->setHorExFlight($horExFli);
+                                        $objDetailLiquidac->setHorArrFlight($horArrFli);
+                                        $objDetailLiquidac->setObsFlight($val['commFli']);
+                                        $objDetailLiquidac->setNameTraveler($valT['nameTr']);
+                                        $objDetailLiquidac->setLastNameTraveler($valT['lastNameTr']);
+                                        $objDetailLiquidac->setDatBirTraveler($birtDat);
+                                        $objDetailLiquidac->setIdTraveler($valT['idTr']);
+                                        $objDetailLiquidac->setInclusio($valI['codI']);
+                                        $objDetailLiquidac->setNotInclusio($valNI['codNI']);
+                                        $objDetailLiquidac->setConcept($valCn['codConc']);
+                                        $objDetailLiquidac->setValUnConcept($valCn['preConc']);
+                                        $objDetailLiquidac->setQuanConcept($valCn['cantConc']);
+                                        $objDetailLiquidac->setTotConcept($valCn['totConc']); 
+                                        //print_r($objDetailLiquidac);
+                                        $resInsertDeta=$objDetailLiquidac->insert(); 
+                                    }
+                                     
+                                }
+                                
+                            }
+                            
+                        }
+
+                     
+                     
+                }
+                return $resInsertDeta;
             }
             include_once('Views/liquidations/insert.php');
         }

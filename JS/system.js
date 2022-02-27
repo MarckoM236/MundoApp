@@ -2153,11 +2153,13 @@ function showFlight(num){
         dataType : 'json',
         
           success: function(response){ 
+            var codAer=response.codAer;
           var aeroline=response.aer;
            var route=response.rou;
             //alert(response.aer);
             $("#routeFli").val(route);
             $("#aeroFli").val(aeroline);
+            $("#codAer").val(codAer);
           
             
                                         
@@ -2201,23 +2203,62 @@ function showTraveler(id){
 function addInc(cod,name){
   var item = '<tr><td class="codI ocultar">'+cod+'</td><td class="nameI">'+name+'</td><td> <a href="#"class="btn btn-danger deleteInclusio"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista1").append(item);
+    arrIncludes();
 }
 function addNotInc(cod,name){
   var item = '<tr><td class="codNI ocultar">'+cod+'</td><td class="nameNI">'+name+'</td><td> <a href="#"class="btn btn-danger deleteNoInclusio"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista2").append(item);
+    arrNoIncludes();
 }
 function addTraveler(id,name,lastName,fecNac){
   var item = '<tr><td class="idTr">'+id+'</td><td class="nameTr">'+name+'</td><td class="lastNameTr">'+lastName+'</td><td class="birthDateTr">'+fecNac+'</td><td> <a href="#"class="btn btn-danger deleteTraveler"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#listaTrav").append(item);
+    arrTraveler();
 }
 function addConcept(cod,name,cant,prec,tot){
   var item = '<tr><td class="codConc ocultar">'+cod+'</td><td class="nameConc">'+name+'</td><td class="cantConc">'+cant+'</td><td class="preConc">'+prec+'</td><td class="totConc">'+tot+'</td><td> <a href="#"class="btn btn-danger deleteConc"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#listaConc").append(item);
+    arrConcept();
 }
-function addFlight(cod,aeroline,route,date,exit,arrival,comment){
-  var item = '<tr><td class="codFli">'+cod+'</td><td class="rouFli">'+route+'</td><td class="aerFli">'+aeroline+'</td><td class="dateFli">'+date+'</td><td class="exitFli">'+exit+'</td><td class="arriFli">'+arrival+'</td><td class="commFli">'+comment+'</td><td> <a href="#"class="btn btn-danger deleteFlight"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+function addFlight(cod,codAer,aeroline,route,date,exit,arrival,comment){
+  var item = '<tr><td class="codFli">'+cod+'</td><td class="rouFli">'+route+'</td><td class="codAer ocultar">'+codAer+'</td><td class="aerFli">'+aeroline+'</td><td class="dateFli">'+date+'</td><td class="exitFli">'+exit+'</td><td class="arriFli">'+arrival+'</td><td class="commFli">'+comment+'</td><td> <a href="#"class="btn btn-danger deleteFlight"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#listaFlight").append(item);
+    arrFlight();
 }
 
+
+//DETALLE LIQUIDACION
+function liquDetail(codDetail,arrFli){
+  var arrFliJson=JSON.stringify(arrFli);
+  //var arrTravJson=JSON.stringify(arrTrav);
+
+  //console.log(arrTravJson);
+  var dataString = 'codDetail='+ codDetail +'&arrFliJson='+ arrFliJson + '&saveDetail=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=liquidac&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+        location.reload(true);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+      }
+  });
+     
+
+}
 
 

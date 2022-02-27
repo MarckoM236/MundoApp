@@ -488,6 +488,7 @@ if(isset($agency)){
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <input class="form-control inputFomulario" type="text" placeholder="fecha viaje" id="aeroFli" name="txbAeroFli" readonly>  
+                    <input type="hidden" id="codAer">
                     <label class="error" for="aeroFli" id="aeroFli_error">Campo requerido.</label>
                 </div>
             </div>
@@ -511,7 +512,7 @@ if(isset($agency)){
                         <label>Fecha</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="date" placeholder="fecha" id="dateFli" name="txbDateFli">
+                    <input class="form-control inputFomulario" type="date" placeholder="fecha" id="dateFli" name="txbDateFli" value="<?php echo date('Y-m-d');?>">
                     <label class="error" for="dateFli" id="dateFli_error">Campo requerido.</label>
                 </div>
             </div>
@@ -565,6 +566,7 @@ if(isset($agency)){
   <thead>
     <th>vuelo</th>
     <th>Ruta</th>
+    <th class="ocultar">codAer</th>
     <th>Aerolinea</th>
     <th>Fecha</th>
     <th>Salida</th>
@@ -673,7 +675,7 @@ if(isset($agency)){
                             }
                         }?>         
                 </select>
-                    <label class="error" for="status" id="status_error">Campo requerido.</label>
+                    <label class="error" for="codConcepto" id="codConcepto_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
@@ -719,7 +721,7 @@ if(isset($agency)){
                             }
                         }?>         
                 </select>
-                    <label class="error" for="status" id="status_error">Campo requerido.</label>
+                    <label class="error" for="codConceptoN" id="codConceptoN_error">Seleccione un valor.</label>
                 </div>
             </div>
         </div>
@@ -732,7 +734,7 @@ if(isset($agency)){
     </div>
 </div>
 <!-- results-->
-<table class="NoInclude"> 
+<table class="table-NoInclude"> 
   <thead>
     <th class="ocultar">Codigo</th>
     <th>Nombre</th>
@@ -766,7 +768,7 @@ if(isset($agency)){
                             }
                         }?>         
                 </select>
-                    <label class="error" for="status" id="status_error">Campo requerido.</label>
+                    <label class="error" for="codConc" id="codConc_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
@@ -778,7 +780,7 @@ if(isset($agency)){
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <input class="form-control inputFomulario" type="text" placeholder="cantidad" id="cantConc" name="txbCantConc">
-                    <label class="error" for="code" id="code_error">Campo requerido.</label>
+                    <label class="error" for="cantConc" id="cantConc_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
@@ -790,7 +792,7 @@ if(isset($agency)){
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <input class="form-control inputFomulario" type="number" placeholder="precio" id="preConc" name="txbPreConc">
-                    <label class="error" for="code" id="code_error">Campo requerido.</label>
+                    <label class="error" for="preConc" id="preConc_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
@@ -1048,6 +1050,11 @@ if(isset($agency)){
         <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
             <div class="row justify-content-left py-2">
                 <input id='btnSaveLiquidation'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
+            </div>
+        </div>
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+            <div class="row justify-content-left py-2">
+                <input id='savePrueba'class= "form-control botonesIS" style="width:130px"; type="button" value="GuardarPrueba" />
             </div>
         </div>
 

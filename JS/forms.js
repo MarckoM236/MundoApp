@@ -1955,16 +1955,67 @@ showFlight(num);
 }
 
 function addSelectFlight(){
-  /* Para obtener el valor */
-  var cod = document.getElementById("codFlight").value;
+  var codF = $("select#codFlight").val();
+  var codAer= $("input#codAer").val();
   var aeroline = $("input#aeroFli").val();
   var route= $("input#routeFli").val();
   var date= $("input#dateFli").val();
   var exit= $("input#exitFli").val();
   var arrival= $("input#arrivalFli").val();
   var comment= $("textarea#commentFli").val();
-
-  addFlight(cod,aeroline,route,date,exit,arrival,comment);
+  if (codF == "") {
+    $("label#codFlight_error").show();
+    $("select#codFlight").focus();
+    return false;}
+  else if(codAer==""){
+    $("label#codAer_error").show();
+    $("input#codAer").focus();
+    return false;
+  }    
+  else if(aeroline==""){
+    $("label#aeroFli_error").show();
+    $("input#aeroFli").focus();
+    return false;
+  }  
+  else if(route==""){
+    $("label#routeFli_error").show();
+    $("input#routeFli").focus();
+    return false;
+  }  
+  else if(date==""){
+    $("label#dateFli_error").show();
+    $("input#dateFli").focus();
+    return false;
+  }  
+  else if(exit==""){
+    $("label#exitFli_error").show();
+    $("input#exitFli").focus();
+    return false;
+  }  
+  else if(arrival==""){
+    $("label#arrivalFli_error").show();
+    $("input#arrivalFli").focus();
+    return false;
+  }  
+  else if(comment==""){
+    $("label#commentFli_error").show();
+    $("textarea#commentFli").focus();
+    return false;
+  }  
+  else{
+     /* Para obtener el valor */
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("codFlight_error").style.display="none";
+    document.getElementById("aeroFli_error").style.display="none";
+    document.getElementById("aeroFli_error").style.display="none";
+    document.getElementById("routeFli_error").style.display="none";
+    document.getElementById("dateFli_error").style.display="none";
+    document.getElementById("exitFli_error").style.display="none";
+    document.getElementById("arrivalFli_error").style.display="none";
+    document.getElementById("commentFli_error").style.display="none";
+    addFlight(codF,codAer,aeroline,route,date,exit,arrival,comment);
+  }
+ 
 }
 //**************FIN Query flight***************************** */
 
@@ -1981,37 +2032,74 @@ $(function() {
 });
 
 function addSelectConcept(){
-  /* Para obtener el valor */
-  var cod = document.getElementById("codConc").value;
-  var name = document.getElementById("codConc");
-  var selected = name.options[name.selectedIndex].text;
+  var codC = $("select#codConc").val();
   var cantidad = $("input#cantConc").val();
   var precio= $("input#preConc").val();
-  var total= $("input#totConc").val();
-
-  addConcept(cod,selected,cantidad,precio,total);
+    if (codC == "") {
+      $("label#codConc_error").show();
+      $("select#codConc").focus();
+      return false;}
+    else if(cantidad==""){
+      $("label#cantConc_error").show();
+      $("input#cantConc").focus();
+      return false;
+    }  
+    else if(precio==""){
+      $("label#preConc_error").show();
+      $("input#preConc").focus();
+      return false;
+    }  
+    else{
+      /* Para obtener el valor */
+      //var cod = document.getElementById("codConc").value;
+      var name = document.getElementById("codConc");
+      var selected = name.options[name.selectedIndex].text;
+      var total= $("input#totConc").val();
+      document.getElementById("codConc_error").style.display="none";
+      document.getElementById("cantConc_error").style.display="none";
+      document.getElementById("preConc_error").style.display="none";
+      addConcept(codC,selected,cantidad,precio,total);
+    }
+  
 }  
-
 //********************End operations concepts*************************** */
 
 //********************Query Include*************************** */
 function addSelectedInc(){
-  /* Para obtener el valor */
-  var cod = document.getElementById("codConcepto").value;
-  var name = document.getElementById("codConcepto");
-  var selected = name.options[name.selectedIndex].text;
-  addInc(cod,selected);
+  var codI = $("select#codConcepto").val();
+    if (codI == "") {
+      $("label#codConcepto_error").show();
+      $("select#codConcepto").focus();
+      return false;}
+      else{
+        /* Para obtener el valor */
+        //var cod = document.getElementById("codConcepto").value;
+        var name = document.getElementById("codConcepto");
+        var selected = name.options[name.selectedIndex].text;
+        document.getElementById("codConcepto_error").style.display="none";
+        addInc(codI,selected);
+      }
+  
   }
   //**************FIN Query include***************************** */
 
   //********************Query Not Include*************************** */
 function addSelectedNotInc(){
   /* Para obtener el valor */
-  var cod = document.getElementById("codConceptoN").value;
-  var name = document.getElementById("codConceptoN");
-  var selected = name.options[name.selectedIndex].text;
-  //alert(cod+" "+selected);
-  addNotInc(cod,selected);
+  //var cod = document.getElementById("codConceptoN").value;
+  var codNI = $("select#codConceptoN").val();
+    if (codNI == "") {
+      $("label#codConceptoN_error").show();
+      $("select#codConceptoN").focus();
+      return false;}
+      else{
+        var name = document.getElementById("codConceptoN");
+        var selected = name.options[name.selectedIndex].text;
+        document.getElementById("codConceptoN_error").style.display="none";
+        //alert(cod+" "+selected);
+        addNotInc(codNI,selected);
+      }
+  
   }
   //**************FIN Query Not include***************************** */
   
@@ -2085,6 +2173,7 @@ document.querySelectorAll('.table-include tbody tr').forEach(function(e){
   includes.push(fila);
 });
 //console.log(includes);
+return includes;
 }
 //**************************************************************************** */
 
@@ -2098,7 +2187,8 @@ function arrNoIncludes(){
     };
     NoIncludes.push(fila);
   });
-  //console.log(includes);
+  //console.log(NoIncludes);
+  return NoIncludes;
   }
   //**************************************************************************** */
 
@@ -2114,7 +2204,8 @@ function arrTraveler(){
     };
     traveler.push(fila);
   });
-  //console.log(includes);
+  //console.log(traveler);
+  return traveler;
   }
   //**************************************************************************** */
 
@@ -2131,7 +2222,8 @@ function arrConcept(){
     };
     concept.push(fila);
   });
-  //console.log(includes);
+  console.log(concept);
+  return concept;
   }
   //**************************************************************************** */
 
@@ -2142,17 +2234,38 @@ function arrFlight(){
     let fila = {
       codFli: e.querySelector('.codFli').innerText,
       rouFli: e.querySelector('.rouFli').innerText,
-      aerFli: e.querySelector('.aerFli').innerText,
+      aerFli: e.querySelector('.codAer').innerText,
       dateFli: e.querySelector('.dateFli').innerText,
       exitFli: e.querySelector('.exitFli').innerText,
       arriFli: e.querySelector('.arriFli').innerText,
-      commFli: e.querySelector('.commFli').innerText
+      commFli: e.querySelector('.commFli').innerText,
+      travelFli: arrTraveler(),
+      incFli: arrIncludes(),
+      nincFli: arrNoIncludes(),
+      concFli: arrConcept()
     };
     flight.push(fila);
   });
-  //console.log(includes);
+  //console.log(flight);
+  return flight;
   }
   //**************************************************************************** */
 
 
 
+//*** PRUEBA ***
+//***Fomr insert PRUEBA***
+$(function() {
+  $('.error').hide();
+  $("#savePrueba").click(function() {
+    var codLiqu = $("input#codLiqu").val();
+    if (codLiqu == "") {
+      $("label#codLiqu_error").show();
+      $("input#codLiqu").focus();
+      return false;
+    }
+  liquDetail(codLiqu,arrFlight());
+      
+  });
+});
+//********************** */
