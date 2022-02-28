@@ -147,11 +147,14 @@ if(isset($agency)){
     float: right !important;
     line-height:110% !important;
 }
-.val{
-    text-align:center !important;
+.pad{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
 }
-
 </style>
+
 <div class="row justify-content-center">
           <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
@@ -177,9 +180,9 @@ if(isset($agency)){
  <hr>
 
 <div class="container">
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Fecha</label>
@@ -191,7 +194,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Numero</label>
@@ -204,10 +207,10 @@ if(isset($agency)){
         </div>
     </div>
 
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
-            <div class="row justify-content-left py-2">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+            <div class="row justify-content-left py-2 pad">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Agencia</label>
                 </div>
@@ -228,7 +231,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Vendedor</label>
@@ -249,12 +252,10 @@ if(isset($agency)){
                 </div>
             </div>
         </div>
-
-        
-
     </div>
-    <div class="row justify-content-center py-2">
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+
+    <div class="row justify-content-center py-2 pad">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Asersor</label>
@@ -276,7 +277,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Estado Reserva</label>
@@ -302,9 +303,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Fecha Viaje</label>
@@ -316,7 +317,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Destino</label>
@@ -338,9 +339,9 @@ if(isset($agency)){
         </div>
     </div>   
     
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Hotel</label>
@@ -362,7 +363,7 @@ if(isset($agency)){
             </div>
         </div>
         
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Hostal</label>
@@ -386,8 +387,8 @@ if(isset($agency)){
 
     </div>
 
-    <div class="row justify-content-center py-2">
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+    <div class="row justify-content-center py-2 pad">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Alimentacion</label>
@@ -408,7 +409,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-center py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Plan</label>
@@ -429,7 +430,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Acomodacion</label>
@@ -457,9 +458,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-left py-2">
+    <div class="row justify-content-left py-2 pad">
         
-    <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+    <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Vuelo</label>
@@ -481,7 +482,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Aerolinea</label>
@@ -494,7 +495,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Ruta</label>
@@ -506,7 +507,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Fecha</label>
@@ -518,7 +519,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Salida</label>
@@ -530,7 +531,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Llegada</label>
@@ -542,7 +543,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Observaciones</label>
@@ -553,7 +554,7 @@ if(isset($agency)){
                 </div>
             </div>
         </div>
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <input id='btnAddFli'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectFlight()"/>
             </div>
@@ -581,9 +582,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-left py-2">
+    <div class="row justify-content-left py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Identificacion</label>
@@ -595,7 +596,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Nombre </label>
@@ -607,7 +608,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Apellido</label>
@@ -619,7 +620,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Fecha Nacimiento</label>
@@ -631,7 +632,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <input id='btnAddTrav'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectTrav()"/>
             </div>
@@ -655,9 +656,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-center py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Inclusion</label>
@@ -680,7 +681,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <input id='btnAddInc'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectedInc()"/>
             </div>
@@ -701,9 +702,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-center py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label> No Inclusion</label>
@@ -725,7 +726,7 @@ if(isset($agency)){
                 </div>
             </div>
         </div>
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <input id='btnAddNotInc'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectedNotInc()"/>
             </div>
@@ -748,9 +749,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Servicio</label>
@@ -773,7 +774,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Cantidad</label>
@@ -785,19 +786,19 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Precio</label>
                 </div>
-                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
                     <input class="form-control inputFomulario" type="number" placeholder="precio" id="preConc" name="txbPreConc">
                     <label class="error" for="preConc" id="preConc_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Total</label>
@@ -809,7 +810,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <input id='btnAddConcept'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectConcept()"/>
             </div>
@@ -835,7 +836,7 @@ if(isset($agency)){
 
 <div class="container">
     <div class="valores">
-        <div class="row justify-content-center py-2" >
+        <div class="row justify-content-center py-2 pad" >
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
@@ -853,7 +854,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
@@ -871,7 +872,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
@@ -889,7 +890,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
@@ -907,7 +908,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
@@ -925,7 +926,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
@@ -943,7 +944,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
@@ -961,7 +962,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
@@ -979,7 +980,7 @@ if(isset($agency)){
                 </div>      
             </div>
 
-            <div class="row justify-content-center py-2">
+            <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
@@ -1002,9 +1003,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Plazo para pago 50%</label>
@@ -1016,7 +1017,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Plazo para pago total</label>
@@ -1033,9 +1034,9 @@ if(isset($agency)){
 <hr>
 
 <div class="container">
-    <div class="row justify-content-center py-2">
+    <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Numero Reserva</label>
@@ -1047,16 +1048,16 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <input id='btnSaveLiquidation'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
             </div>
         </div>
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <!-- <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
             <div class="row justify-content-left py-2">
                 <input id='savePrueba'class= "form-control botonesIS" style="width:130px"; type="button" value="GuardarPrueba" />
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>

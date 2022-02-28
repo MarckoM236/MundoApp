@@ -54,7 +54,7 @@ function desplegarMenu4(){
   $("#opcionMenuActivo5").removeClass("opcionMenuActivo");
   $("#opcionMenuActivo4").addClass("opcionMenuActivo");
 }
-function desplegarMenu4(){
+function desplegarMenu5(){
   document.getElementById('opcionMenu1').style.display='none';
   document.getElementById('opcionMenu2').style.display='none'; 
   document.getElementById('opcionMenu3').style.display='none';

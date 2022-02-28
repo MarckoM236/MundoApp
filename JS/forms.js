@@ -1924,6 +1924,7 @@ $(function() {
 //*** FIN LIQUIDAC ***
 
 //********************Query Travelers*************************** */
+//********************CONSULTAR VIAJEROS DINAMICAMENTE SEGUN NUMERO DE IDENTIFICACION *****************/
 $(document).ready(function () {
   $("#idTraveler").keyup(function () {
       var value = $(this).val();
@@ -1936,6 +1937,7 @@ $(document).ready(function () {
   });
 });
 
+//********************SELECCIONAR ITEM DE VIAJEROS Y AÑADIR A TABLA DINAMICA *****************/
 function addSelectTrav(){
   /* Para obtener el valor */
   var id = $("input#idTraveler").val();
@@ -1947,6 +1949,7 @@ function addSelectTrav(){
   //**************FIN Query Traveler***************************** */
 
 //********************Query flight*************************** */
+//********************CONSULTAR VUELOS DISPONIBLES, SEGUN SELECCION EN EL FORMULARIO ATRAVEZ DE EVENTO ONCHANGE *****************/
 function ShowSelectedFlight(){
 /* Para obtener el valor */
 var num = document.getElementById("codFlight").value;
@@ -1954,6 +1957,7 @@ var num = document.getElementById("codFlight").value;
 showFlight(num);
 }
 
+//********************SELECCIONAR ITEMS DE VUELOS Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
 function addSelectFlight(){
   var codF = $("select#codFlight").val();
   var codAer= $("input#codAer").val();
@@ -2020,6 +2024,7 @@ function addSelectFlight(){
 //**************FIN Query flight***************************** */
 
 //********************Operations concepts*************************** */
+//********************GENERAR TOTAL DE CADA CONCEPTO DINAMICAMENTE *****************/
 $(function() {
   $("#preConc").keyup(function () {
     var cantidad=$("input#cantConc").val();
@@ -2031,6 +2036,7 @@ $(function() {
   });
 });
 
+//********************SELECCIONAR ITEM DE CONCEPTOS Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS*****************/
 function addSelectConcept(){
   var codC = $("select#codConc").val();
   var cantidad = $("input#cantConc").val();
@@ -2065,6 +2071,7 @@ function addSelectConcept(){
 //********************End operations concepts*************************** */
 
 //********************Query Include*************************** */
+//********************SELECCIONAR ITEM DE INCLUSIONES Y AÑADIR A TABLA DINAMICA *****************/
 function addSelectedInc(){
   var codI = $("select#codConcepto").val();
     if (codI == "") {
@@ -2084,8 +2091,8 @@ function addSelectedInc(){
   //**************FIN Query include***************************** */
 
   //********************Query Not Include*************************** */
+  //********************SELECCIONAR ITEM DE NO INCLUSIONES Y AÑADIR A TABLA DINAMICA *****************/
 function addSelectedNotInc(){
-  /* Para obtener el valor */
   //var cod = document.getElementById("codConceptoN").value;
   var codNI = $("select#codConceptoN").val();
     if (codNI == "") {
@@ -2111,22 +2118,24 @@ function cancel(c,a){
 //**** END CANCEL SEND FORMS */
 
 //***********VALIDATIONS CHEKBOX************* */
+//************VALIDAR QUE SOLO SE PUEDA SELECCIONAR UN CHEK DEL TIPO LIQUIDACION */
 function uncheck(){
   var checkbox1 = document.getElementById("liquN");
   var checkbox2 = document.getElementById("liquI"); 
- checkbox1.onclick = function(){ 
- if(checkbox1.checked != false){ 
- checkbox2.checked =null; }
-  } 
- checkbox2.onclick = function(){ 
- if(checkbox2.checked != false){ 
- checkbox1.checked=null;
-  }
-  } 
- }
+  checkbox1.onclick = function(){ 
+    if(checkbox1.checked != false){ 
+      checkbox2.checked =null; 
+      }
+    } 
+  checkbox2.onclick = function(){ 
+    if(checkbox2.checked != false){ 
+      checkbox1.checked=null;
+      }
+    } 
+}
 //***********END VALIDATION CHEKBOX*********** */
 
-
+//*************************DELETE ITEMS OF LIQUIDATIONS DETAILS**************************** */
 //******** remove rows from pivot table containing items (inclusio) */
 $(document).on('click', '.deleteInclusio', function (event) {
   event.preventDefault();
@@ -2161,7 +2170,9 @@ $(document).on('click', '.deleteFlight', function (event) {
   $(this).closest('tr').remove();
 });
 //****************************************************************************** */
+//************************* FIN DELETE ITEMS OF LIQUIDATIONS DETAILS**************************** */
 
+//***************************AÑADIR ELEMENTOS DEL DETALLE EN ARRAYS PARA ENVIO AL SRVIDOR******************** */
 //*************** Añadir elementos de la tabla dinamica inclusiones a un array */
 function arrIncludes(){
 let includes = [];
@@ -2209,7 +2220,7 @@ function arrTraveler(){
   }
   //**************************************************************************** */
 
-//*************** Añadir elementos de la tabla dinamica viajero a un array */
+//*************** Añadir elementos de la tabla dinamica concepto a un array */
 function arrConcept(){
   let concept = [];
   document.querySelectorAll('.table-Concept tbody tr').forEach(function(e){
@@ -2250,12 +2261,13 @@ function arrFlight(){
   return flight;
   }
   //**************************************************************************** */
+  //***************************AÑADIR ELEMENTOS DEL DETALLE EN ARRAYS PARA ENVIO AL SRVIDOR******************** */
 
 
 
 //*** PRUEBA ***
 //***Fomr insert PRUEBA***
-$(function() {
+/* $(function() {
   $('.error').hide();
   $("#savePrueba").click(function() {
     var codLiqu = $("input#codLiqu").val();
@@ -2267,5 +2279,5 @@ $(function() {
   liquDetail(codLiqu,arrFlight());
       
   });
-});
-//********************** */
+}); */
+//********************** */  

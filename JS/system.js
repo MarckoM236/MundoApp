@@ -2064,8 +2064,10 @@ function insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser
       success: function(response){ 
         //var status=response.status;
         if(response.status == 'ok'){
-          alert(response.result);
-          location.reload(true);
+          /* alert(response.result);
+          location.reload(true); */
+          //si se inserta liquidacion, se procede a insertar el detalle de esta.
+          liquDetail(codLiqu,arrFlight());
       }
       else{
         alert(response.result);
@@ -2143,6 +2145,7 @@ if (opcion == true) {
 
 
 //******************** VALIDATION SHOW FLIGHT ************************//
+//********************CONSULTA VUELOS SELECCIONADO Y RELLENA LOS CAMPOS CORRESPONDIENTES *****************/
 function showFlight(num){
   //alert(" el codigo es: "+ num);
   var dataString = 'txbCodFlightSh='+ num +'&ShowFlight=1';
@@ -2160,9 +2163,7 @@ function showFlight(num){
             $("#routeFli").val(route);
             $("#aeroFli").val(aeroline);
             $("#codAer").val(codAer);
-          
-            
-                                        
+                                                 
           },
           /* error: function(jqXHR, textStatus, error){
             alert( "Error al actualizar los datos: " + jqXHR.responseText);

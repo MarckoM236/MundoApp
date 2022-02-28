@@ -62,7 +62,7 @@
                         <div class="row justify-content-left ">
                         <div  class="espaMe2 py-0 align-self-center text-center" onmouseover="desplegarMenu1();">
                                 <div class="row justify-content-center opcionMenu" id="opcionMenuActivo1">
-                                    <a style="color:white" href="" >
+                                    <a style="color:white" href="#" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center">
                                         <img class="imgMenu" src="img/parametros3.png">
                                     </div>
@@ -76,7 +76,7 @@
                             </div>
                             <div  class="espaMe2 py-0 align-self-center text-center" onmouseover="desplegarMenu2();">
                                 <div class="row justify-content-center opcionMenu" id="opcionMenuActivo2">
-                                    <a style="color:white" href="?accion=solicitud" >
+                                    <a style="color:white" href="#" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center">
                                         <img class="imgMenu" src="img/basico.png">
                                     </div>
@@ -90,8 +90,8 @@
                             </div>
 
                             <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu3();" >
-                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo4" >
-                                    <a style="color:white" href="?accion=distribu" >
+                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo" >
+                                    <a style="color:white" href="?controller=traveler&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/viajeros.png">
                                     </div>
@@ -102,8 +102,8 @@
                                 </div>
                             </div>
                             <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu4();" >
-                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo5" >
-                                    <a style="color:white" href="?accion=barra" >
+                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo4" >
+                                    <a style="color:white" href="#" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/liquidacion.png">
                                     </div>
@@ -487,7 +487,7 @@
                             <!-- 01-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=thirdParty&action=home" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
                                     </div>
