@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+              <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Nombre</label>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Apellido</label>
@@ -55,26 +55,31 @@
                             <label>Estado</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">
+                       <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
+                           <select name="txbStatus" id="status" class="form-select inputFomulario" placeholder="Opciones"> 
+                              <option select value="">SELECCIONE</option>
+                              <option value="A">ACTIVO</option>
+                              <option value="I">INACTIVO</option>
+                            </select>
                            <label class="error" for="status" id="status_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
                 
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <input id='btnSaveAdviser'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
+                    </div>
+                </div>
+                
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <div class="row justify-content-left py-2">
+                      <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAdviser" value="Buscar" />
+                    </div>
+                </div>
 
 
-               <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-			    <div class="row justify-content-left py-2">
-				   <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='btnSaveAdviser'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
-				 </div>
-				   <div  class="col-lg-12 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAdviser" value="Buscar" />
-				 </div>
-			  </div>
-
-              </div>
-
+  </div>
   <hr/>
   <?php      
 
@@ -115,12 +120,18 @@
                             
                         <?php 
                         if (isset($return_arr)){
-                        foreach($return_arr as $row ){?>
+                        foreach($return_arr as $row ){
+                          if($row['status']=="A"){
+                            $valStatus="ACTIVO";
+                        }
+                        else{
+                            $valStatus="INACTIVO";
+                        }?>
                         <tr>
                             <td><?php echo $row['id'];?></td>
                             <td><?php echo $row['name'];?></td>
                             <td><?php echo $row['lastName'];?></td>
-                            <td><?php echo $row['status'];?></td>
+                            <td><?php echo $valStatus;?></td>
                             <td><a href="?controller=adviser&action=update&id=<?php echo $row['id'];?>"class="btn btn-warning"><i class="fa fa-edit"></i></a></td>
                             <td><a onclick="deleteAdviser(<?php echo $row['id'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>

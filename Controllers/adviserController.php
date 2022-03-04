@@ -14,8 +14,11 @@
                     $objAdviser->setId($_POST['txbId']);
                     $objAdviser->setName($_POST['txbName']);
                     $objAdviser->setLastName($_POST['txbLastName']);
-                    $adviser=$objAdviser->show();
-                    
+                    $adviser=$objAdviser->show();  
+                }
+                else{
+                    $objAdviser= new AdviserModel("","","","");
+                    $adviser=$objAdviser->show();  
                 }
             } 
             catch (Exception $e) {

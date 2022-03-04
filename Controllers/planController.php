@@ -14,7 +14,10 @@
                     $objPlan->setCode($_POST['txbCode']);
                     $objPlan->setName($_POST['txbName']);
                     $plan=$objPlan->show();
-                    
+                }
+                else{
+                    $objPlan= new PlanModel("","");
+                    $plan=$objPlan->show();
                 }
             } 
             catch (Exception $e) {

@@ -18,6 +18,10 @@
                     $hotel=$objHotel->show();
                     
                 }
+                else{
+                    $objHotel= new HotelModel("","","","","","","","");
+                    $hotel=$objHotel->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;
@@ -43,7 +47,6 @@
                 $objHotel->setMobile($_POST['txbMobile']);
                 
                 $resInsert=$objHotel->insert();
-
             }
             return $resInsert;
         }

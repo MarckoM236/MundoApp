@@ -23,13 +23,14 @@
         private $pl50Liqu="";
         private $pl100Liqu="";
         private $idUser="";
+        private $numRes="";
         private $respuesta= array();
 
 /*         public function __construct() {
             
         }
  */
-         public function __construct($tl,$fs,$cl,$ca,$cs,$cad,$cd,$ch,$cal,$cp,$cac,$vt,$vd,$vi,$vic,$vrt,$ve,$p50,$p100,$idu) {
+         public function __construct($tl,$fs,$cl,$ca,$cs,$cad,$cd,$ch,$cal,$cp,$cac,$vt,$vd,$vi,$vic,$vrt,$ve,$p50,$p100,$idu,$nr) {
             $table="liquidac";
             parent::__construct($table);
             $this->tipoLiqu=$tl;
@@ -52,6 +53,7 @@
             $this->pl50Liqu=$p50;
             $this->pl100Liqu=$p100;
             $this->idUser=$idu;
+            $this->numRes=$nr;
         }
 
         //getters
@@ -119,6 +121,9 @@
         public function setRespuesta($val){
             $this->respuesta=$val;
         }
+        public function setNumRes($val){
+            $this->numRes=$val;
+        }
 
         //setters
         public function getCode(){
@@ -173,7 +178,7 @@
         public function insert(){
 
             $data=array();
-            $sql = "BEGIN  pkgLiquidac.insertarLiquidac(:cod_liquidac,:tipo_liquidac,:fech_liquidac,:agen_liquidac,:vend_liquidac,:dest_liquidac,:hote_liquidac ,:tipoAlim_liquidac ,:plan_liquidac ,:acom_liquidac ,:descu_liquidac ,:valPa_liquidac ,:iva_liquidac ,:ica_liquidac ,:rtf_liquidac ,:valEm_liquidac ,:pl50_liquidac ,:pl100_liquidac ,:usua_liquidac); END;";
+            $sql = "BEGIN  pkgLiquidac.insertarLiquidac(:cod_liquidac,:tipo_liquidac,:fech_liquidac,:agen_liquidac,:vend_liquidac,:dest_liquidac,:hote_liquidac ,:tipoAlim_liquidac ,:plan_liquidac ,:acom_liquidac ,:descu_liquidac ,:valPa_liquidac ,:iva_liquidac ,:ica_liquidac ,:rtf_liquidac ,:valEm_liquidac ,:pl50_liquidac ,:pl100_liquidac ,:usua_liquidac,:numRes_liquidac); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             oci_bind_by_name($stid, ':cod_liquidac',$this->codeLiqu);
@@ -195,6 +200,7 @@
             oci_bind_by_name($stid, ':pl50_liquidac',$this->pl50Liqu);
             oci_bind_by_name($stid, ':pl100_liquidac',$this->pl100Liqu);
             oci_bind_by_name($stid, ':usua_liquidac',$this->idUser);
+            oci_bind_by_name($stid, ':numRes_liquidac',$this->numRes);
             @$res=oci_execute($stid);
 
              if($res){

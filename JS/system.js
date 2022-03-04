@@ -305,7 +305,7 @@ function insertAdviser() {
   var id = $("input#id").val();
   var name = $("input#name").val();
   var lastName = $("input#lastName").val();
-  var status = $("input#status").val();
+  var status = $("select#status").val();
   
   //Validate data submission
   var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName='+lastName+ '&txbStatus='+ status +'&saveAdviser=1';
@@ -365,7 +365,7 @@ function updateAdviser(){
 var id = $("input#id").val();
 var name = $("input#name").val();
 var lastName = $("input#lastName").val();
-var status = $("input#status").val();
+var status = $("select#status").val();
 //Validate data submission
 var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbStatus='+ status +'&updateAdviser=1';
 var opcion = confirm("Realmente desea modificar el registro?");
@@ -407,7 +407,7 @@ function insertUser() {
   var code = $("input#code").val();
   var name = $("input#name").val();
   var pass = $("input#pass").val();
-  var status = $("input#status").val();
+  var status = $("select#status").val();
   
   //Validate data submission
   var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbPass='+pass+ '&txbStatus='+ status +'&saveUser=1';
@@ -467,7 +467,7 @@ function updateUser(){
 var code = $("input#code").val();
 var name = $("input#name").val();
 var pass = $("input#pass").val();
-var status = $("input#status").val();
+var status = $("select#status").val();
 //Validate data submission
 var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbPass=' + pass + '&txbStatus='+ status +'&updateUser=1';
 var opcion = confirm("Realmente desea modificar el registro?");
@@ -509,7 +509,7 @@ function insertSeller() {
   var id = $("input#id").val();
   var name = $("input#name").val();
   var lastName = $("input#lastName").val();
-  var status = $("input#status").val();
+  var status = $("select#status").val();
   
   //Validate data submission
   var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName='+lastName+ '&txbStatus='+ status +'&saveSeller=1';
@@ -569,7 +569,7 @@ function updateSeller(){
 var id = $("input#id").val();
 var name = $("input#name").val();
 var lastName = $("input#lastName").val();
-var status = $("input#status").val();
+var status = $("select#status").val();
 //Validate data submission
 var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbStatus='+ status +'&updateSeller=1';
 var opcion = confirm("Realmente desea modificar el registro?");
@@ -908,7 +908,7 @@ function insertHotel() {
   var nit = $("input#nit").val();
   var address = $("input#address").val();
   var phone = $("input#phone").val();
-  var status = $("input#status").val();
+  var status = $("select#status").val();
   var email = $("input#email").val();
   var mobile = $("input#mobile").val();
   
@@ -972,7 +972,7 @@ function updateHotel(){
   var nit = $("input#nit").val();
   var address = $("input#address").val();
   var phone = $("input#phone").val();
-  var status = $("input#status").val();
+  var status = $("select#status").val();
   var email = $("input#email").val();
   var mobile = $("input#mobile").val();
 //Validate data submission
@@ -2052,9 +2052,9 @@ if (opcion == true) {
 //*********VALIDATIONS LIQUIDAC ************/
 
 //Insert data
-function insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario) {
+function insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario,numRes) {
   //Validate data submission
-  var dataString = 'txbChTipoLiqu='+ tipoLiqu + '&txbfecSis=' + fechaSis + '&txbCodeLiqu=' + codLiqu + '&txbCodeAgency=' + codAgency + '&txbCodeSeller=' + codSeller + '&txbCodeAdviser=' + codAdviser + '&txbCodeDestination=' + codDestination + '&txbCodeHotel=' + codHotel + '&txbCodeAlim=' + codAlim + '&txbCodePlan=' + codPlan + '&txbCodeAcomodac=' + codAcomodac + '&txbValTotTraveler=' + valTotTraveler + '&txbValDes=' + descuento +  '&txbValIvaLiqu=' + valIvaLiqu + '&txbValIcaLiqu=' + valIcaLiqu + '&txbValRtfLiqu=' + valRtfLiqu + '&txbvalTotEmp=' + valTotEmp + '&txbPl50Liqu=' + pl50Liqu + '&txbPl100Liqu=' + pl100Liqu + '&txbIdUser=' + usuario + '&saveLiquidac=1';
+  var dataString = 'txbChTipoLiqu='+ tipoLiqu + '&txbfecSis=' + fechaSis + '&txbCodeLiqu=' + codLiqu + '&txbCodeAgency=' + codAgency + '&txbCodeSeller=' + codSeller + '&txbCodeAdviser=' + codAdviser + '&txbCodeDestination=' + codDestination + '&txbCodeHotel=' + codHotel + '&txbCodeAlim=' + codAlim + '&txbCodePlan=' + codPlan + '&txbCodeAcomodac=' + codAcomodac + '&txbValTotTraveler=' + valTotTraveler + '&txbValDes=' + descuento +  '&txbValIvaLiqu=' + valIvaLiqu + '&txbValIcaLiqu=' + valIcaLiqu + '&txbValRtfLiqu=' + valRtfLiqu + '&txbvalTotEmp=' + valTotEmp + '&txbPl50Liqu=' + pl50Liqu + '&txbPl100Liqu=' + pl100Liqu + '&txbIdUser=' + usuario + '&txbNumRes=' + numRes + '&saveLiquidac=1';
   $.ajax({
     type: "POST",
     url: "/MundoApp/Controllers/ajaxController.php?controller=liquidac&action=insert",

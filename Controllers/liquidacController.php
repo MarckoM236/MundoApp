@@ -17,6 +17,7 @@
     @include_once('Models/inclusioModel.php');
     @include_once('Models/travelerModel.php');
     @include_once('Models/liquDetaModel.php');
+    @include_once('Models/systemModel.php');
 
     class LiquidacController{
 
@@ -24,7 +25,7 @@
             
             try {
                 if (isset($_POST['showLiquidation'])){
-                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                     $objLiquidac->setCode($_POST['txbCode']);
                     $liquidac=$objLiquidac->show();
                     
@@ -141,8 +142,12 @@
             //Consult concepto to complete field.
             $objConcepto= new ConceptoModel("","");
             $concepto=$objConcepto->show();
+
+            //Consult concepto to complete field.
+            $objSystem= new SystemModel("","","","","");
+            $system=$objSystem->show();
             
-            $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+            $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","","");
             $numLiqu=$objLiquidac->showUltimate();
             
             if (isset($_POST['saveLiquidac'])){
@@ -153,7 +158,7 @@
                 $datePl100 = date_create($_POST['txbPl100Liqu']);
                 $dp100=date_format($datePl100,"d/m/Y");
                 //print_r($_POST);
-                $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+                $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","","");
                 
                 $objLiquidac->setTipoLiqu($_POST['txbChTipoLiqu']);
                 $objLiquidac->setFecSis($_POST['txbfecSis']);
@@ -175,13 +180,14 @@
                 $objLiquidac->setPl50Liqu($dp50);
                 $objLiquidac->setPl100Liqu($dp100);
                 $objLiquidac->setIdUser($_POST['txbIdUser']);
+                $objLiquidac->setNumRes($_POST['txbNumRes']);
                 //print_r($objLiquidac);
                 $resInsert=$objLiquidac->insert();
                 
                 return $resInsert;
             }
             if(isset($_POST['saveDetail'])){
-                $objDetailLiquidac= new LiquDetaModel("","","","","","","","","","","","","","","","","","","","");
+                $objDetailLiquidac= new LiquDetaModel("","","","","","","","","","","","","","","","","","","","","");
                 $codLiquDetail=$_POST['codDetail'];
                 $arrFlight=json_decode($_POST["arrFliJson"], true);
                 
@@ -242,7 +248,7 @@
             try {
                 
                 if(isset($_GET['code'])){
-                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                     
                     $objLiquidac->setCode($_GET['code']);
                     $res=$objLiquidac->show();
@@ -252,7 +258,7 @@
     
                 if(isset($_POST['updateLiquidac'])){
                     //print_r($_POST);
-                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                     
                     $objLiquidac->setCode($_POST['txbCode']);
                     $objLiquidac->setName($_POST['txbTiLi']);
@@ -291,7 +297,7 @@
 
             try {
                 if(isset($_GET['code'])){
-                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                     
                     $objLiquidac->setCode($_GET['code']);
                     $resDelete=$objLiquidac->delete();

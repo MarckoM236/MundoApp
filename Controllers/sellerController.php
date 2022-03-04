@@ -15,7 +15,10 @@
                     $objSeller->setName($_POST['txbName']);
                     $objSeller->setLastName($_POST['txbLastName']);
                     $seller=$objSeller->show();
-                    
+                }
+                else{
+                    $objSeller= new SellerModel("","","","");
+                    $seller=$objSeller->show();
                 }
             } 
             catch (Exception $e) {

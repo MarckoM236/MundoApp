@@ -13,8 +13,11 @@
                     $objDestination= new DestinationModel("","");
                     $objDestination->setCode($_POST['txbCode']);
                     $objDestination->setName($_POST['txbName']);
-                    $destination=$objDestination->show();
-                    
+                    $destination=$objDestination->show(); 
+                }
+                else{
+                    $objDestination= new DestinationModel("","");
+                    $destination=$objDestination->show(); 
                 }
             } 
             catch (Exception $e) {

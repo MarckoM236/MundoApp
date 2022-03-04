@@ -16,6 +16,10 @@
                     $user=$objUser->show();
                     
                 }
+                else{
+                    $objUser= new UserModel("","","","");
+                    $user=$objUser->show();
+                }
             } 
             catch (Exception $e) {
                 //throw $th;

@@ -65,9 +65,6 @@
                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showAeroline" value="Buscar" />
                     </div>
                 </div>
-
-
-
 </div>
 
   <hr/>

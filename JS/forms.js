@@ -277,7 +277,7 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
@@ -360,7 +360,7 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
@@ -400,7 +400,7 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
@@ -442,7 +442,7 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
@@ -482,12 +482,12 @@ $(function() {
        return false;
      }
  
-     var status = $("input#status").val();
-     if (status == "") {
-       $("label#status_error").show();
-       $("input#status").focus();
-       return false;
-     }
+     var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
 
     updateSeller();
       
@@ -700,7 +700,7 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
@@ -769,7 +769,7 @@ $(function() {
       return false;
     }
 
-    var status = $("input#status").val();
+    var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
       $("input#status").focus();
@@ -1876,7 +1876,14 @@ $(function() {
 
     var usuario=1;
 
-    insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario);
+    var numRes = $("input#numRes").val();
+    if (numRes == "") {
+      $("label#numRes_error").show();
+      $("input#NumRes").focus();
+      return false;
+    }
+
+    insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario,numRes);
       
   });
 });
@@ -2109,6 +2116,8 @@ function addSelectedNotInc(){
   
   }
   //**************FIN Query Not include***************************** */
+
+  //****************************************** */
   
 
 //**** CANCEL SEND FORMS */
@@ -2141,6 +2150,47 @@ $(document).on('click', '.deleteInclusio', function (event) {
   event.preventDefault();
   $(this).closest('tr').remove();
 });
+
+//****************************************************************************** */
+//********************GENERAR TOTAL DE CADA valor DINAMICAMENTE *****************/
+$(function() {
+  $("#valTotImp").keyup(function () {
+    var totTraveler=$("input#valTotTraveler").val();
+    var totImpuestos = $(this).val();
+    var subTotal= totTraveler - totImpuestos;
+
+    $("#subTotLiqu").val(subTotal);
+      
+  });
+});
+function valImp(sub,imp){
+  var total=(sub*imp)/100;
+  return total;
+}
+//*****************comision ***********************/
+$(function() {
+  $("#subTotLiqu").keyup(function () {
+    var subtotal = $(this).val();
+    if(subtotal>0){
+      var porcComision=$("input#comision").val();
+      var porcIva=$("input#iva").val();
+      var porcRtf=$("input#rtf").val();
+      var porcRtIca=$("input#rtica").val();
+      var valRtIca=parseFloat(porcRtIca.replace(/,/g, '.'));
+      var totComision= (parseInt(subtotal) + parseInt(valImp(subtotal,porcIva)))-parseInt(valImp(subtotal,porcRtf))-valRtIca;
+
+    $("#valComiLiqu").val(valImp(subtotal,porcComision));
+    $("#valIvaLiqu").val(valImp(subtotal,porcIva));
+    $("#valRtfLiqu").val(valImp(subtotal,porcRtf));
+    $("#valIcaLiqu").val(valImp(subtotal,valRtIca));
+    $("#valTotLiqu").val(totComision);
+    }
+      
+  });
+});
+
+//***********************************iva********************************* */
+
 //****************************************************************************** */
 
 //******** remove rows from pivot table containing items (No inclusio) */
@@ -2281,3 +2331,17 @@ function arrFlight(){
   });
 }); */
 //********************** */  
+
+//Formatear valores, añadir separador de miles
+$("").on({
+  "focus": function (event) {
+      $(event.target).select();
+  },
+  "keyup": function (event) {
+      $(event.target).val(function (index, value ) {
+          return value.replace(/\D/g, "")
+                      .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                      .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+      });
+  }
+});

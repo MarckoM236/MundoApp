@@ -10,6 +10,12 @@ if(isset($res)){
                   $email=$data->getEmail();
                   $mobile=$data->getMobile();
                 }
+                if($status=="A"){
+                  $valStatus="ACTIVO";
+                }
+                else{
+                  $valStatus="INACTIVO";
+                }
             }
 ?>
 <!-- Formulario -->
@@ -93,7 +99,12 @@ if(isset($res)){
                             <label>Estado</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus" value="<?php echo $status; ?>">
+                       <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
+                           <select name="txbStatus" id="status" class="form-select inputFomulario" placeholder="Opciones"> 
+                              <option select value="<?php echo $status; ?>"><?php echo $valStatus;?></option>
+                              <option value="A">ACTIVO</option>
+                              <option value="I">INACTIVO</option>
+                            </select>
                            <label class="error" for="status" id="status_error">Campo requerido.</label>
                       </div>
                     </div>
