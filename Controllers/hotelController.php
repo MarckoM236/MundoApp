@@ -12,7 +12,7 @@
                 if (isset($_POST['showHotel'])){
                     $objHotel= new HotelModel("","","","","","","","");
                     $objHotel->setCode($_POST['txbCode']);
-                    $objHotel->setName($_POST['txbName']);
+                    $objHotel->setName(strtoupper($_POST['txbName']));
                     $objHotel->setNit($_POST['txbNit']);
 
                     $hotel=$objHotel->show();
@@ -38,12 +38,12 @@
                 $objHotel= new HotelModel("","","","","","","","");
                 
                 $objHotel->setCode($_POST['txbCode']);
-                $objHotel->setName($_POST['txbName']);
+                $objHotel->setName(strtoupper($_POST['txbName']));
                 $objHotel->setNit($_POST['txbNit']);
-                $objHotel->setAddress($_POST['txbAddress']);
+                $objHotel->setAddress(strtoupper($_POST['txbAddress']));
                 $objHotel->setPhone($_POST['txbPhone']);
                 $objHotel->setStatus($_POST['txbStatus']);
-                $objHotel->setEmail($_POST['txbEmail']);
+                $objHotel->setEmail(strtoupper($_POST['txbEmail']));
                 $objHotel->setMobile($_POST['txbMobile']);
                 
                 $resInsert=$objHotel->insert();
@@ -70,12 +70,12 @@
                     $objHotel= new HotelModel("","","","","","","","");
                 
                     $objHotel->setCode($_POST['txbCode']);
-                    $objHotel->setName($_POST['txbName']);
+                    $objHotel->setName(strtoupper($_POST['txbName']));
                     $objHotel->setNit($_POST['txbNit']);
-                    $objHotel->setAddress($_POST['txbAddress']);
-                    $objHotel->setPhone($_POST['txbPhone']);
+                    $objHotel->setAddress(strtoupper($_POST['txbAddress']));
+                    $objHotel->setPhone(strtoupper($_POST['txbPhone']));
                     $objHotel->setStatus($_POST['txbStatus']);
-                    $objHotel->setEmail($_POST['txbEmail']);
+                    $objHotel->setEmail(strtoupper($_POST['txbEmail']));
                     $objHotel->setMobile($_POST['txbMobile']);
                 
 

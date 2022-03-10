@@ -12,7 +12,7 @@
                 if (isset($_POST['showBank'])){
                     $objBank= new BankModel("","","","");
                     $objBank->setCode($_POST['txbCode']);
-                    $objBank->setName($_POST['txbName']);
+                    $objBank->setName(strtoupper($_POST['txbName']));
                     $objBank->setNumAccount($_POST['txbNumAccount']);
 
                     $bank=$objBank->show();
@@ -38,7 +38,7 @@
                 $objBank= new BankModel("","","","");
                 
                 $objBank->setCode($_POST['txbCode']);
-                $objBank->setName($_POST['txbName']);
+                $objBank->setName(strtoupper($_POST['txbName']));
                 $objBank->setTiAccount($_POST['txbTiAccount']);
                 $objBank->setNumAccount($_POST['txbNumAccount']);
                 //print_r($objBank);
@@ -66,7 +66,7 @@
                     $objBank= new BankModel("","","","");
                     
                     $objBank->setCode($_POST['txbCode']);
-                    $objBank->setName($_POST['txbName']);
+                    $objBank->setName(strtoupper($_POST['txbName']));
                     $objBank->setTiAccount($_POST['txbTiAccount']);
                     $objBank->setNumAccount($_POST['txbNumAccount']);
                     

@@ -12,7 +12,7 @@
                 if (isset($_POST['showTipoAlim'])){
                     $objTipoAlim= new TipoAlimModel("","");
                     $objTipoAlim->setCode($_POST['txbCode']);
-                    $objTipoAlim->setName($_POST['txbName']);
+                    $objTipoAlim->setName(strtoupper($_POST['txbName']));
                     $tipoAlim=$objTipoAlim->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objTipoAlim= new TipoAlimModel("","");
                 
                 $objTipoAlim->setCode($_POST['txbCode']);
-                $objTipoAlim->setName($_POST['txbName']);
+                $objTipoAlim->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objTipoAlim->insert();
 
@@ -62,7 +62,7 @@
                     $objTipoAlim= new TipoAlimModel("","");
                     
                     $objTipoAlim->setCode($_POST['txbCode']);
-                    $objTipoAlim->setName($_POST['txbName']);
+                    $objTipoAlim->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objTipoAlim->update();
                     return $resUpdate;

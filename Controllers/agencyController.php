@@ -12,7 +12,7 @@
                 if (isset($_POST['showAgency'])){
                     $objAgency= new AgencyModel("","","");
                     $objAgency->setCode($_POST['txbCode']);
-                    $objAgency->setName($_POST['txbName']);
+                    $objAgency->setName(strtoupper($_POST['txbName']));
                     $agency=$objAgency->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objAgency= new AgencyModel("","","");
                 
                 $objAgency->setCode($_POST['txbCode']);
-                $objAgency->setName($_POST['txbName']);
+                $objAgency->setName(strtoupper($_POST['txbName']));
                 $objAgency->setStatus($_POST['txbStatus']);
                 
                 $resInsert=$objAgency->insert();
@@ -63,7 +63,7 @@
                     $objAgency= new AgencyModel("","","");
                     
                     $objAgency->setCode($_POST['txbCode']);
-                    $objAgency->setName($_POST['txbName']);
+                    $objAgency->setName(strtoupper($_POST['txbName']));
                     $objAgency->setStatus($_POST['txbStatus']);
                     
                     $resUpdate=$objAgency->update();

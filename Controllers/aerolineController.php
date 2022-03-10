@@ -12,7 +12,7 @@
                 if (isset($_POST['showAeroline'])){
                     $objAeroline= new AerolineModel("","","");
                     $objAeroline->setCode($_POST['txbCode']);
-                    $objAeroline->setName($_POST['txbName']);
+                    $objAeroline->setName(strtoupper($_POST['txbName']));
                     $aeroline=$objAeroline->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objAeroline= new AerolineModel("","","");
                 
                 $objAeroline->setCode($_POST['txbCode']);
-                $objAeroline->setName($_POST['txbName']);
+                $objAeroline->setName(strtoupper($_POST['txbName']));
                 $objAeroline->setStatus($_POST['txbStatus']);
                 
                 $resInsert=$objAeroline->insert();
@@ -63,7 +63,7 @@
                     $objAeroline= new AerolineModel("","","");
                     
                     $objAeroline->setCode($_POST['txbCode']);
-                    $objAeroline->setName($_POST['txbName']);
+                    $objAeroline->setName(strtoupper($_POST['txbName']));
                     $objAeroline->setStatus($_POST['txbStatus']);
                     
                     $resUpdate=$objAeroline->update();

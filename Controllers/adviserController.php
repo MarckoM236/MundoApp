@@ -12,8 +12,8 @@
                 if (isset($_POST['showAdviser'])){
                     $objAdviser= new AdviserModel("","","","");
                     $objAdviser->setId($_POST['txbId']);
-                    $objAdviser->setName($_POST['txbName']);
-                    $objAdviser->setLastName($_POST['txbLastName']);
+                    $objAdviser->setName(strtoupper($_POST['txbName']));
+                    $objAdviser->setLastName(strtoupper($_POST['txbLastName']));
                     $adviser=$objAdviser->show();  
                 }
                 else{
@@ -36,8 +36,8 @@
                 $objAdviser= new AdviserModel("","","","");
                 
                 $objAdviser->setId($_POST['txbId']);
-                $objAdviser->setName($_POST['txbName']);
-                $objAdviser->setLastName($_POST['txbLastName']);
+                $objAdviser->setName(strtoupper($_POST['txbName']));
+                $objAdviser->setLastName(strtoupper($_POST['txbLastName']));
                 $objAdviser->setStatus($_POST['txbStatus']);
                 //$resInsert=$_POST;
                 $resInsert=$objAdviser->insert();
@@ -64,8 +64,8 @@
                     $objAdviser= new AdviserModel("","","","");
                     
                     $objAdviser->setId($_POST['txbId']);
-                    $objAdviser->setName($_POST['txbName']);
-                    $objAdviser->setLastName($_POST['txbLastName']);
+                    $objAdviser->setName(strtoupper($_POST['txbName']));
+                    $objAdviser->setLastName(strtoupper($_POST['txbLastName']));
                     $objAdviser->setStatus($_POST['txbStatus']);
 
                     $resUpdate=$objAdviser->update();

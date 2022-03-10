@@ -13,7 +13,7 @@
                     $objSystem= new SystemModel("","","","","");
                     
                     $objSystem->setCode($_POST['txbCode']);
-                    $objSystem->setName($_POST['txbName']);
+                    $objSystem->setName(strtoupper($_POST['txbName']));
                     $objSystem->setValue($_POST['txbValue']);
                     $objSystem->setFeIn($_POST['txbFeIn']);
                     $objSystem->setFeFi($_POST['txbFeFi']);
@@ -45,7 +45,7 @@
                 $objSystem= new SystemModel("","","","","");
 
                 $objSystem->setCode($_POST['txbCode']);
-                $objSystem->setName($_POST['txbName']);
+                $objSystem->setName(strtoupper($_POST['txbName']));
                 $objSystem->setValue($_POST['txbValue']);
                 $objSystem->setFeIn($feIn);
                 $objSystem->setFeFi($feFi);
@@ -79,7 +79,7 @@
                     $objSystem= new SystemModel("","","","","");
                     
                     $objSystem->setCode($_POST['txbCode']);
-                    $objSystem->setName($_POST['txbName']);
+                    $objSystem->setName(strtoupper($_POST['txbName']));
                     $objSystem->setValue($_POST['txbValue']);
                     $objSystem->setFeIn($feIn);
                     $objSystem->setFeFi($feFi);

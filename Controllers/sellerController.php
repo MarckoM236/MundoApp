@@ -12,8 +12,8 @@
                 if (isset($_POST['showSeller'])){
                     $objSeller= new SellerModel("","","","");
                     $objSeller->setId($_POST['txbId']);
-                    $objSeller->setName($_POST['txbName']);
-                    $objSeller->setLastName($_POST['txbLastName']);
+                    $objSeller->setName(strtoupper($_POST['txbName']));
+                    $objSeller->setLastName(strtoupper($_POST['txbLastName']));
                     $seller=$objSeller->show();
                 }
                 else{
@@ -36,8 +36,8 @@
                 $objSeller= new SellerModel("","","","");
                 
                 $objSeller->setId($_POST['txbId']);
-                $objSeller->setName($_POST['txbName']);
-                $objSeller->setLastName($_POST['txbLastName']);
+                $objSeller->setName(strtoupper($_POST['txbName']));
+                $objSeller->setLastName(strtoupper($_POST['txbLastName']));
                 $objSeller->setStatus($_POST['txbStatus']);
                 //$resInsert=$_POST;
                 $resInsert=$objSeller->insert();
@@ -64,8 +64,8 @@
                     $objSeller= new SellerModel("","","","");
                     
                     $objSeller->setId($_POST['txbId']);
-                    $objSeller->setName($_POST['txbName']);
-                    $objSeller->setLastName($_POST['txbLastName']);
+                    $objSeller->setName(strtoupper($_POST['txbName']));
+                    $objSeller->setLastName(strtoupper($_POST['txbLastName']));
                     $objSeller->setStatus($_POST['txbStatus']);
 
                     $resUpdate=$objSeller->update();

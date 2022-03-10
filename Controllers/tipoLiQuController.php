@@ -12,7 +12,7 @@
                 if (isset($_POST['showTipoLiQu'])){
                     $objTipoLiQu= new TipoLiQuModel("","");
                     $objTipoLiQu->setCode($_POST['txbCode']);
-                    $objTipoLiQu->setName($_POST['txbName']);
+                    $objTipoLiQu->setName(strtoupper($_POST['txbName']));
                     $tipoLiQu=$objTipoLiQu->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objTipoLiQu= new TipoLiQuModel("","");
                 
                 $objTipoLiQu->setCode($_POST['txbCode']);
-                $objTipoLiQu->setName($_POST['txbName']);
+                $objTipoLiQu->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objTipoLiQu->insert();
 
@@ -62,7 +62,7 @@
                     $objTipoLiQu= new TipoLiQuModel("","");
                     
                     $objTipoLiQu->setCode($_POST['txbCode']);
-                    $objTipoLiQu->setName($_POST['txbName']);
+                    $objTipoLiQu->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objTipoLiQu->update();
                     return $resUpdate;

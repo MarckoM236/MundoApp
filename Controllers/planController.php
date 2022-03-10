@@ -12,7 +12,7 @@
                 if (isset($_POST['showPlan'])){
                     $objPlan= new PlanModel("","");
                     $objPlan->setCode($_POST['txbCode']);
-                    $objPlan->setName($_POST['txbName']);
+                    $objPlan->setName(strtoupper($_POST['txbName']));
                     $plan=$objPlan->show();
                 }
                 else{
@@ -35,7 +35,7 @@
                 $objPlan= new PlanModel("","");
                 
                 $objPlan->setCode($_POST['txbCode']);
-                $objPlan->setName($_POST['txbName']);
+                $objPlan->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objPlan->insert();
 
@@ -61,7 +61,7 @@
                     $objPlan= new PlanModel("","");
                     
                     $objPlan->setCode($_POST['txbCode']);
-                    $objPlan->setName($_POST['txbName']);
+                    $objPlan->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objPlan->update();
                     return $resUpdate;

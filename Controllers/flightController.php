@@ -13,7 +13,7 @@
                 if (isset($_POST['showFlight'])){
                     $objFlight= new FlightModel("","","","","");
                     $objFlight->setNum($_POST['txbNum']);
-                    $objFlight->setRoute($_POST['txbRoute']);
+                    $objFlight->setRoute(strtoupper($_POST['txbRoute']));
                     $flight=$objFlight->show();
 
                     //Consult aeroline to complete field.
@@ -45,7 +45,7 @@
                 $objFlight= new FlightModel("","","","","");
                 
                 $objFlight->setNum($_POST['txbNum']);
-                $objFlight->setRoute($_POST['txbRoute']);
+                $objFlight->setRoute(strtoupper($_POST['txbRoute']));
                 $objFlight->setStatus($_POST['txbStatus']);
                 $objFlight->setCodAeroline($_POST['txbCodAeroline']);
                 //print_r($objFlight);
@@ -77,7 +77,7 @@
                     $objFlight= new FlightModel("","","","","");
                 
                     $objFlight->setNum($_POST['txbNum']);
-                    $objFlight->setRoute($_POST['txbRoute']);
+                    $objFlight->setRoute(strtoupper($_POST['txbRoute']));
                     $objFlight->setStatus($_POST['txbStatus']);
                     $objFlight->setCodAeroline($_POST['txbCodAeroline']);
 

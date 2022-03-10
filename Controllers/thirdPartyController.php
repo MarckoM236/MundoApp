@@ -12,7 +12,7 @@
                 if (isset($_POST['showThirdParty'])){
                     $objThirdParty= new ThirdPartyModel("","","","","");
                     $objThirdParty->setId($_POST['txbId']);
-                    $objThirdParty->setName($_POST['txbName']);
+                    $objThirdParty->setName(strtoupper($_POST['txbName']));
 
                     $thirdParty=$objThirdParty->show();
                     
@@ -37,10 +37,10 @@
                 $objThirdParty= new ThirdPartyModel("","","","","");
                 
                 $objThirdParty->setId($_POST['txbId']);
-                $objThirdParty->setName($_POST['txbName']);
-                $objThirdParty->setAddress($_POST['txbAddress']);
+                $objThirdParty->setName(strtoupper($_POST['txbName']));
+                $objThirdParty->setAddress(strtoupper($_POST['txbAddress']));
                 $objThirdParty->setPhone($_POST['txbPhone']);
-                $objThirdParty->setEmail($_POST['txbEmail']);
+                $objThirdParty->setEmail(strtoupper($_POST['txbEmail']));
                 //print_r($_POST);
                 $resInsert=$objThirdParty->insert();
 
@@ -67,10 +67,10 @@
                     $objThirdParty= new ThirdPartyModel("","","","","");
                 
                     $objThirdParty->setId($_POST['txbId']);
-                    $objThirdParty->setName($_POST['txbName']);
-                    $objThirdParty->setAddress($_POST['txbAddress']);
+                    $objThirdParty->setName(strtoupper($_POST['txbName']));
+                    $objThirdParty->setAddress(strtoupper($_POST['txbAddress']));
                     $objThirdParty->setPhone($_POST['txbPhone']);
-                    $objThirdParty->setEmail($_POST['txbEmail']);
+                    $objThirdParty->setEmail(strtoupper($_POST['txbEmail']));
 
                     $resUpdate=$objThirdParty->update();
                     return $resUpdate;

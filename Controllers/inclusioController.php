@@ -12,7 +12,7 @@
                 if (isset($_POST['showInclusio'])){
                     $objInclusio= new InclusioModel("","");
                     $objInclusio->setCode($_POST['txbCode']);
-                    $objInclusio->setName($_POST['txbName']);
+                    $objInclusio->setName(strtoupper($_POST['txbName']));
                     $inclusio=$objInclusio->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objInclusio= new InclusioModel("","");
                 
                 $objInclusio->setCode($_POST['txbCode']);
-                $objInclusio->setName($_POST['txbName']);
+                $objInclusio->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objInclusio->insert();
 
@@ -62,7 +62,7 @@
                     $objInclusio= new InclusioModel("","");
                     
                     $objInclusio->setCode($_POST['txbCode']);
-                    $objInclusio->setName($_POST['txbName']);
+                    $objInclusio->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objInclusio->update();
                     return $resUpdate;

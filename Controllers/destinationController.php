@@ -12,7 +12,7 @@
                 if (isset($_POST['showDestination'])){
                     $objDestination= new DestinationModel("","");
                     $objDestination->setCode($_POST['txbCode']);
-                    $objDestination->setName($_POST['txbName']);
+                    $objDestination->setName(strtoupper($_POST['txbName']));
                     $destination=$objDestination->show(); 
                 }
                 else{
@@ -35,7 +35,7 @@
                 $objDestination= new DestinationModel("","");
                 
                 $objDestination->setCode($_POST['txbCode']);
-                $objDestination->setName($_POST['txbName']);
+                $objDestination->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objDestination->insert();
 
@@ -61,7 +61,7 @@
                     $objDestination= new DestinationModel("","");
                     
                     $objDestination->setCode($_POST['txbCode']);
-                    $objDestination->setName($_POST['txbName']);
+                    $objDestination->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objDestination->update();
                     return $resUpdate;

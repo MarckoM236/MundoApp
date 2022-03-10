@@ -2177,12 +2177,12 @@ $(function() {
       var porcRtf=$("input#rtf").val();
       var porcRtIca=$("input#rtica").val();
       var valRtIca=parseFloat(porcRtIca.replace(/,/g, '.'));
-      var totComision= (parseInt(subtotal) + parseInt(valImp(subtotal,porcIva)))-parseInt(valImp(subtotal,porcRtf))-valRtIca;
+      var totComision= (parseInt(valImp(subtotal,porcComision)) + parseInt(valImp(subtotal,porcIva)))-parseInt(valImp(subtotal,porcRtf))-valRtIca;
 
     $("#valComiLiqu").val(valImp(subtotal,porcComision));
-    $("#valIvaLiqu").val(valImp(subtotal,porcIva));
-    $("#valRtfLiqu").val(valImp(subtotal,porcRtf));
-    $("#valIcaLiqu").val(valImp(subtotal,valRtIca));
+    $("#valIvaLiqu").val(valImp(porcComision,porcIva));
+    $("#valRtfLiqu").val(valImp(porcComision,porcRtf));
+    $("#valIcaLiqu").val(valImp(porcComision,valRtIca));
     $("#valTotLiqu").val(totComision);
     }
       

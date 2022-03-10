@@ -12,7 +12,7 @@
                 if (isset($_POST['showEstarese'])){
                     $objEstarese= new EstareseModel("","");
                     $objEstarese->setCode($_POST['txbCode']);
-                    $objEstarese->setName($_POST['txbName']);
+                    $objEstarese->setName(strtoupper($_POST['txbName']));
                     $estarese=$objEstarese->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objEstarese= new EstareseModel("","");
                 
                 $objEstarese->setCode($_POST['txbCode']);
-                $objEstarese->setName($_POST['txbName']);
+                $objEstarese->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objEstarese->insert();
 
@@ -62,7 +62,7 @@
                     $objEstarese= new EstareseModel("","");
                     
                     $objEstarese->setCode($_POST['txbCode']);
-                    $objEstarese->setName($_POST['txbName']);
+                    $objEstarese->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objEstarese->update();
                     return $resUpdate;

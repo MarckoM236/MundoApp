@@ -12,7 +12,7 @@
                 if (isset($_POST['showOperator'])){
                     $objOperator= new OperatorModel("","","","","","","");
                     $objOperator->setCode($_POST['txbCode']);
-                    $objOperator->setName($_POST['txbName']);
+                    $objOperator->setName(strtoupper($_POST['txbName']));
 
                     $operator=$objOperator->show();
                     
@@ -37,11 +37,11 @@
                 $objOperator= new OperatorModel("","","","","","","");
                 
                 $objOperator->setCode($_POST['txbCode']);
-                $objOperator->setName($_POST['txbName']);
-                $objOperator->setAddress($_POST['txbAddress']);
+                $objOperator->setName(strtoupper($_POST['txbName']));
+                $objOperator->setAddress(strtoupper($_POST['txbAddress']));
                 $objOperator->setPhone($_POST['txbPhone']);
                 $objOperator->setStatus($_POST['txbStatus']);
-                $objOperator->setEmail($_POST['txbEmail']);
+                $objOperator->setEmail(strtoupper($_POST['txbEmail']));
                 $objOperator->setMobile($_POST['txbMobile']);
                 //print_r($_POST);
                 $resInsert=$objOperator->insert();
@@ -69,11 +69,11 @@
                     $objOperator= new OperatorModel("","","","","","","","");
                 
                     $objOperator->setCode($_POST['txbCode']);
-                    $objOperator->setName($_POST['txbName']);
-                    $objOperator->setAddress($_POST['txbAddress']);
+                    $objOperator->setName(strtoupper($_POST['txbName']));
+                    $objOperator->setAddress(strtoupper($_POST['txbAddress']));
                     $objOperator->setPhone($_POST['txbPhone']);
                     $objOperator->setStatus($_POST['txbStatus']);
-                    $objOperator->setEmail($_POST['txbEmail']);
+                    $objOperator->setEmail(strtoupper($_POST['txbEmail']));
                     $objOperator->setMobile($_POST['txbMobile']);
 
                     $resUpdate=$objOperator->update();

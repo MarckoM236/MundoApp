@@ -12,7 +12,7 @@
                 if (isset($_POST['showAcomodac'])){
                     $objAcomodac= new AcomodacModel("","");
                     $objAcomodac->setCode($_POST['txbCode']);
-                    $objAcomodac->setName($_POST['txbName']);
+                    $objAcomodac->setName(strtoupper($_POST['txbName']));
                     $acomodac=$objAcomodac->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objAcomodac= new AcomodacModel("","");
                 
                 $objAcomodac->setCode($_POST['txbCode']);
-                $objAcomodac->setName($_POST['txbName']);
+                $objAcomodac->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objAcomodac->insert();
 
@@ -62,7 +62,7 @@
                     $objAcomodac= new AcomodacModel("","");
                     
                     $objAcomodac->setCode($_POST['txbCode']);
-                    $objAcomodac->setName($_POST['txbName']);
+                    $objAcomodac->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objAcomodac->update();
                     return $resUpdate;

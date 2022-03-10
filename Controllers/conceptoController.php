@@ -12,7 +12,7 @@
                 if (isset($_POST['showConcepto'])){
                     $objConcepto= new ConceptoModel("","");
                     $objConcepto->setCode($_POST['txbCode']);
-                    $objConcepto->setName($_POST['txbName']);
+                    $objConcepto->setName(strtoupper($_POST['txbName']));
                     $concepto=$objConcepto->show();   
                 }
                 else{
@@ -35,7 +35,7 @@
                 $objConcepto= new ConceptoModel("","");
                 
                 $objConcepto->setCode($_POST['txbCode']);
-                $objConcepto->setName($_POST['txbName']);
+                $objConcepto->setName(strtoupper($_POST['txbName']));
                 
                 $resInsert=$objConcepto->insert();
 
@@ -61,7 +61,7 @@
                     $objConcepto= new ConceptoModel("","");
                     
                     $objConcepto->setCode($_POST['txbCode']);
-                    $objConcepto->setName($_POST['txbName']);
+                    $objConcepto->setName(strtoupper($_POST['txbName']));
                     
                     $resUpdate=$objConcepto->update();
                     return $resUpdate;

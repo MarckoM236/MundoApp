@@ -12,7 +12,7 @@
                 if (isset($_POST['showCompany'])){
                     $objCompany= new CompanyModel("","","","","","","");
                     $objCompany->setCode($_POST['txbCode']);
-                    $objCompany->setName($_POST['txbName']);
+                    $objCompany->setName(strtoupper($_POST['txbName']));
                     $objCompany->setNit($_POST['txbNit']);
                     $company=$objCompany->show();  
                 }
@@ -36,10 +36,10 @@
                 $objCompany= new CompanyModel("","","","","","","");
                 
                 $objCompany->setCode($_POST['txbCode']);
-                $objCompany->setName($_POST['txbName']);
+                $objCompany->setName(strtoupper($_POST['txbName']));
                 $objCompany->setNit($_POST['txbNit']);
                 $objCompany->setRent($_POST['txbRent']);
-                $objCompany->setAddress($_POST['txbAddress']);
+                $objCompany->setAddress(strtoupper($_POST['txbAddress']));
                 $objCompany->setPbx($_POST['txbPBX']);
                 $objCompany->setMobile($_POST['txbMobile']);
                 
@@ -67,10 +67,10 @@
                     $objCompany= new CompanyModel("","","","","","","");
                     
                     $objCompany->setCode($_POST['txbCode']);
-                    $objCompany->setName($_POST['txbName']);
+                    $objCompany->setName(strtoupper($_POST['txbName']));
                     $objCompany->setNit($_POST['txbNit']);
                     $objCompany->setRent($_POST['txbRent']);
-                    $objCompany->setAddress($_POST['txbAddress']);
+                    $objCompany->setAddress(strtoupper($_POST['txbAddress']));
                     $objCompany->setPbx($_POST['txbPBX']);
                     $objCompany->setMobile($_POST['txbMobile']);
                     

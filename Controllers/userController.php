@@ -12,7 +12,7 @@
                 if (isset($_POST['showUser'])){
                     $objUser= new UserModel("","","","");
                     $objUser->setCode($_POST['txbCode']);
-                    $objUser->setName($_POST['txbName']);
+                    $objUser->setName(strtoupper($_POST['txbName']));
                     $user=$objUser->show();
                     
                 }
@@ -36,7 +36,7 @@
                 $objUser= new UserModel("","","","");
 
                 $objUser->setCode($_POST['txbCode']);
-                $objUser->setName($_POST['txbName']);
+                $objUser->setName(strtoupper($_POST['txbName']));
                 $objUser->setPass($_POST['txbPass']);
                 $objUser->setStatus($_POST['txbStatus']);
                 
@@ -64,7 +64,7 @@
                     $objUser= new UserModel("","","","");
                     
                     $objUser->setCode($_POST['txbCode']);
-                    $objUser->setName($_POST['txbName']);
+                    $objUser->setName(strtoupper($_POST['txbName']));
                     $objUser->setPass($_POST['txbPass']);
                     $objUser->setStatus($_POST['txbStatus']);
                     

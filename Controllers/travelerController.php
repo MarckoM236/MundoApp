@@ -12,7 +12,7 @@
                 if (isset($_POST['showTraveler'])){
                     $objTraveler= new TravelerModel("","","","");
                     $objTraveler->setId($_POST['txbId']);
-                    $objTraveler->setName($_POST['txbName']);
+                    $objTraveler->setName(strtoupper($_POST['txbName']));
                     $traveler=$objTraveler->show();  
                 }
                 else{
@@ -38,8 +38,8 @@
                 $objTraveler= new TravelerModel("","","","");
 
                 $objTraveler->setId($_POST['txbId']);
-                $objTraveler->setName($_POST['txbName']);
-                $objTraveler->setLastName($_POST['txbLastName']);
+                $objTraveler->setName(strtoupper($_POST['txbName']));
+                $objTraveler->setLastName(strtoupper($_POST['txbLastName']));
                 $objTraveler->setBirthDate($birthDate);
                 
                 $resInsert=$objTraveler->insert();
@@ -69,8 +69,8 @@
                     $objTraveler= new TravelerModel("","","","");
 
                     $objTraveler->setId($_POST['txbId']);
-                    $objTraveler->setName($_POST['txbName']);
-                    $objTraveler->setLastName($_POST['txbLastName']);
+                    $objTraveler->setName(strtoupper($_POST['txbName']));
+                    $objTraveler->setLastName(strtoupper($_POST['txbLastName']));
                     $objTraveler->setBirthDate($birthDate);
                         
                     $resUpdate=$objTraveler->update();
