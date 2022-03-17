@@ -55,7 +55,7 @@
                             <label>Fecha Nacimiento</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="date" placeholder="fecha Nacimiento" id="birthDate" name="txbBirthDate">
+                           <input class="form-control inputFomulario" type="date" placeholder="dd-mm-yyyy" id="birthDate" name="txbBirthDate">
                            <label class="error" for="birthDate" id="birthDate_error">Campo requerido.</label>
                       </div>
                     </div>
@@ -84,12 +84,13 @@
                     $id=$data->getId();
                     $name=$data->getName();
                     $lastName=$data->getLastName();
-                    $birthDate=$data->getBirthDate();
+                    $birthDate=date_create($data->getBirthDate());
+                    $birt=date_format($birthDate,"d/m/Y");
 
                     $return_arr[] = array("id" => $id,
                     "name" => $name,
                     "lastName" => $lastName,
-                    "birthDate" => $birthDate);    
+                    "birthDate" => $birt);    
                 }
                 //print_r($return_arr);
                 ?>
@@ -105,7 +106,7 @@
                             <th style="width:30px;background-color: #9FD5D1;">Identificacion</th>
                             <th style="width:30px;background-color: #9FD5D1">Nombre</th>
                             <th style="width:30px;background-color: #9FD5D1">Apellido</th>
-                            <th style="width:30px;background-color: #9FD5D1">Fecha Nacmiento</th>
+                            <th style="width:30px;background-color: #9FD5D1">Fecha Nacimiento</th>
                             <th style="width:30px;background-color: #9FD5D1">Editar</th>
                             <th style="width:30px;background-color: #9FD5D1">Eliminar</th>
                           </tr>

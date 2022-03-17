@@ -1705,10 +1705,10 @@ $(function() {
       $("select#codAviser").focus();
       return false;
     }
-    var codEstarese = $("select#codEstarese").val();
+    var codEstarese = $("select#codEstarse").val();
     if (codEstarese == "") {
       $("label#codEstarese_error").show();
-      $("select#codEstarese").focus();
+      $("select#codEstarse").focus();
       return false;
     }
 
@@ -1754,96 +1754,73 @@ $(function() {
       $("select#codAcomodac").focus();
       return false;
     }
-
-    /* var aeroFli = $("input#aeroFli").val();
-    if (aeroFli == "") {
-      $("label#aeroFli_error").show();
-      $("input#aeroFli").focus();
-      return false;
-    }
-    var codFlight = $("select#codFlight").val();
-    if (codFlight == "") {
-      $("label#codFlight_error").show();
+    
+    //validar que exista el detalle de la liquidacion
+    var flights = arrFlight();
+    if (flights == "") {
+      $("label#flights_error").show();
       $("select#codFlight").focus();
       return false;
     }
-    var routeFli = $("input#routeFli").val();
-    if (routeFli == "") {
-      $("label#routeFli_error").show();
-      $("input#routeFli").focus();
-      return false;
-    }
-    var dateFli = $("input#dateFli").val();
-    if (dateFli == "") {
-      $("label#dateFli_error").show();
-      $("input#dateFli").focus();
-      return false;
-    }
-    var exitFli = $("input#exitFli").val();
-    if (exitFli == "") {
-      $("label#exitFli_error").show();
-      $("input#exitFli").focus();
-      return false;
-    }
-    var arrivalFli = $("input#arrivalFli").val();
-    if (arrivalFli == "") {
-      $("label#arrivalFli_error").show();
-      $("input#arrivalFli").focus();
-      return false;
-    }
-    var commentFli = $("input#commentFli").val();
-    if (commentFli == "") {
-      $("label#commentFli_error").show();
-      $("input#commentFli").focus();
+
+    var travelers = arrTraveler();
+    if (travelers == "") {
+      $("label#travelers_error").show();
+      $("input#idTraveler").focus();
       return false;
     }
 
-    var commentFli = $("input#commentFli").val();
-    if (commentFli == "") {
-      $("label#commentFli_error").show();
-      $("input#commentFli").focus();
+    var includes = arrIncludes();
+    if (includes == "") {
+      $("label#includes_error").show();
+      $("select#codConcepto").focus();
       return false;
     }
-    var commentFli = $("input#commentFli").val();
-    if (commentFli == "") {
-      $("label#commentFli_error").show();
-      $("input#commentFli").focus();
+
+    var Noincludes = arrNoIncludes();
+    if (Noincludes == "") {
+      $("label#noIncludes_error").show();
+      $("select#codConceptoN").focus();
       return false;
     }
-    var commentFli = $("input#commentFli").val();
-    if (commentFli == "") {
-      $("label#commentFli_error").show();
-      $("input#commentFli").focus();
+
+    var services = arrConcept();
+    if (services == "") {
+      $("label#services_error").show();
+      $("select#codConc").focus();
       return false;
     }
-    var commentFli = $("input#commentFli").val();
-    if (commentFli == "") {
-      $("label#commentFli_error").show();
-      $("input#commentFli").focus();
-      return false;
-    } */
-    
+    //******************************************* */
     var valTotTraveler = $("input#valTotTraveler").val();
     if (valTotTraveler == "") {
       $("label#valTotTraveler_error").show();
       $("input#valTotTraveler").focus();
       return false;
     }
+    var valImp = $("input#valTotImp").val();
+    if (valImp == "") {
+      $("label#valTotImp_error").show();
+      $("input#valTotImp").focus();
+      return false;
+    }
     var descuento=10;
     //insertTraveler(id,name,lastName,birthDate); 
     var valIvaLiqu = $("input#valIvaLiqu").val();
+    var iva=(valIvaLiqu.replace(/[$.]/g,'')).toString();
     if (valIvaLiqu == "") {
       $("label#valIvaLiqu_error").show();
       $("input#valIvaLiqu").focus();
       return false;
     }
     var valIcaLiqu = $("input#valIcaLiqu").val();
+    var ica=(valIcaLiqu.replace(/[$.]/g,'')).toString();
     if (valIcaLiqu == "") {
       $("label#valIcaLiqu_error").show();
       $("input#valIcaLiqu").focus();
       return false;
     }
     var valRtfLiqu = $("input#valRtfLiqu").val();
+    var rtf=(valRtfLiqu.replace(/[$.]/g,'')).toString();
     if (valRtfLiqu == "") {
       $("label#valRtfLiqu_error").show();
       $("input#valRtfLiqu").focus();
@@ -1867,12 +1844,6 @@ $(function() {
       $("input#pl100Liqu").focus();
       return false;
     }
-    var valRtfLiqu = $("input#valRtfLiqu").val();
-    if (valRtfLiqu == "") {
-      $("label#valRtfLiqu_error").show();
-      $("input#valRtfLiqu").focus();
-      return false;
-    }
 
     var usuario=1;
 
@@ -1882,12 +1853,115 @@ $(function() {
       $("input#NumRes").focus();
       return false;
     }
-
-    insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario,numRes);
+    
+    insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,iva,ica,rtf,valTotEmp,pl50Liqu,pl100Liqu,usuario,numRes);
       
   });
 });
+//************************************************ */
+//Validar fecha de viaje que no sea anterior a la actual
+fecViDeLiqu.oninput = function() {
+  var fecViDeLiqu = $("input#fecViDeLiqu").val()
+  //alert(fecViDeLiqu);
+    var hoy = new Date();
+    var m=hoy.getMonth()+1;
+    if(m.length=1){
+      var mes='0'+m;
+    }
+    var fecFormat=hoy.getFullYear()+'-'+mes+'-'+hoy.getDate();
+    var fechaFormulario = new Date(fecViDeLiqu);
+    // Comparamos solo las fechas => no las horas!!
+    hoy.setHours(0,0,0,0);
+    fechaFormulario.setHours(0,0,0,0); // Lo iniciamos a 00:00 horas
+    if (fechaFormulario < hoy) {
+      $("label#fecViDeLiquMen_error").show();
+      $("input#fecViDeLiqu").val(fecFormat);
+      $("input#fecViDeLiqu").focus();
+      return false;
+      
+    }
+    else{
+      $("label#fecViDeLiquMen_error").hide();
+    }
+};
 //********************** */
+//Validar fecha de vuelo que no sea anterior a la actual
+dateFli.oninput = function() {
+  var dateFli = $("input#dateFli").val()
+  //alert(fecViDeLiqu);
+    var hoy = new Date();
+    var m=hoy.getMonth()+1;
+    if(m.length=1){
+      var mes='0'+m;
+    }
+    var fecFormat=hoy.getFullYear()+'-'+mes+'-'+hoy.getDate();
+    var fechaFormulario = new Date(dateFli);
+    // Comparamos solo las fechas => no las horas!!
+    hoy.setHours(0,0,0,0);
+    fechaFormulario.setHours(0,0,0,0); // Lo iniciamos a 00:00 horas
+    if (fechaFormulario < hoy) {
+      $("label#dateFliMen_error").show();
+      $("input#dateFli").val(fecFormat);
+      $("input#dateFli").focus();
+      return false;
+      
+    }
+    else{
+      $("label#dateFliMen_error").hide();
+    }
+};
+//************************************************************************** */
+//Validar fechas de plazo 50 y 100% que no sea anterior a la actual
+pl50Liqu.oninput = function() {
+  var pl50 = $("input#pl50Liqu").val()
+  //alert(fecViDeLiqu);
+    var hoy = new Date();
+    var m=hoy.getMonth()+1;
+    if(m.length=1){
+      var mes='0'+m;
+    }
+    var fecFormat=hoy.getFullYear()+'-'+mes+'-'+hoy.getDate();
+    var fechaFormulario = new Date(pl50);
+    // Comparamos solo las fechas => no las horas!!
+    hoy.setHours(0,0,0,0);
+    fechaFormulario.setHours(0,0,0,0); // Lo iniciamos a 00:00 horas
+    if (fechaFormulario < hoy) {
+      $("label#pl50LiquMen_error").show();
+      $("input#pl50Liqu").val(fecFormat);
+      $("input#pl50Liqu").focus();
+      return false;
+      
+    }
+    else{
+      $("label#pl50LiquMen_error").hide();
+    }
+};
+
+pl100Liqu.oninput = function() {
+  var pl100 = $("input#pl100Liqu").val()
+  //alert(fecViDeLiqu);
+    var hoy = new Date();
+    var m=hoy.getMonth()+1;
+    if(m.length=1){
+      var mes='0'+m;
+    }
+    var fecFormat=hoy.getFullYear()+'-'+mes+'-'+hoy.getDate();
+    var fechaFormulario = new Date(pl100);
+    // Comparamos solo las fechas => no las horas!!
+    hoy.setHours(0,0,0,0);
+    fechaFormulario.setHours(0,0,0,0); // Lo iniciamos a 00:00 horas
+    if (fechaFormulario < hoy) {
+      $("label#pl100LiquMen_error").show();
+      $("input#pl100Liqu").val(fecFormat);
+      $("input#pl100Liqu").focus();
+      return false;
+      
+    }
+    else{
+      $("label#pl100LiquMen_error").hide();
+    }
+};
+//***************************************************************************** */
 
 //***Fomr update Liquidac***
 $(function() {
@@ -2037,9 +2111,8 @@ $(function() {
     var cantidad=$("input#cantConc").val();
     var precio = $(this).val();
     var total= cantidad * precio;
-
     $("#totConc").val(total);
-      
+    
   });
 });
 
@@ -2158,8 +2231,8 @@ $(function() {
     var totTraveler=$("input#valTotTraveler").val();
     var totImpuestos = $(this).val();
     var subTotal= totTraveler - totImpuestos;
-
-    $("#subTotLiqu").val(subTotal);
+    var sub=formatter.format(subTotal);
+    $("#subTotLiqu").val(sub);
       
   });
 });
@@ -2170,20 +2243,24 @@ function valImp(sub,imp){
 //*****************comision ***********************/
 $(function() {
   $("#subTotLiqu").keyup(function () {
-    var subtotal = $(this).val();
+    var subt = $(this).val();
+    var subtotal=subt.replace(/[$.]/g,'');
     if(subtotal>0){
       var porcComision=$("input#comision").val();
       var porcIva=$("input#iva").val();
       var porcRtf=$("input#rtf").val();
       var porcRtIca=$("input#rtica").val();
       var valRtIca=parseFloat(porcRtIca.replace(/,/g, '.'));
-      var totComision= (parseInt(valImp(subtotal,porcComision)) + parseInt(valImp(subtotal,porcIva)))-parseInt(valImp(subtotal,porcRtf))-valRtIca;
+      
 
-    $("#valComiLiqu").val(valImp(subtotal,porcComision));
-    $("#valIvaLiqu").val(valImp(porcComision,porcIva));
-    $("#valRtfLiqu").val(valImp(porcComision,porcRtf));
-    $("#valIcaLiqu").val(valImp(porcComision,valRtIca));
-    $("#valTotLiqu").val(totComision);
+    $("#valComiLiqu").val(formatter.format(Math.round(valImp(subtotal,porcComision))));
+    var com=$("input#valComiLiqu").val();
+    var comision=com.replace(/[$.]/g,'');
+    var totComision= (parseInt(comision) + parseInt(valImp(subtotal,porcIva)))-parseInt(valImp(subtotal,porcRtf))-valRtIca;
+    $("#valIvaLiqu").val(Math.round(valImp(comision,porcIva)));
+    $("#valRtfLiqu").val(Math.round(valImp(comision,porcRtf)));
+    $("#valIcaLiqu").val(Math.round(valImp(comision,valRtIca)));
+    $("#valTotLiqu").val(formatter.format(Math.round(totComision)));
     }
       
   });
@@ -2311,37 +2388,12 @@ function arrFlight(){
   return flight;
   }
   //**************************************************************************** */
-  //***************************AÑADIR ELEMENTOS DEL DETALLE EN ARRAYS PARA ENVIO AL SRVIDOR******************** */
 
 
-
-//*** PRUEBA ***
-//***Fomr insert PRUEBA***
-/* $(function() {
-  $('.error').hide();
-  $("#savePrueba").click(function() {
-    var codLiqu = $("input#codLiqu").val();
-    if (codLiqu == "") {
-      $("label#codLiqu_error").show();
-      $("input#codLiqu").focus();
-      return false;
-    }
-  liquDetail(codLiqu,arrFlight());
-      
-  });
-}); */
-//********************** */  
-
-//Formatear valores, añadir separador de miles
-$("").on({
-  "focus": function (event) {
-      $(event.target).select();
-  },
-  "keyup": function (event) {
-      $(event.target).val(function (index, value ) {
-          return value.replace(/\D/g, "")
-                      .replace(/([0-9])([0-9]{2})$/, '$1.$2')
-                      .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
-      });
-  }
+//****************FORMATO DE MONEDA  */
+const formatter = new Intl.NumberFormat('es-CO', {
+  style: 'currency',
+  currency: 'COP',
+  minimumFractionDigits: 0
 });
+//****************************************** */

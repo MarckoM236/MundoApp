@@ -2077,7 +2077,7 @@ function insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser
          //window.location="?controller=company&action=home";                            
       },
       error: function(jqXHR, textStatus, error){
-         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+         alert( "Error al guardar la liquidacion: " + jqXHR.responseText);
       }
   });
      
@@ -2255,7 +2255,7 @@ function liquDetail(codDetail,arrFli){
          //window.location="?controller=company&action=home";                            
       },
       error: function(jqXHR, textStatus, error){
-         alert( "Error al INSERTAR los datos: " + jqXHR.responseText);
+         alert( "Error al guardar el detalle de la liquidacion: " + jqXHR.responseText);
       }
   });
      

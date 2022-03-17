@@ -1,3 +1,7 @@
+<?php 
+date_default_timezone_set('UTC');
+date_default_timezone_set("America/Bogota");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -113,8 +117,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu3();" >
-                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo3" >
+                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu5();" >
+                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo5" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tarifaNacional.png">
                                     </div>
@@ -123,8 +127,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu3();" >
-                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo3" >
+                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu6();" >
+                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo6" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/pagos.png">
                                     </div>
@@ -278,12 +282,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=acomodac&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/seguimiento.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Acomodaci&oacute;n</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM1-->
@@ -292,12 +298,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=aeroline&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/aerolinea.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Aerolinea</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM2-->
@@ -306,12 +314,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=agency&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/seguimiento.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Agencia</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM3-->
@@ -320,12 +330,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=bank&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/banco.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Banco</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM4-->
@@ -334,12 +346,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=concepto&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/concepto.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Concepto</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM5-->
@@ -348,12 +362,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=destination&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/destinos.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Destino</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM6-->
@@ -362,12 +378,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=plan&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/plan.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Plan</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM7-->
@@ -376,12 +394,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=flight&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/vuelo.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Vuelo</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM8-->
@@ -390,12 +410,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=operator&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/seguimiento.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Operador</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM9-->
@@ -404,12 +426,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=hotel&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/hotel.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Hotel</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM10-->
@@ -418,12 +442,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=thirdParty&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Tercero</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM11-->
@@ -432,12 +458,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=adviser&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/asesor.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Asesor</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM12-->
@@ -446,12 +474,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=seller&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/vendedor.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  > Vendedor</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM13-->
@@ -488,12 +518,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Liquidacion</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM01-->
@@ -502,12 +534,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=thirdParty&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Vauchers</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM02-->
@@ -516,12 +550,14 @@
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=thirdParty&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Receptivos</label>
                                     </div>
+                                </div>    
                                 </a>
                             </div>
                             <!-- FIN ITEM03-->
@@ -539,7 +575,42 @@
                 <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
                     <div class="card shadow cuadroHeader2 menuFondoSubMenu" >
                         <div class="row justify-content-left ">
-
+                            <!-- 01-->
+                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarSubMenu51();" >
+                                <div class="row justify-content-left  opcionMenu2" id="opcionSubMenuActivo51" >
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/pagos.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >San Andres</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FIN ITEM01-->
+                            <!-- 02-->
+                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarSubMenu52();" >
+                                <div class="row justify-content-left  opcionMenu2" id="opcionMenuActivo52" >
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/pagos.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Cartagena</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FIN ITEM02-->
+                            <!-- 03-->
+                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarSubMenu53();" >
+                                <div class="row justify-content-left  opcionMenu2" id="opcionMenuActivo53" >
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/pagos.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Santa Marta</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FIN ITEM03-->
 
                         </div>
                     </div>
@@ -547,14 +618,219 @@
             </div>
     </section>
     <!--SUB MENU TARIFA NACIONAL-->
-
-    <!--SUB MENU TARIFA PAGOS-->
-    <section class="contenidoPrincipal py-0" id="opcionMenu5" style="display: none" >
+    <!--SUB MENU 5.1 DEL SUBMENU TARIFA NACIONAL-->
+    <section class="contenidoPrincipal py-0" id="opcionSubMenu51" style="display: none" >
             <div class="row justify-content-center ">
                 <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
                     <div class="card shadow cuadroHeader2 menuFondoSubMenu" >
                         <div class="row justify-content-left ">
+                            <!-- 01-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Tarifas</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM01-->
+                            <!-- 02-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Neto</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM02-->
+                            <!-- 03-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Receptivos</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM03-->
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--SUB MENU 5.1 DEL SUBMENU TARIFA NACIONAL-->
+
+    <!--SUB MENU 5.2 DEL SUBMENU TARIFA NACIONAL-->
+    <section class="contenidoPrincipal py-0" id="opcionSubMenu52" style="display: none" >
+            <div class="row justify-content-center ">
+                <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
+                    <div class="card shadow cuadroHeader2 menuFondoSubMenu" >
+                        <div class="row justify-content-left ">
+                            <!-- 01-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Tarifas</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM01-->
+                            <!-- 02-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Neto</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM02-->
+                            <!-- 03-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Receptivos</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM03-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--SUB MENU 5.2 DEL SUBMENU TARIFA NACIONAL-->
+
+    <!--SUB MENU 5.3 DEL SUBMENU TARIFA NACIONAL-->
+    <section class="contenidoPrincipal py-0" id="opcionSubMenu53" style="display: none" >
+            <div class="row justify-content-center ">
+                <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
+                    <div class="card shadow cuadroHeader2 menuFondoSubMenu" >
+                        <div class="row justify-content-left ">
+                            <!-- 01-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Tarifas</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM01-->
+                            <!-- 02-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Neto</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM02-->
+                            <!-- 03-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Receptivos</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM03-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--SUB MENU 5.1 DEL SUBMENU TARIFA NACIONAL-->
+
+    <!--SUB MENU TARIFA PAGOS-->
+    <section class="contenidoPrincipal py-0" id="opcionMenu6" style="display: none" >
+            <div class="row justify-content-center ">
+                <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
+                    <div class="card shadow cuadroHeader2 menuFondoSubMenu" >
+                        <div class="row justify-content-left ">
+                            <!-- 01-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Pagos</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM01-->
+                            <!-- 02-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/tercero.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  >Netos</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM02-->
 
                         </div>
                     </div>

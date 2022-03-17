@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-              <div  class="col-sm-4 col-4 py-1 align-self-center text-left">
+              <div  class="col-sm-6 col-6 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Nombre</label>
@@ -76,10 +76,10 @@
                       <table class="table table-bordered " >
                         <thead>
                           <tr>
-                            <th style="width:30px;background-color: #9FD5D1;">Codigo</th>
-                            <th style="width:30px;background-color: #9FD5D1">Nombre</th>
-                            <th style="width:30px;background-color: #9FD5D1">Editar</th>
-                            <th style="width:30px;background-color: #9FD5D1">Eliminar</th>
+                            <th style="width:25px;background-color: #9FD5D1;">Codigo</th>
+                            <th style="width:45px;background-color: #9FD5D1">Nombre</th>
+                            <th style="width:25px;background-color: #9FD5D1">Editar</th>
+                            <th style="width:25px;background-color: #9FD5D1">Eliminar</th>
                           </tr>
                         </thead>
 						<br />

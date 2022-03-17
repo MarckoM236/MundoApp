@@ -183,11 +183,11 @@
 
              if($res){
                  $data['status'] = 'ok';
-                 $data['result'] = 'Registro exitoso';
+                 $data['result'] = 'Se registro detalle de liquidacion exitosamente';
              }
              else{
                  $data['status'] = 'fail';
-                 $data['result'] = 'No se pudo insertar';
+                 $data['result'] = 'Error al intentar guardar los cambios en el detalle de liquidacion';
              }
 
              oci_free_statement($stid);

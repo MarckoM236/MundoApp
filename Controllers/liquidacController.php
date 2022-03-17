@@ -173,18 +173,22 @@
                 $objLiquidac->setCodeAcomodac($_POST['txbCodeAcomodac']);
                 $objLiquidac->setValTotTraveler($_POST['txbValTotTraveler']);
                 $objLiquidac->setValDes($_POST['txbValDes']);
+                /* $objLiquidac->setValIvaLiqu(strval($_POST['txbValIvaLiqu']));
+                $objLiquidac->setValIcaLiqu(strval($_POST['txbValIcaLiqu']));
+                $objLiquidac->setValRtfLiqu(strval($_POST['txbValRtfLiqu'])); */ 
                 $objLiquidac->setValIvaLiqu($_POST['txbValIvaLiqu']);
-                $objLiquidac->setValIcaLiqu($_POST['txbValIcaLiqu']);
+                $objLiquidac->setValIcaLiqu($_POST['txbValIcaLiqu']); 
                 $objLiquidac->setValRtfLiqu($_POST['txbValRtfLiqu']);
                 $objLiquidac->setValTotEmp($_POST['txbvalTotEmp']);
                 $objLiquidac->setPl50Liqu($dp50);
                 $objLiquidac->setPl100Liqu($dp100);
                 $objLiquidac->setIdUser($_POST['txbIdUser']);
                 $objLiquidac->setNumRes($_POST['txbNumRes']);
-                //print_r($objLiquidac);
-                $resInsert=$objLiquidac->insert();
                 
+                $resInsert=$objLiquidac->insert();
+                //print_r($objLiquidac);
                 return $resInsert;
+                //print_r(strval($_POST['txbValIvaLiqu']));
             }
             if(isset($_POST['saveDetail'])){
                 $objDetailLiquidac= new LiquDetaModel("","","","","","","","","","","","","","","","","","","","","");

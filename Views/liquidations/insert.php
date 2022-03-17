@@ -219,7 +219,7 @@ if(isset($agency)){
 
     <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2 pad">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Agencia</label>
@@ -241,7 +241,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Vendedor</label>
@@ -265,10 +265,10 @@ if(isset($agency)){
     </div>
 
     <div class="row justify-content-center py-2 pad">
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                        <label>Asersor</label>
+                        <label>Asesor</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                 <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
@@ -287,7 +287,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Estado Reserva</label>
@@ -323,11 +323,12 @@ if(isset($agency)){
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <input class="form-control inputFomulario" type="date" placeholder="fecha viaje" id="fecViDeLiqu" name="txbFecViDeLiqu" value="<?php echo date('Y-m-d');?>">
                     <label class="error" for="fecViDeLiqu" id="fecViDeLiqu_error">Campo requerido.</label>
+                    <label class="error" for="fecViDeLiquMen" id="fecViDeLiquMen_error">La fecha no pude ser anterior a la actual</label>
                 </div>
             </div>
         </div>
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Destino</label>
@@ -351,7 +352,7 @@ if(isset($agency)){
     
     <div class="row justify-content-center py-2 pad">
 
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Hotel</label>
@@ -373,7 +374,7 @@ if(isset($agency)){
             </div>
         </div>
         
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Hostal</label>
@@ -525,6 +526,7 @@ if(isset($agency)){
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <input class="form-control inputFomulario" type="date" placeholder="fecha" id="dateFli" name="txbDateFli" value="<?php echo date('Y-m-d');?>">
                     <label class="error" for="dateFli" id="dateFli_error">Campo requerido.</label>
+                    <label class="error" for="dateFliMen" id="dateFliMen_error">La fecha no pude ser anterior a la actual</label>
                 </div>
             </div>
         </div>
@@ -569,7 +571,7 @@ if(isset($agency)){
                 <input id='btnAddFli'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectFlight()"/>
             </div>
         </div>
-
+        <label class="error" for="flights" id="flights_error">Debe seleccionar un vuelo</label>
     </div>
 </div>
 <!-- results-->
@@ -647,7 +649,7 @@ if(isset($agency)){
                 <input id='btnAddTrav'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectTrav()"/>
             </div>
         </div>
-
+        <label class="error" for="travelers" id="travelers_error">No hay viajeros seleccionados.</label>
     </div>
 </div>
 <!-- results-->
@@ -696,7 +698,7 @@ if(isset($agency)){
                 <input id='btnAddInc'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectedInc()"/>
             </div>
         </div>
-
+        <label class="error" for="includes" id="includes_error">No hay inclusiones seleccionadas.</label>
     </div>
 </div>
 <!-- results-->
@@ -741,7 +743,7 @@ if(isset($agency)){
                 <input id='btnAddNotInc'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectedNotInc()"/>
             </div>
         </div>
-
+        <label class="error" for="noIncludes" id="noIncludes_error">No hay inclusiones seleccionadas.</label>
     </div>
 </div>
 <!-- results-->
@@ -825,7 +827,7 @@ if(isset($agency)){
                 <input id='btnAddConcept'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectConcept()"/>
             </div>
         </div>
-
+        <label class="error" for="services" id="services_error">No hay servicios seleccionados.</label>
     </div>
 </div>
 <!-- results-->
@@ -896,7 +898,7 @@ if(isset($agency)){
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
                             <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valTotImp" name="txbValTotImp">
-                            <label class="error" for="code" id="code_error">Campo requerido.</label>
+                            <label class="error" for="valTotImp" id="valTotImp_error">Campo requerido.</label>
                         </div>
                     </div>
                 </div>      
@@ -1048,6 +1050,7 @@ if(isset($agency)){
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <input class="form-control inputFomulario" type="date" placeholder="plazo 50%" id="pl50Liqu" name="txbPl50Liqu" value="<?php echo date('Y-m-d');?>">
                     <label class="error" for="pl50Liqu" id="pl50Liqu_error">Campo requerido.</label>
+                    <label class="error" for="pl50LiquMen" id="pl50LiquMen_error">La fecha no pude ser anterior a la actual</label>
                 </div>
             </div>
         </div>
@@ -1060,6 +1063,7 @@ if(isset($agency)){
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <input class="form-control inputFomulario" type="date" placeholder="plazo total" id="pl100Liqu" name="txbPl100Liqu" value="<?php echo date('Y-m-d');?>">
                     <label class="error" for="pl100Liqu" id="pl100Liqu_error">Campo requerido.</label>
+                    <label class="error" for="pl100LiquMen" id="pl100LiquMen_error">La fecha no pude ser anterior a la actual</label>
                 </div>
             </div>
         </div>
