@@ -200,6 +200,30 @@ $(function() {
       $("input#name").focus();
       return false;
     }
+    var address = $("input#address").val();
+    if (name == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+    var phone = $("input#phone").val();
+    if (name == "") {
+      $("label#phone_error").show();
+      $("input#phone").focus();
+      return false;
+    }
+    var mobile = $("input#mobile").val();
+    if (name == "") {
+      $("label#mobile_error").show();
+      $("input#mobile").focus();
+      return false;
+    }
+    var email = $("input#email").val();
+    if (name == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
 
     var status = $("select#status").val();
     if (status == "") {
@@ -208,7 +232,7 @@ $(function() {
       return false;
     }
 
-    insertAgency(code,name,status);
+    insertAgency(code,name,address,phone,mobile,email,status);
       
   });
 });
@@ -234,6 +258,31 @@ $(function() {
       return false;
     }
 
+    var address = $("input#address").val();
+    if (name == "") {
+      $("label#address_error").show();
+      $("input#address").focus();
+      return false;
+    }
+    var phone = $("input#phone").val();
+    if (name == "") {
+      $("label#phone_error").show();
+      $("input#phone").focus();
+      return false;
+    }
+    var mobile = $("input#mobile").val();
+    if (name == "") {
+      $("label#mobile_error").show();
+      $("input#mobile").focus();
+      return false;
+    }
+    var email = $("input#email").val();
+    if (name == "") {
+      $("label#email_error").show();
+      $("input#email").focus();
+      return false;
+    }
+
     var status = $("select#status").val();
     if (status == "") {
       $("label#status_error").show();
@@ -241,7 +290,7 @@ $(function() {
       return false;
     }
 
-    updateAgency(code,name,status);
+    updateAgency(code,name,address,phone,mobile,email,status);
       
   });
 });

@@ -208,9 +208,9 @@ if (opcion == true) {
 //*********VALIDATIONS AGENCY ************/
 
 //Insert data
-function insertAgency(code,name,status) {
+function insertAgency(code,name,address,phone,mobile,email,status) {
   //Validate data submission
-  var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbStatus='+ status +'&saveAgency=1';
+  var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbAddress=' +address+ '&txbPhone=' +phone+ '&txbMobile=' +mobile+ '&txbEmail=' +email+ '&txbStatus='+ status +'&saveAgency=1';
   $.ajax({
     type: "POST",
     url: "/MundoApp/Controllers/ajaxController.php?controller=agency&action=insert",
@@ -262,9 +262,9 @@ if (opcion == true) {
 }
 
 //Update data
-function updateAgency(code,name,status){
+function updateAgency(code,name,address,phone,mobile,email,status){
 //Validate data submission
-var dataString = 'txbCode='+ code + '&txbName=' + name +'&txbStatus='+ status +'&updateAgency=1';
+var dataString = 'txbCode='+ code + '&txbName=' + name + '&txbAddress=' +address+ '&txbPhone=' +phone+ '&txbMobile=' +mobile+ '&txbEmail=' +email+'&txbStatus='+ status +'&updateAgency=1';
 var opcion = confirm("Realmente desea modificar el registro?");
 if (opcion == true) {
   $.ajax({

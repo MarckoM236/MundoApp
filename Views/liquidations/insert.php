@@ -374,27 +374,6 @@ if(isset($agency)){
             </div>
         </div>
         
-        <div  class="col-sm-6 col-6 py-1 align-self-center text-left pad">
-            <div class="row justify-content-left py-2">
-                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                        <label>Hostal</label>
-                </div>
-                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                <select name="txbCodeHostal" id="codHostal" class="form-select inputFomulario" placeholder="Opciones"> 
-                    <option select value="">SELECCIONE</option>
-                    <?php if (isset($arr_hotel)){
-                            foreach($arr_hotel as $rowHot ){
-                                if($rowHot['statusHotel']=="A"){?>
-                                <option select value="<?php echo $rowHot['codeHotel'];?>"><?php echo $rowHot['nameHotel'];?></option>
-                        <?php }
-                            }
-                        }?>         
-                </select>
-                    <label class="error" for="codHostal" id="codHostal_error">Campo requerido.</label>
-                </div>
-            </div>
-        </div>
 
     </div>
 
@@ -441,22 +420,14 @@ if(isset($agency)){
             </div>
         </div>
 
+
         <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Acomodacion</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                <select name="txbCodeAcomodac" id="codAcomodac" class="form-select inputFomulario" placeholder="Opciones"> 
-                    <option select value="">SELECCIONE</option>
-                    <?php if (isset($arr_acomodac)){
-                            foreach($arr_acomodac as $rowAcom ){?>
-                    <option select value="<?php echo $rowAcom['codeAcomodac'];?>"><?php echo $rowAcom['nameAcomodac'];?></option>
-                        <?php 
-                            }
-                        }?>         
-                </select>
+                    <input class="form-control inputFomulario" type="text" placeholder="acomodacion" name="txbCodeAcomodac" id="codAcomodac">
                     <label class="error" for="codAcomodac" id="codAcomodac_error">Campo requerido.</label>
                 </div>
             </div>
@@ -471,7 +442,22 @@ if(isset($agency)){
 <div class="container">
     <div class="row justify-content-left py-2 pad">
         
-    <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+        
+
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+            <div class="row justify-content-left py-2">
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                        <label>Aerolinea</label>
+                </div>
+                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                    <input class="form-control inputFomulario" type="text" placeholder="fecha viaje" id="aeroFli" name="txbAeroFli" readonly>  
+                    <input type="hidden" id="codAer">
+                    <label class="error" for="aeroFli" id="aeroFli_error">Campo requerido.</label>
+                </div>
+            </div>
+        </div>
+
+        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                         <label>Vuelo</label>
@@ -489,19 +475,6 @@ if(isset($agency)){
                         }?>         
                 </select>
                     <label class="error" for="codFlight" id="codFlight_error">Campo requerido.</label>
-                </div>
-            </div>
-        </div>
-
-        <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
-            <div class="row justify-content-left py-2">
-                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                        <label>Aerolinea</label>
-                </div>
-                <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="fecha viaje" id="aeroFli" name="txbAeroFli" readonly>  
-                    <input type="hidden" id="codAer">
-                    <label class="error" for="aeroFli" id="aeroFli_error">Campo requerido.</label>
                 </div>
             </div>
         </div>
@@ -673,7 +646,7 @@ if(isset($agency)){
         <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-center py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                        <label>Inclusion</label>
+                        <label>Incluye</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                 <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
@@ -719,7 +692,7 @@ if(isset($agency)){
         <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-center py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                        <label> No Inclusion</label>
+                        <label> No Incluye</label>
                 </div>
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                 <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
@@ -1072,7 +1045,7 @@ if(isset($agency)){
 
 <hr>
 
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center py-2 pad">
 
         <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
@@ -1096,10 +1069,10 @@ if(isset($agency)){
             <div class="row justify-content-left py-2">
                 <input id='savePrueba'class= "form-control botonesIS" style="width:130px"; type="button" value="GuardarPrueba" />
             </div>
-        </div> -->
+        </div> 
 
     </div>
-</div>
+</div> -->
 
 </div>
 </div>

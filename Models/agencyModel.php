@@ -5,6 +5,10 @@
 
         protected $code="";
         private $name="";
+        private $address="";
+        private $phone="";
+        private $mobile="";
+        private $email="";
         private $status="";
         private $respuesta= array();
 
@@ -12,11 +16,15 @@
             
         }
  */
-         public function __construct($cod,$name,$status) {
+         public function __construct($cod,$name,$address,$phone,$mobile,$email,$status) {
             $table="agencia";
             parent::__construct($table);
             $this->code=$cod;
             $this->name=$name;
+            $this->address=$address;
+            $this->phone=$phone;
+            $this->mobile=$mobile;
+            $this->email=$email;
             $this->status=$status;
         }
 
@@ -26,6 +34,18 @@
         }
         public function setName($val){
             $this->name = $val;
+        }
+        public function setAddress($val){
+            $this->address = $val;
+        }
+        public function setPhone($val){
+            $this->phone = $val;
+        }
+        public function setMobile($val){
+            $this->mobile = $val;
+        }
+        public function setEmail($val){
+            $this->email = $val;
         }
         public function setStatus($val){
             $this->status = $val;
@@ -41,6 +61,18 @@
         } 
         public function getName(){
             return $this->name;
+        }
+        public function getAddress(){
+            return $this->address;
+        }
+        public function getPhone(){
+            return $this->phone;
+        }
+        public function getMobile(){
+            return $this->mobile;
+        }
+        public function getEmail(){
+            return $this->email;
         }
         public function getStatus(){
             return $this->status;
@@ -64,7 +96,7 @@
             $foo = array();
             while (($row = oci_fetch_array($cursor)) != false) {            
                 
-                $foo[] = new AgencyModel($row[0],$row[1],$row[2]);
+                $foo[] = new AgencyModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6]);
             }
             
             return $foo;
@@ -73,11 +105,15 @@
         public function insert(){
 
             $data=array();
-            $sql = "BEGIN  pkgAgencia.insertarAgencia(:cod_agencia,:nomb_agencia,:est_agencia); END;";
+            $sql = "BEGIN  pkgAgencia.insertarAgencia(:cod_agencia,:nomb_agencia,:dir_agencia,:tel_agencia,:cel_agencia,:email_agencia,:est_agencia); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             oci_bind_by_name($stid, ':cod_agencia',$this->code);
             oci_bind_by_name($stid, ':nomb_agencia',$this->name);
+            oci_bind_by_name($stid, ':dir_agencia',$this->address);
+            oci_bind_by_name($stid, ':tel_agencia',$this->phone);
+            oci_bind_by_name($stid, ':cel_agencia',$this->mobile);
+            oci_bind_by_name($stid, ':email_agencia',$this->email);
             oci_bind_by_name($stid, ':est_agencia',$this->status);
             @$res=oci_execute($stid);
 
@@ -98,11 +134,15 @@
          
         function update(){
             $data=array();
-            $sql = "BEGIN  pkgAgencia.actualizarAgencia(:cod_agencia,:nomb_agencia,:est_agencia); END;";
+            $sql = "BEGIN  pkgAgencia.actualizarAgencia(:cod_agencia,:nomb_agencia,:dir_agencia,:tel_agencia,:cel_agencia,:email_agencia,:est_agencia); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             oci_bind_by_name($stid, ':cod_agencia',$this->code);
             oci_bind_by_name($stid, ':nomb_agencia',$this->name);
+            oci_bind_by_name($stid, ':dir_agencia',$this->address);
+            oci_bind_by_name($stid, ':tel_agencia',$this->phone);
+            oci_bind_by_name($stid, ':cel_agencia',$this->mobile);
+            oci_bind_by_name($stid, ':email_agencia',$this->email);
             oci_bind_by_name($stid, ':est_agencia',$this->status);
             @$res=oci_execute($stid);
 

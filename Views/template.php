@@ -78,33 +78,7 @@ date_default_timezone_set("America/Bogota");
                                     </a>
                                 </div>
                             </div>
-                            <div  class="espaMe2 py-0 align-self-center text-center" onmouseover="desplegarMenu2();">
-                                <div class="row justify-content-center opcionMenu" id="opcionMenuActivo2">
-                                    <a style="color:white" href="#" >
-                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center">
-                                        <img class="imgMenu" src="img/basico.png">
-                                    </div>
 
-                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto">
-                                        <label>B&aacute;sicos</label>
-
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu3();" >
-                                <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo" >
-                                    <a style="color:white" href="?controller=traveler&action=home" >
-                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/viajeros.png">
-                                    </div>
-                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
-                                        <label  >Viajeros</label>
-                                    </div>
-                                    </a>
-                                </div>
-                            </div>
                             <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu4();" >
                                 <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo4" >
                                     <a style="color:white" href="#" >
@@ -123,7 +97,7 @@ date_default_timezone_set("America/Bogota");
                                         <img class="imgMenu" src="img/tarifaNacional.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
-                                        <label  >Tarifa Nacional</label>
+                                        <label  >Tarifario Nacional</label>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +111,7 @@ date_default_timezone_set("America/Bogota");
                                     </div>
                                 </div>
                             </div>
-                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu3();" >
+                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu5();" >
                                 <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo3" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/bloqueo.png">
@@ -249,35 +223,6 @@ date_default_timezone_set("America/Bogota");
                                 </a>
                             </div>
 
-                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
-                            <div  class="espaMe2 py-0 align-self-center text-Fsis">
-                                <a style="color:white" href="?controller=user&action=home" >
-                                <div class="row justify-content-left opcionMenu2">
-                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center">
-                                        <img class="imgMenu" src="img/usuarios.jpeg">
-                                    </div>
-                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto">
-                                        <label>Usuarios</label>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!--SUB MENU SEGURIDAD-->
-
-    <!--SUB MENU BASICOS-->
-    <section class="contenidoPrincipal py-0" id="opcionMenu2" style="display: none" >
-            <div class="row justify-content-center ">
-                <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
-                    <div class="card shadow cuadroHeader2 menuFondoSubMenu" >
-                        <div class="row justify-content-left ">
-                            
                             <!-- ITEM1-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
@@ -486,26 +431,44 @@ date_default_timezone_set("America/Bogota");
                             </div>
                             <!-- FIN ITEM13-->
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!--SUB MENU BASICOS-->
+                            <!-- 14-->
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-center" >
+                                <a style="color:white" href="?controller=traveler&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
+                                        <img class="imgMenu" src="img/vendedor.png">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
+                                        <label  > Viajeros</label>
+                                    </div>
+                                </div>    
+                                </a>
+                            </div>
+                            <!-- FIN ITEM13-->
 
-    <!--SUB MENU VIAJEROS-->
-    <section class="contenidoPrincipal py-0" id="opcionMenu3" style="display: none" >
-            <div class="row justify-content-center ">
-                <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
-                    <div class="card shadow cuadroHeader2 menuFondoSubMenu" >
-                        <div class="row justify-content-left ">
+                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
+                            <div  class="espaMe2 py-0 align-self-center text-Fsis">
+                                <a style="color:white" href="?controller=user&action=home" >
+                                <div class="row justify-content-left opcionMenu2">
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center">
+                                        <img class="imgMenu" src="img/usuarios.jpeg">
+                                    </div>
+                                    <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto">
+                                        <label>Usuarios</label>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+
                             
                         </div>
                     </div>
                 </div>
             </div>
     </section>
-    <!--SUB MENU ORDEN VIAJEROS-->
+    <!--SUB MENU SEGURIDAD-->
+
     
     <!-- SUB MENU LIQUIDACION -->
     <section class="contenidoPrincipal py-0" id="opcionMenu4" style="display: none" >
@@ -630,7 +593,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=liquidac&action=insert" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/tercero.png">
+                                        <img class="imgMenu" src="img/pagos.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Tarifas</label>

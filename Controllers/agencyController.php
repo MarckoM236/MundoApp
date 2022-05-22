@@ -10,14 +10,14 @@
             
             try {
                 if (isset($_POST['showAgency'])){
-                    $objAgency= new AgencyModel("","","");
+                    $objAgency= new AgencyModel("","","","","","","");
                     $objAgency->setCode($_POST['txbCode']);
                     $objAgency->setName(strtoupper($_POST['txbName']));
                     $agency=$objAgency->show();
                     
                 }
                 else {
-                    $objAgency= new AgencyModel("","","");
+                    $objAgency= new AgencyModel("","","","","","","");
                     $agency=$objAgency->show();
                 }
             } 
@@ -33,13 +33,18 @@
             
             if (isset($_POST['saveAgency'])){
 
-                $objAgency= new AgencyModel("","","");
+                $objAgency= new AgencyModel("","","","","","","");
                 
                 $objAgency->setCode($_POST['txbCode']);
                 $objAgency->setName(strtoupper($_POST['txbName']));
+                $objAgency->setAddress(strtoupper($_POST['txbAddress']));
+                $objAgency->setPhone(strtoupper($_POST['txbPhone']));
+                $objAgency->setMobile(strtoupper($_POST['txbMobile']));
+                $objAgency->setEmail(strtolower($_POST['txbEmail']));
                 $objAgency->setStatus($_POST['txbStatus']);
                 
                 $resInsert=$objAgency->insert();
+                
 
             }
             return $resInsert;
@@ -50,7 +55,7 @@
             try {
                 
                 if(isset($_GET['code'])){
-                    $objAgency= new AgencyModel("","","");
+                    $objAgency= new AgencyModel("","","","","","","");
                     
                     $objAgency->setCode($_GET['code']);
                     $res=$objAgency->show();
@@ -60,10 +65,14 @@
     
                 if(isset($_POST['updateAgency'])){
                     //print_r($_POST);
-                    $objAgency= new AgencyModel("","","");
+                    $objAgency= new AgencyModel("","","","","","","");
                     
                     $objAgency->setCode($_POST['txbCode']);
                     $objAgency->setName(strtoupper($_POST['txbName']));
+                    $objAgency->setAddress(strtoupper($_POST['txbAddress']));
+                    $objAgency->setPhone(strtoupper($_POST['txbPhone']));
+                    $objAgency->setMobile(strtoupper($_POST['txbMobile']));
+                    $objAgency->setEmail(strtolower($_POST['txbEmail']));
                     $objAgency->setStatus($_POST['txbStatus']);
                     
                     $resUpdate=$objAgency->update();
@@ -83,7 +92,7 @@
 
             try {
                 if(isset($_GET['code'])){
-                    $objAgency= new AgencyModel("","","");
+                    $objAgency= new AgencyModel("","","","","","","");
                     
                     $objAgency->setCode($_GET['code']);
                     $resDelete=$objAgency->delete();
