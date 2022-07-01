@@ -30,22 +30,21 @@
             
         }
  */
-         public function __construct($tl,$fs,$cl,$ca,$cs,$cad,$cd,$ch,$cal,$cp,$cac,$vt,$vd,$vi,$vic,$vrt,$ve,$p50,$p100,$idu,$nr) {
+         public function __construct($cl,$tl,$fs,$ca,$cs,$cd,$ch,$cal,$cp,$cac,$vd,$vt,$vi,$vic,$vrt,$ve,$p50,$p100,$idu,$nr) {
             $table="liquidac";
             parent::__construct($table);
+            $this->codeLiqu=$cl;
             $this->tipoLiqu=$tl;
             $this->fecSis=$fs;
-            $this->codeLiqu=$cl;
             $this->codeAgency=$ca;
             $this->codeSeller=$cs;
-            $this->codeAdviser=$cad;
             $this->codeDestination=$cd;
             $this->codeHotel=$ch;
             $this->codeAlim=$cal;
             $this->codePlan=$cp;
             $this->codeAcomodac=$cac;
-            $this->valTotTraveler=$vt;
             $this->valDes=$vd;
+            $this->valTotTraveler=$vt;
             $this->valIvaLiqu=$vi;
             $this->valIcaLiqu=$vic;
             $this->valRtfLiqu=$vrt;
@@ -56,7 +55,7 @@
             $this->numRes=$nr;
         }
 
-        //getters
+        //setters
         public function setTipoLiqu($val){
             $this->tipoLiqu = $val;
         }
@@ -125,12 +124,27 @@
             $this->numRes=$val;
         }
 
-        //setters
-        public function getCode(){
-            return $this->code;
+        //getters
+        public function getCodeLiqu(){
+            return $this->codeLiqu;
         } 
-        public function getName(){
-            return $this->name;
+        public function getTipoLiqu(){
+            return $this->tipoLiqu;
+        }
+        public function getFecSis(){
+            return $this->fecSis;
+        }
+        public function getCodeAgency(){
+            return $this->codeAgency;
+        }
+        public function getCodeSeller(){
+            return $this->codeSeller;
+        }
+        public function getCodeDestination(){
+            return $this->codeDestination;
+        }
+        public function getValTotEmp(){
+            return $this->valTotEmp;
         }
 
         public function getRespuesta(){
@@ -138,12 +152,11 @@
         }
         
         public  function show(){
-            $sql = "BEGIN  pkgInclusio.consultaInclusio(:cod_liquidac,:nomb_liquidac,:res); END;";
+            $sql = "BEGIN  pkgLiquidac.consultaLiquidac(:cod_liquidac,:res); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             $cursor= oci_new_cursor($conex);
-            oci_bind_by_name($stid, ':cod_liquidac',$this->code);
-            oci_bind_by_name($stid, ':nomb_liquidac',$this->name);
+            oci_bind_by_name($stid, ':cod_liquidac',$this->codeLiqu);
             oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
             oci_execute($stid);
             oci_execute($cursor);
@@ -151,7 +164,7 @@
             $foo = array();
             while (($row = oci_fetch_array($cursor)) != false) {            
                 
-                $foo[] = new InclusioModel($row[0],$row[1]);
+                $foo[] = new liquidacModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$row[9],$row[10],$row[11],$row[12],$row[13],$row[14],$row[15],$row[16],$row[17],$row[18],$row[19]);
             }
             
             return $foo;

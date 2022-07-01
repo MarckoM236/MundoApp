@@ -111,8 +111,9 @@ date_default_timezone_set("America/Bogota");
                                     </div>
                                 </div>
                             </div>
-                            <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarMenu5();" >
+                            <div  class="espaMe py-0 align-self-center text-center " id=""  >
                                 <div class="row justify-content-left  opcionMenu" id="opcionMenuActivo3" >
+                                <a style="color:white" href="?controller=lock&action=home" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/bloqueo.png">
                                     </div>
@@ -480,7 +481,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 01-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=liquidac&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -581,7 +582,7 @@ date_default_timezone_set("America/Bogota");
             </div>
     </section>
     <!--SUB MENU TARIFA NACIONAL-->
-    <!--SUB MENU 5.1 DEL SUBMENU TARIFA NACIONAL-->
+    <!--SUB MENU 5.1 DEL SUBMENU TARIFA NACIONAL TARIFAS SAN ANDRES-->
     <section class="contenidoPrincipal py-0" id="opcionSubMenu51" style="display: none" >
             <div class="row justify-content-center ">
                 <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
@@ -590,7 +591,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 01-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=tariandr&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/pagos.png">
@@ -605,7 +606,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 02-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=netoandr&action=insert" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -620,7 +621,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 03-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=receandr&action=insert" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -640,7 +641,7 @@ date_default_timezone_set("America/Bogota");
     </section>
     <!--SUB MENU 5.1 DEL SUBMENU TARIFA NACIONAL-->
 
-    <!--SUB MENU 5.2 DEL SUBMENU TARIFA NACIONAL-->
+    <!--SUB MENU 5.2 DEL SUBMENU TARIFA NACIONAL CARTAGENA-->
     <section class="contenidoPrincipal py-0" id="opcionSubMenu52" style="display: none" >
             <div class="row justify-content-center ">
                 <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
@@ -649,7 +650,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 01-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=taricart&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -664,7 +665,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 02-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=netocart&action=insert" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -679,7 +680,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 03-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=rececart&action=insert" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -699,7 +700,7 @@ date_default_timezone_set("America/Bogota");
     </section>
     <!--SUB MENU 5.2 DEL SUBMENU TARIFA NACIONAL-->
 
-    <!--SUB MENU 5.3 DEL SUBMENU TARIFA NACIONAL-->
+    <!--SUB MENU 5.3 DEL SUBMENU TARIFA NACIONAL SANTA MARTA-->
     <section class="contenidoPrincipal py-0" id="opcionSubMenu53" style="display: none" >
             <div class="row justify-content-center ">
                 <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-0 align-self-center text-center">
@@ -708,7 +709,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 01-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=tarisama&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -723,7 +724,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 02-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=netosama&action=insert" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -738,7 +739,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 03-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=recesama&action=insert" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -767,7 +768,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 01-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=payments&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -855,7 +856,7 @@ date_default_timezone_set("America/Bogota");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <!-- SCRIPT PROPIO-->
     <script src="JS/validacionMenu.js"></script>
-    <script src="JS/jquery-3.6.0.js"></script>
+   <script src="JS/jquery-3.6.0.js"></script>
     <script src="JS/forms.js"></script>
     <script src="JS/system.js"></script>
 

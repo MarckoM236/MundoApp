@@ -2053,6 +2053,7 @@ if (opcion == true) {
 
 //Insert data
 function insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,valIvaLiqu,valIcaLiqu,valRtfLiqu,valTotEmp,pl50Liqu,pl100Liqu,usuario,numRes) {
+  numRes=0;
   //Validate data submission
   var dataString = 'txbChTipoLiqu='+ tipoLiqu + '&txbfecSis=' + fechaSis + '&txbCodeLiqu=' + codLiqu + '&txbCodeAgency=' + codAgency + '&txbCodeSeller=' + codSeller + '&txbCodeAdviser=' + codAdviser + '&txbCodeDestination=' + codDestination + '&txbCodeHotel=' + codHotel + '&txbCodeAlim=' + codAlim + '&txbCodePlan=' + codPlan + '&txbCodeAcomodac=' + codAcomodac + '&txbValTotTraveler=' + valTotTraveler + '&txbValDes=' + descuento +  '&txbValIvaLiqu=' + valIvaLiqu + '&txbValIcaLiqu=' + valIcaLiqu + '&txbValRtfLiqu=' + valRtfLiqu + '&txbvalTotEmp=' + valTotEmp + '&txbPl50Liqu=' + pl50Liqu + '&txbPl100Liqu=' + pl100Liqu + '&txbIdUser=' + usuario + '&txbNumRes=' + numRes + '&saveLiquidac=1';
   $.ajax({
@@ -2068,6 +2069,7 @@ function insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser
           location.reload(true); */
           //si se inserta liquidacion, se procede a insertar el detalle de esta.
           liquDetail(codLiqu,arrFlight());
+          //alert(response.result);
       }
       else{
         alert(response.result);
@@ -2143,6 +2145,670 @@ if (opcion == true) {
 }
 //******** END VALIDATION LIQUIDAC *************/
 
+//*********VALIDATIONS PAYMENTS ************/
+
+//Insert data
+function insertPayments(code,liqu,bank,typePay,value,datePay,user) {
+  user=1;
+  //Validate data submission
+  var dataString = 'txbCode='+ code + '&txbIL=' + liqu + '&txbCodeBank=' + bank + '&txbTypePay=' + typePay + '&txbValuePay=' + value + '&txbDatePay=' + datePay + '&txbIdUser=' + user + '&savePayments=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=payments&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar el pago: " + jqXHR.responseText);
+      }
+  });
+     
+}
+
+//Delete data
+function deletePay(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=payments&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateTraveler(id,name,lastName,birthDate){
+//Validate data submission
+var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbBirthDate=' + birthDate + '&updateTraveler=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=traveler&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION PAYMENTS *************/
+
+//*********VALIDATIONS LOCKS ************/
+
+//Insert data
+function insertPayments(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user) {
+  user=1;
+  //Validate data submission
+  var dataString = 'txbCode='+ code + '&txbCodeAeroline=' + aeroline + '&txbCodeOr=' + origin + '&txbCodeDest=' + destination + '&txbFecIdaLock=' + dateIn + '&txbFecRegLock=' + dateFi + '&txbCodeFlightIda=' + flightIda + '&txbCodeFlightReg=' + flightReg + '&txbCantLock=' + quantity + '&txbTariLock=' + tariff + '&txbUserLock=' + user +'&saveLock=1';
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=locks&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar el bloqueo: " + jqXHR.responseText);
+      }
+  });
+     
+}
+
+//Delete data
+function deletePay(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=payments&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateTraveler(id,name,lastName,birthDate){
+//Validate data submission
+var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbBirthDate=' + birthDate + '&updateTraveler=1';
+var opcion = confirm("Realmente desea modificar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=update",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          window.location="?controller=traveler&action=home";
+      }
+      else{
+        alert(response.result);
+      }
+        
+                                     
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al actualizar los datos: " + jqXHR.responseText);
+      }
+  });
+} else {
+  alert('Registro no actualizado');
+  location.reload();
+}
+
+}
+//******** END VALIDATION LOCKS *************/
+
+//*********VALIDATIONS TARIANDR ************/
+
+//Insert data
+function insertTariandr(user,arrTariandr){
+  var arrTarJson=JSON.stringify(arrTariandr);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrTariandr='+ arrTarJson  + '&txbUser=' + user +'&saveTariandr=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=tariandr&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar la tarifa: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deletePay(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=payments&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateTariandr(user,arrTariandr){
+  var arrTarJson=JSON.stringify(arrTariandr);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrTariandr='+ arrTarJson  + '&txbUser=' + user +'&updateTariandr=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=tariandr&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=tariandr&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION TARIANDR *************/
+
+//*********VALIDATIONS TARICART ************/
+
+//Insert data
+function insertTaricart(user,arrTaricart){
+  var arrTarJson=JSON.stringify(arrTaricart);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrTaricart='+ arrTarJson  + '&txbUser=' + user +'&saveTaricart=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=taricart&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar la tarifa: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteTaricart(code){
+var dataString = 'code='+ code;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=taricart&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateTaricart(user,arrTaricart){
+  var arrTarJson=JSON.stringify(arrTaricart);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrTaricart='+ arrTarJson  + '&txbUser=' + user +'&updateTaricart=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=taricart&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=taricart&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION TARICART *************/
+
+//*********VALIDATIONS NETOANDR ************/
+
+//Insert data
+function insertNetoandr(user,arrNetoandr){
+  var arrTarJson=JSON.stringify(arrNetoandr);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrNetoandr='+ arrTarJson  + '&txbUser=' + user +'&saveNetoandr=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=netoandr&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar la tarifa: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteNetoandr(code1,code2){
+  //alert(code1);
+  //alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=netoandr&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateNetoandr(user,arrNetoandr){
+  var arrTarJson=JSON.stringify(arrNetoandr);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrNetoandr='+ arrTarJson  + '&txbUser=' + user +'&updateNetoandr=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=netoandr&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=netoandr&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION NETOANDR *************/
+
+//*********VALIDATIONS NETOCART ************/
+
+//Insert data
+function insertNetocart(user,arrNetocart){
+  var arrNetJson=JSON.stringify(arrNetocart);
+  //Validate data submission
+  var dataString = 'arrNetocart='+ arrNetJson  + '&txbUser=' + user +'&saveNetocart=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=netocart&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar la tarifa: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteNetocart(code1,code2){
+  //alert(code1);
+  //alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=netocart&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateNetocart(user,arrNetocart){
+  var arrNetJson=JSON.stringify(arrNetocart);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrNetocart='+ arrNetJson  + '&txbUser=' + user +'&updateNetocart=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=netocart&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=netocart&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION NETOCART *************/
+
+//*********VALIDATIONS BLOQDETA ************/
+
+//Insert data
+function insertBloqdeta(arrBloqdeta){
+  var arrBTJson=JSON.stringify(arrBloqdeta);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrBTJson='+ arrBTJson +'&saveBloqdeta=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=bloqdeta&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar el detalle: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteNetoandr(code1,code2){
+  //alert(code1);
+  //alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=netoandr&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateBloqdeta(user,arrNetoandr){
+  var arrTarJson=JSON.stringify(arrNetoandr);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrNetoandr='+ arrTarJson  + '&txbUser=' + user +'&updateNetoandr=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=netoandr&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=netoandr&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION BLOQDETA *************/
+
 
 //******************** VALIDATION SHOW FLIGHT ************************//
 //********************CONSULTA VUELOS SELECCIONADO Y RELLENA LOS CAMPOS CORRESPONDIENTES *****************/
@@ -2173,12 +2839,12 @@ function showFlight(num){
 
 //******************** END VALIDATION SHOW FLIGHT ************************//
 
-function showTraveler(id){
+function showTraveler(id,controller){
   //alert(id);
   var dataString = 'txbCodTraveler='+ id +'&ShowTraveler=1';
       $.ajax({
         type: "POST",
-        url: "/MundoApp/Controllers/ajaxController.php?controller=liquidacTraveler&action=show",
+        url: "/MundoApp/Controllers/ajaxController.php?controller="+controller+"&action=show",
         data: dataString,
         dataType : 'json',
         
@@ -2226,6 +2892,43 @@ function addFlight(cod,codAer,aeroline,route,date,exit,arrival,comment){
     $("#listaFlight").append(item);
     arrFlight();
 }
+function addDest(fecDest,codDest,valDest,codHotel,valHotel,codAlim,valAlim,codPlan,valPlan,codAcom){
+  var item = '<tr><td class="fecDest">'+fecDest+'</td><td class="codDest ocultar">'+codDest+'</td><td class="valDest">'+valDest+'</td><td class="codHotel ocultar">'+codHotel+'</td><td class="valHotel">'+valHotel+'</td><td class="codAlim ocultar">'+codAlim+'</td><td class="valAlim">'+valAlim+'</td><td class="codPlan ocultar">'+codPlan+'</td><td class="valPlan">'+valPlan+'</td><td class="codAcom">'+codAcom+'</td><td> <a href="#"class="btn btn-danger deleteDest"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#listaDestination").append(item);
+    //arrDest();
+}
+function addTariandr(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
+  var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteTariandr"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-tariAndr").append(item);
+    arrTariandr();    
+}
+
+function addTaricart(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
+  var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteTaricart"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-tariCart").append(item);
+    arrTaricart();    
+}
+
+function addNetoandr(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
+  var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteNetoandr"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-netoAndr").append(item);
+    arrNetoandr();
+    //alert(codeHotel);
+}
+
+function addNetocart(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
+  var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteNetocart"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-netoCart").append(item);
+    arrNetocart();
+    //alert(codeHotel);
+}
+
+function addBloqdeta(code,liquidac,id,name,lastName,dateN){
+  var item = '<tr><td class="code">'+code+'</td><td class="liquidac">'+liquidac+'</td> <td class="id">'+id+'</td> <td class="name">'+name+'</td><td class="lastName">'+lastName+'</td><td class="dateN">'+dateN+'</td><td> <a href="#"class="btn btn-danger deleteBloqdeta"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-bloqdeta").append(item);
+    arrBloqdeta();
+    //alert(codeHotel);
+}
 
 
 //DETALLE LIQUIDACION
@@ -2260,6 +2963,36 @@ function liquDetail(codDetail,arrFli){
   });
      
 
+}
+
+//CONSULTAR LIQUIDACION POR CODIGO
+function showLiquidac(code){
+  //alert(id);
+  var dataString = 'txbCodeLiquidac='+ code +'&ShowLiquidac=1';
+      $.ajax({
+        type: "POST",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=liquidac&action=show",
+        data: dataString,
+        dataType : 'json',
+        
+          success: function(response){ 
+          var date=response.date;
+           var agency=response.agency;
+           var seller=response.seller;
+           var value=response.value;
+            //alert(response.aer);
+            $("#date").val(date);
+            $("#agency").val(agency);
+            $("#seller").val(seller);
+            $("#value").val(value);
+          
+            
+                                        
+          },
+          /* error: function(jqXHR, textStatus, error){
+            alert( "Error al actualizar los datos: " + jqXHR.responseText);
+          } */
+      });
 }
 
 

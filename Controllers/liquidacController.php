@@ -24,14 +24,14 @@
         public function home(){
             
             try {
-                if (isset($_POST['showLiquidation'])){
+                if (isset($_POST['showLiQu'])){
                     $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
-                    $objLiquidac->setCode($_POST['txbCode']);
+                    $objLiquidac->setCodeLiqu($_POST['txbCode']);
                     $liquidac=$objLiquidac->show();
                     
                 }
                 else{
-                    $objLiquidac= new LiquidacModel("");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                     $liquidac=$objLiquidac->show();
                 }
             } 
@@ -92,11 +92,56 @@
 
             return $arrTraveler[]= array("name"=>$nameTraveler,"lastName"=>$lastName,"birthDate"=>$birthDate);
         }
+
+        public function showLiquidac(){
+            if (isset($_POST['ShowLiquidac']) & !empty($_POST['txbCodeLiquidac'])){
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac->setCodeLiqu($_POST['txbCodeLiquidac']);
+                    $liquBank=$objLiquidac->show();
+
+                foreach($liquBank as $dataBank) {
+                    $dateLiqu=$dataBank->getFecSis();    
+                    $ag=$dataBank->getCodeAgency();
+                    $sell=$dataBank->getCodeSeller();
+                    $valueLiqu=$dataBank->getValTotEmp();
+
+                    //format date
+                    $dateL=str_replace("/","-",$dateLiqu);
+                    $dateLiquSys = date("Y-m-d", strtotime($dateL));
+
+                    //find names
+                    //Consult agency to complete field.
+                    $objAgency= new AgencyModel("","","","","","",""); 
+                    $objAgency->setCode($ag);
+                    $agency=$objAgency->show();
+                    foreach($agency as $dataAgen) {
+                        $nameAgency=$dataAgen->getName();
+                    }
+
+                    //Consult agency to complete field.
+                    $objSeller= new SellerModel("","","",""); 
+                    $objSeller->setId($sell);
+                    $seller=$objSeller->show();
+                    foreach($seller as $dataSeller) {
+                        $nameSeller=$dataSeller->getName();
+                    }
+                    
+                } 
+            }
+            else{
+                $dateLiquSys="";    
+                $nameAgency="";
+                $nameSeller="";
+                $valueLiqu="";
+            }
+
+            return $arrLiquBank[]= array("date"=>$dateLiquSys,"agency"=>$nameAgency,"seller"=>$nameSeller,"value"=>$valueLiqu);
+        }
         
 
         public function insert(){
             //Consult agency to complete field.
-            $objAgency= new AgencyModel("","",""); 
+            $objAgency= new AgencyModel("","","","","","",""); 
             $agency=$objAgency->show();
 
             //Consult agency to complete field.
@@ -147,25 +192,28 @@
             $objSystem= new SystemModel("","","","","");
             $system=$objSystem->show();
             
-            $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","","");
+            $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
             $numLiqu=$objLiquidac->showUltimate();
             
             if (isset($_POST['saveLiquidac'])){
                 //Format date
+                $dateSys = date_create($_POST['txbfecSis']);
+                $dpSys=date_format($dateSys,"d/m/Y");
+
                 $datePl50 = date_create($_POST['txbPl50Liqu']);
                 $dp50=date_format($datePl50,"d/m/Y");
 
                 $datePl100 = date_create($_POST['txbPl100Liqu']);
                 $dp100=date_format($datePl100,"d/m/Y");
                 //print_r($_POST);
-                $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","","");
+                $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                 
                 $objLiquidac->setTipoLiqu($_POST['txbChTipoLiqu']);
-                $objLiquidac->setFecSis($_POST['txbfecSis']);
+                $objLiquidac->setFecSis($dpSys);
                 $objLiquidac->setCodeLiqu($_POST['txbCodeLiqu']);
                 $objLiquidac->setCodeAgency($_POST['txbCodeAgency']);
                 $objLiquidac->setCodeSeller($_POST['txbCodeSeller']);
-                $objLiquidac->setCodeAdviser($_POST['txbCodeAdviser']);
+                //$objLiquidac->setCodeAdviser($_POST['txbCodeAdviser']);
                 $objLiquidac->setCodeDestination($_POST['txbCodeDestination']);
                 $objLiquidac->setCodeHotel($_POST['txbCodeHotel']);
                 $objLiquidac->setCodeAlim($_POST['txbCodeAlim']);
@@ -173,9 +221,6 @@
                 $objLiquidac->setCodeAcomodac($_POST['txbCodeAcomodac']);
                 $objLiquidac->setValTotTraveler($_POST['txbValTotTraveler']);
                 $objLiquidac->setValDes($_POST['txbValDes']);
-                /* $objLiquidac->setValIvaLiqu(strval($_POST['txbValIvaLiqu']));
-                $objLiquidac->setValIcaLiqu(strval($_POST['txbValIcaLiqu']));
-                $objLiquidac->setValRtfLiqu(strval($_POST['txbValRtfLiqu'])); */ 
                 $objLiquidac->setValIvaLiqu($_POST['txbValIvaLiqu']);
                 $objLiquidac->setValIcaLiqu($_POST['txbValIcaLiqu']); 
                 $objLiquidac->setValRtfLiqu($_POST['txbValRtfLiqu']);
@@ -183,7 +228,9 @@
                 $objLiquidac->setPl50Liqu($dp50);
                 $objLiquidac->setPl100Liqu($dp100);
                 $objLiquidac->setIdUser($_POST['txbIdUser']);
-                $objLiquidac->setNumRes($_POST['txbNumRes']);
+                //$objLiquidac->setNumRes($_POST['txbNumRes']);
+                $objLiquidac->setNumRes('22');
+
                 
                 $resInsert=$objLiquidac->insert();
                 //print_r($objLiquidac);
@@ -252,7 +299,7 @@
             try {
                 
                 if(isset($_GET['code'])){
-                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
                     
                     $objLiquidac->setCode($_GET['code']);
                     $res=$objLiquidac->show();
@@ -262,7 +309,7 @@
     
                 if(isset($_POST['updateLiquidac'])){
                     //print_r($_POST);
-                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
                     
                     $objLiquidac->setCode($_POST['txbCode']);
                     $objLiquidac->setName($_POST['txbTiLi']);
@@ -301,7 +348,7 @@
 
             try {
                 if(isset($_GET['code'])){
-                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","");
                     
                     $objLiquidac->setCode($_GET['code']);
                     $resDelete=$objLiquidac->delete();

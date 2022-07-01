@@ -534,7 +534,11 @@ include_once('../Core/baseModel.php');
             //LIQUIDACION
             if($_GET['controller']=='liquidac'){
                 $object = new LiquidacController();
-                switch ($_GET['action']) {   
+                switch ($_GET['action']) {  
+                    case 'show':
+                        $re=$object->showLiquidac();
+                        echo json_encode($re);
+                        break;  
                     case 'insert':
                         $re=$object->insert();
                         //print_r($_POST);
@@ -610,6 +614,184 @@ include_once('../Core/baseModel.php');
                 }
             }
 
+            //PAGOS
+            if($_GET['controller']=='payments'){
+                $object = new PaymentsController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            //BLOQUEOS
+            if($_GET['controller']=='locks'){
+                $object = new LockController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+            
+            //DETALLE DE BLOQUEO
+            if($_GET['controller']=='bloqdeta'){
+                $object = new BloqdetaController();
+                switch ($_GET['action']) {   
+                    case 'show':
+                        $re=$object->showTraveler();
+                        echo json_encode($re);
+                        break;   
+                    case 'insert':
+                        $re=$object->insert();
+                        echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            //TARIANDR
+            if($_GET['controller']=='tariandr'){
+                $object = new TariandrController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+  
+
+             //TARICART
+             if($_GET['controller']=='taricart'){
+                $object = new TaricartController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            //NETOANDR
+            if($_GET['controller']=='netoandr'){
+                $object = new NetoandrController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            //NETOANDR
+            if($_GET['controller']=='netocart'){
+                $object = new NetocartController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
             #----
            
         }

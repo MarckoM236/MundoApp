@@ -705,6 +705,74 @@ $(function() {
   });
 });
 //********************** */
+
+//********************SELECCIONAR ITEMS DE DESTINOS Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectDest(){
+  var fecDest = $("input#fecViDeLiqu").val();
+  var codDest= $("select#codDestination").val();
+  var codHotDest = $("select#codHotel").val();
+  var codAlimDest= $("select#codAlim").val();
+  var codPlanDest= $("select#codPlan").val();
+  var codAcomDest= $("input#codAcomodac").val();
+  
+  if (fecDest == "") {
+    $("label#fecViDeLiqu_error").show();
+    $("input#fecViDeLiqu").focus();
+    return false;
+  }
+  else if(codDest==""){
+    $("label#codDestination_error").show();
+    $("select#codDestination").focus();
+    return false;
+  }    
+  else if(codHotDest==""){
+    $("label#codHotel_error").show();
+    $("select#codHotel").focus();
+    return false;
+  }  
+  else if(codAlimDest==""){
+    $("label#codAlim_error").show();
+    $("select#codAlim").focus();
+    return false;
+  }  
+  else if(codPlanDest==""){
+    $("label#codPlan_error").show();
+    $("select#codPlan").focus();
+    return false;
+  }  
+  else if(codAcomDest==""){
+    $("label#codAcomodac_error").show();
+    $("input#codAcomodac").focus();
+    return false;
+  }  
+  
+  else{
+    //value option
+    var codD=document.getElementById("codDestination");
+    var valDest=codD.options[codD.selectedIndex].text;
+
+    var codH=document.getElementById("codHotel");
+    var valHotel=codH.options[codH.selectedIndex].text;
+
+    var codA=document.getElementById("codAlim");
+    var valAlim=codA.options[codA.selectedIndex].text;
+
+    var codP=document.getElementById("codPlan");
+    var valPlan=codP.options[codP.selectedIndex].text;
+
+     /* Para obtener el valor */
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("fecViDeLiqu_error").style.display="none";
+    document.getElementById("codDestination_error").style.display="none";
+    document.getElementById("codHotel_error").style.display="none";
+    document.getElementById("codAlim_error").style.display="none";
+    document.getElementById("codPlan_error").style.display="none";
+    document.getElementById("codAcomodac_error").style.display="none";
+    addDest(fecDest,codDest,valDest,codHotDest,valHotel,codAlimDest,valAlim,codPlanDest,valPlan,codAcomDest);
+  }
+ 
+}
+//**************FIN Query dest***************************** */
 //*** FIN DESTINATION ***
 
 //*** HOTEL ***
@@ -1660,7 +1728,7 @@ $(function() {
 });
 //********************** */
 
-//***Fomr update system***
+//***Fomr update traveler***
 $(function() {
   $('.error').hide();
   $("#btnUpdateTraveler").click(function() {
@@ -1721,7 +1789,7 @@ $(function() {
       alert("Selecccione el tipo de liquidacion");
     }
     
-    
+    //var fechaSis="2022-06-04";
     var fechaSis = $("input#fechaSis").val();
     if (fechaSis == "") {
       $("label#fechaSis_error").show();
@@ -1797,10 +1865,10 @@ $(function() {
       $("select#codPlan").focus();
       return false;
     }
-    var codAcomodac = $("select#codAcomodac").val();
+    var codAcomodac = $("input#codAcomodac").val();
     if (codAcomodac == "") {
       $("label#codAcomodac_error").show();
-      $("select#codAcomodac").focus();
+      $("input#codAcomodac").focus();
       return false;
     }
     
@@ -1895,19 +1963,1553 @@ $(function() {
     }
 
     var usuario=1;
+    var numRes=0;
 
-    var numRes = $("input#numRes").val();
+    /* var numRes = $("input#numRes").val();
     if (numRes == "") {
       $("label#numRes_error").show();
       $("input#NumRes").focus();
       return false;
-    }
+    } */
     
     insertLiquidac(tipoLiqu,fechaSis,codLiqu,codAgency,codSeller,codAdviser,codDestination,codHotel,codAlim,codPlan,codAcomodac,valTotTraveler,descuento,iva,ica,rtf,valTotEmp,pl50Liqu,pl100Liqu,usuario,numRes);
       
   });
 });
+
+//*** PAYMENTS ***
+//***Fomr insert payments***
+$(function() {
+  $('.error').hide();
+  $("#btnSavePay").click(function() {
+      //validate fields
+      var code = $("input#codePay").val();
+    if (code == "") {
+      $("label#codePay_error").show();
+      $("input#codePay").focus();
+      return false;
+    }
+
+      var liqu = $("input#iL").val();
+    if (liqu == "") {
+      $("label#iL_error").show();
+      $("input#iL").focus();
+      return false;
+    }
+
+      $('.error').hide();
+    var bank = $("select#codeBank").val();
+    if (bank == "") {
+      $("label#codeBank_error").show();
+      $("select#codeBank").focus();
+      return false;
+    }
+
+    var typePay = $("select#typePay").val();
+    if (typePay == "") {
+      $("label#typePay_error").show();
+      $("select#typePay").focus();
+      return false;
+    }
+
+    var value = $("input#valuePay").val();
+    if (value == "") {
+      $("label#valuePay_error").show();
+      $("input#valuePay").focus();
+      return false;
+    }
+    var datePay = $("input#datePay").val();
+    if (datePay == "") {
+      $("label#datePay_error").show();
+      $("input#datePay").focus();
+      return false;
+    }
+     user=1;
+    insertPayments(code,liqu,bank,typePay,value,datePay,user);
+    //alert(liqu+','+bank+','+typePay+','+value+','+datePay)
+      
+  });
+});
+//********************** */
+
+//***Fomr update payments***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateFlight").click(function() {
+      //validate fields
+      $('.error').hide();
+    var codAeroline = $("select#codAeroline").val();
+    if (codAeroline == "") {
+      $("label#codAeroline_error").show();
+      $("input#CodAeroline").focus();
+      return false;
+    }
+
+    var num = $("input#num").val();
+    if (num == "") {
+      $("label#num_error").show();
+      $("input#num").focus();
+      return false;
+    }
+
+    var route = $("input#route").val();
+    if (route == "") {
+      $("label#route_error").show();
+      $("input#route").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    updateFlight(codAeroline,num,route,status);
+      
+  });
+});
+//********************** */
+//*** FIN PAYMENTS ***
+
+//*** LOCKS ***
+//***Fomr insert Locks***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveLock").click(function() {
+      //validate fields
+      var code = $("input#codeLock").val();
+    if (code == "") {
+      $("label#codeLock_error").show();
+      $("input#codeLock").focus();
+      return false;
+    }
+
+    var aeroline = $("select#codeAeroline").val();
+    if (aeroline == "") {
+      $("label#codeAeroline_error").show();
+      $("select#codeAeroline").focus();
+      return false;
+    }
+
+      var origin = $("select#codeOr").val();
+    if (origin == "") {
+      $("label#codeOr_error").show();
+      $("select#codeOr").focus();
+      return false;
+    }
+
+    var destination = $("select#codeDest").val();
+    if (destination == "") {
+      $("label#codeDest_error").show();
+      $("select#codeDest").focus();
+      return false;
+    }
+
+    var dateIn = $("input#fecIdaLock").val();
+    if (dateIn == "") {
+      $("label#fecIdaLock_error").show();
+      $("select#fecIdaLock").focus();
+      return false;
+    }
+
+    var dateFi = $("input#fecRegLock").val();
+    if (dateFi == "") {
+      $("label#fecRegLock_error").show();
+      $("input#fecRegLock").focus();
+      return false;
+    }
+    var flightIda = $("select#codeFlightIda").val();
+    if (flightIda == "") {
+      $("label#codeFlightIda_error").show();
+      $("select#codeFlightIda").focus();
+      return false;
+    }
+
+    var flightReg = $("select#codeFlightReg").val();
+    if (flightReg == "") {
+      $("label#codeFlightReg_error").show();
+      $("select#codeFlightReg").focus();
+      return false;
+    }
+
+    var quantity = $("input#cantLock").val();
+    if (quantity == "") {
+      $("label#cantLock_error").show();
+      $("input#cantLock").focus();
+      return false;
+    }
+
+    var tariff = $("input#tariLock").val();
+    if (tariff == "") {
+      $("label#tariLock_error").show();
+      $("input#tariLock").focus();
+      return false;
+    }
+     user=1;
+    insertPayments(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
+    //alert(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
+      
+  });
+});
+//********************** */
+
+//***Fomr update Locks***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateFlight").click(function() {
+      //validate fields
+      $('.error').hide();
+    var codAeroline = $("select#codAeroline").val();
+    if (codAeroline == "") {
+      $("label#codAeroline_error").show();
+      $("input#CodAeroline").focus();
+      return false;
+    }
+
+    var num = $("input#num").val();
+    if (num == "") {
+      $("label#num_error").show();
+      $("input#num").focus();
+      return false;
+    }
+
+    var route = $("input#route").val();
+    if (route == "") {
+      $("label#route_error").show();
+      $("input#route").focus();
+      return false;
+    }
+
+    var status = $("select#status").val();
+    if (status == "") {
+      $("label#status_error").show();
+      $("input#status").focus();
+      return false;
+    }
+
+    updateFlight(codAeroline,num,route,status);
+      
+  });
+});
+//********************** */
+//*** FIN LOCKS ***
+
+//*** BLOQDETA ***
+//***Fomr insert bloqdeta***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveBloqdeta").click(function() {
+      //validate fields
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#codeHotel").focus();
+      return false;
+    }
+
+    var liquidac = $("input#liquidac").val();
+    if (liquidac == "") {
+      $("label#liquidac_error").show();
+      $("input#liquidac").focus();
+      return false;
+    }
+
+      var id = $("input#idTravelerlock").val();
+    if (id == "") {
+      $("label#idTraveler_error").show();
+      $("input#idTravelerLock").focus();
+      return false;
+    }
+
+    var name = $("input#nameTraveler").val();
+    if (name == "") {
+      $("label#nameTraveler_error").show();
+      $("input#nameTraveler").focus();
+      return false;
+    }
+
+    var lastName = $("input#lastNameTraveler").val();
+    if (lastName == "") {
+      $("label#lastNameTraveler_error").show();
+      $("input#lastNameTraveler").focus();
+      return false;
+    }
+
+    var dateN = $("input#fecNacTraveler").val();
+    if (dateN == "") {
+      $("label#fecNacTraveler_error").show();
+      $("input#fecNacTraveler").focus();
+      return false;
+    }
+   
+    insertBloqdeta(arrBloqdeta());   
+  });
+});
+//********************** */
+
+//***Fomr update Bloqdeta***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateBloqdeta").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#code").val();
+    if (code == "") {
+      $("label#code_error").show();
+      $("input#codeHotel").focus();
+      return false;
+    }
+
+    var liquidac = $("input#liquidac").val();
+    if (liquidac == "") {
+      $("label#liquidac_error").show();
+      $("input#liquidac").focus();
+      return false;
+    }
+
+      var id = $("input#idTravelerlock").val();
+    if (id == "") {
+      $("label#idTraveler_error").show();
+      $("input#idTravelerLock").focus();
+      return false;
+    }
+
+    var name = $("input#nameTraveler").val();
+    if (name == "") {
+      $("label#nameTraveler_error").show();
+      $("input#nameTraveler").focus();
+      return false;
+    }
+
+    var lastName = $("input#lastNameTraveler").val();
+    if (lastName == "") {
+      $("label#lastNameTraveler_error").show();
+      $("input#lastNameTraveler").focus();
+      return false;
+    }
+
+    var dateN = $("input#fecNacTraveler").val();
+    if (dateN == "") {
+      $("label#fecNacTraveler_error").show();
+      $("input#fecNacTraveler").focus();
+      return false;
+    }
+      updateBloqdeta(arrNetoandr());
+      
+  });
+});
+//********************** */
+
+//********************SELECCIONAR ITEMS DE DETALLE BLOQUEO Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectBloqdeta(){
+  var code = $("input#code").val();
+  var liquidac = $("input#liquidac").val();
+  var id = $("input#idTravelerlock").val();
+  var name = $("input#nameTraveler").val();
+  var lastName = $("input#lastNameTraveler").val();
+  var dateN = $("input#fecNacTraveler").val();
+
+  if (code == "") {
+    $("label#code_error").show();
+    $("input#codeHotel").focus();
+    return false;
+  }
+
+   else if (liquidac == "") {
+    $("label#liquidac_error").show();
+    $("input#liquidac").focus();
+    return false;
+  }
+
+    else if (id == "") {
+      $("label#idTraveler_error").show();
+      $("input#idTravelerLock").focus();
+      return false;
+    }
+ 
+    else if (name == "") {
+      $("label#nameTraveler_error").show();
+      $("input#nameTraveler").focus();
+      return false;
+    }
+
+    else if (lastName == "") {
+      $("label#lastNameTraveler_error").show();
+      $("input#lastNameTraveler").focus();
+      return false;
+    }
+    
+    else if (dateN == "") {
+      $("label#fecNacTraveler_error").show();
+      $("input#fecNacTraveler").focus();
+      return false;
+    }
+
+    
+  else{
+     /* Para evitar que salga el mensaje de error */ 
+    document.getElementById("code_error").style.display="none";
+    document.getElementById("liquidac_error").style.display="none";
+    document.getElementById("idTraveler_error").style.display="none";
+    document.getElementById("nameTraveler_error").style.display="none";
+    document.getElementById("lastNameTraveler_error").style.display="none";
+    document.getElementById("fecNacTraveler_error").style.display="none";
+    
+    addBloqdeta(code,liquidac,id,name,lastName,dateN);  
+  }
+ 
+}
+//**************FIN ADD bloqdeta***************************** */
+
+
+//*** FIN BLOQDETA ***
+
+//*** TARIANDR ***
+//***Fomr insert tariandr***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveTariandr").click(function() {
+      //validate fields
+      var codeHotel = $("select#codeHotel").val();
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    var alim = $("select#codeAlim").val();
+    if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+      var sencilla = $("input#valueSencilla").val();
+    if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+
+    var doble = $("input#valueDoble").val();
+    if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    var triple = $("input#valueTriple").val();
+    if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    var cuadruple = $("input#valueCuadruple").val();
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    var nino = $("input#valueNino").val();
+    if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    var dateInVi = $("input#dateInVi").val();
+    if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    var dateFiVi = $("input#dateFiVi").val();
+    if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    var dateInEx = $("input#dateInEx").val();
+    if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    var dateFiEx = $("input#dateFiEx").val();
+    if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }
+     user=1;
+    insertTariandr(user,arrTariandr());
+    
+      
+  });
+});
+//********************** */
+
+//***Fomr update Tariandr***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateTariandr").click(function() {
+      //validate fields
+      $('.error').hide();
+      var codeHotel = $("select#codeHotel").val();
+      if (codeHotel == "") {
+        $("label#codeHotel_error").show();
+        $("select#codeHotel").focus();
+        return false;
+      }
+  
+      var alim = $("select#codeAlim").val();
+      if (alim == "") {
+        $("label#codeAlim_error").show();
+        $("select#codeAlim").focus();
+        return false;
+      }
+  
+        var sencilla = $("input#valueSencilla").val();
+      if (sencilla == "") {
+        $("label#valueSencilla_error").show();
+        $("input#valueSencilla").focus();
+        return false;
+      }
+  
+      var doble = $("input#valueDoble").val();
+      if (doble == "") {
+        $("label#valueDoble_error").show();
+        $("input#valueDoble").focus();
+        return false;
+      }
+  
+      var triple = $("input#valueTriple").val();
+      if (triple == "") {
+        $("label#valueTriple_error").show();
+        $("input#valueTriple").focus();
+        return false;
+      }
+  
+      var cuadruple = $("input#valueCuadruple").val();
+      if (cuadruple == "") {
+        $("label#valueCuadruple_error").show();
+        $("input#valueCuadruple").focus();
+        return false;
+      }
+      var nino = $("input#valueNino").val();
+      if (nino == "") {
+        $("label#valueNino_error").show();
+        $("input#valueNino").focus();
+        return false;
+      }
+  
+      var dateInVi = $("input#dateInVi").val();
+      if (dateInVi == "") {
+        $("label#dateInVi_error").show();
+        $("input#dateInVi").focus();
+        return false;
+      }
+  
+      var dateFiVi = $("input#dateFiVi").val();
+      if (dateFiVi == "") {
+        $("label#dateFiVi_error").show();
+        $("input#dateFiVi").focus();
+        return false;
+      }
+  
+      var dateInEx = $("input#dateInEx").val();
+      if (dateInEx == "") {
+        $("label#dateInEx_error").show();
+        $("input#dateInEx").focus();
+        return false;
+      }
+  
+      var dateFiEx = $("input#dateFiEx").val();
+      if (dateFiEx == "") {
+        $("label#dateFiEx_error").show();
+        $("input#dateFiEx").focus();
+        return false;
+      }
+       user=1;
+      updateTariandr(user,arrTariandr());
+      
+  });
+});
+//********************** */
+
+//********************SELECCIONAR ITEMS DE VUELOS Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectTariandr(){
+  var codeHotel = $("select#codeHotel").val();
+  var alim = $("select#codeAlim").val();
+  var sencilla = $("input#valueSencilla").val();
+  var doble = $("input#valueDoble").val();
+  var triple = $("input#valueTriple").val();
+  var cuadruple = $("input#valueCuadruple").val();
+  var nino = $("input#valueNino").val();
+  var dateInVi = $("input#dateInVi").val();
+  var dateFiVi = $("input#dateFiVi").val();
+  var dateInEx = $("input#dateInEx").val();
+  var dateFiEx = $("input#dateFiEx").val();
+
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    else if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+    else if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+ 
+    else if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    else if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    
+    else if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    else if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    else if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    else if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    else if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }  
+
+  else{
+     /* Para obtener el valor */
+     var user=1;
+      var hotel = document.getElementById("codeHotel");
+      var selectedH = hotel.options[hotel.selectedIndex].text;
+
+      var plan = document.getElementById("codeAlim");
+      var selectedA = plan.options[plan.selectedIndex].text;
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("codeHotel_error").style.display="none";
+    document.getElementById("codeAlim_error").style.display="none";
+    document.getElementById("valueSencilla_error").style.display="none";
+    document.getElementById("valueDoble_error").style.display="none";
+    document.getElementById("valueTriple_error").style.display="none";
+    document.getElementById("valueCuadruple_error").style.display="none";
+    document.getElementById("ValueNino_error").style.display="none";
+    document.getElementById("dateInVi_error").style.display="none";
+    document.getElementById("dateFiVi_error").style.display="none";
+    document.getElementById("dateInEx_error").style.display="none";
+    document.getElementById("dateFiEx_error").style.display="none";
+    addTariandr(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user);
+  }
+ 
+}
+//**************FIN ADD tariandr***************************** */
+
+
+//*** FIN TARIANDR ***
+
+//*** TARICART ***
+//***Fomr insert taricart***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveTaricart").click(function() {
+      //validate fields
+      var codeHotel = $("select#codeHotel").val();
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    var alim = $("select#codeAlim").val();
+    if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+      var sencilla = $("input#valueSencilla").val();
+    if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+
+    var doble = $("input#valueDoble").val();
+    if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    var triple = $("input#valueTriple").val();
+    if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    var cuadruple = $("input#valueCuadruple").val();
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    var nino = $("input#valueNino").val();
+    if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    var dateInVi = $("input#dateInVi").val();
+    if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    var dateFiVi = $("input#dateFiVi").val();
+    if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    var dateInEx = $("input#dateInEx").val();
+    if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    var dateFiEx = $("input#dateFiEx").val();
+    if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }
+     user=1;
+    insertTaricart(user,arrTaricart());
+    
+      
+  });
+});
+//********************** */
+
+//***Fomr update Taricart***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateTaricart").click(function() {
+      //validate fields
+      $('.error').hide();
+      var codeHotel = $("select#codeHotel").val();
+      if (codeHotel == "") {
+        $("label#codeHotel_error").show();
+        $("select#codeHotel").focus();
+        return false;
+      }
+  
+      var alim = $("select#codeAlim").val();
+      if (alim == "") {
+        $("label#codeAlim_error").show();
+        $("select#codeAlim").focus();
+        return false;
+      }
+  
+        var sencilla = $("input#valueSencilla").val();
+      if (sencilla == "") {
+        $("label#valueSencilla_error").show();
+        $("input#valueSencilla").focus();
+        return false;
+      }
+  
+      var doble = $("input#valueDoble").val();
+      if (doble == "") {
+        $("label#valueDoble_error").show();
+        $("input#valueDoble").focus();
+        return false;
+      }
+  
+      var triple = $("input#valueTriple").val();
+      if (triple == "") {
+        $("label#valueTriple_error").show();
+        $("input#valueTriple").focus();
+        return false;
+      }
+  
+      var cuadruple = $("input#valueCuadruple").val();
+      if (cuadruple == "") {
+        $("label#valueCuadruple_error").show();
+        $("input#valueCuadruple").focus();
+        return false;
+      }
+      var nino = $("input#valueNino").val();
+      if (nino == "") {
+        $("label#valueNino_error").show();
+        $("input#valueNino").focus();
+        return false;
+      }
+  
+      var dateInVi = $("input#dateInVi").val();
+      if (dateInVi == "") {
+        $("label#dateInVi_error").show();
+        $("input#dateInVi").focus();
+        return false;
+      }
+  
+      var dateFiVi = $("input#dateFiVi").val();
+      if (dateFiVi == "") {
+        $("label#dateFiVi_error").show();
+        $("input#dateFiVi").focus();
+        return false;
+      }
+  
+      var dateInEx = $("input#dateInEx").val();
+      if (dateInEx == "") {
+        $("label#dateInEx_error").show();
+        $("input#dateInEx").focus();
+        return false;
+      }
+  
+      var dateFiEx = $("input#dateFiEx").val();
+      if (dateFiEx == "") {
+        $("label#dateFiEx_error").show();
+        $("input#dateFiEx").focus();
+        return false;
+      }
+       user=1;
+      updateTaricart(user,arrTaricart());
+      
+  });
+});
+//********************** */
+
+//********************SELECCIONAR ITEMS DE VUELOS Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectTaricart(){
+  var codeHotel = $("select#codeHotel").val();
+  var alim = $("select#codeAlim").val();
+  var sencilla = $("input#valueSencilla").val();
+  var doble = $("input#valueDoble").val();
+  var triple = $("input#valueTriple").val();
+  var cuadruple = $("input#valueCuadruple").val();
+  var nino = $("input#valueNino").val();
+  var dateInVi = $("input#dateInVi").val();
+  var dateFiVi = $("input#dateFiVi").val();
+  var dateInEx = $("input#dateInEx").val();
+  var dateFiEx = $("input#dateFiEx").val();
+
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    else if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+    else if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+ 
+    else if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    else if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    
+    else if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    else if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    else if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    else if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    else if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }  
+
+  else{
+     /* Para obtener el valor */
+     var user=1;
+      var hotel = document.getElementById("codeHotel");
+      var selectedH = hotel.options[hotel.selectedIndex].text;
+
+      var plan = document.getElementById("codeAlim");
+      var selectedA = plan.options[plan.selectedIndex].text;
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("codeHotel_error").style.display="none";
+    document.getElementById("codeAlim_error").style.display="none";
+    document.getElementById("valueSencilla_error").style.display="none";
+    document.getElementById("valueDoble_error").style.display="none";
+    document.getElementById("valueTriple_error").style.display="none";
+    document.getElementById("valueCuadruple_error").style.display="none";
+    document.getElementById("ValueNino_error").style.display="none";
+    document.getElementById("dateInVi_error").style.display="none";
+    document.getElementById("dateFiVi_error").style.display="none";
+    document.getElementById("dateInEx_error").style.display="none";
+    document.getElementById("dateFiEx_error").style.display="none";
+    addTaricart(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user);
+  }
+ 
+}
+//**************FIN ADD taricart***************************** */
+//*** FIN TARICART ***
+
+//*** NETOANDR ***
+//***Fomr insert netoandr***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveNetoandr").click(function() {
+      //validate fields
+      var codeHotel = $("select#codeHotel").val();
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    var alim = $("select#codeAlim").val();
+    if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+      var sencilla = $("input#valueSencilla").val();
+    if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+
+    var doble = $("input#valueDoble").val();
+    if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    var triple = $("input#valueTriple").val();
+    if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    var cuadruple = $("input#valueCuadruple").val();
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    var nino = $("input#valueNino").val();
+    if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    var dateInVi = $("input#dateInVi").val();
+    if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    var dateFiVi = $("input#dateFiVi").val();
+    if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    var dateInEx = $("input#dateInEx").val();
+    if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    var dateFiEx = $("input#dateFiEx").val();
+    if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }
+     user=1;
+    insertNetoandr(user,arrNetoandr());
+    
+      
+  });
+});
+//********************** */
+
+//***Fomr update Netoandr***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateNetoandr").click(function() {
+      //validate fields
+      $('.error').hide();
+      var codeHotel = $("select#codeHotel").val();
+      if (codeHotel == "") {
+        $("label#codeHotel_error").show();
+        $("select#codeHotel").focus();
+        return false;
+      }
+  
+      var alim = $("select#codeAlim").val();
+      if (alim == "") {
+        $("label#codeAlim_error").show();
+        $("select#codeAlim").focus();
+        return false;
+      }
+  
+        var sencilla = $("input#valueSencilla").val();
+      if (sencilla == "") {
+        $("label#valueSencilla_error").show();
+        $("input#valueSencilla").focus();
+        return false;
+      }
+  
+      var doble = $("input#valueDoble").val();
+      if (doble == "") {
+        $("label#valueDoble_error").show();
+        $("input#valueDoble").focus();
+        return false;
+      }
+  
+      var triple = $("input#valueTriple").val();
+      if (triple == "") {
+        $("label#valueTriple_error").show();
+        $("input#valueTriple").focus();
+        return false;
+      }
+  
+      var cuadruple = $("input#valueCuadruple").val();
+      if (cuadruple == "") {
+        $("label#valueCuadruple_error").show();
+        $("input#valueCuadruple").focus();
+        return false;
+      }
+      var nino = $("input#valueNino").val();
+      if (nino == "") {
+        $("label#valueNino_error").show();
+        $("input#valueNino").focus();
+        return false;
+      }
+  
+      var dateInVi = $("input#dateInVi").val();
+      if (dateInVi == "") {
+        $("label#dateInVi_error").show();
+        $("input#dateInVi").focus();
+        return false;
+      }
+  
+      var dateFiVi = $("input#dateFiVi").val();
+      if (dateFiVi == "") {
+        $("label#dateFiVi_error").show();
+        $("input#dateFiVi").focus();
+        return false;
+      }
+  
+      var dateInEx = $("input#dateInEx").val();
+      if (dateInEx == "") {
+        $("label#dateInEx_error").show();
+        $("input#dateInEx").focus();
+        return false;
+      }
+  
+      var dateFiEx = $("input#dateFiEx").val();
+      if (dateFiEx == "") {
+        $("label#dateFiEx_error").show();
+        $("input#dateFiEx").focus();
+        return false;
+      }
+       user=1;
+      updateNetoandr(user,arrNetoandr());
+      
+  });
+});
+//********************** */
+
+//********************SELECCIONAR ITEMS DE VUELOS Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectNetoandr(){
+  var codeHotel = $("select#codeHotel").val();
+  var alim = $("select#codeAlim").val();
+  var sencilla = $("input#valueSencilla").val();
+  var doble = $("input#valueDoble").val();
+  var triple = $("input#valueTriple").val();
+  var cuadruple = $("input#valueCuadruple").val();
+  var nino = $("input#valueNino").val();
+  var dateInVi = $("input#dateInVi").val();
+  var dateFiVi = $("input#dateFiVi").val();
+  var dateInEx = $("input#dateInEx").val();
+  var dateFiEx = $("input#dateFiEx").val();
+
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    else if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+    else if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+ 
+    else if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    else if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    
+    else if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    else if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    else if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    else if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    else if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }  
+
+  else{
+     /* Para obtener el valor */
+     var user=1;
+      var hotel = document.getElementById("codeHotel");
+      var selectedH = hotel.options[hotel.selectedIndex].text;
+
+      var plan = document.getElementById("codeAlim");
+      var selectedA = plan.options[plan.selectedIndex].text;
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("codeHotel_error").style.display="none";
+    document.getElementById("codeAlim_error").style.display="none";
+    document.getElementById("valueSencilla_error").style.display="none";
+    document.getElementById("valueDoble_error").style.display="none";
+    document.getElementById("valueTriple_error").style.display="none";
+    document.getElementById("valueCuadruple_error").style.display="none";
+    document.getElementById("ValueNino_error").style.display="none";
+    document.getElementById("dateInVi_error").style.display="none";
+    document.getElementById("dateFiVi_error").style.display="none";
+    document.getElementById("dateInEx_error").style.display="none";
+    document.getElementById("dateFiEx_error").style.display="none";
+    addNetoandr(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user);  
+  }
+ 
+}
+//**************FIN ADD netoandr***************************** */
+
+//*** FIN NETOANDR ***
+
+//*** NETOCART ***
+//***Fomr insert netoandr***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveNetoCart").click(function() {
+      //validate fields
+      var codeHotel = $("select#codeHotel").val();
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    var alim = $("select#codeAlim").val();
+    if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+      var sencilla = $("input#valueSencilla").val();
+    if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+
+    var doble = $("input#valueDoble").val();
+    if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    var triple = $("input#valueTriple").val();
+    if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    var cuadruple = $("input#valueCuadruple").val();
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    var nino = $("input#valueNino").val();
+    if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    var dateInVi = $("input#dateInVi").val();
+    if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    var dateFiVi = $("input#dateFiVi").val();
+    if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    var dateInEx = $("input#dateInEx").val();
+    if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    var dateFiEx = $("input#dateFiEx").val();
+    if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }
+     user=1;
+    insertNetocart(user,arrNetocart());
+    
+      
+  });
+});
+//********************** */
+
+//***Fomr update Netocart***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateNetocart").click(function() {
+      //validate fields
+      $('.error').hide();
+      var codeHotel = $("select#codeHotel").val();
+      if (codeHotel == "") {
+        $("label#codeHotel_error").show();
+        $("select#codeHotel").focus();
+        return false;
+      }
+  
+      var alim = $("select#codeAlim").val();
+      if (alim == "") {
+        $("label#codeAlim_error").show();
+        $("select#codeAlim").focus();
+        return false;
+      }
+  
+        var sencilla = $("input#valueSencilla").val();
+      if (sencilla == "") {
+        $("label#valueSencilla_error").show();
+        $("input#valueSencilla").focus();
+        return false;
+      }
+  
+      var doble = $("input#valueDoble").val();
+      if (doble == "") {
+        $("label#valueDoble_error").show();
+        $("input#valueDoble").focus();
+        return false;
+      }
+  
+      var triple = $("input#valueTriple").val();
+      if (triple == "") {
+        $("label#valueTriple_error").show();
+        $("input#valueTriple").focus();
+        return false;
+      }
+  
+      var cuadruple = $("input#valueCuadruple").val();
+      if (cuadruple == "") {
+        $("label#valueCuadruple_error").show();
+        $("input#valueCuadruple").focus();
+        return false;
+      }
+      var nino = $("input#valueNino").val();
+      if (nino == "") {
+        $("label#valueNino_error").show();
+        $("input#valueNino").focus();
+        return false;
+      }
+  
+      var dateInVi = $("input#dateInVi").val();
+      if (dateInVi == "") {
+        $("label#dateInVi_error").show();
+        $("input#dateInVi").focus();
+        return false;
+      }
+  
+      var dateFiVi = $("input#dateFiVi").val();
+      if (dateFiVi == "") {
+        $("label#dateFiVi_error").show();
+        $("input#dateFiVi").focus();
+        return false;
+      }
+  
+      var dateInEx = $("input#dateInEx").val();
+      if (dateInEx == "") {
+        $("label#dateInEx_error").show();
+        $("input#dateInEx").focus();
+        return false;
+      }
+  
+      var dateFiEx = $("input#dateFiEx").val();
+      if (dateFiEx == "") {
+        $("label#dateFiEx_error").show();
+        $("input#dateFiEx").focus();
+        return false;
+      }
+       user=1;
+      updateNetocart(user,arrNetocart());
+      
+  });
+});
+//********************** */
+
+//********************SELECCIONAR ITEMS DE NETOCART Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectNetoCart(){
+  var codeHotel = $("select#codeHotel").val();
+  var alim = $("select#codeAlim").val();
+  var sencilla = $("input#valueSencilla").val();
+  var doble = $("input#valueDoble").val();
+  var triple = $("input#valueTriple").val();
+  var cuadruple = $("input#valueCuadruple").val();
+  var nino = $("input#valueNino").val();
+  var dateInVi = $("input#dateInVi").val();
+  var dateFiVi = $("input#dateFiVi").val();
+  var dateInEx = $("input#dateInEx").val();
+  var dateFiEx = $("input#dateFiEx").val();
+
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    else if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+    else if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+ 
+    else if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    else if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    
+    else if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    else if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    else if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    else if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    else if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }  
+
+  else{
+     /* Para obtener el valor */
+     var user=1;
+      var hotel = document.getElementById("codeHotel");
+      var selectedH = hotel.options[hotel.selectedIndex].text;
+
+      var plan = document.getElementById("codeAlim");
+      var selectedA = plan.options[plan.selectedIndex].text;
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("codeHotel_error").style.display="none";
+    document.getElementById("codeAlim_error").style.display="none";
+    document.getElementById("valueSencilla_error").style.display="none";
+    document.getElementById("valueDoble_error").style.display="none";
+    document.getElementById("valueTriple_error").style.display="none";
+    document.getElementById("valueCuadruple_error").style.display="none";
+    document.getElementById("ValueNino_error").style.display="none";
+    document.getElementById("dateInVi_error").style.display="none";
+    document.getElementById("dateFiVi_error").style.display="none";
+    document.getElementById("dateInEx_error").style.display="none";
+    document.getElementById("dateFiEx_error").style.display="none";
+    addNetocart(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user);  
+  }
+ 
+}
+//**************FIN ADD netocart***************************** */
+
+
+//*** FIN NETOCART ***
+
+
 //************************************************ */
+
 //Validar fecha de viaje que no sea anterior a la actual
 fecViDeLiqu.oninput = function() {
   var fecViDeLiqu = $("input#fecViDeLiqu").val()
@@ -2054,18 +3656,35 @@ $(function() {
 //*** FIN LIQUIDAC ***
 
 //********************Query Travelers*************************** */
-//********************CONSULTAR VIAJEROS DINAMICAMENTE SEGUN NUMERO DE IDENTIFICACION *****************/
+//********************CONSULTAR VIAJEROS DINAMICAMENTE SEGUN NUMERO DE IDENTIFICACION PARA LIQUIDACION *****************/
 $(document).ready(function () {
   $("#idTraveler").keyup(function () {
       var value = $(this).val();
       var numCharacter= value.length;
 
-      if(numCharacter>6){
-        showTraveler(value);
+      if(numCharacter>1){
+        showTraveler(value,"liquidacTraveler");
+        //alert(value);
       }
       
   });
 });
+//***************************************************************************************************** */
+//PARA DETALLE DE BLOQUEO
+//********************CONSULTAR VIAJEROS DINAMICAMENTE SEGUN NUMERO DE IDENTIFICACION PARA DETALLE BLOQUEO *****************/
+$(document).ready(function () {
+  $("#idTravelerlock").keyup(function () {
+      var value = $(this).val();
+      var numCharacter= value.length;
+
+      if(numCharacter>1){
+        //showTraveler(value,"bloqdeta");
+        alert(value);
+      }
+      
+  });
+});
+
 
 //********************SELECCIONAR ITEM DE VIAJEROS Y AÑADIR A TABLA DINAMICA *****************/
 function addSelectTrav(){
@@ -2346,6 +3965,47 @@ $(document).on('click', '.deleteFlight', function (event) {
   $(this).closest('tr').remove();
 });
 //****************************************************************************** */
+//******** remove rows from pivot table containing items (destination) */
+$(document).on('click', '.deleteDest', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+});
+//****************************************************************************** */
+//******** remove rows from pivot table containing items (Tariandr) */
+$(document).on('click', '.deleteTariandr', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+  //alert('Hola');
+});
+//****************************************************************************** */
+//******** remove rows from pivot table taricart items (Tariandr) */
+$(document).on('click', '.deleteTaricart', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+  //alert('Hola');
+});
+//****************************************************************************** */
+//******** remove rows from pivot table containing items (Netoandr) */
+$(document).on('click', '.deleteNetoandr', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+  //alert('Hola');
+});
+//****************************************************************************** */
+//******** remove rows from pivot table containing items (NETOCART) */
+$(document).on('click', '.deleteNetocart', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+  //alert('Hola');
+});
+//****************************************************************************** */
+//******** remove rows from pivot table containing items (BLOQDETA) */
+$(document).on('click', '.deleteBloqdeta', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+  //alert('Hola');
+});
+//****************************************************************************** */
 //************************* FIN DELETE ITEMS OF LIQUIDATIONS DETAILS**************************** */
 
 //***************************AÑADIR ELEMENTOS DEL DETALLE EN ARRAYS PARA ENVIO AL SRVIDOR******************** */
@@ -2438,6 +4098,148 @@ function arrFlight(){
   }
   //**************************************************************************** */
 
+  //*************** Añadir elementos de la tabla dinamica viajero a un array */
+function arrDestination(){
+  let destination = [];
+  document.querySelectorAll('.table-Destination tbody tr').forEach(function(e){
+    let fila = {
+      codFli: e.querySelector('.codFli').innerText,
+      rouFli: e.querySelector('.rouFli').innerText,
+      aerFli: e.querySelector('.codAer').innerText,
+      dateFli: e.querySelector('.dateFli').innerText,
+      exitFli: e.querySelector('.exitFli').innerText,
+      arriFli: e.querySelector('.arriFli').innerText,
+      commFli: e.querySelector('.commFli').innerText,
+      travelFli: arrTraveler(),
+      incFli: arrIncludes(),
+      nincFli: arrNoIncludes(),
+      concFli: arrConcept()
+    };
+    destination.push(fila);
+  });
+  //console.log(flight);
+  return destination;
+  }
+  //**************************************************************************** */
+
+  //*************** Añadir elementos de la tabla dinamica tariandr a un array */
+function arrTariandr(){
+  let tariandr = [];
+  document.querySelectorAll('.table-tariAndr tbody tr').forEach(function(e){
+    let fila = {
+      codeHotel: e.querySelector('.codeHotel').innerText,
+      alim: e.querySelector('.alim').innerText,
+      sencilla: e.querySelector('.sencilla').innerText,
+      doble: e.querySelector('.doble').innerText,
+      triple: e.querySelector('.triple').innerText,
+      cuadruple: e.querySelector('.cuadruple').innerText,
+      nino: e.querySelector('.nino').innerText,
+      dateInVi: e.querySelector('.dateInVi').innerText,
+      dateFiVi: e.querySelector('.dateFiVi').innerText,
+      dateInEx: e.querySelector('.dateInEx').innerText,
+      dateFiEx: e.querySelector('.dateFiEx').innerText
+      
+    };
+    tariandr.push(fila);
+  });
+  console.log(tariandr);
+  return tariandr;
+  }
+  //**************************************************************************** */
+   //*************** Añadir elementos de la tabla dinamica taricart a un array */
+function arrTaricart(){
+  let taricart = [];
+  document.querySelectorAll('.table-tariCart tbody tr').forEach(function(e){
+    let fila = {
+      codeHotel: e.querySelector('.codeHotel').innerText,
+      alim: e.querySelector('.alim').innerText,
+      sencilla: e.querySelector('.sencilla').innerText,
+      doble: e.querySelector('.doble').innerText,
+      triple: e.querySelector('.triple').innerText,
+      cuadruple: e.querySelector('.cuadruple').innerText,
+      nino: e.querySelector('.nino').innerText,
+      dateInVi: e.querySelector('.dateInVi').innerText,
+      dateFiVi: e.querySelector('.dateFiVi').innerText,
+      dateInEx: e.querySelector('.dateInEx').innerText,
+      dateFiEx: e.querySelector('.dateFiEx').innerText
+      
+    };
+    taricart.push(fila);
+  });
+  console.log(taricart);
+  return taricart;
+  }
+  //**************************************************************************** */
+
+   //*************** Añadir elementos de la tabla dinamica netoandr a un array */
+function arrNetoandr(){
+  let netoandr = [];
+  document.querySelectorAll('.table-netoAndr tbody tr').forEach(function(e){
+    let fila = {
+      codeHotel: e.querySelector('.codeHotel').innerText,
+      alim: e.querySelector('.alim').innerText,
+      sencilla: e.querySelector('.sencilla').innerText,
+      doble: e.querySelector('.doble').innerText,
+      triple: e.querySelector('.triple').innerText,
+      cuadruple: e.querySelector('.cuadruple').innerText,
+      nino: e.querySelector('.nino').innerText,
+      dateInVi: e.querySelector('.dateInVi').innerText,
+      dateFiVi: e.querySelector('.dateFiVi').innerText,
+      dateInEx: e.querySelector('.dateInEx').innerText,
+      dateFiEx: e.querySelector('.dateFiEx').innerText
+      
+    };
+    netoandr.push(fila);
+  });
+  console.log(netoandr);
+  return netoandr;
+  }
+  //**************************************************************************** */
+
+  //*************** Añadir elementos de la tabla dinamica netocart a un array */
+function arrNetocart(){
+  let netocart = [];
+  document.querySelectorAll('.table-netoCart tbody tr').forEach(function(e){
+    let fila = {
+      codeHotel: e.querySelector('.codeHotel').innerText,
+      alim: e.querySelector('.alim').innerText,
+      sencilla: e.querySelector('.sencilla').innerText,
+      doble: e.querySelector('.doble').innerText,
+      triple: e.querySelector('.triple').innerText,
+      cuadruple: e.querySelector('.cuadruple').innerText,
+      nino: e.querySelector('.nino').innerText,
+      dateInVi: e.querySelector('.dateInVi').innerText,
+      dateFiVi: e.querySelector('.dateFiVi').innerText,
+      dateInEx: e.querySelector('.dateInEx').innerText,
+      dateFiEx: e.querySelector('.dateFiEx').innerText
+      
+    };
+    netocart.push(fila);
+  });
+  console.log(netocart);
+  return netocart;
+  }
+  //**************************************************************************** */
+
+
+  //*************** Añadir elementos de la tabla dinamica bloqdeta a un array */
+function arrBloqdeta(){
+  let bloqdeta = [];
+  document.querySelectorAll('.table-bloqdeta tbody tr').forEach(function(e){
+    let fila = {
+      code: e.querySelector('.code').innerText,
+      liquidac: e.querySelector('.liquidac').innerText,
+      id: e.querySelector('.id').innerText,
+      name: e.querySelector('.name').innerText,
+      lastName: e.querySelector('.lastName').innerText,
+      dateN: e.querySelector('.dateN').innerText,
+    };
+    bloqdeta.push(fila);
+  });
+  console.log(bloqdeta);
+  return bloqdeta;
+  }
+  //**************************************************************************** */
 
 //****************FORMATO DE MONEDA  */
 const formatter = new Intl.NumberFormat('es-CO', {
@@ -2446,3 +4248,4 @@ const formatter = new Intl.NumberFormat('es-CO', {
   minimumFractionDigits: 0
 });
 //****************************************** */
+
