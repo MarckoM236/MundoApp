@@ -325,10 +325,12 @@
         public function delete(){
 
             try {
-                if(isset($_GET['code'])){
-                    $objTariAndr= new PaymentsModel("","","","","","","");
-                    $objTariAndr->setCode($_GET['code']);
-                    $resDelete=$objTariAndr->delete();
+                if(isset($_GET['code1']) && isset($_GET['code2'])){
+                    $objNetoAndr= new TariandrModel("","","","","","","","","");
+                    $objNetoAndr->setCodHotel($_GET['code1']);
+                    $objNetoAndr->setCodTipAlim($_GET['code2']);
+                    //print_r($_GET);
+                    $resDelete=$objNetoAndr->delete();
                     
                 }
                return $resDelete;

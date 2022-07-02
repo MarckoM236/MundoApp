@@ -184,8 +184,9 @@
         }
 
         function delete(){
-            $cod=$this->code;
-            $res= parent::deleteByCode($cod);
+            $cod1=$this->codHotel;
+            $cod2=$this->codTipAlim;
+            $res= parent::deleteByCodeTwo($cod1,$cod2,"hotel","alim");
 
             return $res;
         }

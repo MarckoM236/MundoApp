@@ -2363,13 +2363,15 @@ function insertTariandr(user,arrTariandr){
 }
 
 //Delete data
-function deletePay(code){
-var dataString = 'code='+ code;
+function deleteTariandr(code1,code2){
+  //alert(code1);
+  //alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
 var opcion = confirm("realmente desea eliminar el registro?");
 if (opcion == true) {
   $.ajax({
     type: "GET",
-    url: "/MundoApp/Controllers/ajaxController.php?controller=payments&action=delete",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=tariandr&action=delete",
     data: dataString,
     dataType : 'json',
     
@@ -2456,10 +2458,11 @@ function insertTaricart(user,arrTaricart){
   }); 
      
 }
-
 //Delete data
-function deleteTaricart(code){
-var dataString = 'code='+ code;
+function deleteTaricart(code1,code2){
+  //alert(code1);
+  //alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
 var opcion = confirm("realmente desea eliminar el registro?");
 if (opcion == true) {
   $.ajax({

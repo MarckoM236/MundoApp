@@ -247,7 +247,7 @@
                         "dateExeFin" => $dateExeFin,
                         "value" => $valor);    
                     }
-
+                    //print_r($arr_taricart);
                     include_once('Views/taricart/edit.php');
                 }
     
@@ -325,10 +325,12 @@
         public function delete(){
 
             try {
-                if(isset($_GET['code'])){
-                    $objTariCart= new TaricartModel("","","","","","","","","");
-                    $objTariCart->setCode($_GET['code']);
-                    $resDelete=$objTariCart->delete();
+                if(isset($_GET['code1']) && isset($_GET['code2'])){
+                    $objNetoAndr= new TaricartModel("","","","","","","","","");
+                    $objNetoAndr->setCodHotel($_GET['code1']);
+                    $objNetoAndr->setCodTipAlim($_GET['code2']);
+                    //print_r($_GET);
+                    $resDelete=$objNetoAndr->delete();
                     
                 }
                return $resDelete;
@@ -338,7 +340,6 @@
                 
             }
         }
-
     }
 
 ?>

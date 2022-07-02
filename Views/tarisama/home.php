@@ -1,23 +1,25 @@
 <?php
 if(isset($hotel)){
-                 foreach($hotel as $dataHot) {
-                  $codeHot=$dataHot->getCode();
-                  $nameHot=$dataHot->getName();
+    foreach($hotel as $dataHot) {
+    $codeHot=$dataHot->getCode();
+    $nameHot=$dataHot->getName();
 
-                    $arr_hotel[] =array("codeHot" => $codeHot,
-                    "nameHot" => $nameHot);    
-                }
-                }  
+    $arr_hotel[] =array("codeHot" => $codeHot,
+    "nameHot" => $nameHot);    
+}
+}  
                 
-                if(isset($alim)){
-                    foreach($alim as $dataAlim) {
-                     $codeAlim=$dataAlim->getCode();
-                     $nameAlim=$dataAlim->getName();
-   
-                       $arr_alim[] =array("codeAlim" => $codeAlim,
-                       "nameAlim" => $nameAlim);    
-                   }
-                   }  
+if(isset($alim)){
+    foreach($alim as $dataAlim) {
+        $codeAlim=$dataAlim->getCode();
+        $nameAlim=$dataAlim->getName();
+
+        $arr_alim[] =array("codeAlim" => $codeAlim,
+        "nameAlim" => $nameAlim);    
+    }
+    }  
+
+     
                 
 ?>
 <style>
@@ -26,7 +28,7 @@ if(isset($hotel)){
 }
 </style>
 <!-- Formulario -->
-<form action="?controller=payments&action=home" method="post">
+<form action="?controller=tarisama&action=home" method="post">
         <div class="row justify-content-center">
           <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
@@ -194,27 +196,28 @@ if(isset($hotel)){
 
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
-                      <input id='btnSaveTariandr'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
+                      <input id='btnSaveTarisama'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
                     </div>
                 </div>
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
                     <div class="row justify-content-left py-2">
-                        <input id='btnAddTariAndr'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectTariandr()"/>
+                        <input id='btnAddTariSama'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectTarisama()"/>
                     </div>
                 </div>
                 <hr/>
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
-                      <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showTariandr" value="Buscar" />
+                      <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showTariSama" value="Buscar" />
                     </div>
                 </div>       
                 
                 
-
+                
 </div>
+</form>
 <hr/>
 <!-- results-->
-<table class="table-tariAndr">
+<table class="table-tariSama">
   <thead>
     <th class="ocultar">codHotel</th>
     <th>Hotel</th>
@@ -231,29 +234,13 @@ if(isset($hotel)){
     <th>Excepcion Final</th>
     <th></th>
   </thead>
-  <tbody id="lista-tariAndr">
+  <tbody id="lista-tariSama">
   </tbody>
 </table>
 <!-- fin results-->
   <?php      
 
-                 if(isset($payment)){
-                 foreach($payment as $dataPayment) {
-                    $pay=$dataPayment->getCode();
-                    $liqu=$dataPayment->getCodeLiqu();
-                    $typePay=$dataPayment->getTypePay();
-                    $bankPay=$dataPayment->getBankPay();
-                    $valuePay=$dataPayment->getValuePay();
-                    $datePay=$dataPayment->getDatePay();
-
-                    $return_arrPay[] = array("pay" => $pay,
-                    "liqu" => $liqu,
-                    "typePay" => $typePay,
-                    "bankPay" => $bankPay,
-                    "valuePay" => $valuePay,
-                    "datePay" => $datePay);    
-                }
-                //print_r($return_arr);
+                //print_r($arr_tarisama);
                 ?>
                 <br>
                 <div class="row justify-content-cennter py-0 listado ">
@@ -264,12 +251,12 @@ if(isset($hotel)){
                       <table class="table table-bordered " >
                         <thead>
                           <tr>
-                            <th style="width:30px;background-color: #9FD5D1;">Codigo</th>
-                            <th style="width:30px;background-color: #9FD5D1"># Liquidacion</th>
-                            <th style="width:30px;background-color: #9FD5D1">Tipo de Pago</th>
-                            <th style="width:30px;background-color: #9FD5D1">Banco</th>
-                            <th style="width:30px;background-color: #9FD5D1">Valor</th>
-                            <th style="width:30px;background-color: #9FD5D1">Fecha de Generacion</th>
+                            <th style="width:30px;background-color: #9FD5D1;">Hotel</th>
+                            <th style="width:30px;background-color: #9FD5D1">Plan</th>
+                            <th style="width:30px;background-color: #9FD5D1">Vigencia Inicial</th>
+                            <th style="width:30px;background-color: #9FD5D1">Vigencia Final</th>
+                            <th style="width:30px;background-color: #9FD5D1">Excepcion Inicial</th>
+                            <th style="width:30px;background-color: #9FD5D1">Excepcion Final</th>
                             <th style="width:30px;background-color: #9FD5D1">Editar</th>
                             <th style="width:30px;background-color: #9FD5D1">Borrar</th>
                           </tr>
@@ -278,19 +265,21 @@ if(isset($hotel)){
                         <tbody>
                             
                         <?php 
-                        if (isset($return_arrPay)){
-                        foreach($return_arrPay as $row ){
-                            ?>
-                        <tr>
-                            <td><?php echo $row['pay'];?></td>
-                            <td><?php echo $row['liqu'];?></td>
-                            <td><?php echo $row['typePay'];?></td>
-                            <td><?php echo $row['bankPay'];?></td>
-                            <td><?php echo $row['valuePay'];?></td>
-                            <td><?php echo $row['datePay'];?></td>
-                            <td><a href="?controller=flight&action=update&code=<?php echo $row['num'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                        if (isset($arr_tarisama)){
+                          
+                        //print_r($arr_tarisama[1]);
+                          
+                          for($i=0;$i<count($arr_tarisama);$i+=5){?>
+                              <tr>
+                                <td><?php echo $arr_tarisama[$i]['nameHotel']?></td>
+                                <td><?php echo $arr_tarisama[$i]['nameAlim']?></td>
+                                <td><?php echo $arr_tarisama[$i]['dateVigIni']?></td>
+                                <td><?php echo $arr_tarisama[$i]['dateVigFin']?></td>
+                                <td><?php echo $arr_tarisama[$i]['dateExeIni']?></td>
+                                <td><?php echo $arr_tarisama[$i]['dateExeIni']?></td>
+                                <td><a href="?controller=tarisama&action=update&codeH=<?php echo $arr_tarisama[$i]['codeHotel'];?>&codeA=<?php echo $arr_tarisama[$i]['codeAlim'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
                             <td><a onclick="deletePay(<?php echo $row['pay'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
-                        </tr>
+                              </tr>
                         <?php }}
                         else{?>
                         <tr>
@@ -305,19 +294,19 @@ if(isset($hotel)){
                     </div>
                   </div>
                 </div>
-                <?php }?>
+                <?php ?>
                 <!--  -->
 <hr/>
             </div>
           </div>
         </div>
 
-   </form>
+   
                  <!-- Formulario -->
                 <script src="JS/jquery-3.6.0.js"></script>
                 <script type="text/javascript">
-                    //******** remove rows from pivot table containing items (Tariandr) */
-                    $(document).on('click', '.deleteTariandr', function (event) {
+                    //******** remove rows from pivot table containing items (Tarisama) */
+                    $(document).on('click', '.deleteTarisama', function (event) {
                     event.preventDefault();
                     $(this).closest('tr').remove();
                     //alert('Hola');

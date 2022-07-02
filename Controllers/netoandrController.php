@@ -257,9 +257,9 @@
                 //array
                 $arrNetoandr=json_decode($_POST["arrNetoandr"], true);
                 //print_r($arrNetoandr);
-                
+                $con=1;
                 foreach ($arrNetoandr as $val) {
-                    $con=1;
+                   
                     while($con<=5){
                         switch ($con) {   
                             case 1:
@@ -304,7 +304,7 @@
                     $objNetoAndr->setFeinExe($die);
                     $objNetoAndr->setFefiExe($dfe);
                     $objNetoAndr->setValue($valor);
-
+                    //print_r($objNetoAndr);
                     $resUpdate=$objNetoAndr->update();
                     $con=$con+1;
                     }

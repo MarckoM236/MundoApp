@@ -278,7 +278,7 @@ if(isset($alim)){
                                 <td><?php echo $arr_taricart[$i]['dateExeIni']?></td>
                                 <td><?php echo $arr_taricart[$i]['dateExeIni']?></td>
                                 <td><a href="?controller=taricart&action=update&codeH=<?php echo $arr_taricart[$i]['codeHotel'];?>&codeA=<?php echo $arr_taricart[$i]['codeAlim'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                            <td><a onclick="deletePay(<?php echo $row['pay'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
+                                <td><a onclick="deleteTaricart(<?php echo $arr_taricart[$i]['codeHotel'].','.$arr_taricart[$i]['codeAlim'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                               </tr>
                         <?php }}
                         else{?>
