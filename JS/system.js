@@ -2715,6 +2715,102 @@ function updateNetocart(user,arrNetocart){
 }
 //******** END VALIDATION NETOCART *************/
 
+//*********VALIDATIONS RECEANDR ************/
+
+//Insert data
+function insertReceandr(user,arrReceandr){
+  var arrReJson=JSON.stringify(arrReceandr);
+  //Validate data submission
+  var dataString = 'arrReceandr='+ arrReJson  + '&txbUser=' + user +'&saveReceandr=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=receandr&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar la tarifa: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteNetocart(code1,code2){
+  //alert(code1);
+  //alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=netocart&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateNetocart(user,arrNetocart){
+  var arrNetJson=JSON.stringify(arrNetocart);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrNetocart='+ arrNetJson  + '&txbUser=' + user +'&updateNetocart=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=netocart&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=netocart&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION RECEANDR*************/
+
 //*********VALIDATIONS BLOQDETA ************/
 
 //Insert data
@@ -2923,6 +3019,13 @@ function addNetocart(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cu
   var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteNetocart"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista-netoCart").append(item);
     arrNetocart();
+    //alert(codeHotel);
+}
+
+function addReceandr(codeOper,selectedO,receptivo,codeHotel,selectedH,zona,hoinDiu,hofiDiu,valueDiurno,hoinNoc,hofiNoc,valueNocturno,user){
+  var item = '<tr><td class="codeOperator ocultar">'+codeOper+'</td><td class="selectedO">'+selectedO+'</td> <td class="receptivo">'+receptivo+'</td> <td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedO">'+selectedH+'</td><td class="zona">'+zona+'</td><td class="hoinDiu">'+hoinDiu+'</td><td class="hofiDiu">'+hofiDiu+'</td><td class="valueDiurno">'+valueDiurno+'</td><td class="hoinNoc">'+hoinNoc+'</td><td class="hofiNoc">'+hofiNoc+'</td><td class="valueNocturno">'+valueNocturno+'</td><td> <a href="#"class="btn btn-danger deleteReceandr"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-receAndr").append(item);
+    arrReceandr();
     //alert(codeHotel);
 }
 

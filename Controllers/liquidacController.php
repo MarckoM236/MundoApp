@@ -252,8 +252,8 @@
                                     foreach($val['concFli'] as $valCn){
                                         $dateF = date_create($val['dateFli']);
                                         $dateFli=date_format($dateF,"d/m/Y");
-                                        $hEx = date_create($val['dateFli']." ".$val['exitFli'].":00");
-                                        $horExFli=date_format($hEx,"d/m/Y H:i:s");
+                                        
+                                        
                                         $hAr = date_create($val['dateFli']." ".$val['arriFli'].":00");
                                         $horArrFli=date_format($hAr,"d/m/Y H:i:s");
                                         $birDa = date_create($valT['birthDateTr']);

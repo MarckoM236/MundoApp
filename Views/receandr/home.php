@@ -57,7 +57,7 @@ if(isset($receptivo)){
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                        <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                           <select name="txbCodeHotel" id="codeHotel" class="form-select inputFomulario" placeholder="Opciones"> 
+                           <select name="txbCodeOperator" id="codeOperator" class="form-select inputFomulario" placeholder="Opciones"> 
                               <option select value="">SELECCIONE</option>
                              <?php if (isset($arr_oper)){
                                         foreach($arr_oper as $rowOper ){
@@ -67,29 +67,19 @@ if(isset($receptivo)){
                                         }
                                     }?>         
                             </select>
-                           <label class="error" for="codeHotel" id="codeHotel_error">Campo requerido.</label>
+                           <label class="error" for="codeOperator" id="codeOperator_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
 
                 <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
-                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Receptivo</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
-                           <select name="txbCodeHotel" id="codeHotel" class="form-select inputFomulario" placeholder="Opciones"> 
-                              <option select value="">SELECCIONE</option>
-                             <?php if (isset($arr_hotel)){
-                                        foreach($arr_hotel as $rowHot ){
-                                            ?>
-                                            <option select value="<?php echo $rowHot['codeHot'];?>"><?php echo $rowHot['nameHot'];?></option>
-                                    <?php 
-                                        }
-                                    }?>         
-                            </select>
-                           <label class="error" for="codeHotel" id="codeHotel_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="text" placeholder="receptivo" id="receptivo" name="txbReceptivo">
+                           <label class="error" for="receptivo" id="receptivo_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -97,7 +87,7 @@ if(isset($receptivo)){
                 <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                            <label>Hostal</label>
+                            <label>Hotel</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                        <!--    <input class="form-control inputFomulario" type="text" placeholder="Estado" id="status" name="txbStatus">-->
@@ -123,8 +113,8 @@ if(isset($receptivo)){
                             <label>Zona</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="valor" id="valueSencilla" name="txbValueSencilla">
-                           <label class="error" for="valueSencilla" id="valueSencilla_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="text" placeholder="zona" id="zona" name="txbZona">
+                           <label class="error" for="zona" id="zona_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -136,8 +126,8 @@ if(isset($receptivo)){
                             <label>Diurno Inicial</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="time" placeholder="fecha" id="dateInVi" name="txbDateInVi">
-                           <label class="error" for="dateInVi" id="dateInVi_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="time" placeholder="hora" id="hoinDiu" name="txbHoinDiu">
+                           <label class="error" for="hoinDiu" id="hoinDiu_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -148,8 +138,8 @@ if(isset($receptivo)){
                             <label>Diurno Final</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="time" placeholder="" id="dateFiVi" name="txbDateFiVi">
-                           <label class="error" for="dateFiVi" id="dateFiVi_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="time" placeholder="" id="hofiDiu" name="txbHofiDiu">
+                           <label class="error" for="hofiDiu" id="hofiDiu_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -160,8 +150,8 @@ if(isset($receptivo)){
                             <label>Valor</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="valor" id="valueSencilla" name="txbValueSencilla">
-                           <label class="error" for="valueSencilla" id="valueSencilla_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="text" placeholder="valor" id="valueDiurno" name="txbValueDiurno">
+                           <label class="error" for="valueDiurno" id="valueDiurno_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -172,8 +162,8 @@ if(isset($receptivo)){
                             <label>Nocturno Inicial</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="time" placeholder="fecha" id="dateInEx" name="txbDateInEx" value="<?php echo date('Y-m-d');?>">
-                           <label class="error" for="dateInEx" id="dateInEx_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="time" placeholder="fecha" id="hoinNoc" name="txbHoinNoc" value="<?php echo date('HH-MI-SS');?>">
+                           <label class="error" for="hoinNoc" id="hoinNoc_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -184,8 +174,8 @@ if(isset($receptivo)){
                             <label>Nocturno final</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="time" placeholder="fecha" id="dateFiEx" name="txbDateFiEx" value="<?php echo date('Y-m-d');?>">
-                           <label class="error" for="dateFiEx" id="dateFiEx_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="time" placeholder="fecha" id="hofiNoc" name="txbHofiNoc" value="<?php echo date('Y-m-d');?>">
+                           <label class="error" for="hofiNoc" id="hofiNoc_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -196,8 +186,8 @@ if(isset($receptivo)){
                             <label>Valor</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="valor" id="valueSencilla" name="txbValueSencilla">
-                           <label class="error" for="valueSencilla" id="valueSencilla_error">Campo requerido.</label>
+                           <input class="form-control inputFomulario" type="text" placeholder="valor" id="valueNocturno" name="txbValueNocturno">
+                           <label class="error" for="valueNocturno" id="valueNocturno_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
@@ -209,7 +199,7 @@ if(isset($receptivo)){
                 </div>
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
                     <div class="row justify-content-left py-2">
-                        <input id='btnAddReceAndr'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectNetoandr()"/>
+                        <input id='btnAddReceAndr'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectReceandr()"/>
                     </div>
                 </div>
                 <hr/>
@@ -229,10 +219,9 @@ if(isset($receptivo)){
   <thead>
     <th class="ocultar">codOperador</th>
     <th>Operador</th>
-    <th class="ocultar">codReceptivo</th>
     <th>Receptivo</th>
     <th class="ocultar">codHotel</th>
-    <th>Hostal</th>
+    <th>Hotel</th>
     <th>Zona</th>
     <th>Inicio Diurno</th>
     <th>Final Diurno</th>
@@ -314,7 +303,7 @@ if(isset($receptivo)){
                 <script src="JS/jquery-3.6.0.js"></script>
                 <script type="text/javascript">
                     //******** remove rows from pivot table containing items (Tariandr) */
-                    $(document).on('click', '.deleteNetoandr', function (event) {
+                    $(document).on('click', '.deleteReceandr', function (event) {
                     event.preventDefault();
                     $(this).closest('tr').remove();
                     //alert('Hola');

@@ -71,7 +71,7 @@
  
                      //Consult operator to complete field.
                      $objOperator= new OperatorModel("","","","","","","");
-                    $operator=$objOperator->show();
+                     $operator=$objOperator->show();
 
                      
                     
@@ -86,58 +86,51 @@
         
 
         public function insert(){
-            if (isset($_POST['saveNetoandr'])){
+            if (isset($_POST['saveReceandr'])){
                 //obj class
-                $objNetoAndr= new NetoandrModel("","","","","","","","","");
+                $objNetoAndr= new ReceandrModel("","","","","","","","","","","","");
                 //array
-                $arrNetoandr=json_decode($_POST["arrNetoandr"], true);
-                //print_r($arrNetoandr);
+                $arrReceandr=json_decode($_POST["arrReceandr"], true);
+                //print_r($arrReceandr);
                 
-                foreach ($arrNetoandr as $val) {
+                foreach ($arrReceandr as $val) {
                     $con=1;
-                    while($con<=5){
+                    while($con<=2){
                         switch ($con) {   
                             case 1:
-                                $acomodac=1;
-                                $valor=$val['sencilla'];
+                                $dia="D";
+                                $noche="";
+                                $valor=$val['valueDiurno'];
                                 break;   
                             case 2:
-                                $acomodac=2;
-                                $valor=$val['doble'];
+                                $dia="";
+                                $noche="N";
+                                $valor=$val['valueNocturno'];
                                 break;  
-                            case 3:
-                                $acomodac=3;
-                                $valor=$val['triple'];
-                                break; 
-                            case 4:
-                                $acomodac=4;
-                                $valor=$val['cuadruple'];
-                                break;
-                            case 5:
-                                $acomodac=5;
-                                $valor=$val['nino'];
-                                break;   
                          }
                     //Format date
-                    $dateInVi = date_create($val['dateInVi']);
-                    $div=date_format($dateInVi,"d/m/Y");
+                    $hoinDiu = date_create($val['hoinDiu'].":00");
+                    $inDiu=date_format($hoinDiu,"H:i:s");
 
-                    $dateFiVi = date_create($val['dateFiVi']);
-                    $dfv=date_format($dateFiVi,"d/m/Y");
+                    $hofiDiu = date_create($val['hofiDiu'].":00");
+                    $fiDiu=date_format($hofiDiu,"H:i:s");
 
-                    $dateInEx = date_create($val['dateInEx']);
-                    $die=date_format($dateInEx,"d/m/Y");
+                    $hoinNoc = date_create($val['hoinNoc'].":00");
+                    $inNoc=date_format($hoinNoc,"H:i:s");
 
-                    $dateFiEx = date_create($val['dateFiEx']);
-                    $dfe=date_format($dateFiEx,"d/m/Y");    
+                    $hofiNoc = date_create($val['hofiNoc'].":00");
+                    $fiNoc=date_format($hofiNoc,"H:i:s");  
 
+                    $objNetoAndr->setCodOperator($val['codeOperator']);
+                    $objNetoAndr->setReceptivo($val['receptivo']);
                     $objNetoAndr->setCodHotel($val['codeHotel']);
-                    $objNetoAndr->setCodTipAlim($val['alim']);
-                    $objNetoAndr->setCodAcom($acomodac);
-                    $objNetoAndr->setFeinVig($div);
-                    $objNetoAndr->setFefiVig($dfv);
-                    $objNetoAndr->setFeinExe($die);
-                    $objNetoAndr->setFefiExe($dfe);
+                    $objNetoAndr->setZona($val['zona']);
+                    $objNetoAndr->setInicioDiurno($inDiu);
+                    $objNetoAndr->setFinDiurno($fiDiu);
+                    $objNetoAndr->setInicioNocturno($inNoc);
+                    $objNetoAndr->setFinNocturno($fiNoc);
+                    $objNetoAndr->setDiurno($dia);
+                    $objNetoAndr->setNocturno($noche);
                     $objNetoAndr->setValue($valor);
                     $objNetoAndr->setUser($_POST['txbUser']);
 
