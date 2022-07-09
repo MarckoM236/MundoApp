@@ -2748,15 +2748,15 @@ function insertReceandr(user,arrReceandr){
 }
 
 //Delete data
-function deleteNetocart(code1,code2){
+function deleteReceandr(code1,code2){
   //alert(code1);
-  //alert(code2);
+  alert(code2);
 var dataString = 'code1='+ code1 + '&code2=' + code2;
 var opcion = confirm("realmente desea eliminar el registro?");
 if (opcion == true) {
   $.ajax({
     type: "GET",
-    url: "/MundoApp/Controllers/ajaxController.php?controller=netocart&action=delete",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=receandr&action=delete",
     data: dataString,
     dataType : 'json',
     
@@ -2774,16 +2774,16 @@ if (opcion == true) {
 }
 
 //Update data
-function updateNetocart(user,arrNetocart){
-  var arrNetJson=JSON.stringify(arrNetocart);
+function updateReceandr(user,arrReceandr){
+  var arrReJson=JSON.stringify(arrReceandr);
   //alert(arrTarJson);
   //Validate data submission
-  var dataString = 'arrNetocart='+ arrNetJson  + '&txbUser=' + user +'&updateNetocart=1';
+  var dataString = 'arrReceandr='+ arrReJson  + '&txbUser=' + user +'&updateReceandr=1';
   var opcion = confirm("Realmente desea modificar el registro?");
   if (opcion == true) {
     $.ajax({
       type: "POST",
-      url: "/MundoApp/Controllers/ajaxController.php?controller=netocart&action=update",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=receandr&action=update",
       data: dataString,
       dataType : 'json',
       
@@ -2791,7 +2791,7 @@ function updateNetocart(user,arrNetocart){
           //var status=response.status;
           if(response.status == 'ok'){
             alert(response.result);
-            window.location="?controller=netocart&action=home";
+            window.location="?controller=receandr&action=home";
         }
         else{
           alert(response.result);

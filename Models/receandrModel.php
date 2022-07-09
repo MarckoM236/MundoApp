@@ -126,12 +126,12 @@
         
         
         public  function show(){
-            $sql = "BEGIN  pkgTaricart.consultaTaricart(:cod_hotel,:cod_alim,:res); END;";
+            $sql = "BEGIN  pkgReceAndr.consultaReceAndr(:cod_oper,:receptivo,:res); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             $cursor= oci_new_cursor($conex);
-            oci_bind_by_name($stid, ':cod_hotel',$this->codHotel);
-            oci_bind_by_name($stid, ':cod_alim',$this->codTipAlim);
+            oci_bind_by_name($stid, ':cod_oper',$this->codOperator);
+            oci_bind_by_name($stid, ':receptivo',$this->receptivo);
             oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
             oci_execute($stid);
             oci_execute($cursor);
@@ -139,7 +139,7 @@
             $foo = array();
             while (($row = oci_fetch_array($cursor)) != false) {            
                 
-                $foo[] = new TaricartModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$row[9],$row[10],$row[11]);
+                $foo[] = new ReceandrModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$row[9],$row[10],$row[11]);
             }
             
             return $foo;
@@ -191,14 +191,14 @@
             oci_bind_by_name($stid, ':receptivo',$this->receptivo);
             oci_bind_by_name($stid, ':cod_hotel',$this->codHotel);
             oci_bind_by_name($stid, ':zona',$this->zona);
-            oci_bind_by_name($stid, ':hoin_diurno',$this->hoinNoc);
+            oci_bind_by_name($stid, ':hoin_diurno',$this->hoinDiu);
             oci_bind_by_name($stid, ':hofi_diurno',$this->hofiDiu);
             oci_bind_by_name($stid, ':hoin_nocturno',$this->hoinNoc);
             oci_bind_by_name($stid, ':hofi_nocturno',$this->hofiNoc);
             oci_bind_by_name($stid, ':diurno',$this->diurno);
             oci_bind_by_name($stid, ':nocturno',$this->nocturno);
-            oci_bind_by_name($stid, ':val_taricart',$this->value);
-            oci_bind_by_name($stid, ':user_taricart',$this->user);
+            oci_bind_by_name($stid, ':val_receandr',$this->value);
+            oci_bind_by_name($stid, ':user_receandr',$this->user);
             @$res=oci_execute($stid);
 
              if($res){

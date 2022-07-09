@@ -19,6 +19,14 @@ if(isset($operator)){
     }
     }  
 
+if(isset($receptivo)){
+  foreach($receptivo as $dataRec) {
+      $codeRec=$dataRec->getCode();
+
+      $arr_rec[] =array("codeRec" => $codeRec);    
+  }
+  }      
+
      
                 
 ?>
@@ -28,13 +36,13 @@ if(isset($operator)){
 }
 </style>
 <!-- Formulario -->
-<form action="?controller=receandr&action=home" method="post">
+<form action="?controller=netoandr&action=home" method="post">
         <div class="row justify-content-center">
           <div  class="col-lg-10 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >SAN ANDRES - RECEPTIVOS</label>
+                      <label class="titulosPrincipalesPagina" >CARTAGENA - RECEPTIVOS</label>
                 </div>
 
               </div>
@@ -229,7 +237,7 @@ if(isset($operator)){
 <!-- fin results-->
   <?php      
 
-                //print_r($arr_receandr);
+                //print_r($arr_netoandr);
                 ?>
                 <br>
                 <div class="row justify-content-cennter py-0 listado ">
@@ -240,14 +248,12 @@ if(isset($operator)){
                       <table class="table table-bordered " >
                         <thead>
                           <tr>
-                            <th style="width:30px;background-color: #9FD5D1;">Operador</th>
-                            <th style="width:30px;background-color: #9FD5D1">Receptivo</th>
-                            <th style="width:30px;background-color: #9FD5D1">Hotel</th>
-                            <th style="width:30px;background-color: #9FD5D1">Zona</th>
-                            <th style="width:30px;background-color: #9FD5D1">Jornada</th>
-                            <th style="width:30px;background-color: #9FD5D1">Inicio</th>
-                            <th style="width:30px;background-color: #9FD5D1">Fin</th>
-                            <th style="width:30px;background-color: #9FD5D1">Valor</th>
+                            <th style="width:30px;background-color: #9FD5D1;">Hotel</th>
+                            <th style="width:30px;background-color: #9FD5D1">Plan</th>
+                            <th style="width:30px;background-color: #9FD5D1">Vigencia Inicial</th>
+                            <th style="width:30px;background-color: #9FD5D1">Vigencia Final</th>
+                            <th style="width:30px;background-color: #9FD5D1">Excepcion Inicial</th>
+                            <th style="width:30px;background-color: #9FD5D1">Excepcion Final</th>
                             <th style="width:30px;background-color: #9FD5D1">Editar</th>
                             <th style="width:30px;background-color: #9FD5D1">Borrar</th>
                           </tr>
@@ -256,34 +262,20 @@ if(isset($operator)){
                         <tbody>
                             
                         <?php 
-                        if (isset($arr_receandr)){
+                        if (isset($arr_netoandr)){
                           
-                        //print_r($arr_receandr[1]);
+                        //print_r($arr_netoandr[1]);
                           
-                          for($i=0;$i<count($arr_receandr);$i++){
-                            if($arr_receandr[$i]['diurno']=="")
-                            {
-                              $jornal="Nocturno";
-                              $inicio=$arr_receandr[$i]['inicioNocturno'];
-                              $fin=$arr_receandr[$i]['finNocturno'];
-                            }
-                            else{
-                              $jornal="Diurno";
-                              $inicio=$arr_receandr[$i]['inicioDiurno'];
-                              $fin=$arr_receandr[$i]['finDiurno'];
-                            }
-                            ?>
+                          for($i=0;$i<count($arr_netoandr);$i+=5){?>
                               <tr>
-                                <td><?php echo $arr_receandr[$i]['nameOper']?></td>
-                                <td><?php echo $arr_receandr[$i]['receptivo']?></td>
-                                <td><?php echo $arr_receandr[$i]['nameHotel']?></td>
-                                <td><?php echo $arr_receandr[$i]['zona']?></td>
-                                <td><?php echo $jornal;?></td>
-                                <td><?php echo substr($inicio,12);?></td>
-                                <td><?php echo substr($fin,12);?></td>
-                                <td><?php echo $arr_receandr[$i]['value']?></td>
-                                <td><a href="?controller=receandr&action=update&codeO=<?php echo $arr_receandr[$i]['codeOper'];?>&receptivo=<?php echo $arr_receandr[$i]['receptivo'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                            <td><a onclick="deleteReceandr(<?php echo $arr_receandr[$i]['codeOper'];?>,'<?php echo $arr_receandr[$i]['receptivo'];?>')" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
+                                <td><?php echo $arr_netoandr[$i]['nameHotel']?></td>
+                                <td><?php echo $arr_netoandr[$i]['nameAlim']?></td>
+                                <td><?php echo $arr_netoandr[$i]['dateVigIni']?></td>
+                                <td><?php echo $arr_netoandr[$i]['dateVigFin']?></td>
+                                <td><?php echo $arr_netoandr[$i]['dateExeIni']?></td>
+                                <td><?php echo $arr_netoandr[$i]['dateExeIni']?></td>
+                                <td><a href="?controller=netoandr&action=update&codeH=<?php echo $arr_netoandr[$i]['codeHotel'];?>&codeA=<?php echo $arr_netoandr[$i]['codeAlim'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                            <td><a onclick="deletePay(<?php echo $row['pay'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                               </tr>
                         <?php }}
                         else{?>

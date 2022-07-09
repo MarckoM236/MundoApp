@@ -3591,7 +3591,7 @@ $(function() {
 });
 //********************** */
 
-//***Fomr update Netocart***
+//***Fomr update receandr***
 $(function() {
   $('.error').hide();
   $("#btnUpdateReceandr").click(function() {
