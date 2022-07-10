@@ -743,6 +743,31 @@ include_once('../Core/baseModel.php');
                 }
             }
 
+            //TARIANDR
+            if($_GET['controller']=='tarisama'){
+                $object = new TarisamaController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
             //NETOANDR
             if($_GET['controller']=='netoandr'){
                 $object = new NetoandrController();
@@ -768,7 +793,7 @@ include_once('../Core/baseModel.php');
                 }
             }
 
-            //NETOANDR
+            //NETOCART
             if($_GET['controller']=='netocart'){
                 $object = new NetocartController();
                 switch ($_GET['action']) {   

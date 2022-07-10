@@ -2522,6 +2522,103 @@ function updateTaricart(user,arrTaricart){
 }
 //******** END VALIDATION TARICART *************/
 
+//*********VALIDATIONS TARISAMA ************/
+
+//Insert data
+function insertTarisama(user,arrTarisama){
+  var arrTarJson=JSON.stringify(arrTarisama);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrTarisama='+ arrTarJson  + '&txbUser=' + user +'&saveTarisama=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=tarisama&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar la tarifa: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteTarisama(code1,code2){
+  //alert(code1);
+  //alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=tarisama&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateTarisama(user,arrTarisama){
+  var arrTarJson=JSON.stringify(arrTarisama);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrTarisama='+ arrTarJson  + '&txbUser=' + user +'&updateTarisama=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=tarisama&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=tarisama&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION TARISAMA *************/
+
 //*********VALIDATIONS NETOANDR ************/
 
 //Insert data
@@ -3008,6 +3105,12 @@ function addTaricart(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cu
     arrTaricart();    
 }
 
+function addTarisama(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
+  var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteTarisama"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-tariSama").append(item);
+    arrTarisama();    
+}
+
 function addNetoandr(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
   var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteNetoandr"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista-netoAndr").append(item);
@@ -3015,10 +3118,18 @@ function addNetoandr(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cu
     //alert(codeHotel);
 }
 
+
 function addNetocart(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
   var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteNetocart"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista-netoCart").append(item);
     arrNetocart();
+    //alert(codeHotel);
+}
+
+function addNetosama(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user){
+  var item = '<tr><td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedH">'+selectedH+'</td> <td class="alim ocultar">'+alim+'</td> <td class="selectedA">'+selectedA+'</td><td class="sencilla">'+sencilla+'</td><td class="doble">'+doble+'</td><td class="triple">'+triple+'</td><td class="cuadruple">'+cuadruple+'</td><td class="nino">'+nino+'</td><td class="dateInVi">'+dateInVi+'</td><td class="dateFiVi">'+dateFiVi+'</td><td class="dateInEx">'+dateInEx+'</td><td class="dateFiEx">'+dateFiEx+'</td><td> <a href="#"class="btn btn-danger deleteNetosama"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-netoAndr").append(item);
+    arrNetosama();
     //alert(codeHotel);
 }
 

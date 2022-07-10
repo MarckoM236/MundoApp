@@ -102,11 +102,12 @@
         
         
         public  function show(){
-            $sql = "BEGIN  pkgTariSama.consultaTariSama(:cod_hotel,:res); END;";
+            $sql = "BEGIN  pkgTariSama.consultaTariSama(:cod_hotel,:cod_alim,:res); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             $cursor= oci_new_cursor($conex);
             oci_bind_by_name($stid, ':cod_hotel',$this->codHotel);
+            oci_bind_by_name($stid, ':cod_alim',$this->codTipAlim);
             oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
             oci_execute($stid);
             oci_execute($cursor);
@@ -125,7 +126,7 @@
         public function insert(){
 
             $data=array();
-            $sql = "BEGIN  pkgTariSama.insertarTariSama(:cod_hotel,:cod_tipAlim,:cod_acom,:fein_vig,:fefi_vig,:fein_exe,:fefi_exe,:val_tariandr,:user_tariandr); END;";
+            $sql = "BEGIN  pkgTariSama.insertarTariSama(:cod_hotel,:cod_tipAlim,:cod_acom,:fein_vig,:fefi_vig,:fein_exe,:fefi_exe,:val_tarisama,:user_tarisama); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             oci_bind_by_name($stid, ':cod_hotel',$this->codHotel);
@@ -135,8 +136,8 @@
             oci_bind_by_name($stid, ':fefi_vig',$this->fefiVig);
             oci_bind_by_name($stid, ':fein_exe',$this->feinExe);
             oci_bind_by_name($stid, ':fefi_exe',$this->fefiExe);
-            oci_bind_by_name($stid, ':val_tariandr',$this->value);
-            oci_bind_by_name($stid, ':user_tariandr',$this->user);
+            oci_bind_by_name($stid, ':val_tarisama',$this->value);
+            oci_bind_by_name($stid, ':user_tarisama',$this->user);
             @$res=oci_execute($stid);
 
              if($res){
@@ -156,18 +157,18 @@
          
         function update(){
             $data=array();
-            $sql = "BEGIN  pkgTariSama.actualizarTariSama(:cod_hotel,:cod_tipAlim,:cod_Acom,:fein_vig,:fefi_vig,:fein_exe,:fefi_exe,:val_tariandr,:user_tariandr); END;";
+            $sql = "BEGIN  pkgTariSama.actualizarTariSama(:cod_hotel,:cod_tipAlim,:cod_acom,:fein_vig,:fefi_vig,:fein_exe,:fefi_exe,:val_tarisama,:user_tarisama); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
-            oci_bind_by_name($stid, ':cod_hotel',$this->codhotel);
+            oci_bind_by_name($stid, ':cod_hotel',$this->codHotel);
             oci_bind_by_name($stid, ':cod_tipAlim',$this->codTipAlim);
-            oci_bind_by_name($stid, ':val_Acom',$this->codAcom);
+            oci_bind_by_name($stid, ':cod_acom',$this->codAcom);
             oci_bind_by_name($stid, ':fein_vig',$this->feinVig);
             oci_bind_by_name($stid, ':fefi_vig',$this->fefiVig);
             oci_bind_by_name($stid, ':fein_exe',$this->feinExe);
             oci_bind_by_name($stid, ':fefi_exe',$this->fefiExe);
-            oci_bind_by_name($stid, ':val_tariandr',$this->value);
-            oci_bind_by_name($stid, ':user_tariandr',$this->user);
+            oci_bind_by_name($stid, ':val_tarisama',$this->value);
+            oci_bind_by_name($stid, ':user_tarisama',$this->user);
             @$res=oci_execute($stid);
 
              if($res){
@@ -183,8 +184,9 @@
         }
 
         function delete(){
-            $cod=$this->code;
-            $res= parent::deleteByCode($cod);
+            $cod1=$this->codHotel;
+            $cod2=$this->codTipAlim;
+            $res= parent::deleteByCodeTwo($cod1,$cod2,"hotel","alim");
 
             return $res;
         }
