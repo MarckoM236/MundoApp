@@ -29,6 +29,7 @@ include_once('taricartController.php');
 include_once('tarisamaController.php');
 include_once('netoandrController.php');
 include_once('netocartController.php');
+include_once('netosamaController.php');
 include_once('bloqdetaController.php');
 include_once('receandrController.php');
 include_once('../Models/companyModel.php');
@@ -62,6 +63,7 @@ include_once('../Models/taricartModel.php');
 include_once('../Models/tarisamaModel.php');
 include_once('../Models/netoandrModel.php');
 include_once('../Models/netocartModel.php');
+include_once('../Models/netosamaModel.php');
 include_once('../Models/bloqdetaModel.php');
 include_once('../Models/receandrModel.php');
 ?>

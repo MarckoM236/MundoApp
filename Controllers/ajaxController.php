@@ -743,7 +743,7 @@ include_once('../Core/baseModel.php');
                 }
             }
 
-            //TARIANDR
+            //TARISAMA
             if($_GET['controller']=='tarisama'){
                 $object = new TarisamaController();
                 switch ($_GET['action']) {   
@@ -796,6 +796,31 @@ include_once('../Core/baseModel.php');
             //NETOCART
             if($_GET['controller']=='netocart'){
                 $object = new NetocartController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            //NETOSAMA
+            if($_GET['controller']=='netosama'){
+                $object = new NetosamaController();
                 switch ($_GET['action']) {   
                     case 'insert':
                         $re=$object->insert();

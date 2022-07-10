@@ -3794,6 +3794,291 @@ function addSelectNetoCart(){
 
 //*** FIN NETOCART ***
 
+//*** NETOSAMA ***
+//***Fomr insert netosama***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveNetosama").click(function() {
+      //validate fields
+      var codeHotel = $("select#codeHotel").val();
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    var alim = $("select#codeAlim").val();
+    if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+      var sencilla = $("input#valueSencilla").val();
+    if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+
+    var doble = $("input#valueDoble").val();
+    if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    var triple = $("input#valueTriple").val();
+    if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    var cuadruple = $("input#valueCuadruple").val();
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    var nino = $("input#valueNino").val();
+    if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    var dateInVi = $("input#dateInVi").val();
+    if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    var dateFiVi = $("input#dateFiVi").val();
+    if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    var dateInEx = $("input#dateInEx").val();
+    if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    var dateFiEx = $("input#dateFiEx").val();
+    if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }
+     user=1;
+    insertNetosama(user,arrNetosama());
+    
+      
+  });
+});
+//********************** */
+
+//***Fomr update Netosama***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateNetosama").click(function() {
+      //validate fields
+      $('.error').hide();
+      var codeHotel = $("select#codeHotel").val();
+      if (codeHotel == "") {
+        $("label#codeHotel_error").show();
+        $("select#codeHotel").focus();
+        return false;
+      }
+  
+      var alim = $("select#codeAlim").val();
+      if (alim == "") {
+        $("label#codeAlim_error").show();
+        $("select#codeAlim").focus();
+        return false;
+      }
+  
+        var sencilla = $("input#valueSencilla").val();
+      if (sencilla == "") {
+        $("label#valueSencilla_error").show();
+        $("input#valueSencilla").focus();
+        return false;
+      }
+  
+      var doble = $("input#valueDoble").val();
+      if (doble == "") {
+        $("label#valueDoble_error").show();
+        $("input#valueDoble").focus();
+        return false;
+      }
+  
+      var triple = $("input#valueTriple").val();
+      if (triple == "") {
+        $("label#valueTriple_error").show();
+        $("input#valueTriple").focus();
+        return false;
+      }
+  
+      var cuadruple = $("input#valueCuadruple").val();
+      if (cuadruple == "") {
+        $("label#valueCuadruple_error").show();
+        $("input#valueCuadruple").focus();
+        return false;
+      }
+      var nino = $("input#valueNino").val();
+      if (nino == "") {
+        $("label#valueNino_error").show();
+        $("input#valueNino").focus();
+        return false;
+      }
+  
+      var dateInVi = $("input#dateInVi").val();
+      if (dateInVi == "") {
+        $("label#dateInVi_error").show();
+        $("input#dateInVi").focus();
+        return false;
+      }
+  
+      var dateFiVi = $("input#dateFiVi").val();
+      if (dateFiVi == "") {
+        $("label#dateFiVi_error").show();
+        $("input#dateFiVi").focus();
+        return false;
+      }
+  
+      var dateInEx = $("input#dateInEx").val();
+      if (dateInEx == "") {
+        $("label#dateInEx_error").show();
+        $("input#dateInEx").focus();
+        return false;
+      }
+  
+      var dateFiEx = $("input#dateFiEx").val();
+      if (dateFiEx == "") {
+        $("label#dateFiEx_error").show();
+        $("input#dateFiEx").focus();
+        return false;
+      }
+       user=1;
+      updateNetosama(user,arrNetosama());
+      
+  });
+});
+//********************** */
+
+//********************SELECCIONAR ITEMS DE NETOANDR Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectNetosama(){
+  var codeHotel = $("select#codeHotel").val();
+  var alim = $("select#codeAlim").val();
+  var sencilla = $("input#valueSencilla").val();
+  var doble = $("input#valueDoble").val();
+  var triple = $("input#valueTriple").val();
+  var cuadruple = $("input#valueCuadruple").val();
+  var nino = $("input#valueNino").val();
+  var dateInVi = $("input#dateInVi").val();
+  var dateFiVi = $("input#dateFiVi").val();
+  var dateInEx = $("input#dateInEx").val();
+  var dateFiEx = $("input#dateFiEx").val();
+
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    else if (alim == "") {
+      $("label#codeAlim_error").show();
+      $("select#codeAlim").focus();
+      return false;
+    }
+
+    else if (sencilla == "") {
+      $("label#valueSencilla_error").show();
+      $("input#valueSencilla").focus();
+      return false;
+    }
+ 
+    else if (doble == "") {
+      $("label#valueDoble_error").show();
+      $("input#valueDoble").focus();
+      return false;
+    }
+
+    else if (triple == "") {
+      $("label#valueTriple_error").show();
+      $("input#valueTriple").focus();
+      return false;
+    }
+
+    if (cuadruple == "") {
+      $("label#valueCuadruple_error").show();
+      $("input#valueCuadruple").focus();
+      return false;
+    }
+    
+    else if (nino == "") {
+      $("label#valueNino_error").show();
+      $("input#valueNino").focus();
+      return false;
+    }
+
+    else if (dateInVi == "") {
+      $("label#dateInVi_error").show();
+      $("input#dateInVi").focus();
+      return false;
+    }
+
+    else if (dateFiVi == "") {
+      $("label#dateFiVi_error").show();
+      $("input#dateFiVi").focus();
+      return false;
+    }
+
+    else if (dateInEx == "") {
+      $("label#dateInEx_error").show();
+      $("input#dateInEx").focus();
+      return false;
+    }
+
+    else if (dateFiEx == "") {
+      $("label#dateFiEx_error").show();
+      $("input#dateFiEx").focus();
+      return false;
+    }  
+
+  else{
+     /* Para obtener el valor */
+     var user=1;
+      var hotel = document.getElementById("codeHotel");
+      var selectedH = hotel.options[hotel.selectedIndex].text;
+
+      var plan = document.getElementById("codeAlim");
+      var selectedA = plan.options[plan.selectedIndex].text;
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("codeHotel_error").style.display="none";
+    document.getElementById("codeAlim_error").style.display="none";
+    document.getElementById("valueSencilla_error").style.display="none";
+    document.getElementById("valueDoble_error").style.display="none";
+    document.getElementById("valueTriple_error").style.display="none";
+    document.getElementById("valueCuadruple_error").style.display="none";
+    document.getElementById("ValueNino_error").style.display="none";
+    document.getElementById("dateInVi_error").style.display="none";
+    document.getElementById("dateFiVi_error").style.display="none";
+    document.getElementById("dateInEx_error").style.display="none";
+    document.getElementById("dateFiEx_error").style.display="none";
+    addNetosama(codeHotel,selectedH,alim,selectedA,sencilla,doble,triple,cuadruple,nino,dateInVi,dateFiVi,dateInEx,dateFiEx,user);  
+  }
+ 
+}
+//**************FIN ADD netosama***************************** */
+
+//*** FIN NETOSAMA ***
+
 //*** RECEANDR ***
 //***Fomr insert receandr***
 $(function() {
@@ -4558,6 +4843,13 @@ $(document).on('click', '.deleteNetocart', function (event) {
   //alert('Hola');
 });
 //****************************************************************************** */
+/******** remove rows from pivot table containing items (Netosama) */
+$(document).on('click', '.deleteNetosama', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+  //alert('Hola');
+});
+//****************************************************************************** */
 //******** remove rows from pivot table containing items (BLOQDETA) */
 $(document).on('click', '.deleteBloqdeta', function (event) {
   event.preventDefault();
@@ -4809,6 +5101,31 @@ function arrNetocart(){
   });
   console.log(netocart);
   return netocart;
+  }
+  //**************************************************************************** */
+
+   //*************** Añadir elementos de la tabla dinamica netosama a un array */
+function arrNetosama(){
+  let netosama = [];
+  document.querySelectorAll('.table-netoSama tbody tr').forEach(function(e){
+    let fila = {
+      codeHotel: e.querySelector('.codeHotel').innerText,
+      alim: e.querySelector('.alim').innerText,
+      sencilla: e.querySelector('.sencilla').innerText,
+      doble: e.querySelector('.doble').innerText,
+      triple: e.querySelector('.triple').innerText,
+      cuadruple: e.querySelector('.cuadruple').innerText,
+      nino: e.querySelector('.nino').innerText,
+      dateInVi: e.querySelector('.dateInVi').innerText,
+      dateFiVi: e.querySelector('.dateFiVi').innerText,
+      dateInEx: e.querySelector('.dateInEx').innerText,
+      dateFiEx: e.querySelector('.dateFiEx').innerText
+      
+    };
+    netosama.push(fila);
+  });
+  console.log(netosama);
+  return netosama;
   }
   //**************************************************************************** */
 
