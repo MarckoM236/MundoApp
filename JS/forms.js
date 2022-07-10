@@ -4345,6 +4345,272 @@ function addSelectReceandr(){
 
 //*** FIN RECEANDR***
 
+//*** RECECART ***
+//***Fomr insert rececart***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveRececart").click(function() {
+      //validate fields
+
+      var codeOper = $("select#codeOperator").val();
+    if (codeOper == "") {
+      $("label#codeOperator_error").show();
+      $("select#codeOperator").focus();
+      return false;
+    }
+
+      var receptivo = $("input#receptivo").val();
+    if (receptivo == "") {
+      $("label#receptivo_error").show();
+      $("input#receptivo").focus();
+      return false;
+    }
+
+      var codeHotel = $("select#codeHotel").val();
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    var zona = $("input#zona").val();
+    if (zona == "") {
+      $("label#zona_error").show();
+      $("input#zona").focus();
+      return false;
+    }
+
+    var hoinDiu = $("input#hoinDiu").val();
+    if (hoinDiu == "") {
+      $("label#hoinDiu_error").show();
+      $("input#hoinDiu").focus();
+      return false;
+    }
+
+    var hofiDiu = $("input#hofiDiu").val();
+    if (hofiDiu == "") {
+      $("label#hofiDiu_error").show();
+      $("input#hofiDiu").focus();
+      return false;
+    }
+    var valueDiurno = $("input#valueDiurno").val();
+    if (valueDiurno == "") {
+      $("label#valueDiurno_error").show();
+      $("input#valueDiurno").focus();
+      return false;
+    }
+
+    var hoinNoc = $("input#hoinNoc").val();
+    if (hoinNoc == "") {
+      $("label#hoinNoc_error").show();
+      $("input#hoinNoc").focus();
+      return false;
+    }
+
+    var hofiNoc = $("input#hofiNoc").val();
+    if (hofiNoc == "") {
+      $("label#hofiNoc_error").show();
+      $("input#hofiNoc").focus();
+      return false;
+    }
+
+    var valueNocturno = $("input#valueNocturno").val();
+    if (valueNocturno == "") {
+      $("label#valueNocturno_error").show();
+      $("input#valueNocturno").focus();
+      return false;
+    }
+
+     user=1;
+    insertRececart(user,arrRececart());
+    
+      
+  });
+});
+//********************** */
+
+//***Fomr update rececart***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateRececart").click(function() {
+      //validate fields
+      var codeOper = $("select#codeOperator").val();
+    if (codeOper == "") {
+      $("label#codeOperator_error").show();
+      $("select#codeOperator").focus();
+      return false;
+    }
+
+      var receptivo = $("input#receptivo").val();
+    if (receptivo == "") {
+      $("label#receptivo_error").show();
+      $("input#receptivo").focus();
+      return false;
+    }
+
+      var codeHotel = $("select#codeHotel").val();
+    if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+
+    var zona = $("input#zona").val();
+    if (zona == "") {
+      $("label#zona_error").show();
+      $("input#zona").focus();
+      return false;
+    }
+
+    var hoinDiu = $("input#hoinDiu").val();
+    if (hoinDiu == "") {
+      $("label#hoinDiu_error").show();
+      $("input#hoinDiu").focus();
+      return false;
+    }
+
+    var hofiDiu = $("input#hofiDiu").val();
+    if (hofiDiu == "") {
+      $("label#hofiDiu_error").show();
+      $("input#hofiDiu").focus();
+      return false;
+    }
+    var valueDiurno = $("input#valueDiurno").val();
+    if (valueDiurno == "") {
+      $("label#valueDiurno_error").show();
+      $("input#valueDiurno").focus();
+      return false;
+    }
+
+    var hoinNoc = $("input#hoinNoc").val();
+    if (hoinNoc == "") {
+      $("label#hoinNoc_error").show();
+      $("input#hoinNoc").focus();
+      return false;
+    }
+
+    var hofiNoc = $("input#hofiNoc").val();
+    if (hofiNoc == "") {
+      $("label#hofiNoc_error").show();
+      $("input#hofiNoc").focus();
+      return false;
+    }
+
+    var valueNocturno = $("input#valueNocturno").val();
+    if (valueNocturno == "") {
+      $("label#valueNocturno_error").show();
+      $("input#valueNocturno").focus();
+      return false;
+    }
+
+     user=1;
+      updateRececart(user,arrRececart());
+      
+  });
+});
+//********************** */
+
+//********************SELECCIONAR ITEMS DE RECECART Y AÑADIR A TABLA DINAMICA VALIDANDO CAMPOS VACIOS *****************/
+function addSelectRececart(){
+  var codeOper = $("select#codeOperator").val();
+  var receptivo = $("input#receptivo").val();
+  var codeHotel = $("select#codeHotel").val();
+  var zona = $("input#zona").val();
+  var hoinDiu = $("input#hoinDiu").val();
+  var hofiDiu = $("input#hofiDiu").val();
+  var valueDiurno = $("input#valueDiurno").val();
+  var hoinNoc = $("input#hoinNoc").val();
+  var hofiNoc = $("input#hofiNoc").val();
+  var valueNocturno = $("input#valueNocturno").val();
+
+  if (codeOper == "") {
+    $("label#codeOperator_error").show();
+    $("select#codeOperator").focus();
+    return false;
+  }
+
+    else if (receptivo == "") {
+      $("label#receptivo_error").show();
+      $("input#receptivo").focus();
+      return false;
+    }
+
+    else if (codeHotel == "") {
+      $("label#codeHotel_error").show();
+      $("select#codeHotel").focus();
+      return false;
+    }
+ 
+    else if (zona == "") {
+      $("label#zona_error").show();
+      $("input#zona").focus();
+      return false;
+    }
+
+    else if (hoinDiu == "") {
+      $("label#hoinDiu_error").show();
+      $("input#hoinDiu").focus();
+      return false;
+    }
+
+    else if (hofiDiu == "") {
+      $("label#hofiDiu_error").show();
+      $("input#hofiDiu").focus();
+      return false;
+    }
+    
+    else if (valueDiurno == "") {
+      $("label#valueDiurno_error").show();
+      $("input#valueDiurno").focus();
+      return false;
+    }
+    
+    else if (hoinNoc == "") {
+      $("label#hoinNoc_error").show();
+      $("input#hoinNoc").focus();
+      return false;
+    }
+
+    else if (hofiNoc == "") {
+      $("label#hofiNoc_error").show();
+      $("input#hofiNoc").focus();
+      return false;
+    }
+
+    else if (valueNocturno == "") {
+      $("label#valueNocturno_error").show();
+      $("input#valueNocturno").focus();
+      return false;
+    }
+
+  else{
+     /* Para obtener el valor */
+     var user=1;
+      var hotel = document.getElementById("codeHotel");
+      var selectedH = hotel.options[hotel.selectedIndex].text;
+
+      var operator = document.getElementById("codeOperator");
+      var selectedO = operator.options[operator.selectedIndex].text;
+    //var cod = document.getElementById("codFlight").value;
+    document.getElementById("codeOperator_error").style.display="none";
+    document.getElementById("receptivo_error").style.display="none";
+    document.getElementById("codeHotel_error").style.display="none";
+    document.getElementById("zona_error").style.display="none";
+    document.getElementById("hoinDiu_error").style.display="none";
+    document.getElementById("hofiDiu_error").style.display="none";
+    document.getElementById("valueDiurno_error").style.display="none";
+    document.getElementById("hoinNoc_error").style.display="none";
+    document.getElementById("hofiNoc_error").style.display="none";
+    document.getElementById("valueNocturno_error").style.display="none";
+    addRececart(codeOper,selectedO,receptivo,codeHotel,selectedH,zona,hoinDiu,hofiDiu,valueDiurno,hoinNoc,hofiNoc,valueNocturno,user);  
+  }
+ 
+}
+//**************FIN ADD rececart***************************** */
+
+
+//*** FIN RECECART***
+
 //************************************************ */
 
 //Validar fecha de viaje que no sea anterior a la actual
@@ -4857,8 +5123,15 @@ $(document).on('click', '.deleteBloqdeta', function (event) {
   //alert('Hola');
 });
 //****************************************************************************** */
-/******** remove rows from pivot table containing items (BLOQDETA) */
+/******** remove rows from pivot table containing items (RECEANDR) */
 $(document).on('click', '.deleteReceandr', function (event) {
+  event.preventDefault();
+  $(this).closest('tr').remove();
+  //alert('Hola');
+});
+//****************************************************************************** */
+/******** remove rows from pivot table containing items (RECECART) */
+$(document).on('click', '.deleteRececart', function (event) {
   event.preventDefault();
   $(this).closest('tr').remove();
   //alert('Hola');
@@ -5149,6 +5422,29 @@ function arrReceandr(){
   });
   console.log(receandr);
   return receandr;
+  }
+  //**************************************************************************** */
+
+  //*************** Añadir elementos de la tabla dinamica rececart a un array */
+function arrRececart(){
+  let rececart = [];
+  document.querySelectorAll('.table-receCart tbody tr').forEach(function(e){
+    let fila = {
+      codeOperator: e.querySelector('.codeOperator').innerText,
+      receptivo: e.querySelector('.receptivo').innerText,
+      codeHotel: e.querySelector('.codeHotel').innerText,
+      zona: e.querySelector('.zona').innerText,
+      hoinDiu: e.querySelector('.hoinDiu').innerText,
+      hofiDiu: e.querySelector('.hofiDiu').innerText,
+      valueDiurno: e.querySelector('.valueDiurno').innerText,
+      hoinNoc: e.querySelector('.hoinNoc').innerText,
+      hofiNoc: e.querySelector('.hofiNoc').innerText,
+      valueNocturno: e.querySelector('.valueNocturno').innerText
+    };
+    rececart.push(fila);
+  });
+  console.log(rececart);
+  return rececart;
   }
   //**************************************************************************** */
   //*************** Añadir elementos de la tabla dinamica bloqdeta a un array */

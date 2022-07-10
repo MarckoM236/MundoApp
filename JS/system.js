@@ -2935,7 +2935,7 @@ function insertReceandr(user,arrReceandr){
          //window.location="?controller=company&action=home";                            
       },
       error: function(jqXHR, textStatus, error){
-         alert( "Error al guardar la tarifa: " + jqXHR.responseText);
+         alert( "Error al guardar el receptivo: " + jqXHR.responseText);
       }
   }); 
      
@@ -3004,6 +3004,102 @@ function updateReceandr(user,arrReceandr){
 
 }
 //******** END VALIDATION RECEANDR*************/
+
+//*********VALIDATIONS RECECART ************/
+
+//Insert data
+function insertRececart(user,arrRececart){
+  var arrReJson=JSON.stringify(arrRececart);
+  //Validate data submission
+  var dataString = 'arrRececart='+ arrReJson  + '&txbUser=' + user +'&saveRececart=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=rececart&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          alert(response.result);
+          location.reload(true);
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar el receptivo: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteRececart(code1,code2){
+  //alert(code1);
+  alert(code2);
+var dataString = 'code1='+ code1 + '&code2=' + code2;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=rececart&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      alert(response.result);  
+      location.reload();
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateRececart(user,arrRececart){
+  var arrReJson=JSON.stringify(arrRececart);
+  //alert(arrTarJson);
+  //Validate data submission
+  var dataString = 'arrRececart='+ arrReJson  + '&txbUser=' + user +'&updateRececart=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=rececart&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=rececart&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION RECECART*************/
 
 //*********VALIDATIONS BLOQDETA ************/
 
@@ -3234,6 +3330,13 @@ function addReceandr(codeOper,selectedO,receptivo,codeHotel,selectedH,zona,hoinD
   var item = '<tr><td class="codeOperator ocultar">'+codeOper+'</td><td class="selectedO">'+selectedO+'</td> <td class="receptivo">'+receptivo+'</td> <td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedO">'+selectedH+'</td><td class="zona">'+zona+'</td><td class="hoinDiu">'+hoinDiu+'</td><td class="hofiDiu">'+hofiDiu+'</td><td class="valueDiurno">'+valueDiurno+'</td><td class="hoinNoc">'+hoinNoc+'</td><td class="hofiNoc">'+hofiNoc+'</td><td class="valueNocturno">'+valueNocturno+'</td><td> <a href="#"class="btn btn-danger deleteReceandr"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
     $("#lista-receAndr").append(item);
     arrReceandr();
+    //alert(codeHotel);
+}
+
+function addRececart(codeOper,selectedO,receptivo,codeHotel,selectedH,zona,hoinDiu,hofiDiu,valueDiurno,hoinNoc,hofiNoc,valueNocturno,user){
+  var item = '<tr><td class="codeOperator ocultar">'+codeOper+'</td><td class="selectedO">'+selectedO+'</td> <td class="receptivo">'+receptivo+'</td> <td class="codeHotel ocultar">'+codeHotel+'</td><td class="selectedO">'+selectedH+'</td><td class="zona">'+zona+'</td><td class="hoinDiu">'+hoinDiu+'</td><td class="hofiDiu">'+hofiDiu+'</td><td class="valueDiurno">'+valueDiurno+'</td><td class="hoinNoc">'+hoinNoc+'</td><td class="hofiNoc">'+hofiNoc+'</td><td class="valueNocturno">'+valueNocturno+'</td><td> <a href="#"class="btn btn-danger deleteRececart"><i class="fa fa-trash-alt" aria-hidden="true"></i></a> </td></tr>';
+    $("#lista-receCart").append(item);
+    arrRececart();
     //alert(codeHotel);
 }
 
