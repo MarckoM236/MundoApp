@@ -606,7 +606,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 02-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=netoandr&action=insert" >
+                                <a style="color:white" href="?controller=netoandr&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -621,7 +621,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 03-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=receandr&action=insert" >
+                                <a style="color:white" href="?controller=receandr&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -665,7 +665,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 02-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=netocart&action=insert" >
+                                <a style="color:white" href="?controller=netocart&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -680,7 +680,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 03-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=rececart&action=insert" >
+                                <a style="color:white" href="?controller=rececart&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -724,7 +724,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 02-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=netosama&action=insert" >
+                                <a style="color:white" href="?controller=netosama&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -739,7 +739,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 03-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=recesama&action=insert" >
+                                <a style="color:white" href="?controller=recesama&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">
@@ -783,7 +783,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- 02-->
                             <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onmouseover="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
-                                <a style="color:white" href="?controller=liquidac&action=insert" >
+                                <a style="color:white" href="?controller=utility&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
                                         <img class="imgMenu" src="img/tercero.png">

@@ -34,6 +34,8 @@ include_once('bloqdetaController.php');
 include_once('receandrController.php');
 include_once('rececartController.php');
 include_once('recesamaController.php');
+include_once('utilityController.php');
+include_once('utildetaController.php');
 include_once('../Models/companyModel.php');
 include_once('../Models/estareseModel.php');
 include_once('../Models/agencyModel.php');
@@ -70,4 +72,6 @@ include_once('../Models/bloqdetaModel.php');
 include_once('../Models/receandrModel.php');
 include_once('../Models/rececartModel.php');
 include_once('../Models/recesamaModel.php');
+include_once('../Models/utilityModel.php');
+include_once('../Models/utildetaModel.php');
 ?>

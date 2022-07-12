@@ -917,6 +917,56 @@ include_once('../Core/baseModel.php');
                         break;
                 }
             }
+
+            //UTILIDAD
+            if($_GET['controller']=='utility'){
+                $object = new UtilityController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            //UTILDETA
+            if($_GET['controller']=='utildeta'){
+                $object = new UtildetaController();
+                switch ($_GET['action']) {   
+                    case 'insert':
+                        $re=$object->insert();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;   
+                    case 'update':
+                        $re=$object->update();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;     
+                    case 'delete':
+                        $re=$object->delete();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
             #----
            
         }

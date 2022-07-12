@@ -2237,6 +2237,136 @@ if (opcion == true) {
 }
 //******** END VALIDATION PAYMENTS *************/
 
+//*********VALIDATIONS UTILITY ************/
+
+//Insert data
+function insertUtility(code,codeLiqu,date,user,valTicket,valHotel,valAsisMedica,valReceptivo,valOtros,valLiquidac,valUtility){
+  //alert(date);
+  //Validate data submission
+  var dataString = 'txbCode='+ code  + '&txbCodeLiqu=' + codeLiqu+ '&txbDateUtil=' + date + '&txbIdUser=' + user +'&saveUtility=1';
+   $.ajax({
+    type: "POST",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=utility&action=insert",
+    data: dataString,
+    dataType : 'json',
+    
+      success: function(response){ 
+        //var status=response.status;
+        if(response.status == 'ok'){
+          /* alert(response.result);
+          location.reload(true); */
+          var dataString = 'txbCode='+ code  + '&txbValTicket=' + valTicket+ '&txbValHotel=' + valHotel + '&txbValAsisMedica=' + valAsisMedica + '&txbValReceptivo=' + valReceptivo + '&txbValOtros=' + valOtros + '&txbValLiquidac=' + valLiquidac + '&txbValUtility=' + valUtility + '&saveUtildeta=1';
+            $.ajax({
+              type: "POST",
+              url: "/MundoApp/Controllers/ajaxController.php?controller=utildeta&action=insert",
+              data: dataString,
+              dataType : 'json',
+              
+                success: function(response){ 
+                  //var status=response.status;
+                  if(response.status == 'ok'){
+                    alert(response.result);
+                    location.reload(true);     
+
+                }
+                else{
+                  alert(response.result);
+                }
+                  
+                  //window.location="?controller=company&action=home";                            
+                },
+                error: function(jqXHR, textStatus, error){
+                  alert( "Error al guardar la utilidad: " + jqXHR.responseText);
+                }
+            }); 
+          
+          
+
+      }
+      else{
+        alert(response.result);
+      }
+        
+         //window.location="?controller=company&action=home";                            
+      },
+      error: function(jqXHR, textStatus, error){
+         alert( "Error al guardar el receptivo: " + jqXHR.responseText);
+      }
+  }); 
+     
+}
+
+//Delete data
+function deleteUtility(code1){
+  //alert(code1);
+var dataString = 'code1='+ code1;
+var opcion = confirm("realmente desea eliminar el registro?");
+if (opcion == true) {
+  $.ajax({
+    type: "GET",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=utility&action=delete",
+    data: dataString,
+    dataType : 'json',
+    
+    success: function(response) {
+      //validate response from server
+      $.ajax({
+        type: "GET",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=utildeta&action=delete",
+        data: dataString,
+        dataType : 'json',
+        
+        success: function(response) {
+          //validate response from server
+          alert(response.result);  
+          location.reload();
+        }
+      });
+    }
+  });
+  return false;
+} else {
+  alert('Registro no eliminado');
+}
+
+}
+
+//Update data
+function updateUtility(code,valTicket,valHotel,valAsisMedica,valReceptivo,valOtros,valLiquidac,valUtility){
+  //Validate data submission
+  var dataString = 'txbCode='+ code  + '&txbValTicket=' + valTicket+ '&txbValHotel=' + valHotel + '&txbValAsisMedica=' + valAsisMedica + '&txbValReceptivo=' + valReceptivo + '&txbValOtros=' + valOtros + '&txbValLiquidac=' + valLiquidac + '&txbValUtility=' + valUtility + '&updateUtildeta=1';
+  var opcion = confirm("Realmente desea modificar el registro?");
+  if (opcion == true) {
+    $.ajax({
+      type: "POST",
+      url: "/MundoApp/Controllers/ajaxController.php?controller=utildeta&action=update",
+      data: dataString,
+      dataType : 'json',
+      
+        success: function(response){ 
+          //var status=response.status;
+          if(response.status == 'ok'){
+            alert(response.result);
+            window.location="?controller=utility&action=home";
+        }
+        else{
+          alert(response.result);
+        }
+          
+                                       
+        },
+        error: function(jqXHR, textStatus, error){
+           alert( "Error al actualizar los datos: " + jqXHR.responseText);
+        }
+    });
+  } else {
+    alert('Registro no actualizado');
+    location.reload();
+  }
+
+}
+//******** END VALIDATION UTILITY*************/
+
 //*********VALIDATIONS LOCKS ************/
 
 //Insert data

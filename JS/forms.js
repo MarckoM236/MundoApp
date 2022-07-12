@@ -1769,6 +1769,152 @@ $(function() {
 //********************** */
 //*** FIN TRAVELER ***
 
+//*** UTILITY ***
+//***Fomr insert Utility***
+$(function() {
+  $('.error').hide();
+  $("#btnSaveUtility").click(function() {
+      //validate fields
+      $('.error').hide();
+      var code = $("input#Code").val();
+    if (code == "") {
+      $("label#Code_error").show();
+      $("input#Code").focus();
+      return false;
+    }
+
+     var codeLiqu = $("input#CodeLiqu").val();
+    if (codeLiqu == "") {
+      $("label#CodeLiqu_error").show();
+      $("input#CodeLiqu").focus();
+      return false;
+    }
+
+    var date = $("input#date").val();
+    if (date == "") {
+      $("label#date_error").show();
+      $("input#date").focus();
+      return false;
+    }
+     
+    var user=1;
+
+    //UtilDeta
+
+    var valTicket = $("input#valTicket").val();
+    if (valTicket == "") {
+      $("label#valTicket_error").show();
+      $("input#valTicket").focus();
+      return false;
+    }
+    var valHotel = $("input#valHotel").val();
+    if (valHotel == "") {
+      $("label#valHotel_error").show();
+      $("input#valHotel").focus();
+      return false;
+    }
+    var valAsisMedica = $("input#valAsisMedica").val();
+    if (valAsisMedica == "") {
+      $("label#valAsisMedica_error").show();
+      $("input#valAsisMedica").focus();
+      return false;
+    }
+    var valReceptivo = $("input#valReceptivo").val();
+    if (valReceptivo == "") {
+      $("label#valReceptivo_error").show();
+      $("input#valReceptivo").focus();
+      return false;
+    }
+    var valOtros = $("input#valOtros").val();
+    if (valOtros == "") {
+      $("label#valOtros_error").show();
+      $("input#valOtros").focus();
+      return false;
+    }
+    var valLiquidac = $("input#valLiquidac").val();
+    if (valLiquidac == "") {
+      $("label#valLiquidac_error").show();
+      $("input#valLiquidac").focus();
+      return false;
+    }
+    var valUtility = $("input#valUtility").val();
+    if (valUtility == "") {
+      $("label#valUtility_error").show();
+      $("input#valUtility").focus();
+      return false;
+    }
+
+
+    insertUtility(code,codeLiqu,date,user,valTicket,valHotel,valAsisMedica,valReceptivo,valOtros,valLiquidac,valUtility);
+      
+  });
+});
+//********************** */
+
+//***Fomr update Utility***
+$(function() {
+  $('.error').hide();
+  $("#btnUpdateUtildeta").click(function() {
+      //validate fields
+      $('.error').hide();
+      //UtilDeta
+      var code = $("input#Code").val();
+      if (code == "") {
+        $("label#Code_error").show();
+        $("input#Code").focus();
+        return false;
+      }
+
+    var valTicket = $("input#valTicket").val();
+    if (valTicket == "") {
+      $("label#valTicket_error").show();
+      $("input#valTicket").focus();
+      return false;
+    }
+    var valHotel = $("input#valHotel").val();
+    if (valHotel == "") {
+      $("label#valHotel_error").show();
+      $("input#valHotel").focus();
+      return false;
+    }
+    var valAsisMedica = $("input#valAsisMedica").val();
+    if (valAsisMedica == "") {
+      $("label#valAsisMedica_error").show();
+      $("input#valAsisMedica").focus();
+      return false;
+    }
+    var valReceptivo = $("input#valReceptivo").val();
+    if (valReceptivo == "") {
+      $("label#valReceptivo_error").show();
+      $("input#valReceptivo").focus();
+      return false;
+    }
+    var valOtros = $("input#valOtros").val();
+    if (valOtros == "") {
+      $("label#valOtros_error").show();
+      $("input#valOtros").focus();
+      return false;
+    }
+    var valLiquidac = $("input#valLiquidac").val();
+    if (valLiquidac == "") {
+      $("label#valLiquidac_error").show();
+      $("input#valLiquidac").focus();
+      return false;
+    }
+    var valUtility = $("input#valUtility").val();
+    if (valUtility == "") {
+      $("label#valUtility_error").show();
+      $("input#valUtility").focus();
+      return false;
+    }
+
+    updateUtility(code,valTicket,valHotel,valAsisMedica,valReceptivo,valOtros,valLiquidac,valUtility);
+      
+  });
+});
+//********************** */
+//*** FIN UTILITY ***
+
 //*** LIQUIDAC ***
 //***Fomr insert Liquidac***
 $(function() {
