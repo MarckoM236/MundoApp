@@ -48,14 +48,13 @@ if(isset($arr_netocart)){
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >ACTUALIZAR SAN ANDRES - NETOS</label>
+                      <label class="titulosPrincipalesPagina" >Actualizar Cartagena - Netos</label>
                 </div>
 
               </div>
 
   <hr/>
-<div class="row justify-content-left py-2">
-                
+        <div class="row justify-content-center py-2">         
                 <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
@@ -101,7 +100,9 @@ if(isset($arr_netocart)){
                       </div>
                     </div>
                 </div>
+        </div>
 
+        <div class="row justify-content-center py-2">
                 <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
@@ -224,16 +225,12 @@ if(isset($arr_netocart)){
                     <div class="row justify-content-left py-2">
                     <input id='cancelUp'class= "form-control botonesIS" style="width:130px"; type="button" value="Cancelar" name="cancelnetocart
                     " onclick="cancel('netocart','home')"/>
-                </div>
-                <hr/>
-                
-                
-                
-</div>
+                </div>                               
+        </div>
 </form>
 <hr/>
 <!-- results-->
-<table class="table-netoCart">
+<table id="table" class="table-netoCart ocultar">
   <thead>
     <th class="ocultar">codHotel</th>
     <th>Hotel</th>
@@ -278,6 +275,12 @@ if(isset($arr_netocart)){
                     event.preventDefault();
                     $(this).closest('tr').remove();
                     //alert('Hola');
+                    });
+
+                    //ocultar tabla
+                    $(document).on('click', '#btnAddNetoCart', function (event) {
+                    event.preventDefault();
+                    $('#table').removeClass("ocultar")
                     });
                     //****************************************************************************** */
                 </script>

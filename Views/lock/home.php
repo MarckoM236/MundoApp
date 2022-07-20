@@ -39,7 +39,7 @@ if(isset($aeroline)){
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >Bloqueo</label>
+                      <label class="titulosPrincipalesPagina" >Bloqueos</label>
                 </div>
 
               </div>

@@ -34,15 +34,14 @@ if(isset($operator)){
             <div class="card shadow cuadroHeader " id="cuepoCuadroBusqueda" >
               <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-3 align-self-center text-left">
-                      <label class="titulosPrincipalesPagina" >SANTA MARTA - RECEPTIVOS</label>
+                      <label class="titulosPrincipalesPagina" >Santa Marta - Receptivos</label>
                 </div>
 
               </div>
 
   <hr/>
-<div class="row justify-content-left py-2">
-
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+        <div class="row justify-content-center py-2">
+                <div  class=" col-sm-3 col-3 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                             <label>Operador</label>
@@ -64,7 +63,7 @@ if(isset($operator)){
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-3 col-3 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Receptivo</label>
@@ -110,8 +109,9 @@ if(isset($operator)){
                       </div>
                     </div>
                 </div>
+        </div>
 
-
+        <div class="row justify-content-center py-2">
                 <div  class=" col-sm-3 col-3 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
@@ -147,7 +147,9 @@ if(isset($operator)){
                       </div>
                     </div>
                 </div>
+        </div>
 
+        <div class="row justify-content-center py-2">
                 <div  class=" col-sm-3 col-3 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
@@ -183,7 +185,9 @@ if(isset($operator)){
                       </div>
                     </div>
                 </div>
+        </div>
 
+        <div class="row justify-content-center py-2">
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <input id='btnSaveRecesama'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
@@ -194,20 +198,17 @@ if(isset($operator)){
                         <input id='btnAddReceSama'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectRecesama()"/>
                     </div>
                 </div>
-                <hr/>
+                <!-- <hr/>
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showNetoAndr" value="Buscar" />
                     </div>
-                </div>       
-                
-                
-                
-</div>
+                </div>     -->          
+        </div>
 </form>
 <hr/>
 <!-- results-->
-<table class="table-receSama">
+<table id="table" class="table-receSama ocultar">
   <thead>
     <th class="ocultar">codOperador</th>
     <th>Operador</th>
@@ -315,6 +316,12 @@ if(isset($operator)){
                     event.preventDefault();
                     $(this).closest('tr').remove();
                     //alert('Hola');
+                    });
+
+                    //mostrar tabla
+                    $(document).on('click', '#btnAddReceSama', function (event) {
+                    event.preventDefault();
+                    $('#table').removeClass("ocultar")
                     });
                     //****************************************************************************** */
                 </script>
