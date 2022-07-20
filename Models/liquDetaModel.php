@@ -54,7 +54,7 @@
             $this->valDesc=$vdes;
         }
 
-        //getters
+        //setters
         public function setCodeLiqu($val){
             $this->codeLiqu = $val;
         }
@@ -120,12 +120,33 @@
             $this->respuesta=$val;
         }
 
-        //setters
-        public function getCode(){
-            return $this->code;
-        } 
-        public function getName(){
-            return $this->name;
+        //getters
+        public function getCodeLiqu(){
+            return $this->codeLiqu;
+        }
+        public function getNameTraveler(){
+            return $this->nameTraveler;
+         }
+         public function getHorExFlight(){
+            return $this->horExFlight;
+         }
+        public function getHorArrFlightr(){
+           return $this->horArrFlight;
+        }
+        public function getLastNameTraveler(){
+            return $this->lastNameTraveler;
+        }
+        public function getIdTraveler(){
+            return $this->idTraveler;
+        }
+        public function getDatBirTraveler(){
+            return $this->datBirTraveler;
+        }
+        public function getInclusio(){
+            return $this->inclusio;
+        }
+        public function getNotInclusio(){
+            return $this->notInclusio;
         }
 
         public function getRespuesta(){
@@ -133,12 +154,11 @@
         }
         
         public  function show(){
-            $sql = "BEGIN  pkgInclusio.consultaInclusio(:cod_liquDeta,:nomb_liquDeta,:res); END;";
+            $sql = "BEGIN  pkgLiquDeta.consultaLiquDeta(:cod_liquDeta,:res); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             $cursor= oci_new_cursor($conex);
-            oci_bind_by_name($stid, ':cod_liquDeta',$this->code);
-            oci_bind_by_name($stid, ':nomb_liquDeta',$this->name);
+            oci_bind_by_name($stid, ':cod_liquDeta',$this->codeLiqu);
             oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
             oci_execute($stid);
             oci_execute($cursor);
@@ -146,7 +166,7 @@
             $foo = array();
             while (($row = oci_fetch_array($cursor)) != false) {            
                 
-                $foo[] = new InclusioModel($row[0],$row[1]);
+                $foo[] = new LiquDetaModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$row[9],$row[10],$row[11],$row[12],$row[13],$row[14],$row[15],$row[16],$row[17],$row[18],$row[19]);
             }
             
             return $foo;

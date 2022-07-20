@@ -198,7 +198,7 @@ if(isset($agency)){
                         <label>Fecha</label>
                 </div>
                 <div  class="col-lg-12 col-md-6 col-sm-12 col-12 py-1 align-self-center text-left">
-                    <input class="form-control inputFomulario" type="text" placeholder="fecha" id="fechaSis" name="txbFecSys" value="<?php echo date('d/m/Y h:i:s'); ?>" readonly>
+                    <input class="form-control inputFomulario" type="text" placeholder="fecha" id="fechaSis" name="txbFecSys" value="<?php echo date('d/m/Y H:i:s'); ?>" readonly>
                     <label class="error" for="fechaSis" id="fechaSis_error">Campo requerido.</label>
                 </div>
             </div>

@@ -137,6 +137,15 @@
         public function getCodeAgency(){
             return $this->codeAgency;
         }
+        public function getCodeHotel(){
+            return $this->codeHotel;
+        }
+        public function getCodeAcomodac(){
+            return $this->codeAcomodac;
+        }
+        public function getCodeCodeAlim(){
+            return $this->codeAlim;
+        }
         public function getCodeSeller(){
             return $this->codeSeller;
         }
@@ -191,7 +200,7 @@
         public function insert(){
 
             $data=array();
-            $sql = "BEGIN  pkgLiquidac.insertarLiquidac(:cod_liquidac,:tipo_liquidac,:fech_liquidac,:agen_liquidac,:vend_liquidac,:dest_liquidac,:hote_liquidac ,:tipoAlim_liquidac ,:plan_liquidac ,:acom_liquidac ,:descu_liquidac ,:valPa_liquidac ,:iva_liquidac ,:ica_liquidac ,:rtf_liquidac ,:valEm_liquidac ,:pl50_liquidac ,:pl100_liquidac ,:usua_liquidac,:numRes_liquidac); END;";
+            $sql = "BEGIN  pkgLiquidac.insertarLiquidac(:cod_liquidac,:tipo_liquidac,:fech_liquidac,:agen_liquidac,:vend_liquidac,:dest_liquidac,:hote_liquidac,:tipoAlim_liquidac ,:plan_liquidac,:acom_liquidac ,:descu_liquidac ,:valPa_liquidac ,:iva_liquidac ,:ica_liquidac ,:rtf_liquidac ,:valEm_liquidac ,:pl50_liquidac ,:pl100_liquidac ,:usua_liquidac,:numRes_liquidac); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             oci_bind_by_name($stid, ':cod_liquidac',$this->codeLiqu);

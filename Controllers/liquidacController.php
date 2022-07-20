@@ -197,19 +197,20 @@
             
             if (isset($_POST['saveLiquidac'])){
                 //Format date
-                $dateSys = date_create($_POST['txbfecSis']);
-                $dpSys=date_format($dateSys,"d/m/Y");
-
+                //print_r($_POST);
+                /* $dateSys = date_create($_POST['txbfecSis']);
+                $dpSys=date_format($dateSys,"d/m/Y");  */
+                
                 $datePl50 = date_create($_POST['txbPl50Liqu']);
                 $dp50=date_format($datePl50,"d/m/Y");
-
+            
                 $datePl100 = date_create($_POST['txbPl100Liqu']);
                 $dp100=date_format($datePl100,"d/m/Y");
                 //print_r($_POST);
                 $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
                 
                 $objLiquidac->setTipoLiqu($_POST['txbChTipoLiqu']);
-                $objLiquidac->setFecSis($dpSys);
+                $objLiquidac->setFecSis($_POST['txbfecSis']);
                 $objLiquidac->setCodeLiqu($_POST['txbCodeLiqu']);
                 $objLiquidac->setCodeAgency($_POST['txbCodeAgency']);
                 $objLiquidac->setCodeSeller($_POST['txbCodeSeller']);
@@ -229,7 +230,7 @@
                 $objLiquidac->setPl100Liqu($dp100);
                 $objLiquidac->setIdUser($_POST['txbIdUser']);
                 //$objLiquidac->setNumRes($_POST['txbNumRes']);
-                $objLiquidac->setNumRes('22');
+                $objLiquidac->setNumRes('1');
 
                 
                 $resInsert=$objLiquidac->insert();
@@ -252,8 +253,8 @@
                                     foreach($val['concFli'] as $valCn){
                                         $dateF = date_create($val['dateFli']);
                                         $dateFli=date_format($dateF,"d/m/Y");
-                                        
-                                        
+                                        $hEx = date_create($val['dateFli']." ".$val['arriFli'].":00");
+                                        $horExFli=date_format($hEx,"d/m/Y H:i:s");
                                         $hAr = date_create($val['dateFli']." ".$val['arriFli'].":00");
                                         $horArrFli=date_format($hAr,"d/m/Y H:i:s");
                                         $birDa = date_create($valT['birthDateTr']);
