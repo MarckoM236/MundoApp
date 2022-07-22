@@ -13,11 +13,12 @@
     class VaucherController{
 
         public function home(){
-            
+            //print_r($_POST);
             try {
-                
+                if (isset($_POST['showVaucher'])){
+                    //print_r($_POST);
                     $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
-                    $objLiquidac->setCodeLiqu(3);
+                    $objLiquidac->setCodeLiqu($_POST['txbCodeLiquidac']);
                     $liquidac=$objLiquidac->show();   
 
                     $objDestination= new DestinationModel("","");
@@ -95,6 +96,8 @@
 
                         
                     }
+                   //rint_r($_SERVER["DOCUMENT_ROOT"]);
+                }
                     
                 }
                 
@@ -102,8 +105,8 @@
             catch (Exception $e) {
                 //throw $th;
             }
-            include_once('Views/vaucher/home.php');
-            //include_once('Views/vaucher/reporte.php');
+            //include_once('?controller=vaucher&action=home');
+            include_once('C:\xampp\htdocs\MundoApp\Views\vaucher\home.php');
 
         }
         

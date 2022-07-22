@@ -1,25 +1,46 @@
-<?php 
-                        if (isset($arr_liquidac)){
-                          
-                          for($i=0;$i<count($arr_liquidac);$i++){
-                            $llegada=$arr_liquidac[$i]['date_departure'];
-                            $salida=$arr_liquidac[$i]['date_arrival'];
-                            $destino=$arr_liquidac[$i]['nameDestination'];
-                            $hotel=$arr_liquidac[$i]['nameHotel'];
-                            $acomodacion=$arr_liquidac[$i]['nameAcomodac'];
-                            $tipAlim=$arr_liquidac[$i]['nameTipoAlim'];
-                          }
-                        }
-                        if (isset($arr_liquidac )&& isset($arr_detail)){
-                          $result1=$arr_liquidac;
-                          $result1 = serialize($result1);
-                          $result1 = urlencode($result1);
+<style>
+    .ocultar{
+  display:none;
+}
+</style>
+<?php
+if(isset($_GET['code'])){
+  $code=$_GET['code'];
+}
+?>
+<div class="container">
+  <form name="form" action="?controller=vaucher&action=home" method="POST">
+    <input type="hidden" name="txbCodeLiquidac" value="<?php echo $code;?>">
+    <input type="hidden" name="showVaucher" value="1">
+    
+    <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" id="button">
+      <div class="row justify-content-left py-2">
+        <input id="button" class= "form-control botonesIS" style="width:130px"; type="submit" name="load" value="Cargar Vaucher" />
+      </div>
+    </div> 
+  </form>
+</div>
+<?php
+if(isset($arr_liquidac)&&isset($arr_detail)){
+  if (isset($arr_liquidac)){
+    for($i=0;$i<count($arr_liquidac);$i++){
+      $llegada=$arr_liquidac[$i]['date_departure'];
+      $salida=$arr_liquidac[$i]['date_arrival'];
+      $destino=$arr_liquidac[$i]['nameDestination'];
+      $hotel=$arr_liquidac[$i]['nameHotel'];
+      $acomodacion=$arr_liquidac[$i]['nameAcomodac'];
+      $tipAlim=$arr_liquidac[$i]['nameTipoAlim'];
+    }
+  }
+    $result1=$arr_liquidac;
+    $result1 = serialize($result1);
+    $result1 = urlencode($result1);
 
-                          $result2=$arr_detail;
-                          $result2 = serialize($result2);
-                          $result2 = urlencode($result2);
-                        }
-                        ?>
+    $result2=$arr_detail;
+    $result2 = serialize($result2);
+    $result2 = urlencode($result2);
+  
+?>
 
 <hr>
 <div class="container">
@@ -124,3 +145,11 @@ for($i=0;$i<count($res2);$i++){?>
 <br>
 <br>
 </div>
+
+<script src="JS/jquery-3.6.0.js"></script>
+<script>
+  //deshabilitar Boton
+  $('#button').addClass("ocultar");
+                    
+</script>
+<?php }?>

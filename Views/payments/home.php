@@ -1,4 +1,6 @@
+
 <?php
+
 if(isset($bank)){
                  foreach($bank as $dataBa) {
                   $codeBa=$dataBa->getCode();
@@ -14,10 +16,19 @@ if(isset($bank)){
                    $numberPay=1;
                   }
                   else{$numberPay=$numPay + 1;}
-              }   
-             
-                
+              }  
+              
 ?>
+<style>
+    .ocultar{
+      display:none;
+    }
+    .disable{
+      cursor: not-allowed;
+        background-color: rgb(229, 229, 229) !important;
+        pointer-events:none;
+    }
+</style>
 <!-- Formulario -->
 <form action="?controller=payments&action=home" method="post">
         <div class="row justify-content-center">
@@ -31,7 +42,7 @@ if(isset($bank)){
               </div>
 
   <hr/>
-<div class="row justify-content-left py-2">
+<div class="row justify-content-center py-2">
 
 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
@@ -107,7 +118,7 @@ if(isset($bank)){
 
                 <hr/>
                 
-                <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
+                <div  class=" col-sm-2 col-2 py-1 align-self-center text-left ocultar">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Codigo</label>
@@ -161,7 +172,7 @@ if(isset($bank)){
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Valor</label>
@@ -173,7 +184,7 @@ if(isset($bank)){
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-3 col-3 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Fecha</label>
@@ -184,25 +195,27 @@ if(isset($bank)){
                       </div>
                     </div>
                 </div>
-
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                
+                <!-- <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Saldo</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="saldo" id="saldo2" name="txbsaldo2">
+                           <input class="form-control inputFomulario" type="text" placeholder="saldo" id="saldo2" name="txbsaldo2" readonly="readonly">
                            <label class="error" for="route" id="route_error">Campo requerido.</label>
                       </div>
                     </div>
-                </div>
+                </div> -->
+    </div>
 
+    <div class="row justify-content-center py-2">
               <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <input id='btnSavePay'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
                     </div>
                 </div>
-                <hr/>
+               
                 <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showPay" value="Buscar" />
@@ -213,7 +226,7 @@ if(isset($bank)){
 
   <hr/>
   <?php      
-
+ 
                  if(isset($payment)){
                  foreach($payment as $dataPayment) {
                     $pay=$dataPayment->getCode();
@@ -235,19 +248,19 @@ if(isset($bank)){
                 <br>
                 <div class="row justify-content-cennter py-0 listado ">
 
+                <td><a id="vaucher" href="?controller=vaucher&action=home&code=<?php echo $return_arrPay[0]['liqu'];?>"class="btn btn-warning disable"><i class="fa fa-edit" aria-hidden="true"></i>Vaucher</a></td>
+
                    <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
                     <div class="table-responsive" >
 
                       <table class="table table-bordered " >
                         <thead>
                           <tr>
-                            <th style="width:30px;background-color: #9FD5D1;">Codigo</th>
-                            <th style="width:30px;background-color: #9FD5D1"># Liquidacion</th>
-                            <th style="width:30px;background-color: #9FD5D1">Tipo de Pago</th>
+                          <th style="width:30px;background-color: #9FD5D1">Liquidacion</th>
                             <th style="width:30px;background-color: #9FD5D1">Banco</th>
+                            <th style="width:30px;background-color: #9FD5D1">Tipo de Pago</th>
                             <th style="width:30px;background-color: #9FD5D1">Valor</th>
                             <th style="width:30px;background-color: #9FD5D1">Fecha de Generacion</th>
-                            <th style="width:30px;background-color: #9FD5D1">Editar</th>
                             <th style="width:30px;background-color: #9FD5D1">Borrar</th>
                           </tr>
                         </thead>
@@ -259,13 +272,11 @@ if(isset($bank)){
                         foreach($return_arrPay as $row ){
                             ?>
                         <tr>
-                            <td><?php echo $row['pay'];?></td>
                             <td><?php echo $row['liqu'];?></td>
-                            <td><?php echo $row['typePay'];?></td>
                             <td><?php echo $row['bankPay'];?></td>
+                            <td><?php echo $row['typePay'];?></td>
                             <td><?php echo $row['valuePay'];?></td>
                             <td><?php echo $row['datePay'];?></td>
-                            <td><a href="?controller=flight&action=update&code=<?php echo $row['num'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
                             <td><a onclick="deletePay(<?php echo $row['pay'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>
                         <?php }}
@@ -301,9 +312,14 @@ if(isset($bank)){
 
                           if(numCharacter>1){
                             showLiquidac(value);
+                            showPay(value);
                             //alert(value);
                           }
                           
                       });
+
                     });
+                    
+                    //********************************************************* */
+                    
                 </script>

@@ -10,13 +10,14 @@
         private $userPay="";
         private $typePay="";
         private $bankPay="";
+        private $sumPay="";
         private $respuesta= array();
 
 /*         public function __construct() {
             
         }
  */
-         public function __construct($cod,$codLi,$val,$date,$us,$ty,$ba) {
+         public function __construct($cod,$codLi,$val,$date,$us,$ty,$ba,$su) {
             $table="pago";
             parent::__construct($table);
             $this->code=$cod;
@@ -26,6 +27,7 @@
             $this->typePay=$ty;
             $this->userPay=$us;
             $this->bankPay=$ba;
+            $this->sumPay=$su;
         }
 
         //getters
@@ -49,6 +51,9 @@
         }
         public function setBankPay($val){
             $this->bankPay = $val;
+        }
+        public function setSumPay($val){
+            $this->sumPay = $val;
         }
         
 
@@ -78,6 +83,9 @@
         public function getBankPay(){
             return $this->bankPay;
         }
+        public function getSumPay(){
+            return $this->sumPay;
+        }
         
 
         public function getRespuesta(){
@@ -99,7 +107,7 @@
             $foo = array();
             while (($row = oci_fetch_array($cursor)) != false) {            
                 
-                $foo[] = new PaymentsModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6]);
+                $foo[] = new PaymentsModel($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],"");
             }
             
             return $foo;
@@ -115,9 +123,27 @@
             oci_execute($cursor);
 
             $foo = "";
-            while (($row = oci_fetch_array($cursor)) != false) {            
-                
+            while (($row = oci_fetch_array($cursor)) != false) { 
                 $foo=$row[0];
+            }
+            
+            return $foo;
+        }
+
+        public  function showPayTotal(){
+            $sql = "BEGIN  pkgPago.consultaPagoTotal(:cod_liqu,:res); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            $cursor= oci_new_cursor($conex);
+            oci_bind_by_name($stid, ':cod_liqu',$this->codeLiqu);
+            oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
+            oci_execute($stid);
+            oci_execute($cursor);
+
+            $foo = "";
+            while (($row = oci_fetch_array($cursor)) != false) {            
+                $foo=$row[0];
+                
             }
             
             return $foo;

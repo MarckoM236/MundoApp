@@ -859,6 +859,7 @@ date_default_timezone_set("America/Bogota");
    <script src="JS/jquery-3.6.0.js"></script>
     <script src="JS/forms.js"></script>
     <script src="JS/system.js"></script>
+    <script src="JS/priceFormat.js"></script>
 
   </body>
 </html>

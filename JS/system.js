@@ -2370,7 +2370,7 @@ function updateUtility(code,valTicket,valHotel,valAsisMedica,valReceptivo,valOtr
 //*********VALIDATIONS LOCKS ************/
 
 //Insert data
-function insertPayments(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user) {
+function insertLocks(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user) {
   user=1;
   //Validate data submission
   var dataString = 'txbCode='+ code + '&txbCodeAeroline=' + aeroline + '&txbCodeOr=' + origin + '&txbCodeDest=' + destination + '&txbFecIdaLock=' + dateIn + '&txbFecRegLock=' + dateFi + '&txbCodeFlightIda=' + flightIda + '&txbCodeFlightReg=' + flightReg + '&txbCantLock=' + quantity + '&txbTariLock=' + tariff + '&txbUserLock=' + user +'&saveLock=1';
@@ -3634,7 +3634,7 @@ function showLiquidac(code){
             $("#date").val(date);
             $("#agency").val(agency);
             $("#seller").val(seller);
-            $("#value").val(value);
+            $("#value").val(priceFormat(value));
           
             
                                         
@@ -3642,6 +3642,52 @@ function showLiquidac(code){
           /* error: function(jqXHR, textStatus, error){
             alert( "Error al actualizar los datos: " + jqXHR.responseText);
           } */
+      });
+}
+
+//CONSULTAR SUMA PAGO POR CODIGO LIQUIDACION
+function showPay(code){
+  //alert(id);
+  var dataString = 'txbCodeLiquidac='+ code +'&showPay=1';
+      $.ajax({
+        type: "POST",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=payments&action=showPayTotal",
+        data: dataString,
+        dataType : 'json',
+        
+          success: function(response){ 
+           var value=Number(response);
+            //alert(response.aer);
+
+            $("#saldo").val(priceFormat(value)); 
+
+            if(value==0){
+              $('#vaucher').removeClass("disable");
+            }
+          },
+          /* error: function(jqXHR, textStatus, error){
+            alert( "Error al actualizar los datos: " + jqXHR.responseText);
+          } */
+      });
+}
+
+//CONSULTAR vaucher POR CODIGO LIQUIDACION
+function showVaucher(code){
+  //alert(code);
+  var dataString = 'txbCodeLiquidac='+ code +'&showVaucher=1';
+  //alert(dataString);
+      $.ajax({
+        type: "POST",
+        url: "/MundoApp/Controllers/ajaxController.php?controller=vaucher&action=show",
+        data: dataString,
+        dataType : 'json',
+        
+          success: function(response){ 
+           
+          },
+          /* error: function(jqXHR, textStatus, error){
+            alert( "Error al actualizar los datos: " + jqXHR.responseText);
+          }  */
       });
 }
 

@@ -36,6 +36,7 @@ include_once('rececartController.php');
 include_once('recesamaController.php');
 include_once('utilityController.php');
 include_once('utildetaController.php');
+include_once('vaucherController.php');
 include_once('../Models/companyModel.php');
 include_once('../Models/estareseModel.php');
 include_once('../Models/agencyModel.php');

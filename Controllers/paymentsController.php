@@ -11,29 +11,56 @@
 
             try {
                 if (isset($_POST['showPay'])){
-                    $objPayments= new PaymentsModel("","","","","","","");
+                    $objPayments= new PaymentsModel("","","","","","","","");
                     $objPayments->setCodeLiqu($_POST['txbIL']);
                     $payment=$objPayments->show();
 
-                    $objPayments= new PaymentsModel("","","","","","","");
+                    $objPayments= new PaymentsModel("","","","","","","","");
                     $numPay=$objPayments->showUltimate();    
 
                     $objBank= new BankModel("","","","");
                     $bank=$objBank->show();
                     
                 }
-                else{
+                /* else{
                     $objBank= new BankModel("","","","");
                     $bank=$objBank->show();
 
-                    $objPayments= new PaymentsModel("","","","","","","");
+                    $objPayments= new PaymentsModel("","","","","","","","");
                     $payment=$objPayments->show();
 
-                    $objPayments= new PaymentsModel("","","","","","","");
+                    $objPayments= new PaymentsModel("","","","","","","","");
                     $numPay=$objPayments->showUltimate();
 
                     //print_r($payment);
+                } */
+            } 
+            catch (Exception $e) {
+                //throw $th;
+            }       
+            include_once('Views/payments/home.php');
+
+        }
+
+        public function showPayTotal(){
+            try {
+                if (isset($_POST['showPay'])){
+                    //print_r($_POST);
+                    $objPayments= new PaymentsModel("","","","","","","","");
+                    $objPayments->setCodeLiqu($_POST['txbCodeLiquidac']);
+                    $paymentTot=$objPayments->showPayTotal();
+
+                    $objLiquidac= new LiquidacModel("","","","","","","","","","","","","","","","","","","","");
+                    $objLiquidac->setCodeLiqu($_POST['txbCodeLiquidac']);
+                    $liqu=$objLiquidac->show();
+
+                    foreach($liqu as $dataLiqu) {
+                        $valLiqu=$dataLiqu->getValTotEmp();
+                    }
+                    $total=$valLiqu-$paymentTot;
+                    return $total;
                 }
+                //print_r('sin datos');
             } 
             catch (Exception $e) {
                 //throw $th;
@@ -46,7 +73,7 @@
         public function insert(){
             if (isset($_POST['savePayments'])){
 
-                $objPayments= new PaymentsModel("","","","","","","");
+                $objPayments= new PaymentsModel("","","","","","","","");
                 
                 $objPayments->setCode($_POST['txbCode']);
                 $objPayments->setCodeLiqu($_POST['txbIL']);
@@ -100,7 +127,7 @@
 
             try {
                 if(isset($_GET['code'])){
-                    $objPayments= new PaymentsModel("","","","","","","");
+                    $objPayments= new PaymentsModel("","","","","","","","","");
                     $objPayments->setCode($_GET['code']);
                     $resDelete=$objPayments->delete();
                     

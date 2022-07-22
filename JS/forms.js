@@ -2294,7 +2294,7 @@ $(function() {
       return false;
     }
      user=1;
-    insertPayments(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
+    //insertPayments(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
     //alert(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
       
   });

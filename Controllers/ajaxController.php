@@ -618,6 +618,11 @@ include_once('../Core/baseModel.php');
             if($_GET['controller']=='payments'){
                 $object = new PaymentsController();
                 switch ($_GET['action']) {   
+                    case 'showPayTotal':
+                        $re=$object->showPayTotal();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;  
                     case 'insert':
                         $re=$object->insert();
                         //print_r($_POST);
@@ -633,6 +638,22 @@ include_once('../Core/baseModel.php');
                         //print_r($re);
                         echo json_encode($re);
                         break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
+
+            //VAUCHER
+            if($_GET['controller']=='vaucher'){
+                $object = new VaucherController();
+                switch ($_GET['action']) {   
+                    case 'show':
+                        $re=$object->home();
+                        //print_r($_POST);
+                       echo json_encode($re);
+                        break;  
+                    
                     default:
                         # code...
                         break;
