@@ -48,9 +48,9 @@
                 $objUtildeta->setValAsisMed($_POST['txbValAsisMedica']);
                 $objUtildeta->setValReceptivo($_POST['txbValReceptivo']);
                 $objUtildeta->setValUtility($_POST['txbValUtility']);
-                
+                //print_r($objUtildeta);
                $resInsert=$objUtildeta->insert();
-               //print_r($objUtildeta);
+               
 
             }
             return $resInsert;

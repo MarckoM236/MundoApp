@@ -8,7 +8,6 @@ if(isset($utildeta)){
      $valueAsisMed=$dataUt->getValAsisMed();
      $valueReceptivo=$dataUt->getValReceptivo();
      $valueUtility=$dataUt->getValUtility();
-    
    }
 }
 ?>

@@ -78,6 +78,23 @@
             return $foo;
         }
 
+        public  function showUltimate(){
+            $sql = "BEGIN  pkgUtilidad.consultaUltimaUtilidad(:res); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            $cursor= oci_new_cursor($conex);
+            oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
+            oci_execute($stid);
+            oci_execute($cursor);
+
+            $foo = "";
+            while (($row = oci_fetch_array($cursor)) != false) { 
+                $foo=$row[0];
+            }
+            
+            return $foo;
+        }
+
 
         public function insert(){
 

@@ -1,4 +1,12 @@
 <?php
+//Consulta ultimo registro
+if(isset($numUlt)){
+    if($numUlt==-1){
+     $numberUlt=1;
+    }
+    else{$numberUlt=$numUlt + 1;}
+}  
+
 if(isset($aeroline)){
                  foreach($aeroline as $data) {
                     $code=$data->getCode();
@@ -32,6 +40,14 @@ if(isset($aeroline)){
                    }
                    }    
 ?>
+<style>
+    .ocultar{
+      display:none;
+    }
+    .cont{
+        display: flex;
+}
+</style>
 <!-- Formulario -->
 <form action="?controller=lock&action=home" method="post">
         <div class="row justify-content-center">
@@ -47,13 +63,13 @@ if(isset($aeroline)){
   <hr/>
 <div class="row justify-content-left py-2">
 
-<div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left ocultar">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>codigo</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                           <input class="form-control inputFomulario" type="text" placeholder="# codigo" id="codeLock" name="txbCode">
+                           <input class="form-control inputFomulario" type="text" placeholder="# codigo" id="codeLock" name="txbCode" disabled value="<?php echo $numberUlt; ?>">
                            <label class="error" for="codeLock" id="codeLock_error">Campo requerido.</label>
                       </div>
                     </div>
@@ -123,7 +139,7 @@ if(isset($aeroline)){
                     </div>
                 </div>
 
-                <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+                <div  class="col-sm-2 col-2 py-1 align-self-center text-left pad">
                     <div class="row justify-content-left py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                                 <label>Fecha Ida</label>
@@ -136,7 +152,7 @@ if(isset($aeroline)){
                     </div>
                 </div>
 
-                <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
+                <div  class="col-sm-2 col-2 py-1 align-self-center text-left pad">
                     <div class="row justify-content-left py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                                 <label>Fecha Regreso</label>
@@ -205,7 +221,7 @@ if(isset($aeroline)){
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-3 col-3 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Tarifa</label>
@@ -267,7 +283,6 @@ if(isset($aeroline)){
 
                    <div  class="col-lg-12 col-md-12 col-sm-12 col-12 py-1 align-self-center text-center">
                     <div class="table-responsive" >
-
                       <table class="table table-bordered " >
                         <thead>
                           <tr>
@@ -304,8 +319,8 @@ if(isset($aeroline)){
                             <td><?php echo $row['flightR'];?></td>
                             <td><?php echo $row['cantS'];?></td>
                             <td><?php echo $row['sald'];?></td>
-                            <td><a href="?controller=flight&action=update&code=<?php echo $row['num'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                            <td><a onclick="deleteFlight(<?php echo $row['num'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
+                            <td><a href="?controller=lock&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                            <td><a onclick="deleteLock(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>
                         <?php }}
                         else{?>

@@ -1,4 +1,20 @@
 
+<?php 
+if(isset($numUtil)){
+    if($numUtil==-1){
+     $numberUtil=1;
+    }
+    else{$numberUtil=$numUtil + 1;}
+}  
+?>
+<style>
+    .ocultar{
+      display:none;
+    }
+    .cont{
+        display: flex;
+}
+</style>
 <!-- Formulario -->
 <form action="?controller=utility&action=home" method="post">
         <div class="row justify-content-center">
@@ -12,20 +28,20 @@
               </div>
 
   <hr/>
-<div class="row justify-content-left py-2">
-                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left">
+<div class="row justify-content-center py-2">
+                <div  class="col-lg-2 col-md-3 col-sm-12 col-12 py-1 align-self-center text-left ocultar">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Codigo</label>
                       </div>
                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
-                       <input class="form-control inputFomulario" type="text" placeholder="codigo" id="Code" name="txbCode" >
+                       <input class="form-control inputFomulario" type="text" placeholder="codigo" id="Code" name="txbCode" readonly="readonly" value="<?php echo $numberUtil; ?>">
                            <label class="error" for="Code" id="Code_error">Campo requerido.</label>
                       </div>
                     </div>
                 </div>
 
-                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <div  class="col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Liquidacion</label>
@@ -37,7 +53,7 @@
                     </div>
                 </div>
 
-                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+                <div  class="col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Fecha</label>
@@ -49,7 +65,7 @@
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Agencia</label>
@@ -61,7 +77,7 @@
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Vendedor</label>
@@ -73,7 +89,7 @@
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Valor Total</label>
@@ -85,7 +101,7 @@
                     </div>
                 </div>
 
-                <div  class=" col-sm-4 col-4 py-1 align-self-center text-left">
+                <div  class=" col-sm-2 col-2 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left" >
                             <label>Saldo</label>
@@ -98,144 +114,145 @@
                 </div>
 
                 <hr/>
-                
-                <div class="container">
-                  <div class="valores">
-                      <div class="row justify-content-center py-2 pad" >
-                              <div class="col-sm-6 col-6 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
-                                              <label>Tiquetes</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
-                                          <input class="form-control inputFomulario number" type="number" placeholder="tiquete" id="valTicket" name="txbValTicket">
-                                          <label class="error" for="ticket" id="ticket_error">Campo requerido.</label>
-                                      </div>
-                                  </div>
-                              </div>      
-                          </div>
+                <div class="cont">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row justify-content-center py-2 pad" >
+                                    <div class="col-sm-6 col-6 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
+                                                    <label>Tiquetes</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
+                                                <input class="form-control inputFomulario number" type="number" placeholder="tiquete" id="valTicket" name="txbValTicket">
+                                                <label class="error" for="ticket" id="ticket_error">Campo requerido.</label>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
 
-                          <div class="row justify-content-center py-2 pad">
-                              <div class="col-sm-6 col-6 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
-                                              <label>Hotel</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
-                                          <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valHotel" name="txbValHotel">
-                                          <label class="error" for="valHotel" id="valHotel_error">Campo requerido.</label>
-                                      </div>
-                                  </div>
-                              </div>      
-                          </div>
+                                <div class="row justify-content-center py-2 pad">
+                                    <div class="col-sm-6 col-6 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
+                                                    <label>Hotel</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
+                                                <input class="form-control inputFomulario number" type="text" placeholder="hotel" id="valHotel" name="txbValHotel">
+                                                <label class="error" for="valHotel" id="valHotel_error">Campo requerido.</label>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
 
-                          <div class="row justify-content-center py-2 pad">
-                              <div class="col-sm-6 col-6 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
-                                              <label>Asistencia Medica</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-selft-right text-right">
-                                          <input class="form-control inputFomulario number" type="text" placeholder="AS. Medica" id="valAsisMedica" name="txbValAsisMedica">
-                                          <label class="error" for="valAsisMedica" id="valAsisMedica_error">Campo requerido.</label>
-                                      </div>
-                                  </div>
-                              </div>      
-                          </div>
+                                <div class="row justify-content-center py-2 pad">
+                                    <div class="col-sm-6 col-6 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-right text-right">
+                                                    <label>Asistencia Medica</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-selft-right text-right">
+                                                <input class="form-control inputFomulario number" type="text" placeholder="AS. Medica" id="valAsisMedica" name="txbValAsisMedica">
+                                                <label class="error" for="valAsisMedica" id="valAsisMedica_error">Campo requerido.</label>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
 
-                          <div class="row justify-content-center py-2 pad">
-                              <div class="col-sm-6 col-6 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
-                                              <label>Receptivos</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
-                                          <input class="form-control inputFomulario number" type="text" placeholder="Receptivo" id="valReceptivo" name="txbValReceptivo">
-                                          <label class="error" for="valReceptivo" id="valReceptivo_error">Campo requerido.</label>
-                                      </div>
-                                  </div>
-                              </div>      
-                          </div>
-                          
-                          
-                          <div class="row justify-content-center py-2 pad">
-                              <div class="col-sm-6 col-6 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
-                                              <label>Otros</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
-                                          <input class="form-control inputFomulario number" type="text" placeholder="otros" id="valOtros" name="txbValOtros" >
-                                          <label class="error" for="valOtros" id="valotros_error">Campo requerido.</label>
-                                      </div>
-                                  </div>
-                              </div>      
-                          </div>
-                          
-                          <div class="row justify-content-center py-2 pad">
-                              <div class="col-sm-6 col-6 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
-                                              <label>Valor Liquidacion</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
-                                          <input class="form-control inputFomulario number" type="text" placeholder="liquidac" id="valLiquidac" name="txbValLiquidac" >
-                                          <label class="error" for="valLiquidac" id="valLiquidac_error">Campo requerido.</label>
-                                      </div>
-                                  </div>
-                              </div>      
-                          </div>
+                                <div class="row justify-content-center py-2 pad">
+                                    <div class="col-sm-6 col-6 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
+                                                    <label>Receptivos</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
+                                                <input class="form-control inputFomulario number" type="text" placeholder="Receptivo" id="valReceptivo" name="txbValReceptivo">
+                                                <label class="error" for="valReceptivo" id="valReceptivo_error">Campo requerido.</label>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
+                                
+                                
+                                <div class="row justify-content-center py-2 pad">
+                                    <div class="col-sm-6 col-6 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
+                                                    <label>Otros</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
+                                        <div class="row justify-content-right py-2">
+                                            <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
+                                                <input class="form-control inputFomulario number" type="text" placeholder="otros" id="valOtros" name="txbValOtros" >
+                                                <label class="error" for="valOtros" id="valotros_error">Campo requerido.</label>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row justify-content-center py-2 pad">
+                                <div class="col-sm-6 col-6 py-1 align-self-right text-right">
+                                    <div class="row justify-content-right py-2">
+                                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
+                                                <label>Valor Liquidacion</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
+                                    <div class="row justify-content-right py-2">
+                                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
+                                            <input class="form-control inputFomulario number" type="text" placeholder="liquidac" id="valLiquidac" name="txbValLiquidac" readonly="readonly">
+                                            <label class="error" for="valLiquidac" id="valLiquidac_error">Campo requerido.</label>
+                                        </div>
+                                    </div>
+                                </div>      
+                            </div>
 
-                          <div class="row justify-content-center py-2 pad">
-                              <div class="col-sm-6 col-6 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2 number">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
-                                              <label>Utilidad</label>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
-                                  <div class="row justify-content-right py-2">
-                                      <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
-                                          <input class="form-control inputFomulario number" type="text" placeholder="utilidad" id="valUtility" name="txbValUtility" >
-                                          <label class="error" for="valUtility" id="valUtility_error">Campo requerido.</label>
-                                      </div>
-                                  </div>
-                              </div>      
-                          </div>
-
-                          
-                  </div>                    
-              </div>
-
+                            <div class="row justify-content-center py-2 pad">
+                                <div class="col-sm-6 col-6 py-1 align-self-right text-right">
+                                    <div class="row justify-content-right py-2 number">
+                                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
+                                                <label>Utilidad</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
+                                    <div class="row justify-content-right py-2">
+                                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
+                                            <input class="form-control inputFomulario number" type="text" placeholder="utilidad" id="valUtility" name="txbValUtility" readonly="readonly">
+                                            <label class="error" for="valUtility" id="valUtility_error">Campo requerido.</label>
+                                        </div>
+                                    </div>
+                                </div>      
+                            </div> 
+                            </div>
+                        </div>
+                    </div>
 
                 <hr/>
 
-              <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
+        <div class="row justify-content-center py-2">
+                <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
                     <div class="row justify-content-left py-2">
                       <input id='btnSaveUtility'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
                     </div>
@@ -245,7 +262,8 @@
                     <div class="row justify-content-left py-2">
                       <input id='search'class= "form-control botonesIS" style="width:130px"; type="submit" name="showUtility" value="Buscar" />
                     </div>
-                </div>             
+                </div> 
+        </div>                    
 
 </div>
 
@@ -327,7 +345,29 @@ if(isset($utility)){
 
                           if(numCharacter>1){
                             showLiquidac(value);
+                            showPay(value);
                             //alert(value);
+                          }
+                          
+                      });
+                    });
+
+                    /*******************CONSULTAR LIQUIDACIONES DINAMICAMENTE SEGUN NUMERO DE IDENTIFICACION *****************/
+                    $(document).ready(function () {
+                      $("#valOtros").change(function () {
+                          var valu = $(this).val();
+                          var numCharact= valu.length;
+
+                          if(numCharact>1){
+                            var liquidac=$("#value").val();
+                            var tiq=$("#valTicket").val();
+                            var hot=$("#valHotel").val();
+                            var am=$("#valAsisMedica").val();
+                            var rece=$("#valReceptivo").val();
+                            var util=(parseInt(liquidac.substr(2))) - (parseInt(tiq)+parseInt(hot)+parseInt(am)+parseInt(rece)+parseInt(valu));
+                            
+                            $('#valLiquidac').val(liquidac);
+                            $('#valUtility').val(util)
                           }
                           
                       });

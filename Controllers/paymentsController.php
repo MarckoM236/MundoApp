@@ -22,18 +22,18 @@
                     $bank=$objBank->show();
                     
                 }
-                /* else{
+                 else{
                     $objBank= new BankModel("","","","");
                     $bank=$objBank->show();
 
-                    $objPayments= new PaymentsModel("","","","","","","","");
+                 /*   $objPayments= new PaymentsModel("","","","","","","","");
                     $payment=$objPayments->show();
 
                     $objPayments= new PaymentsModel("","","","","","","","");
                     $numPay=$objPayments->showUltimate();
 
-                    //print_r($payment);
-                } */
+                    //print_r($payment);*/
+                } 
             } 
             catch (Exception $e) {
                 //throw $th;

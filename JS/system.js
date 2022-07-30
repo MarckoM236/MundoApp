@@ -2255,7 +2255,7 @@ function insertUtility(code,codeLiqu,date,user,valTicket,valHotel,valAsisMedica,
         if(response.status == 'ok'){
           /* alert(response.result);
           location.reload(true); */
-          var dataString = 'txbCode='+ code  + '&txbValTicket=' + valTicket+ '&txbValHotel=' + valHotel + '&txbValAsisMedica=' + valAsisMedica + '&txbValReceptivo=' + valReceptivo + '&txbValOtros=' + valOtros + '&txbValLiquidac=' + valLiquidac + '&txbValUtility=' + valUtility + '&saveUtildeta=1';
+          var dataString = 'txbCode='+ code  + '&txbValTicket=' + valTicket+ '&txbValHotel=' + valHotel + '&txbValAsisMedica=' + valAsisMedica + '&txbValReceptivo=' + valReceptivo + '&txbValOtros=' + valOtros + '&txbValLiquidac=' + parseInt(valLiquidac.substr(2)) + '&txbValUtility=' + valUtility + '&saveUtildeta=1';
             $.ajax({
               type: "POST",
               url: "/MundoApp/Controllers/ajaxController.php?controller=utildeta&action=insert",
@@ -2400,13 +2400,13 @@ function insertLocks(code,aeroline,origin,destination,dateIn,dateFi,flightIda,fl
 }
 
 //Delete data
-function deletePay(code){
+function deleteLock(code){
 var dataString = 'code='+ code;
 var opcion = confirm("realmente desea eliminar el registro?");
 if (opcion == true) {
   $.ajax({
     type: "GET",
-    url: "/MundoApp/Controllers/ajaxController.php?controller=payments&action=delete",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=locks&action=delete",
     data: dataString,
     dataType : 'json',
     
@@ -2424,14 +2424,14 @@ if (opcion == true) {
 }
 
 //Update data
-function updateTraveler(id,name,lastName,birthDate){
+function updateLock(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user){
 //Validate data submission
-var dataString = 'txbId='+ id + '&txbName=' + name + '&txbLastName=' + lastName + '&txbBirthDate=' + birthDate + '&updateTraveler=1';
+var dataString = 'txbCode='+ code + '&txbCodeAeroline=' + aeroline + '&txbCodeOr=' + origin + '&txbCodeDest=' + destination + '&txbFecIdaLock=' + dateIn + '&txbFecRegLock=' + dateFi + '&txbCodeFlightIda=' + flightIda + '&txbCodeFlightReg=' + flightReg + '&txbCantLock=' + quantity + '&txbTariLock=' + tariff + '&txbUserLock=' + user +'&updateLock=1';
 var opcion = confirm("Realmente desea modificar el registro?");
 if (opcion == true) {
   $.ajax({
     type: "POST",
-    url: "/MundoApp/Controllers/ajaxController.php?controller=traveler&action=update",
+    url: "/MundoApp/Controllers/ajaxController.php?controller=locks&action=update",
     data: dataString,
     dataType : 'json',
     
@@ -2439,7 +2439,7 @@ if (opcion == true) {
         //var status=response.status;
         if(response.status == 'ok'){
           alert(response.result);
-          window.location="?controller=traveler&action=home";
+          window.location="?controller=lock&action=home";
       }
       else{
         alert(response.result);

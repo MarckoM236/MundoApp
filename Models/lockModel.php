@@ -132,10 +132,11 @@
         }
         
         public  function show(){
-            $sql = "BEGIN  pkgBloqueo.consultaBloqueo(:cod_aeroline,:cod_origen,:res); END;";
+            $sql = "BEGIN  pkgBloqueo.consultaBloqueo(:cod_bloqueo,:cod_aeroline,:cod_origen,:res); END;";
             $conex = $this->db();
             $stid = oci_parse($conex, $sql);
             $cursor= oci_new_cursor($conex);
+            oci_bind_by_name($stid, ':cod_bloqueo',$this->code);
             oci_bind_by_name($stid, ':cod_aeroline',$this->aeroline);
             oci_bind_by_name($stid, ':cod_origen',$this->origen);
             oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
@@ -150,6 +151,24 @@
             
             return $foo;
         }
+
+        public  function showUltimate(){
+            $sql = "BEGIN  pkgBloqueo.consultaUltimoBloqueo(:res); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            $cursor= oci_new_cursor($conex);
+            oci_bind_by_name($stid, "res", $cursor, -1, OCI_B_CURSOR);
+            oci_execute($stid);
+            oci_execute($cursor);
+
+            $foo = "";
+            while (($row = oci_fetch_array($cursor)) != false) { 
+                $foo=$row[0];
+            }
+            
+            return $foo;
+        }
+
 
         public function insert(){
 

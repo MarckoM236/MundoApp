@@ -2224,6 +2224,7 @@ $(function() {
 $(function() {
   $('.error').hide();
   $("#btnSaveLock").click(function() {
+    //alert('prueba');
       //validate fields
       var code = $("input#codeLock").val();
     if (code == "") {
@@ -2294,7 +2295,7 @@ $(function() {
       return false;
     }
      user=1;
-    //insertPayments(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
+    insertLocks(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
     //alert(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
       
   });
@@ -2304,38 +2305,80 @@ $(function() {
 //***Fomr update Locks***
 $(function() {
   $('.error').hide();
-  $("#btnUpdateFlight").click(function() {
+  $("#btnUpdateLock").click(function() {
       //validate fields
-      $('.error').hide();
-    var codAeroline = $("select#codAeroline").val();
-    if (codAeroline == "") {
-      $("label#codAeroline_error").show();
-      $("input#CodAeroline").focus();
+      //validate fields
+      var code = $("input#codeLock").val();
+    if (code == "") {
+      $("label#codeLock_error").show();
+      $("input#codeLock").focus();
       return false;
     }
 
-    var num = $("input#num").val();
-    if (num == "") {
-      $("label#num_error").show();
-      $("input#num").focus();
+    var aeroline = $("select#codeAeroline").val();
+    if (aeroline == "") {
+      $("label#codeAeroline_error").show();
+      $("select#codeAeroline").focus();
       return false;
     }
 
-    var route = $("input#route").val();
-    if (route == "") {
-      $("label#route_error").show();
-      $("input#route").focus();
+      var origin = $("select#codeOr").val();
+    if (origin == "") {
+      $("label#codeOr_error").show();
+      $("select#codeOr").focus();
       return false;
     }
 
-    var status = $("select#status").val();
-    if (status == "") {
-      $("label#status_error").show();
-      $("input#status").focus();
+    var destination = $("select#codeDest").val();
+    if (destination == "") {
+      $("label#codeDest_error").show();
+      $("select#codeDest").focus();
       return false;
     }
 
-    updateFlight(codAeroline,num,route,status);
+    var dateIn = $("input#fecIdaLock").val();
+    if (dateIn == "") {
+      $("label#fecIdaLock_error").show();
+      $("select#fecIdaLock").focus();
+      return false;
+    }
+
+    var dateFi = $("input#fecRegLock").val();
+    if (dateFi == "") {
+      $("label#fecRegLock_error").show();
+      $("input#fecRegLock").focus();
+      return false;
+    }
+    var flightIda = $("select#codeFlightIda").val();
+    if (flightIda == "") {
+      $("label#codeFlightIda_error").show();
+      $("select#codeFlightIda").focus();
+      return false;
+    }
+
+    var flightReg = $("select#codeFlightReg").val();
+    if (flightReg == "") {
+      $("label#codeFlightReg_error").show();
+      $("select#codeFlightReg").focus();
+      return false;
+    }
+
+    var quantity = $("input#cantLock").val();
+    if (quantity == "") {
+      $("label#cantLock_error").show();
+      $("input#cantLock").focus();
+      return false;
+    }
+
+    var tariff = $("input#tariLock").val();
+    if (tariff == "") {
+      $("label#tariLock_error").show();
+      $("input#tariLock").focus();
+      return false;
+    }
+     user=1;
+
+    updateLock(code,aeroline,origin,destination,dateIn,dateFi,flightIda,flightReg,quantity,tariff,user);
       
   });
 });

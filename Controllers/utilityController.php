@@ -14,11 +14,17 @@
                     $objUtility= new UtilityModel("","","","");
                     $objUtility->setCode($_POST['txbCode']);
                     $utility=$objUtility->show();
+
+                    $objUtility= new UtilityModel("","","","");
+                    $numUtil=$objUtility->showUltimate(); 
                     
                 }
                 else{
                     $objUtility= new UtilityModel("","","","");
                     $utility=$objUtility->show();
+
+                    $objUtility= new UtilityModel("","","","");
+                    $numUtil=$objUtility->showUltimate(); 
 
                     //print_r($payment);
                 }
