@@ -118,7 +118,7 @@
                         $nameAgency=$dataAgen->getName();
                     }
 
-                    //Consult agency to complete field.
+                    //Consult seller to complete field.
                     $objSeller= new SellerModel("","","",""); 
                     $objSeller->setId($sell);
                     $seller=$objSeller->show();
@@ -144,7 +144,7 @@
             $objAgency= new AgencyModel("","","","","","",""); 
             $agency=$objAgency->show();
 
-            //Consult agency to complete field.
+            //Consult seller to complete field.
             $objSeller= new SellerModel("","","",""); 
             $seller=$objSeller->show();
 
@@ -176,11 +176,11 @@
             $objPlan= new PlanModel("","");
             $plan=$objPlan->show();
 
-            //Consult plan to complete field.
+            //Consult flight to complete field.
             $objFlight= new FlightModel("","","","","");
             $flight=$objFlight->show();
 
-             //Consult concepto to complete field.
+             //Consult inclusio to complete field.
              $objInclusio= new InclusioModel("","");
              $inclusio=$objInclusio->show();
 
@@ -188,7 +188,7 @@
             $objConcepto= new ConceptoModel("","");
             $concepto=$objConcepto->show();
 
-            //Consult concepto to complete field.
+            //Consult system to complete field.
             $objSystem= new SystemModel("","","","","");
             $system=$objSystem->show();
             
@@ -220,12 +220,26 @@
                 $objLiquidac->setCodeAlim($_POST['txbCodeAlim']);
                 $objLiquidac->setCodePlan($_POST['txbCodePlan']);
                 $objLiquidac->setCodeAcomodac($_POST['txbCodeAcomodac']);
-                $objLiquidac->setValTotTraveler($_POST['txbValTotTraveler']);
-                $objLiquidac->setValDes($_POST['txbValDes']);
-                $objLiquidac->setValIvaLiqu($_POST['txbValIvaLiqu']);
-                $objLiquidac->setValIcaLiqu($_POST['txbValIcaLiqu']); 
-                $objLiquidac->setValRtfLiqu($_POST['txbValRtfLiqu']);
-                $objLiquidac->setValTotEmp($_POST['txbvalTotEmp']);
+
+                
+                $outTotTraveler = ltrim($_POST['txbValTotTraveler']);
+                $objLiquidac->setValTotTraveler($outTotTraveler);
+
+                $outvalDes = ltrim($_POST['txbValDes']);
+                $objLiquidac->setValDes($outvalDes);
+
+                $outvalIva = ltrim($_POST['txbValIvaLiqu']);
+                $objLiquidac->setValIvaLiqu($outvalIva);
+
+                $outvalIca = ltrim($_POST['txbValIcaLiqu']);
+                $objLiquidac->setValIcaLiqu($outvalIca); 
+
+                $outvalRtf = ltrim($_POST['txbValRtfLiqu']);
+                $objLiquidac->setValRtfLiqu($outvalRtf);
+
+                $outvalTot = ltrim($_POST['txbvalTotEmp']);
+                $objLiquidac->setValTotEmp($outvalTot);
+
                 $objLiquidac->setPl50Liqu($dp50);
                 $objLiquidac->setPl100Liqu($dp100);
                 $objLiquidac->setIdUser($_POST['txbIdUser']);
@@ -236,34 +250,39 @@
                 $resInsert=$objLiquidac->insert();
                 //print_r($objLiquidac);
                 return $resInsert;
-                //print_r(strval($_POST['txbValIvaLiqu']));
             }
             if(isset($_POST['saveDetail'])){
                 $objDetailLiquidac= new LiquDetaModel("","","","","","","","","","","","","","","","","","","","","");
                 $codLiquDetail=$_POST['codDetail'];
                 $arrFlight=json_decode($_POST["arrFliJson"], true);
                 
-                
                 //print_r($codLiquDetail);
-                
                  foreach ($arrFlight as $val) {
+                        if($val['exitFli']=="" || $val['arriFli']==""){
+                            $arr='00:00';
+                            $exit='00:00';
+                        }
+                        else{
+                            $arr=$val['arriFli'];
+                            $exit=$val['exitFli'];
+                        }
                         foreach($val['travelFli'] as $valT){
                             foreach($val['incFli'] as $valI){
                                 foreach($val['nincFli'] as $valNI){
                                     foreach($val['concFli'] as $valCn){
                                         $dateF = date_create($val['dateFli']);
                                         $dateFli=date_format($dateF,"d/m/Y");
-                                        $hEx = date_create($val['dateFli']." ".$val['arriFli'].":00");
+                                        $hEx = date_create($val['dateFli']." ".$exit.":00");
                                         $horExFli=date_format($hEx,"d/m/Y H:i:s");
-                                        $hAr = date_create($val['dateFli']." ".$val['arriFli'].":00");
+                                        $hAr = date_create($val['dateFli']." ".$arr.":00");
                                         $horArrFli=date_format($hAr,"d/m/Y H:i:s");
                                         $birDa = date_create($valT['birthDateTr']);
                                         $birtDat=date_format($birDa,"d/m/Y");
                                         $objDetailLiquidac->setCodeLiqu($codLiquDetail);
-                                        $objDetailLiquidac->setCodeAeroline($val['aerFli']);;
-                                        $objDetailLiquidac->setCodeFlight($val['codFli']);;
-                                        $objDetailLiquidac->setRouteFlight($val['rouFli']);;
-                                        $objDetailLiquidac->setDateFlight($dateFli);;
+                                        $objDetailLiquidac->setCodeAeroline($val['aerFli']);
+                                        $objDetailLiquidac->setCodeFlight($val['codFli']);
+                                        $objDetailLiquidac->setRouteFlight($val['rouFli']);
+                                        $objDetailLiquidac->setDateFlight($dateFli);
                                         $objDetailLiquidac->setHorExFlight($horExFli);
                                         $objDetailLiquidac->setHorArrFlight($horArrFli);
                                         $objDetailLiquidac->setObsFlight($val['commFli']);

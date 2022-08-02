@@ -2020,11 +2020,11 @@ $(function() {
     
     //validar que exista el detalle de la liquidacion
     var flights = arrFlight();
-    if (flights == "") {
+    /* if (flights == "") {
       $("label#flights_error").show();
       $("select#codFlight").focus();
       return false;
-    }
+    } */
 
     var travelers = arrTraveler();
     if (travelers == "") {
@@ -5273,7 +5273,7 @@ function addSelectFlight(){
   var exit= $("input#exitFli").val();
   var arrival= $("input#arrivalFli").val();
   var comment= $("textarea#commentFli").val();
-  if (codF == "") {
+  /* if (codF == "") {
     $("label#codFlight_error").show();
     $("select#codFlight").focus();
     return false;}
@@ -5312,7 +5312,7 @@ function addSelectFlight(){
     $("textarea#commentFli").focus();
     return false;
   }  
-  else{
+  else{ */
      /* Para obtener el valor */
     //var cod = document.getElementById("codFlight").value;
     document.getElementById("codFlight_error").style.display="none";
@@ -5324,7 +5324,7 @@ function addSelectFlight(){
     document.getElementById("arrivalFli_error").style.display="none";
     document.getElementById("commentFli_error").style.display="none";
     addFlight(codF,codAer,aeroline,route,date,exit,arrival,comment);
-  }
+  //}
  
 }
 //**************FIN Query flight***************************** */
@@ -5462,7 +5462,7 @@ $(function() {
   });
 });
 function valImp(sub,imp){
-  var total=(sub*imp)/100;
+  var total=(sub)*(imp/100);
   return total;
 }
 //*****************comision ***********************/
@@ -5481,7 +5481,7 @@ $(function() {
     $("#valComiLiqu").val(formatter.format(Math.round(valImp(subtotal,porcComision))));
     var com=$("input#valComiLiqu").val();
     var comision=com.replace(/[$.]/g,'');
-    var totComision= (parseInt(comision) + parseInt(valImp(subtotal,porcIva)))-parseInt(valImp(subtotal,porcRtf))-valRtIca;
+    var totComision= ((parseInt(comision) + parseInt(valImp(comision,porcIva))) - (parseInt(valImp(comision,porcRtf)) + parseInt(valImp(comision,valRtIca)))); 
     $("#valIvaLiqu").val(Math.round(valImp(comision,porcIva)));
     $("#valRtfLiqu").val(Math.round(valImp(comision,porcRtf)));
     $("#valIcaLiqu").val(Math.round(valImp(comision,valRtIca)));

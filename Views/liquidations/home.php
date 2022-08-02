@@ -79,7 +79,7 @@
                             <th style="width:30px;background-color: #9FD5D1">Agencia</th>
                             <th style="width:30px;background-color: #9FD5D1">Vendedor</th>
                             <th style="width:30px;background-color: #9FD5D1">Destino</th>
-                            <th style="width:30px;background-color: #9FD5D1">Editar</th>
+                            
                             <th style="width:30px;background-color: #9FD5D1">Eliminar</th>
                           </tr>
                         </thead>
@@ -96,7 +96,7 @@
                             <td><?php echo $row['agency'];?></td>
                             <td><?php echo $row['seller'];?></td>
                             <td><?php echo $row['destination'];?></td>
-                            <td><a href="?controller=tipoLiQu&action=update&code=<?php echo $row['code'];?>"class="btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                            
                             <td><a onclick="deleteTipoLiQu(<?php echo $row['code'];?>)" class="btn btn-danger" ><i class="fa fa-trash-alt" aria-hidden="true"></i></a></td>
                         </tr>
                         <?php }}

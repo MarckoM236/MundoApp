@@ -433,7 +433,7 @@ if(isset($agency)){
             </div>
         </div>
 
-        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
+        <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad ocultar">
             <div class="row justify-content-left py-2">
                 <input id='btnAddDest'class= "form-control botonesIS" style="width:130px"; type="button" value="+" onclick="addSelectDest()"/>
             </div>
@@ -442,7 +442,7 @@ if(isset($agency)){
     </div>
 </div>
 <!-- results-->
-<table class="table-Destination">
+<table class="table-Destination ocultar">
   <thead>
     <th>Fecha Viaje</th>
     <th class="ocultar">codDest</th>
@@ -464,12 +464,14 @@ if(isset($agency)){
 <hr>
     <p><b>ITINERARIO</b></p>
 <hr>
-
+<div  class="d-lg-inline-flex flex-xl-row-reverse">
+            <div class="p-2">
+                <a id='btnLock' class= "btn btn-success" style="background-color: #008CBA !important;" href="?controller=bloqdeta&action=home" target="_blank">Bloqueo</a>
+            </div>
+</div>
 <div class="container">
     <div class="row justify-content-left py-2 pad">
         
-        
-
         <div  class="col-sm-4 col-4 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">
@@ -920,7 +922,7 @@ if(isset($agency)){
                 <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-selft-right text-right">
-                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="subTotLiqu" name="txbSubTotLiqu">
+                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="subTotLiqu" name="txbSubTotLiqu" readonly>
                             <label class="error" for="code" id="code_error">Campo requerido.</label>
                         </div>
                     </div>
@@ -930,7 +932,7 @@ if(isset($agency)){
             <div class="row justify-content-center py-2 pad">
                 <div class="col-sm-6 col-6 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
-                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
+                        <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right" >
                                 <label>COMISION</label>
                         </div>
                     </div>
@@ -938,7 +940,7 @@ if(isset($agency)){
                 <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
-                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valComiLiqu" name="txbValComiLiqu">
+                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valComiLiqu" name="txbValComiLiqu" readonly>
                             <input id="comision" name="comision" type="hidden" value="<?php echo $comision;?>">
                             <label class="error" for="code" id="code_error">Campo requerido.</label>
                         </div>
@@ -958,7 +960,7 @@ if(isset($agency)){
                 <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-self-center text-right">
-                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valIvaLiqu" name="txbValIvaLiqu" >
+                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valIvaLiqu" name="txbValIvaLiqu" readonly>
                             <input id="iva" name="iva" type="hidden" value="<?php echo $iva;?>">
                             <label class="error" for="valIvaLiqu" id="valIvaLiqu_error">Campo requerido.</label>
                         </div>
@@ -977,7 +979,7 @@ if(isset($agency)){
                 <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
-                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valRtfLiqu" name="txbValRtfLiqu" >
+                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valRtfLiqu" name="txbValRtfLiqu" readonly>
                             <input id="rtf" name="rtf" type="hidden" value="<?php echo $reteFu;?>">
                             <label class="error" for="valRtfLiqu" id="valRtfLiqu_error">Campo requerido.</label>
                         </div>
@@ -996,7 +998,7 @@ if(isset($agency)){
                 <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
-                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valIcaLiqu" name="txbValIcaLiqu" >
+                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valIcaLiqu" name="txbValIcaLiqu" readonly>
                             <input id="rtica" name="rtica" type="hidden" value="<?php echo $reteIca;?>">
                             <label class="error" for="valIcaLiqu" id="valIcaLiqu_error">Campo requerido.</label>
                         </div>
@@ -1015,7 +1017,7 @@ if(isset($agency)){
                 <div  class="col-sm-5 col-5 py-1 align-self-right text-right">
                     <div class="row justify-content-right py-2">
                         <div  class="col-lg-12 col-md-4 col-sm-12 col-12 py-1 align-right-center text-right">
-                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valTotLiqu" name="txbValTotLiqu" >
+                            <input class="form-control inputFomulario number" type="text" placeholder="$$" id="valTotLiqu" name="txbValTotLiqu" readonly>
                             <label class="error" for="code" id="code_error">Campo requerido.</label>
                         </div>
                     </div>
@@ -1095,7 +1097,7 @@ if(isset($agency)){
         <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left pad">
             <div class="row justify-content-left py-2">
                 <input id='btnSaveLiquidation'class= "form-control botonesIS" style="width:130px"; type="button" value="Guardar" />
-                <input id='savePrueba'class= "form-control botonesIS" style="width:130px"; type="button" value="Generar Vaucher" />
+                <!--<input id='savePrueba'class= "form-control botonesIS" style="width:130px"; type="button" value="Generar Vaucher" />-->
             </div>
         </div>
         <!-- <div  class="col-lg-2 col-md-4 col-sm-12 col-12 py-1 align-self-center text-left">

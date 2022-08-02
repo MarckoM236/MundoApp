@@ -238,6 +238,27 @@
             return $data;
         }
 
+        function updateCant(){
+            $data=array();
+            $sql = "BEGIN  pkgBloqueo.actualizarCantidadBloqueo(:cod_bloqueo, :cant_bloqueo); END;";
+            $conex = $this->db();
+            $stid = oci_parse($conex, $sql);
+            oci_bind_by_name($stid, ':cod_bloqueo',$this->code);
+            oci_bind_by_name($stid, ':cant_bloqueo',$this->amount);
+            @$res=oci_execute($stid);
+
+             if($res){
+                 $data['status'] = 'ok';
+                 $data['result'] = 'Registro actualizado';
+             }
+             else{
+                 $data['status'] = 'fail';
+                 $data['result'] = 'No se pudo actualizar';
+             }
+    
+            return $data;
+        }
+
         function delete(){
             $cod=$this->code;
             $res= parent::deleteByCode($cod);

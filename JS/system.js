@@ -3331,6 +3331,7 @@ function updateRecesama(user,arrRecesama){
 
 //Insert data
 function insertBloqdeta(arrBloqdeta){
+  
   var arrBTJson=JSON.stringify(arrBloqdeta);
   //alert(arrTarJson);
   //Validate data submission
@@ -3344,6 +3345,25 @@ function insertBloqdeta(arrBloqdeta){
       success: function(response){ 
         //var status=response.status;
         if(response.status == 'ok'){
+          //inicio
+          var codeBlok=arrBloqdeta[0]['code'];
+          console.log(codeBlok);
+          var cant=arrBloqdeta.length;
+          var dataString2 = 'codigo='+ codeBlok +'&cantidad='+ cant +'&updateCantBloqdeta=1';
+          $.ajax({
+            type: "POST",
+            url: "/MundoApp/Controllers/ajaxController.php?controller=locks&action=updateCant",
+            data: dataString2,
+            dataType : 'json',
+            
+              success: function(response){ 
+                //var status=response.status;
+                if(response.status == 'ok'){
+                  location.reload(true);
+              }
+            }
+          });
+          //fin
           alert(response.result);
           location.reload(true);
       }

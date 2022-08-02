@@ -484,7 +484,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=liquidac&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/tercero.png">
+                                        <img class="imgMenu" src="img/liquidac.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Liquidacion</label>
@@ -495,7 +495,7 @@ date_default_timezone_set("America/Bogota");
                             <!-- FIN ITEM01-->
 
                             <!-- 02-->
-                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
+                            <!-- <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=thirdParty&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
@@ -507,11 +507,11 @@ date_default_timezone_set("America/Bogota");
                                     </div>
                                 </div>    
                                 </a>
-                            </div>
+                            </div> -->
                             <!-- FIN ITEM02-->
 
                             <!-- 03-->
-                            <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
+                            <!-- <img class="iconoCerrarMenu" src="img/cerrar.png" title="CERRAR SUB MENU" onclick="cerrarSubMenu();" >
                             <div  class="espaMe2 py-0 align-self-center text-center" >
                                 <a style="color:white" href="?controller=thirdParty&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
@@ -523,7 +523,7 @@ date_default_timezone_set("America/Bogota");
                                     </div>
                                 </div>    
                                 </a>
-                            </div>
+                            </div> -->
                             <!-- FIN ITEM03-->
 
                         </div>
@@ -543,7 +543,7 @@ date_default_timezone_set("America/Bogota");
                             <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarSubMenu51();" >
                                 <div class="row justify-content-left  opcionMenu2" id="opcionSubMenuActivo51" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/pagos.png">
+                                        <img class="imgMenu" src="img/sanAndres.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >San Andres</label>
@@ -555,7 +555,7 @@ date_default_timezone_set("America/Bogota");
                             <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarSubMenu52();" >
                                 <div class="row justify-content-left  opcionMenu2" id="opcionMenuActivo52" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/pagos.png">
+                                        <img class="imgMenu" src="img/cartagena.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Cartagena</label>
@@ -567,7 +567,7 @@ date_default_timezone_set("America/Bogota");
                             <div  class="espaMe py-0 align-self-center text-center " id="" onmouseover="desplegarSubMenu53();" >
                                 <div class="row justify-content-left  opcionMenu2" id="opcionMenuActivo53" >
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/pagos.png">
+                                        <img class="imgMenu" src="img/santaMarta.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Santa Marta</label>
@@ -594,7 +594,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=tariandr&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/pagos.png">
+                                        <img class="imgMenu" src="img/tarifaSA.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Tarifas</label>
@@ -609,7 +609,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=netoandr&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/tercero.png">
+                                        <img class="imgMenu" src="img/netoSA.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Neto</label>
@@ -668,7 +668,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=netocart&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/tercero.png">
+                                        <img class="imgMenu" src="img/netoCA.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Neto</label>
@@ -727,7 +727,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=netosama&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/tercero.png">
+                                        <img class="imgMenu" src="img/netoSM.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Neto</label>
@@ -771,7 +771,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=payments&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/tercero.png">
+                                        <img class="imgMenu" src="img/payment.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Pagos</label>
@@ -786,7 +786,7 @@ date_default_timezone_set("America/Bogota");
                                 <a style="color:white" href="?controller=utility&action=home" >
                                 <div class="row justify-content-left opcionMenu2">
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center ">
-                                        <img class="imgMenu" src="img/tercero.png">
+                                        <img class="imgMenu" src="img/neto.png">
                                     </div>
                                     <div  class="col-lg-12 col-md-12 col-sm-3 col-3 py-0 align-self-center text-center centrarTexto ">
                                         <label  >Netos</label>

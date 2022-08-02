@@ -679,6 +679,11 @@ include_once('../Core/baseModel.php');
                         //print_r($re);
                         echo json_encode($re);
                         break;
+                    case 'updateCant':
+                        $re=$object->updateCant();
+                        //print_r($re);
+                        echo json_encode($re);
+                        break;    
                     default:
                         # code...
                         break;

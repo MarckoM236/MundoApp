@@ -233,6 +233,31 @@
             
         }
 
+        public function updateCant(){
+            try {
+                if(isset($_POST['updateCantBloqdeta'])){
+                    $objLock= new LockModel("","","","","","","","","","","","","");
+                    $objLock->setCode($_POST['codigo']);
+                    $lock=$objLock->show();
+
+                    foreach($lock as $dataLock) {
+                    $amount=$dataLock->getAmountFree();
+                    }
+
+                    $cant=$amount-($_POST['cantidad']);
+                    print_r($cant);
+
+                    $objLock->setCode($_POST['codigo']);
+                    $objLock->setAmount($cant);
+                    $resUpdateCant=$objLock->updateCant();
+                    
+                    return $resUpdateCant;
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+
         public function delete(){
 
             try {
